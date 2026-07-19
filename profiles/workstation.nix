@@ -4,22 +4,23 @@
 
   imports = [
 
-    ../modules/system
+  ../modules/system
 
-    ../modules/networking
+  ../modules/networking
 
-    ../modules/hardware
+  ../modules/security
 
-    ../modules/security
+  ../modules/users
 
-    ../modules/services
+  ../modules/programs
 
-    ../modules/programs
+  ../modules/services
 
-    ../modules/users
+  ../modules/hardware
 
-    ../modules/desktop
+  ../modules/desktop/gnome
 
-  ];
+  ../modules/virtualisation/virtualbox
 
+ ];
 }
