@@ -669,6 +669,10 @@ environment.systemPackages = with pkgs; [
   python3Packages.pynvim
   rustup          # For Rust LSP
 
+  # LSP servers
+  nixd            # Nix language server
+  lua-language-server  # Lua LSP
+
   ###########################################################################
   # Git
   ###########################################################################
