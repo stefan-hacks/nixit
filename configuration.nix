@@ -521,9 +521,6 @@ system.activationScripts.dotfiles.text = ''
   # Prompt
   ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
 
-  # Neovim (LazyVim)
-  ln -sfn "$DOTFILES/nvim"                        "$HOME/.config/nvim"
-
   # Atuin
   ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
 
@@ -540,9 +537,9 @@ system.activationScripts.dotfiles.text = ''
 
 environment.variables = {
 
-  EDITOR = "nvim";
+  EDITOR = "vim";
 
-  VISUAL = "nvim";
+  VISUAL = "vim";
 
   TERMINAL = "kitty";
 
@@ -634,28 +631,11 @@ environment.systemPackages = with pkgs; [
   less
 
   ###########################################################################
-  # Editors (LazyVim)
+  # Editors
   ###########################################################################
 
   vim
-  neovim
-  wl-clipboard    # Wayland clipboard support for neovim
-  xclip           # X11 clipboard fallback
-  
-  # LazyVim dependencies
-  nodejs          # For LSP servers (includes npm)
-  gcc             # For treesitter compilation
-  gnumake
-  unzip
-  curl
-  wget
-  python3         # For Python LSP
-  python3Packages.pynvim
-  rustup          # For Rust LSP
-
-  # LSP servers
-  nixd            # Nix language server
-  lua-language-server  # Lua LSP
+  helix
 
   ###########################################################################
   # Git

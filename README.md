@@ -36,7 +36,7 @@
 | **Desktop** | GNOME 48 (Wayland) |
 | **Shell** | Bash + Blesh + Starship |
 | **Terminal** | Kitty |
-| **Editor** | Neovim (LazyVim) |
+| **Editor** | Vim / Helix |
 | **Security** | LUKS encryption, Firewall |
 
 ---
@@ -51,7 +51,6 @@
 │   ├── bash/                   # .bashrc, .bash_aliases
 │   ├── blesh/                  # Bash line editor config
 │   ├── kitty/                  # Terminal settings
-│   ├── nvim/                   # LazyVim configuration
 │   ├── starship/               # Prompt theme
 │   ├── atuin/                  # Shell history
 │   ├── kanata/                 # Keyboard remapper
@@ -92,14 +91,6 @@ sudo nixos-rebuild switch
 atuin register -u USERNAME -e EMAIL
 atuin import auto
 atuin sync
-
-# Neovim — install plugins
-# First launch auto-installs LazyVim
-:Mason       # Install LSP servers
-:Lazy sync   # Sync all plugins
-
-# Kanata — verify keyboard remapping
-sudo systemctl status kanata-internal
 ```
 
 ---
@@ -129,10 +120,9 @@ sudo systemctl status kanata-internal
 
 ### Development Tools
 
-- **Languages**: Python, Node.js, Rust
-- **Editors**: Neovim (LazyVim), Vim
+- **Languages**: Python, Rust, Node.js
+- **Editors**: Vim, Helix
 - **Git**: lazygit, delta, gh CLI
-- **LSP**: nixd, lua-language-server
 
 ---
 
@@ -151,10 +141,8 @@ sudo systemctl status kanata-internal
 <details>
 <summary><strong>Development</strong></summary>
 
-- `neovim`, `vim`, `lazygit`, `delta`
+- `vim`, `helix`, `lazygit`, `delta`
 - `git`, `git-lfs`, `gh`
-- `nixd`, `lua-language-server`
-- `nodejs`, `python3`, `rustup`
 
 </details>
 
