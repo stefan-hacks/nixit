@@ -107,10 +107,6 @@ fi
 # preferred text editor
 export EDITOR="nvim"
 
-#ble.sh - for ble-update command
-if command -v ble &>/dev/null; then
-  source $(which ble)
-fi
 # source -- ~/.local/share/blesh/ble.sh
 
 # Colorful manpages
@@ -135,7 +131,7 @@ if command -v carapace &>/dev/null; then
 fi
 
 # Atuin
- eval "$(atuin init bash)"
+eval "$(atuin init bash)"
 
 # zoxide
 eval "$(zoxide init bash)"
