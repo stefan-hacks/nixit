@@ -1,7 +1,4 @@
-#ble.sh - only source if ble.sh is available
-if command -v ble.sh &>/dev/null; then
-  source -- "$(blesh-share)"/ble.sh --attach=none
-fi
+source -- "$(blesh-share)"/ble.sh --attach=none
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -110,7 +107,7 @@ fi
 # preferred text editor
 export EDITOR="nvim"
 
-#ble.sh
+#ble.sh - for ble-update command
 if command -v ble &>/dev/null; then
   source $(which ble)
 fi
