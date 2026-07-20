@@ -1,385 +1,323 @@
-# Nixit - Production NixOS Workstation Configuration
+<div align="center">
 
-> **⚠️ WORK IN PROGRESS** - Comprehensive system configuration under active development
+# ❄️ Nixit
+
+**A Clean, Reproducible NixOS Workstation Configuration**
+
+[![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white)](https://nixos.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Built With](https://img.shields.io/badge/Built%20With-❤️-ff69b4.svg)]()
+
+*Pure Nix — No Flakes, No Home Manager*
+
+</div>
+
+---
 
 ## Overview
 
-This repository contains a complete, reproducible NixOS configuration for a GNOME-based development workstation. Designed for the hostname `ghost`, this configuration emphasizes:
+**Nixit** is a production-ready NixOS configuration designed for daily development work. It follows a **single-file philosophy** — one `configuration.nix` manages the entire system, with dotfiles tracked in the same repository.
 
-- **Single-file architecture** (`configuration.nix`)
-- **No flakes**, **no Home Manager**
-- **Git-managed dotfiles** in `~/.config/nixit`
-- **Production-ready** and fully documented
+### Philosophy
+
+- **One file to rule them all** — `configuration.nix` contains everything
+- **No flakes** — Pure Nix expressions, no experimental features
+- **No Home Manager** — System-level user management
+- **Git-managed dotfiles** — Symlinked from `~/.config/nixit`
+- **Reproducible** — Same config, same system, anywhere
 
 ---
 
-## 🖥️ System Specification
+## System Overview
 
 | Component | Configuration |
 |-----------|---------------|
-| **Hostname** | ghost |
-| **Desktop** | GNOME (Wayland) |
-| **Shell** | Bash + Blesh |
-| **Bootloader** | GRUB (EFI) |
-| **Storage** | LUKS + ext4 |
-| **Audio** | PipeWire |
-| **State Version** | 26.05 |
+| **OS** | NixOS 26.05 (stable) |
+| **Desktop** | GNOME 48 (Wayland) |
+| **Shell** | Bash + Blesh + Starship |
+| **Terminal** | Kitty |
+| **Editor** | Neovim (LazyVim) |
+| **Security** | LUKS encryption, Firewall |
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ~/.config/nixit/
-├── configuration.nix          # Main NixOS configuration
-├── hardware-configuration.nix   # Hardware-specific config
-├── README.md                    # This file
-├── gnome/
-│   └── dconf.ini               # GNOME settings (sanitized)
-├── assets/
-│   └── wallpapers/             # Desktop backgrounds
-├── dotfiles/
-│   ├── bash/                   # Bash configuration
-│   │   ├── .bashrc
-│   │   └── .bash_aliases
-│   ├── blesh/                  # Bash line editor
-│   │   └── .blerc
+├── configuration.nix           # Main system configuration
+├── hardware-configuration.nix  # Hardware-specific settings
+├── dotfiles/                   # Git-managed configuration
+│   ├── bash/                   # .bashrc, .bash_aliases
+│   ├── blesh/                  # Bash line editor config
+│   ├── kitty/                  # Terminal settings
+│   ├── nvim/                   # LazyVim configuration
+│   ├── starship/               # Prompt theme
 │   ├── atuin/                  # Shell history
-│   │   └── config.toml
 │   ├── kanata/                 # Keyboard remapper
-│   │   └── kanata_gnome.kbd
-│   ├── kitty/                  # Terminal emulator
-│   │   ├── kitty.conf
-│   │   └── current-theme.conf
-│   ├── nvim/                   # Neovim (LazyVim)
-│   │   ├── init.lua
-│   │   └── lua/
-│   ├── starship/               # Prompt
-│   │   └── starship.toml
-│   └── gitconfig/              # Git configuration
-│       └── .gitconfig
-└── DOTFILES_ANALYSIS.md        # Detailed dotfiles audit
-
+│   └── gitconfig/              # Git settings
+├── gnome/
+│   └── dconf.ini               # GNOME desktop settings
+└── assets/
+    └── wallpapers/             # Desktop backgrounds
 ```
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### 1. Clone Repository
+### Fresh Install
 
 ```bash
-# On a fresh NixOS installation
+# Clone to standard location
 git clone https://github.com/stefan-hacks/nixit.git ~/.config/nixit
 cd ~/.config/nixit
+
+# Link configuration to NixOS
+sudo ln -sf ~/.config/nixit/configuration.nix /etc/nixos/
+sudo ln -sf ~/.config/nixit/hardware-configuration.nix /etc/nixos/
+
+# Edit user settings
+$EDITOR configuration.nix
+# Change: username = "your-user";
+
+# Build and activate
+sudo nixos-rebuild switch
 ```
 
-### 2. Link Configuration Files
+### Post-Install Setup
 
 ```bash
-# Create hardware symlink (customize for your system)
-sudo ln -sf ~/.config/nixit/configuration.nix /etc/nixos/configuration.nix
+# Atuin — sync shell history
+atuin register -u USERNAME -e EMAIL
+atuin import auto
+atuin sync
 
-# Optional: Use provided hardware config
-sudo ln -sf ~/.config/nixit/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
+# Neovim — install plugins
+# First launch auto-installs LazyVim
+:Mason       # Install LSP servers
+:Lazy sync   # Sync all plugins
+
+# Kanata — verify keyboard remapping
+sudo systemctl status kanata-internal
 ```
 
-### 3. Update User Information
+---
 
-Edit `configuration.nix` and update:
+## Key Features
+
+### Terminal Stack
+
+| Tool | Purpose |
+|------|---------|
+| [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal |
+| [Blesh](https://github.com/akinomyoga/ble.sh) | Bash line editor (syntax, history) |
+| [Starship](https://starship.rs/) | Cross-shell prompt |
+| [Atuin](https://atuin.sh/) | Synced shell history |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter cd command |
+
+### Desktop Environment
+
+| Feature | Implementation |
+|---------|----------------|
+| **Window Manager** | GNOME (Wayland) |
+| **Dock** | Dash to Dock |
+| **Blur** | Blur My Shell |
+| **Clipboard** | Clipboard Indicator |
+| **Tray Icons** | AppIndicator |
+| **Keyboard** | Kanata (vim-style leader) |
+
+### Development Tools
+
+- **Languages**: Python, Node.js, Rust
+- **Editors**: Neovim (LazyVim), Vim
+- **Git**: lazygit, delta, gh CLI
+- **LSP**: nixd, lua-language-server
+
+---
+
+## Package Highlights
+
+<details>
+<summary><strong>System & Shell</strong></summary>
+
+- `bash`, `blesh`, `starship`, `atuin`, `zoxide`, `fzf`
+- `eza`, `bat`, `ripgrep`, `fd`
+- `direnv`, `carapace`
+- `btop`, `fastfetch`, `onefetch`
+
+</details>
+
+<details>
+<summary><strong>Development</strong></summary>
+
+- `neovim`, `vim`, `lazygit`, `delta`
+- `git`, `git-lfs`, `gh`
+- `nixd`, `lua-language-server`
+- `nodejs`, `python3`, `rustup`
+
+</details>
+
+<details>
+<summary><strong>Desktop Applications</strong></summary>
+
+- `firefox`, `chromium`
+- `libreoffice`, `onlyoffice`
+- `mpv`, `vlc`, `ffmpeg`
+- `discord`
+- `_1password-gui`, `mullvad-vpn`
+
+</details>
+
+<details>
+<summary><strong>Security Tools</strong></summary>
+
+- `gnupg`, `openssl`, `age`, `sops`
+- `nmap`, `wireshark`, `tcpdump`
+
+</details>
+
+---
+
+## Customization
+
+### User Settings
+
+Edit the top of `configuration.nix`:
 
 ```nix
-username = "your-username";
-fullName = "Your Full Name";
+let
+  username = "stefan-hacks";     # Your username
+  fullName = "stefan-hacks";     # Display name
+  homeDirectory = "/home/${username}";
+in
 ```
 
-### 4. Set Git Email
+### Wallpapers
+
+Wallpapers are symlinked to `~/Pictures/wallpapers/`:
 
 ```bash
-git config --global user.email "your@email.com"
+# Set wallpaper
+gsettings set org.gnome.desktop.background picture-uri \
+  "file:///home/USER/.config/nixit/assets/wallpapers/Catppuccin_Mocha/wallpaper.png"
 ```
 
-### 5. Build and Switch
+### Dotfiles
+
+Modify files in `dotfiles/` and rebuild:
 
 ```bash
-# Test the configuration
-sudo nixos-rebuild test
+# Changes apply automatically on rebuild
+sudo nixos-rebuild switch
+```
 
-# If successful, apply permanently
+---
+
+## Maintenance
+
+### Daily
+
+```bash
+# Rebuild after changes
 sudo nixos-rebuild switch
 
 # Or with upgrade
 sudo nixos-rebuild switch --upgrade
 ```
 
----
-
-## 🔧 Post-Installation Setup
-
-### Atuin (Shell History Sync)
+### Weekly
 
 ```bash
-# Register account
-atuin register -u USERNAME -e EMAIL
+# Garbage collection (automatic)
+# Configured: --delete-older-than 30d
 
-# Import existing history
-atuin import auto
-
-# Sync
-atuin sync
-```
-
-### LazyVim (Neovim)
-
-First launch will auto-install plugins. Then:
-
-```bash
-# Install LSP servers
-:Mason
-
-# Sync plugins
-:Lazy sync
-```
-
-### Kanata (Keyboard Remapping)
-
-```bash
-# Test configuration
-kanata --debug --cfg ~/.config/kanata/kanata.kbd
-
-# Service starts automatically via systemd
-sudo systemctl status kanata-internal.service
-```
-
-### Blesh (Bash Line Editor)
-
-```bash
-# Update blesh
-ble-update
-```
-
----
-
-## 🎨 Customization
-
-### Wallpapers
-
-Wallpapers are organized by theme in `assets/wallpapers/`:
-
-```
-Abyssal_Wave/
-Animated/
-Catppuccin_Latte/
-Catppuccin_Mocha/
-Dracula/
-...
-```
-
-Set via GNOME Settings or:
-
-```bash
-gsettings set org.gnome.desktop.background picture-uri \
-  "file:///home/USER/.config/nixit/assets/wallpapers/Catppuccin_Mocha/01._Catppuccin_Mocha.png"
-```
-
-### GNOME Extensions
-
-Enabled extensions (via dconf.ini):
-
-- `dash-to-dock` - macOS-style dock
-- `blur-my-shell` - Blur effects
-- `clipboard-indicator` - Clipboard history
-- `appindicator` - Tray icons
-- `arcmenu` - Application menu
-- `coverflow-alt-tab` - Fancy alt-tab
-- And more...
-
----
-
-## 📦 Package Highlights
-
-### System Utilities
-- **Shell**: Bash + Blesh + Starship + Atuin
-- **Terminal**: Kitty with scrollback.nvim integration
-- **Editor**: Neovim (LazyVim configuration)
-- **File Managers**: ranger, lf, mc
-
-### Development
-- **Languages**: Python, Rust, Node.js
-- **Tools**: git, lazygit, delta, direnv
-- **LSP**: Mason-managed language servers
-
-### Security / CTF
-- **Enumeration**: nmap, enum4linux, smbmap
-- **Web**: gobuster, nikto, sqlmap, ffuf
-- **Passwords**: john, hashcat, hydra
-- **Wireless**: aircrack-ng
-- **Forensics**: binwalk, foremost, volatility
-
-### Desktop Applications
-- **Browser**: Firefox
-- **Office**: LibreOffice, OnlyOffice
-- **Media**: MPV, VLC, FFmpeg
-- **Communication**: Discord
-- **Password Manager**: 1Password
-- **VPN**: Mullvad
-
----
-
-## 🔒 Security Features
-
-- LUKS disk encryption
-- Firewall with GSConnect ports
-- GnuPG agent with SSH support
-- 1Password GUI integration
-
----
-
-## 🛠️ Maintenance
-
-### Garbage Collection
-
-Automatic weekly GC is configured. Manual cleanup:
-
-```bash
-# Delete generations older than 30 days
+# Manual cleanup if needed
 sudo nix-collect-garbage --delete-older-than 30d
-
-# Optimize store
 sudo nix-store --optimise
-```
-
-### Update System
-
-```bash
-# Update and rebuild
-sudo nixos-rebuild switch --upgrade
-
-# Or using alias
-update
 ```
 
 ### Rollback
 
 ```bash
-# List generations
-sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
-
-# Rollback to previous
+# To previous generation
 sudo nixos-rebuild switch --rollback
 
-# Or boot from previous generation in GRUB
+# Or select in GRUB bootloader
 ```
 
 ---
 
-## 📝 Aliases
+## Aliases
 
-Key aliases from `.bash_aliases`:
-
-| Alias | Description |
-|-------|-------------|
-| `nix-switch` | Rebuild and switch configuration |
-| `nix-gc` | Run garbage collection |
-| `nix-list` | List installed packages |
-| `ll`, `la`, `lt` | Enhanced ls with eza |
-| `cat` | Syntax-highlighted cat (bat) |
-| `..`, `...` | Quick directory navigation |
-| `gs`, `ga`, `gc`, `gp` | Git shortcuts |
-| `ipy` | Interactive Python |
+| Alias | Command | Description |
+|-------|---------|-------------|
+| `nix-switch` | `sudo nixos-rebuild switch` | Rebuild system |
+| `nix-test` | `sudo nixos-rebuild test` | Test without switching |
+| `nix-gc` | `sudo nix-collect-garbage -d` | Garbage collect |
+| `nix-list` | `nix-env -qaP` | List packages |
+| `ll` | `eza -l` | Long listing |
+| `la` | `eza -la` | All files |
+| `cat` | `bat --paging=never` | Syntax-highlighted |
+| `gs` | `git status` | Git status |
+| `ipy` | `ipython` | Interactive Python |
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Build Failures
 
 ```bash
-# Check syntax
+# Check Nix syntax
 nix-instantiate --eval --strict ./configuration.nix
 
-# Dry build
+# Dry run
 sudo nixos-rebuild dry-build
 ```
 
 ### Service Issues
 
 ```bash
-# Check kanata
-sudo systemctl status kanata-internal.service
+# Check kanata status
+sudo systemctl status kanata-internal
 
-# Check dconf loading
+# View activation logs
 journalctl -u activation-script
 ```
 
-### Dotfile Sync Issues
+### Dotfiles Not Applied
 
 ```bash
 # Re-run activation manually
 sudo /run/current-system/activate
-
-# Or force rebuild
-sudo nixos-rebuild switch
 ```
 
 ---
 
-## 🔄 Repository Maintenance
+## Security
 
-### Adding New Packages
-
-1. Add to `environment.systemPackages` in `configuration.nix`
-2. Organize by category
-3. Run `nix-switch`
-4. Commit changes
-
-### Updating Dotfiles
-
-1. Edit files in `dotfiles/` directory
-2. Changes apply on next rebuild
-3. Commit and push
-
-### Contributing
-
-1. Make changes in a feature branch
-2. Test with `nixos-rebuild test`
-3. Commit with descriptive messages
-4. Push and create PR
+- **Disk Encryption**: LUKS on root partition
+- **Firewall**: Enabled with GSConnect ports
+- **Secrets**: GnuPG agent, 1Password integration
+- **Updates**: Automatic weekly garbage collection
 
 ---
 
-## 📄 License
+## Acknowledgments
 
-This configuration is provided as-is for educational and personal use.
-
----
-
-## 🙏 Acknowledgments
-
-- [NixOS](https://nixos.org/) - The purely functional Linux distribution
-- [Home Manager](https://github.com/nix-community/home-manager) - Inspiration (not used here)
-- [LazyVim](https://www.lazyvim.org/) - Neovim configuration framework
-- [Starship](https://starship.rs/) - Cross-shell prompt
-- [Atuin](https://atuin.sh/) - Shell history sync
-- [Kanata](https://github.com/jtroo/kanata) - Keyboard remapping
+- [NixOS](https://nixos.org/) — Purely functional Linux
+- [LazyVim](https://www.lazyvim.org/) — Neovim configuration
+- [Starship](https://starship.rs/) — Cross-shell prompt
+- [Atuin](https://atuin.sh/) — Shell history sync
+- [Kanata](https://github.com/jtroo/kanata) — Keyboard remapping
 
 ---
 
-## ⚠️ Important Notes
+<div align="center">
 
-1. **Hardware Configuration**: The included `hardware-configuration.nix` is specific to the original system. You must generate your own with:
-   ```bash
-   sudo nixos-generate-config --root /mnt
-   ```
+**Made with ❄️ and ❤️**
 
-2. **LUKS UUID**: Update the LUKS device UUID in `configuration.nix` to match your system.
+[Report Issue](https://github.com/stefan-hacks/nixit/issues) · [Contribute](https://github.com/stefan-hacks/nixit/pulls)
 
-3. **Secrets**: This repository contains no secrets. Set sensitive values (WiFi passwords, API keys) separately.
-
-4. **State Version**: Do not change `system.stateVersion` after initial installation.
-
----
-
-**Last Updated**: 2026-01-21
-
-**Repository**: https://github.com/stefan-hacks/nixit
+</div>
