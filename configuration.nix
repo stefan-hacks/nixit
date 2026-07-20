@@ -515,11 +515,11 @@ system.activationScripts.dotfiles.text = ''
   # Neovim (LazyVim)
   ln -sfn "$DOTFILES/nvim"                        "$HOME/.config/nvim"
 
-  # Atuin (commented out until configured)
-  # ln -sfn "$DOTFILES/atuin"                     "$HOME/.config/atuin"
+  # Atuin
+  ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
 
-  # Blesh (commented out until configured)
-  # ln -sfn "$DOTFILES/blesh"                     "$HOME/.config/blesh"
+  # Blesh
+  ln -sfn "$DOTFILES/blesh/.blerc"                "$HOME/.blerc"
 
   # Wallpapers
   ln -sfn "$REPO/assets/wallpapers"             "$HOME/Pictures/wallpapers"

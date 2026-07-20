@@ -127,7 +127,7 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 source <(carapace _carapace)
 
 # Atuin
-# eval "$(atuin init bash)"
+ eval "$(atuin init bash)"
 
 # zoxide
 eval "$(zoxide init bash)"
