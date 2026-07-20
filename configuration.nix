@@ -508,7 +508,7 @@ system.activationScripts.dotfiles.text = ''
   # ln -sfn "$DOTFILES/nvim"                 "$HOME/.config/nvim"
   # ln -sfn "$DOTFILES/atuin"                "$HOME/.config/atuin"
   ln -sfn "$DOTFILES/starship/starship.toml"        "$HOME/.config/starship.toml"
-  ln -sfn "/etc/nixos/assets/wallpapers"              "$HOME/Pictures/wallpapers"
+  ln -sfn "${homeDirectory}/.config/nixit/assets/wallpapers" "$HOME/Pictures/wallpapers"
 
   # Add additional dotfile links below as your repository grows.
 
