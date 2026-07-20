@@ -1,0 +1,14 @@
+# blerc
+
+function blerc/vim-mode-hook {
+
+  # Write your settings for vi/vim mode here
+
+  bleopt keymap_vi_mode_string_nmap=$'\e[1m-- NORMAL --\e[m'
+  ble-import vim-surround
+
+}
+blehook/eval-after-load keymap_vi blerc/vim-mode-hook
+# ble-0.3 and before
+# ble/array#push _ble_keymap_vi_load_hook blerc/vim-load-hook
+
