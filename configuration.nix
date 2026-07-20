@@ -772,7 +772,7 @@ environment.systemPackages = with pkgs; [
   # Enumeration
   enum4linux
   smbmap
-  crackmapexec
+  # crackmapexec  # Removed - not available in nixpkgs
   dnsenum
   dnsrecon
   onesixtyone
