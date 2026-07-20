@@ -1,4 +1,7 @@
-source -- "$(blesh-share)"/ble.sh --attach=none
+#ble.sh - only source if ble.sh is available
+if command -v ble.sh &>/dev/null; then
+  source -- "$(blesh-share)"/ble.sh --attach=none
+fi
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -106,12 +109,16 @@ gsettings set org.gnome.shell.keybindings screen-brightness-down "['<Ctrl><Super
 export EDITOR="nvim"
 
 #ble.sh
-source $(which ble)
+if command -v ble &>/dev/null; then
+  source $(which ble)
+fi
 # source -- ~/.local/share/blesh/ble.sh
 
 # Colorful manpages
 # Add to your shell config (e.g., ~/.bashrc, ~/.zshrc)
-eval "$(batman --export-env)"
+if command -v batman &>/dev/null; then
+  eval "$(batman --export-env)"
+fi
 
 #bat theme
 export BAT_THEME="Coldark-Dark"
@@ -123,8 +130,10 @@ echo "w3lc0m3 h4ck3r - let the games begin! - m4ast3r y0ur cr4ft" | lolcat
 alias s="kitten ssh"
 
 # carapace
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-source <(carapace _carapace)
+if command -v carapace &>/dev/null; then
+  export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+  source <(carapace _carapace)
+fi
 
 # Atuin
  eval "$(atuin init bash)"
@@ -135,4 +144,7 @@ eval "$(zoxide init bash)"
 #starship prompt - shell prompt
 eval "$(starship init bash)"
 
-[[ ! ${BLE_VERSION-} ]] || ble-attach
+# Attach ble.sh if loaded
+if [[ ${BLE_VERSION-} ]]; then
+  ble-attach
+fi
