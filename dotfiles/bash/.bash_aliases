@@ -1,5 +1,5 @@
 # =============================================================================
-#  ~/.bash_aliases — Debian / Kali Linux
+#  ~/.bash_aliases — NixOS
 #  Sections:
 #   1.  Safety Nets & Core Overrides
 #   2.  Navigation & File Management
@@ -12,10 +12,10 @@
 #   9.  Networking
 #   10. Web Development & Servers
 #   11. Git
-#   12. Docker
+#   12. Docker/Podman
 #   13. Cryptography & Encoding
 #   14. Colourised Commands (grc)
-#   15. Sysadmin Helpers
+#   15. NixOS Helpers
 #   16. Security / CTF — Enumeration
 #   17. Security / CTF — Web Application Testing
 #   18. Security / CTF — Password Attacks
@@ -91,7 +91,7 @@ alias ux='chmod u+x'                 # Make executable for owner only
 alias rnx='for i in *; do mv "$i" "${i%.*}.txt"; done'
 
 # =============================================================================
-# 3.  LISTING  (requires eza — apt install eza)
+# 3.  LISTING  (requires eza)
 # =============================================================================
 
 alias ls='eza --icons --git --group-directories-first'
@@ -113,8 +113,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 alias qfind='find . -name' # Quick filename search:  qfind "*.log"
-alias fzf='fzf --preview "batcat --color=always {}"'
-alias bat='batcat --color=always' # Syntax-highlighted cat (Debian package: bat)
+alias fzf='fzf --preview "bat --color=always {}"'
+alias bat='bat --color=always'
 
 # Find largest files under current directory
 alias biggest='du -ah . | sort -rh | head -20'
@@ -225,26 +225,20 @@ alias show_options='shopt'
 # =============================================================================
 
 alias editHosts='sudo nano /etc/hosts'
-alias apacheEdit='sudo nano /etc/apache2/apache2.conf'
-alias apacheRestart='sudo systemctl restart apache2'
-alias apacheStatus='sudo systemctl status apache2'
-alias apacheLogs='sudo tail -f /var/log/apache2/error.log'
-alias nginxEdit='sudo nano /etc/nginx/nginx.conf'
-alias nginxRestart='sudo systemctl restart nginx'
-alias nginxTest='sudo nginx -t'
-alias nginxLogs='sudo tail -f /var/log/nginx/error.log'
 
-alias restart-apache='sudo systemctl restart apache2'
-alias restart-ssh='sudo systemctl restart ssh'
-alias restart-mysql='sudo systemctl restart mysql'
-alias restart-nginx='sudo systemctl restart nginx'
+# Systemd service management for web servers
+alias nginx-edit='sudo nano /etc/nginx/nginx.conf'
+alias nginx-restart='sudo systemctl restart nginx'
+alias nginx-test='sudo nginx -t'
+alias nginx-logs='sudo journalctl -u nginx -f'
+
+alias ssh-restart='sudo systemctl restart sshd'
+alias ssh-status='sudo systemctl status sshd'
 
 # Tail common logs
-alias tail-auth='sudo tail -f /var/log/auth.log'
-alias tail-syslog='sudo tail -f /var/log/syslog'
-alias tail-kern='sudo tail -f /var/log/kern.log'
-alias log-apache='sudo tail -f /var/log/apache2/access.log'
-alias log-fail2ban='sudo tail -f /var/log/fail2ban.log'
+alias tail-auth='sudo journalctl -u systemd-logind -f'
+alias tail-syslog='sudo journalctl -f'
+alias tail-kern='sudo journalctl -k -f'
 
 # =============================================================================
 # 11.  GIT
@@ -267,7 +261,7 @@ alias gstp='git stash pop'
 alias gitup='git add . && git commit -m "updated" && git push' # Quick commit + push
 
 # =============================================================================
-# 12.  DOCKER
+# 12.  DOCKER/PODMAN
 # =============================================================================
 
 alias dps='docker ps -a'
@@ -282,6 +276,12 @@ alias dc='docker-compose'
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
 alias dcl='docker-compose logs -f'
+
+# Podman alternatives
+alias pps='podman ps -a'
+alias pex='podman exec -it'
+alias pstop='podman stop $(podman ps -q)'
+alias pprune='podman system prune -af'
 
 # =============================================================================
 # 13.  CRYPTOGRAPHY & ENCODING
@@ -301,10 +301,10 @@ alias xxd-view='xxd'           # Hex dump a file:  xxd-view file.bin | less
 alias strings-all='strings -a' # Extract printable strings from binary
 
 # =============================================================================
-# 14.  COLOURISED COMMANDS  (requires grc — apt install grc)
+# 14.  COLOURISED COMMANDS  (requires grc)
 # =============================================================================
 
-GRC="/usr/bin/grc"
+GRC="$(command -v grc)"
 if tty -s && [ -n "$TERM" ] && [ "$TERM" != "dumb" ] && [ -n "$GRC" ]; then
   alias colourify="$GRC -es --colour=auto"
 
@@ -347,10 +347,35 @@ if tty -s && [ -n "$TERM" ] && [ "$TERM" != "dumb" ] && [ -n "$GRC" ]; then
 fi
 
 # =============================================================================
-# 15.  SYSADMIN HELPERS
+# 15.  NIXOS HELPERS
 # =============================================================================
 
-# Systemd service management
+# NixOS system management
+alias nix-switch='sudo nixos-rebuild switch'
+alias nix-build='sudo nixos-rebuild build'
+alias nix-test='sudo nixos-rebuild test'
+alias nix-dry='sudo nixos-rebuild dry-build'
+alias nix-boot='sudo nixos-rebuild boot'
+
+# Nix package management
+alias nix-search='nix search nixpkgs'
+alias nix-install='nix-env -iA nixpkgs'
+alias nix-remove='nix-env -e'
+alias nix-list='nix-env -q'
+alias nix-update='nix-env -u'
+alias nix-gc='nix-collect-garbage'
+alias nix-gc-old='nix-collect-garbage --delete-older-than 30d'
+alias nix-store-optimize='nix-store --optimise'
+alias nix-shell='nix-shell --run bash'
+
+# Flakes
+alias nix-flake-update='nix flake update'
+alias nix-flake-check='nix flake check'
+
+# Nix development shells
+alias nix-dev='nix develop'
+
+# Systemd shortcuts
 alias sctl='sudo systemctl'
 alias sctls='sudo systemctl status'
 alias sctlr='sudo systemctl restart'
@@ -359,69 +384,40 @@ alias sctlsp='sudo systemctl stop'
 alias sctlen='sudo systemctl enable'
 alias sctldis='sudo systemctl disable'
 alias sctlrld='sudo systemctl daemon-reload'
-alias failed-units='systemctl --failed' # Show failed systemd units
-alias journal='sudo journalctl -xe'     # Follow system journal with context
+alias failed-units='systemctl --failed'
+alias journal='sudo journalctl -xe'
+alias journal-boot='sudo journalctl -b'
+alias journal-user='journalctl --user'
 
 # User & group management
 alias allgroups='groups | xargs -n1 | sort'
-alias who-sudo="grep -Po '^sudo.+:\K.*$' /etc/group" # List users in sudo group
-alias adduser-sudo='sudo usermod -aG sudo'           # Add user to sudo:  adduser-sudo username
-alias last-logins='last -n 20'                       # Last 20 login events
-alias failed-logins='sudo lastb -n 20'               # Last 20 failed login attempts
-alias wtf='who -a'                                   # Who is logged in + all details
-
-# Cron
-alias crons='crontab -l'
-alias cron-edit='crontab -e'
-alias cron-sys='sudo cat /etc/crontab && ls /etc/cron.*/'
-
-# Environment
-alias envs='env | sort'
-alias path='echo "$PATH" | tr ":" "\n"'
-alias fix_stty='stty sane'
-alias fix_term='echo -e "\033c"'
+alias last-logins='last -n 20'
+alias failed-logins='sudo lastb -n 20'
+alias wtf='who -a'
 
 # SSH
 alias ssh-keygen-ed25519='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)"'
 alias ssh-copy='ssh-copy-id'
 alias ssh-list-keys='ls -la ~/.ssh/'
 alias known-hosts='cat ~/.ssh/known_hosts'
-alias rm-known-host='ssh-keygen -R' # Remove stale host key:  rm-known-host hostname
+alias rm-known-host='ssh-keygen -R'
 
 # Quick system info
-alias sysinfo='uname -a && lsb_release -a 2>/dev/null'
+alias sysinfo='uname -a && echo "NixOS $(nixos-version)"'
 alias ff='fastfetch'
 alias ffa='fastfetch --config all -l'
 alias bittype="grep -qP '^flags\s*:.*\blm\b' /proc/cpuinfo && echo 64-bit || echo 32-bit"
 
 # Certificates
-alias ssl-check='openssl x509 -text -noout -in' # Inspect cert file
-alias ssl-remote='openssl s_client -connect'    # Check remote cert:  ssl-remote host:443
+alias ssl-check='openssl x509 -text -noout -in'
+alias ssl-remote='openssl s_client -connect'
 
-# Package management (apt)
-alias apt-list-installed='dpkg --get-selections | grep -v deinstall'
-alias apt-list-manual='apt-mark showmanual'
-alias apt-held='apt-mark showhold'
-alias apt-deps='apt-cache depends'
-alias apt-rdeps='apt-cache rdepends'
-alias apt-search='apt-cache search'
-alias apt-info='apt-cache show'
-alias apt-fix='sudo apt --fix-broken install'
-
-# Firewall (ufw)
-alias fw='sudo ufw status verbose'
-alias fw-rules='sudo ufw status numbered'
-alias fw-enable='sudo ufw enable'
-alias fw-disable='sudo ufw disable'
-alias fw-allow='sudo ufw allow'
-alias fw-deny='sudo ufw deny'
-
-# IPTables
-alias ipt='sudo iptables -L -v -n --line-numbers'
-alias ipt6='sudo ip6tables -L -v -n --line-numbers'
+# NixOS generations
+alias nix-gens='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
+alias nix-rollback='sudo nixos-rebuild switch --rollback'
 
 # Hardware info shortcuts
-alias hddtemp='sudo hddtemp /dev/sd?'
+alias hddtemp='sudo hddtemp /dev/sd?' 2>/dev/null || echo 'Install hddtemp package'
 alias cputemp='cat /sys/class/thermal/thermal_zone*/temp 2>/dev/null | awk "{print \$1/1000 \"°C\"}"'
 
 # Screen / tmux helpers
@@ -429,7 +425,7 @@ alias ta='tmux attach || tmux new'
 alias tls='tmux ls'
 alias tn='tmux new -s'
 
-# Notes (stored in ~/notes by date)
+# Notes
 alias note='mkdir -p ~/notes && "${EDITOR:-nano}" ~/notes/$(date +%Y%m%d).md'
 alias notes='ls -lt ~/notes/'
 
@@ -475,7 +471,7 @@ alias smtp-test='nc -nv'
 alias netdiscover-scan='sudo netdiscover -r'
 alias arp-scan='sudo arp-scan -l'
 
-# GTFOBins lookups  (requires gtfoblookup)
+# GTFOBins lookups
 alias wads='gtfoblookup wadcoms search'
 alias wadl='gtfoblookup wadcoms list'
 alias hijacks='gtfoblookup hijacklibs search'
@@ -493,12 +489,11 @@ alias gobuster-dns='gobuster dns -w /usr/share/wordlists/dirb/common.txt -t 50'
 alias nikto-scan='nikto -h'
 alias wfuzz-scan='wfuzz -c -z file,/usr/share/wordlists/dirb/common.txt --hc 404'
 alias sqlmap-auto='sqlmap --batch --random-agent --level=3'
-alias ffuf-scan='ffuf -w /usr/share/wordlists/dirb/common.txt -u' # Append URL with FUZZ marker
-alias burp='java -jar /usr/share/burpsuite/burpsuite.jar &'
+alias ffuf-scan='ffuf -w /usr/share/wordlists/dirb/common.txt -u'
 
 # curl helpers
-alias curl-headers='curl -sI' # Show only response headers
-alias curl-follow='curl -sL'  # Follow redirects silently
+alias curl-headers='curl -sI'
+alias curl-follow='curl -sL'
 alias curl-time='curl -s -w "DNS: %{time_namelookup}s  Connect: %{time_connect}s  Total: %{time_total}s\n" -o /dev/null'
 
 # =============================================================================
@@ -507,10 +502,10 @@ alias curl-time='curl -s -w "DNS: %{time_namelookup}s  Connect: %{time_connect}s
 
 alias john-basic='john --format=raw-md5'
 alias john-show='john --show'
-alias hashcat-md5='hashcat -m 0 -a 0'       # MD5 dictionary attack
-alias hashcat-sha1='hashcat -m 100 -a 0'    # SHA-1
-alias hashcat-ntlm='hashcat -m 1000 -a 0'   # NTLM
-alias hashcat-sha256='hashcat -m 1400 -a 0' # SHA-256
+alias hashcat-md5='hashcat -m 0 -a 0'
+alias hashcat-sha1='hashcat -m 100 -a 0'
+alias hashcat-ntlm='hashcat -m 1000 -a 0'
+alias hashcat-sha256='hashcat -m 1400 -a 0'
 alias rockyou='john --wordlist=/usr/share/wordlists/rockyou.txt'
 alias hydra-ssh='hydra -L /usr/share/wordlists/common_users.txt -P /usr/share/wordlists/rockyou.txt ssh://'
 alias hydra-http='hydra -L users.txt -P /usr/share/wordlists/rockyou.txt http-post-form'
@@ -525,22 +520,21 @@ alias hash-id2='hash-identifier'
 
 alias linpeas='curl -sL https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh'
 alias winpeas='curl -sL https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEAS.bat'
-alias les='sudo perl /usr/share/linux-exploit-suggester/linux-exploit-suggester.pl'
 alias pspy64='curl -sL https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64 -o /tmp/pspy64 && chmod +x /tmp/pspy64 && /tmp/pspy64'
-alias suid-find='find / -perm -u=s -type f 2>/dev/null'   # Find all SUID binaries
-alias sgid-find='find / -perm -g=s -type f 2>/dev/null'   # Find all SGID binaries
-alias world-write='find / -perm -o+w -type f 2>/dev/null' # World-writable files
-alias cap-find='getcap -r / 2>/dev/null'                  # Find binaries with capabilities
-alias sudo-list='sudo -l'                                 # List allowed sudo commands
+alias suid-find='find / -perm -u=s -type f 2>/dev/null'
+alias sgid-find='find / -perm -g=s -type f 2>/dev/null'
+alias world-write='find / -perm -o+w -type f 2>/dev/null'
+alias cap-find='getcap -r / 2>/dev/null'
+alias sudo-list='sudo -l'
 
 # =============================================================================
 # 20.  SECURITY / CTF — WIRELESS
 # =============================================================================
 
 alias wifi-list='nmcli dev wifi list'
-alias wifi-mon='sudo airmon-ng start' # Enable monitor mode:  wifi-mon wlan0
+alias wifi-mon='sudo airmon-ng start'
 alias airodump='sudo airodump-ng -w capture --output-format pcap,csv -K 1'
-alias aireplay-deauth='sudo aireplay-ng --deauth 10 -a' # Deauth, needs BSSID
+alias aireplay-deauth='sudo aireplay-ng --deauth 10 -a'
 alias airgeddon='sudo bash /usr/share/airgeddon/airgeddon.sh'
 
 # =============================================================================
@@ -557,13 +551,12 @@ alias msfvenom-list-encoders='msfvenom -l encoders'
 # 22.  SECURITY / CTF — PAYLOAD GENERATION
 # =============================================================================
 
-# Usage: msfvenom-exe <LHOST> <LPORT> <output.exe>
 alias msfvenom-exe='msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST= LPORT= -f exe -o'
 alias msfvenom-elf='msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST= LPORT= -f elf -o'
 alias msfvenom-apk='msfvenom -p android/meterpreter/reverse_tcp LHOST= LPORT= -o'
 alias msfvenom-ps1='msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST= LPORT= -f psh -o'
 
-# File transfer servers (listeners for CTF exfil / delivery)
+# File transfer servers
 alias http-server='python3 -m http.server 8080'
 alias ftp-server='python3 -m pyftpdlib -p 2121 -w'
 alias smb-server='impacket-smbserver -smb2support share .'
@@ -572,9 +565,9 @@ alias smb-server='impacket-smbserver -smb2support share .'
 # 23.  SECURITY / CTF — PORT FORWARDING & TUNNELLING
 # =============================================================================
 
-alias ssh-local='ssh -L'             # Local forward:  ssh-local 8080:target:80 user@pivot
-alias ssh-remote='ssh -R'            # Remote forward
-alias ssh-dynamic='ssh -D 1080 -qCN' # SOCKS5 proxy via SSH:  ssh-dynamic user@host
+alias ssh-local='ssh -L'
+alias ssh-remote='ssh -R'
+alias ssh-dynamic='ssh -D 1080 -qCN'
 alias socat-listen='socat TCP-LISTEN:'
 alias chisel-client='chisel client'
 
@@ -589,13 +582,12 @@ alias exif-all='exiftool'
 alias steg-extract='steghide extract -sf'
 alias binwalk-all='binwalk -e'
 alias foremost-run='foremost -i'
-alias volatility='python3 /opt/volatility3/vol.py' # Adjust path as needed
 
 # =============================================================================
 # 25.  SECURITY / CTF — PROXY & ANONYMITY
 # =============================================================================
 
-alias mproxy='curl --proxy http://127.0.0.1:8080' # Route curl through Burp/ZAP
+alias mproxy='curl --proxy http://127.0.0.1:8080'
 alias start-tor='sudo systemctl start tor'
 alias stop-tor='sudo systemctl stop tor'
 alias check-tor='curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org/api/ip'
@@ -631,7 +623,7 @@ print(bytes([b^key for b in data]))" "$@"
 alias trec='asciinema rec'
 alias tplay='asciinema play'
 
-# cheat sheets (requires tldr)
+# cheat sheets
 alias cheat='tldr'
 
 # Quick evidence directory
@@ -642,37 +634,33 @@ alias ydlp='yt-dlp -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
 alias ydlc='yt-dlp -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
 
 # Kernel modules
-alias lload="find /lib/modules/$(uname -r) -type f -name '*.ko*'"
+alias lload="find /run/current-system/kernel-modules/lib/modules/$(uname -r) -type f -name '*.ko*'"
 
 # =============================================================================
 # 27.  MAINTENANCE & UPDATES
 # =============================================================================
 
-# Full system upgrade (apt + brew if present + flatpak + ble.sh + tldr + grub + initramfs)
-alias update='sudo apt update && sudo apt full-upgrade -y \
-    && { command -v brew &>/dev/null && brew update && brew upgrade; true; } \
-    && { command -v flatpak &>/dev/null && flatpak upgrade -y; true; } \
-    && { command -v ble-update &>/dev/null && ble-update; true; } \
+# Full system upgrade with NixOS
+alias update='sudo nixos-rebuild switch --upgrade \
+    && nix-collect-garbage --delete-older-than 30d \
     && tldr --update \
-    && sudo update-grub \
-    && sudo update-initramfs -u -k all \
-    && sudo updatedb \
-    && sudo mandb \
-    && pdrx sync \
-    && cd ~/.pdrx && gitup && cd \
-    && figlet "machine is updated!" | lolcat'
+    && ble-update \
+    && atuin sync \
+    && figlet "NixOS Updated!" | lolcat'
 
-alias update-kali='sudo apt update && sudo apt full-upgrade -y'
-alias update-wordlists='sudo /usr/share/wordlists/update-wordlists.sh'
+alias update-full='sudo nixos-rebuild switch --upgrade \
+    && nix-collect-garbage --delete-older-than 7d \
+    && nix-store --optimise \
+    && sudo fstrim -v \
+    && tldr --update \
+    && ble-update \
+    && atuin sync \
+    && figlet "System Optimized!" | lolcat'
 
-# Kitty terminal updater
-alias kup='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin'
-
-# Clean apt leftovers, browser cache, shell history
-alias clean='sudo apt autopurge -y && sudo apt autoremove -y && sudo apt clean \
-    && echo "" > ~/.bash_history && history -c \
-    && { command -v atuin &>/dev/null && atuin search --delete-it-all; true; } \
-    && rm -rf ~/.cache/mozilla/'
+# Clean old generations
+alias clean-gens='sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system'
+alias clean-gens-30d='sudo nix-collect-garbage --delete-older-than 30d'
+alias clean-all='sudo nix-collect-garbage -d'
 
 alias clearhistory='echo "" > ~/.bash_history && history -c \
     && { command -v atuin &>/dev/null && atuin search --delete-it-all; true; }'
@@ -684,9 +672,9 @@ alias clearhistory='echo "" > ~/.bash_history && history -c \
 alias matrix='cmatrix -r'
 alias starwars='telnet towel.blinkenlights.nl'
 alias themes='kitty +kitten themes'
-alias cal='ncal -b'          # Calendar with highlighted today
-alias weather='curl wttr.in' # Weather in terminal:  weather London
+alias cal='ncal -b'
+alias weather='curl wttr.in'
 alias weather-short='curl "wttr.in/?format=3"'
-alias cheat-sheet='curl cheat.sh/' # Cheat sheet:  cheat-sheet tar
+alias cheat-sheet='curl cheat.sh/'
 
 # =============================================================================
