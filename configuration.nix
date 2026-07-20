@@ -632,6 +632,7 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   blesh
+  carapace
   atuin
   starship
   zoxide
@@ -640,6 +641,7 @@ environment.systemPackages = with pkgs; [
 
   eza
   bat
+  bat-extras.batman  # Colorful manpages
   ripgrep
   fd
 
