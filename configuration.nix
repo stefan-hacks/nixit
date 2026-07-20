@@ -865,7 +865,6 @@ environment.systemPackages = with pkgs; [
   gnomeExtensions.open-bar
   gnomeExtensions.quick-settings-audio-panel
   gnomeExtensions.steal-my-focus-window
-  gnomeExtensions.coverflow-alt-tab
 
   ###########################################################################
   # Terminal
