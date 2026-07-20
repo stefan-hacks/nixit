@@ -137,6 +137,8 @@
     mpv
     vlc
     joplin-desktop
+    evolution
+    gnomeExtensions.clipboard-indicator
     impression
     qbittorrent
     discord
