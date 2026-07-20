@@ -271,9 +271,22 @@ services.desktopManager.gnome.enable = true;
 #
 # DConf
 #
+# Enable dconf and load GNOME settings from repository on activation.
+#
 ##############################################################################
 
 programs.dconf.enable = true;
+
+# Load sanitized GNOME settings after system activation
+system.activationScripts.gnome-settings.text = ''
+
+  DCONF_FILE="${repoDirectory}/gnome/dconf.ini"
+
+  if [ -f "$DCONF_FILE" ]; then
+    ${pkgs.dconf}/bin/dconf load / < "$DCONF_FILE"
+  fi
+
+'';
 
 ##############################################################################
 #
