@@ -1,0 +1,46 @@
+# Atuin Configuration
+# Shell history sync and search
+# https://atuin.sh
+
+# Sync settings
+sync_address = "https://api.atuin.sh"
+sync_frequency = "10m"
+
+# Search mode
+search_mode = "fuzzy"
+
+# Filter mode
+filter_mode = "global"
+
+# Style
+style = "compact"
+
+# Show preview
+show_preview = true
+
+# Preview height
+preview_height = 10
+
+# Max history length
+max_preview_height = 10
+
+# Show help text
+show_help = true
+
+# Exit on empty query
+exit_mode = "return-original"
+
+# Enter accepts query
+enter_accept = true
+
+# Keybinding (default is up arrow)
+keybinding = "c-r"
+
+# History formatting
+# [history_filter]
+# regex = ["^SECRET"]
+# # anything matching these will be skipped and not logged
+
+# [stats]
+# # Commands to track common prefixes
+# common_prefix = ["cargo", "go", "git", "npm", "yarn", "docker", "kubectl"]
