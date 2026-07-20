@@ -637,6 +637,7 @@ environment.systemPackages = with pkgs; [
   # Editors (LazyVim)
   ###########################################################################
 
+  vim
   neovim
   wl-clipboard    # Wayland clipboard support for neovim
   xclip           # X11 clipboard fallback
