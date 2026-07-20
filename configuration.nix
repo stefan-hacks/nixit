@@ -770,53 +770,52 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   # Enumeration
-  enum4linux
-  smbmap
-  # crackmapexec  # Removed - not available in nixpkgs
-  dnsenum
-  dnsrecon
-  onesixtyone
-  snmpcheck
-  netdiscover
-  arp-scan
+  # enum4linux
+  # smbmap
+  # dnsenum
+  # dnsrecon
+  # onesixtyone
+  # snmpcheck
+   netdiscover
+   arp-scan
 
-  # Web Application Testing
-  gobuster
-  nikto
-  wfuzz
-  sqlmap
-  ffuf
+  # # Web Application Testing
+  # gobuster
+  # nikto
+  # wfuzz
+  # sqlmap
+  # ffuf
 
-  # Password Attacks
-  john
-  hashcat
-  wordlists
-  hydra
-  hashid
+  # # Password Attacks
+  # john
+  # hashcat
+  # wordlists
+  # hydra
+  # hashid
 
-  # Privilege Escalation
-  linux-exploit-suggester
+  # # Privilege Escalation
+  # linux-exploit-suggester
 
-  # Wireless
-  aircrack-ng
-  airgeddon
+  # # Wireless
+  # aircrack-ng
+  # airgeddon
 
-  # Metasploit
-  metasploit
+  # # Metasploit
+  # metasploit
 
-  # File Analysis & Steganography
-  exiftool
-  steghide
-  binwalk
-  foremost
-  # volatility-bin  # Removed - not available in nixpkgs
+  # # File Analysis & Steganography
+  # exiftool
+  # steghide
+  # binwalk
+  # foremost
+  # # volatility-bin  # Removed - not available in nixpkgs
 
-  # Proxy & Anonymity
-  tor
-  proxychains-ng
+  # # Proxy & Anonymity
+  # tor
+  # proxychains-ng
 
-  # GTFOBins lookup (if available)
-  gtfoblookup
+  # # GTFOBins lookup (if available)
+   gtfoblookup
 
   # Additional utilities
   asciinema
@@ -842,6 +841,11 @@ environment.systemPackages = with pkgs; [
   gnomeExtensions.vitals
   gnomeExtensions.notification-configurator
   gnomeExtensions.pomodoro-timer
+  gnomeExtensions.dynamic-music-pill
+  gnomeExtensions.modern-clock
+  gnomeExtensions.open-bar
+  gnomeExtensions.quick-settings-audio-panel
+  gnomeExtensions.steal-my-focus-window
   gnomeExtensions.coverflow-alt-tab
 
   ###########################################################################
