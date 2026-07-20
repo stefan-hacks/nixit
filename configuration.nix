@@ -221,6 +221,15 @@ console = {
 #
 ##############################################################################
 
+##############################################################################
+#
+# Kanata Keyboard Remapper
+#
+# Config file is stored in the repo at ./dotfiles/kanata/kanata_gnome.kbd
+# Nix copies this file to the store at build time.
+#
+##############################################################################
+
 services.kanata = {
 
   enable = true;
@@ -229,67 +238,7 @@ services.kanata = {
 
     internal = {
 
-      configFile = pkgs.writeText "kanata.kbd" ''
-(defcfg
-  process-unmapped-keys yes
-  log-layer-changes no
-)
-
-(defvar
- tap-time 200
- hold-time 200
-)
-
-(defsrc
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \\
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
-)
-
-(defalias
-  l2 (tap-hold $tap-time $hold-time lmet (layer-toggle two))   
-  l3 (tap-hold $tap-time $hold-time spc (layer-toggle three)) 
-  ss (tap-hold $tap-time $hold-time s lmet)
-  dd (tap-hold $tap-time $hold-time d lalt)
-  ff (tap-hold $tap-time $hold-time f lctl)
-  hh (tap-hold $tap-time $hold-time h S-grv)
-  jj (tap-hold $tap-time $hold-time j rctl)
-  kk (tap-hold $tap-time $hold-time k ralt)
-  ll (tap-hold $tap-time $hold-time l rmet)
-  la (tap-hold $tap-time $hold-time bspc del)
-  ra (tap-hold $tap-time $hold-time ret ralt)
-)
-
-(deflayer one
-  caps _    _    _    _    _    _    _    _    _    _    _    _
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  tab  _    _    e    _    _    _    _    _    _    p    _    _    \\
-  esc  _    @ss  @dd  @ff  g    @hh  @jj  @kk  @ll  _    _    ret
-  lsft _    _    _    _    b    n    m    _    _    _    rsft
-  lctl @l2  @la           @l3             @ra  _    _
-)
-
-(deflayer two 
-  caps _    _    _    _    _    _    _    _    _    _    _    _
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  tab  _    _    _    _    _    _    _    _    _    _    _    _    \\
-  esc  _    _    _    _    _    _    _    _    _    _    _    ret
-  lsft _    _    _    _    _    _    _    _    _    _    rsft
-  _    _    _           _                 _    _    _
-)
-
-(deflayer three                                                           
-  caps _    _    _    _    _    _    _    _    _    _    _    _      
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc 
-  tab  _    _    _    _    _    _    _    _    _    p    _    _    _    
-  esc  _    _    _    _    _    left down up   rght bspc del  ret       
-  lsft _    _    _    _    _    _    _    _    _    _    rsft           
-  _    _    _           _                 _    _    _                   
-)
-'';
+      configFile = ./dotfiles/kanata/kanata_gnome.kbd;
 
     };
 
