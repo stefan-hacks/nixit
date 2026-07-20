@@ -512,7 +512,8 @@ system.activationScripts.dotfiles.text = ''
   ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
 
   # Neovim (commented out until configured)
-  # ln -sfn "$DOTFILES/nvim"                      "$HOME/.config/nvim"
+  # Neovim (LazyVim)
+  ln -sfn "$DOTFILES/nvim"                        "$HOME/.config/nvim"
 
   # Atuin (commented out until configured)
   # ln -sfn "$DOTFILES/atuin"                     "$HOME/.config/atuin"
@@ -622,10 +623,24 @@ environment.systemPackages = with pkgs; [
   less
 
   ###########################################################################
-  # Editors
+  # Editors (LazyVim)
   ###########################################################################
 
   neovim
+  wl-clipboard    # Wayland clipboard support for neovim
+  xclip           # X11 clipboard fallback
+  
+  # LazyVim dependencies
+  nodejs          # For LSP servers
+  npm
+  gcc             # For treesitter compilation
+  gnumake
+  unzip
+  curl
+  wget
+  python3         # For Python LSP
+  python3Packages.pynvim
+  rustup          # For Rust LSP
 
   ###########################################################################
   # Git
@@ -635,6 +650,7 @@ environment.systemPackages = with pkgs; [
   git-lfs
   delta
   gh
+  lazygit
 
   ###########################################################################
   # Networking
