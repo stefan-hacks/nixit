@@ -278,20 +278,6 @@ services.desktopManager.gnome.enable = true;
 
 ##############################################################################
 #
-# GTK Theme (Yaru)
-#
-##############################################################################
-
-# Set Yaru as the default GTK theme
-environment.variables = {
-  GTK_THEME = "Yaru";
-};
-
-# Alternative: Use dconf to set the theme
-# This is handled via the gnome/dconf.ini activation script
-
-##############################################################################
-#
 # DConf
 #
 # Enable dconf and load GNOME settings from repository on activation.
@@ -588,9 +574,6 @@ fonts = {
 
     inter
 
-    # Yaru theme (Ubuntu/GNOME theme)
-    yaru-theme
-
   ];
 
 };
@@ -866,8 +849,7 @@ environment.systemPackages = with pkgs; [
   gnome-extension-manager
   gdm-settings
 
-  # GNOME Extensions
-  gnomeExtensions.user-themes
+  # GNOME Extensions - minimal set for defaults
   gnomeExtensions.dash-to-dock
   gnomeExtensions.blur-my-shell
   gnomeExtensions.clipboard-indicator
