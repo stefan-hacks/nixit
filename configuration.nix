@@ -89,16 +89,13 @@
   };
 
   # Install firefox.
-  #programs.firefox.enable = true;
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Expeirmental & flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Install flatpaks service then install flathub
-  services.flatpak.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -126,6 +123,7 @@
     ffmpeg
     bat
     bat-extras.core
+    tealdeer
     glow
     gum
     btop
@@ -137,7 +135,29 @@
     chafa
     yt-dlp
     mpv
-   
+    vlc
+    joplin-desktop
+    impression
+    qbittorrent
+    discord
+    whatsie
+    onlyoffice-desktopeditors
+    libreoffice
+    gnome-tweaks
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.dynamic-music-pill
+    gnomeExtensions.appindicator
+    gnomeExtensions.quick-settings-audio-panel
+    gnomeExtensions.quake-terminal
+    gnomeExtensions.vitals
+    gnomeExtensions.notification-configurator
+    gnomeExtensions.open-bar
+    gnomeExtensions.arcmenu
+    gnomeExtensions.user-themes
+    gnomeExtensions.modern-clock
+    gnomeExtensions.steal-my-focus-window
+    gnomeExtensions.pomodoro-timer
+ 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -173,11 +193,47 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # Modern nftables engine handles GNOME background traffic efficiently
+  networking.nftables.enable = true;
+
+  networking.firewall = {
+    enable = true;
+    checkReversePath = "strict";
+
+    # =========================================================================
+    # GNOME & USER DESKTOP HOOKS
+    # =========================================================================
+    
+    # 📱 GSConnect / KDE Connect GNOME Extension
+    # Necessary for clipboard sharing, notifications, and file transfer with your phone
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
+
+    # 📺 GNOME Network Displays & Screencasting (Miracast / Wi-Fi Display)
+    # Required if you cast your laptop screen to smart TVs or external conference displays
+    allowedTCPPorts = [ 7236 7238 ];
+    allowedUDPPorts = [ 5353 7236 ];
+
+    # =========================================================================
+    # CONTAINER & LOCAL ENGINE ISOLATION
+    # =========================================================================
+    trustedInterfaces = [
+      "lo" "docker0" "br-*" "vboxnet*" "virbr*" "cni0" "podman*" "tailscale0"
+    ];
+  };
+
+  # =========================================================================
+  # GNOME MULTICAST / NETWORK DISCOVERY (Avahi)
+  # =========================================================================
+  # Vital for GNOME Extensions like "Removable Drive Menu" over network shares, 
+  # discovering network printers via CUPS, and local network file sharing.
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true; # Let NixOS safely expose the localized mDNS rules
+  };
+  
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
