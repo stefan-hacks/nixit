@@ -229,7 +229,7 @@ services.kanata = {
 
     internal = {
 
-      configFile = "${homeDirectory}/.config/nixit/dotfiles/kanata/kanata_gnome.kbd";
+      configFile = "${repoDirectory}/dotfiles/kanata/kanata_gnome.kbd";
 
     };
 
