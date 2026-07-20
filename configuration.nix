@@ -500,7 +500,7 @@ system.activationScripts.dotfiles.text = ''
 
   # Terminal emulator
   ln -sfn "$DOTFILES/kitty/kitty.conf"          "$HOME/.config/kitty/kitty.conf"
-  ln -sfn "$DOTFILES/kitty/current_theme.conf"  "$HOME/.config/kitty/current_theme.conf"
+  ln -sfn "$DOTFILES/kitty/current-theme.conf"  "$HOME/.config/kitty/current-theme.conf"
 
   # Kanata
   ln -sfn "$DOTFILES/kanata/kanata_gnome.kbd"     "$HOME/.config/kanata/kanata.kbd"
@@ -511,15 +511,11 @@ system.activationScripts.dotfiles.text = ''
   # Prompt
   ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
 
-  # Neovim (commented out until configured)
   # Neovim (LazyVim)
   ln -sfn "$DOTFILES/nvim"                        "$HOME/.config/nvim"
 
   # Atuin
   ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
-
-  # Blesh
-  ln -sfn "$DOTFILES/blesh/.blerc"                "$HOME/.blerc"
 
   # Wallpapers
   ln -sfn "$REPO/assets/wallpapers"             "$HOME/Pictures/wallpapers"

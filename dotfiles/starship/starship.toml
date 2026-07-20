@@ -1,1 +1,150 @@
+# Starship Configuration
+# A minimal, blazing-fast, and infinitely customizable prompt
+# https://starship.rs/config/
+
+# ═════════════════════════════════════════════════════════════════════════════
+# General Settings
+# ═════════════════════════════════════════════════════════════════════════════
+
+# Wait 10 milliseconds for starship to check files under the current directory
+directory_scan_timeout = 10
+
+# Wait 2 seconds for commands to complete before timing out
 command_timeout = 2000
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+# ═════════════════════════════════════════════════════════════════════════════
+# Prompt Format
+# ═════════════════════════════════════════════════════════════════════════════
+
+# Format groups: username@hostname in green, then directory, then git
+format = """
+[╭](dimmed)
+$username$hostname$directory$git_branch$git_status$python$rust$nodejs$nix_shell
+[╰─](dimmed)$character """
+
+right_format = """$cmd_duration$time$battery"""
+
+# ═════════════════════════════════════════════════════════════════════════════
+# Modules
+# ═════════════════════════════════════════════════════════════════════════════
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)"
+vimcmd_visual_symbol = "[❮](bold yellow)"
+
+[username]
+style_user = "bold green"
+style_root = "bold red"
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname](bold dimmed green) "
+disabled = false
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold cyan"
+read_only = " 🔒"
+read_only_style = "bold red"
+
+# Git configuration
+git_branch.format = "[$symbol$branch]($style) "
+git_branch.style = "bold purple"
+
+git_status.format = '([\[$all_status$ahead_behind\]]($style) )'
+git_status.style = "bold yellow"
+git_status.conflicted = "🏳"
+git_status.ahead = "🏎💨"
+git_status.behind = "😰"
+git_status.diverged = "😵"
+git_status.untracked = "🤷"
+git_status.stashed = "📦"
+git_status.modified = "📝"
+git_status.staged = "➕"
+git_status.renamed = "👅"
+git_status.deleted = "🗑"
+
+# Programming languages
+[python]
+symbol = "🐍 "
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+
+[rust]
+symbol = "🦀 "
+format = '[$symbol($version )]($style)'
+style = "bold red"
+
+[nodejs]
+symbol = "⬢ "
+format = '[$symbol($version )]($style)'
+style = "bold green"
+
+[nix_shell]
+symbol = "❄️ "
+format = '[$symbol$state( \($name\))]($style) '
+style = "bold blue"
+
+# Time
+[time]
+disabled = false
+format = '[🕙 $time]($style) '
+style = "bold dimmed white"
+time_format = "%H:%M"
+
+# Command duration
+cmd_duration.min_time = 500
+# Duration only shown if command takes > 500ms
+cmd_duration.format = "[ took $duration]($style) "
+cmd_duration.style = "bold yellow"
+
+# Battery
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+display = [
+    { threshold = 10, style = "bold red" },
+    { threshold = 30, style = "bold yellow" },
+    { threshold = 100, style = "bold green" },
+]
+
+# Status
+[status]
+style = "bg:blue"
+symbol = "🔴 "
+success_symbol = "🟢 "
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+# Sudo
+[sudo]
+style = "bold red"
+symbol = "🔒 "
+disabled = false
+format = '[$symbol]($style)'
+
+# Line break
+[line_break]
+disabled = false
+
+# Container
+[container]
+format = '[$symbol \[$name\]]($style) '
+
+# Jobs
+[jobs]
+symbol = "🔄 "
+format = '[$symbol$number]($style) '
+style = "bold dimmed"
