@@ -555,7 +555,7 @@ fonts = {
 
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji  # Was: noto-fonts-emoji
 
     liberation_ttf
     dejavu_fonts
