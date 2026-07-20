@@ -502,8 +502,11 @@ system.activationScripts.dotfiles.text = ''
   ln -sfn "$DOTFILES/kitty/kitty.conf"          "$HOME/.config/kitty/kitty.conf"
   ln -sfn "$DOTFILES/kitty/current_theme.conf"  "$HOME/.config/kitty/current_theme.conf"
 
-  # Keyboard remapper
-  ln -sfn "$DOTFILES/kanata/kanata.kbd"         "$HOME/.config/kanata/kanata.kbd"
+  # Kanata
+  ln -sfn "$DOTFILES/kanata/kanata_gnome.kbd"     "$HOME/.config/kanata/kanata.kbd"
+
+  # Blesh (Bash Line Editor)
+  ln -sfn "$DOTFILES/blesh/.blerc"                "$HOME/.blerc"
 
   # Prompt
   ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
@@ -752,6 +755,65 @@ environment.systemPackages = with pkgs; [
   skim
 
   ###########################################################################
+  # Security / CTF Tools (from .bash_aliases)
+  ###########################################################################
+
+  # Enumeration
+  enum4linux
+  smbmap
+  crackmapexec
+  dnsenum
+  dnsrecon
+  onesixtyone
+  snmpcheck
+  netdiscover
+  arp-scan
+
+  # Web Application Testing
+  gobuster
+  nikto
+  wfuzz
+  sqlmap
+  ffuf
+
+  # Password Attacks
+  john
+  hashcat
+  wordlists
+  hydra
+  hashid
+
+  # Privilege Escalation
+  linux-exploit-suggester
+
+  # Wireless
+  aircrack-ng
+  airgeddon
+
+  # Metasploit
+  metasploit
+
+  # File Analysis & Steganography
+  exiftool
+  steghide
+  binwalk
+  foremost
+  volatility-bin
+
+  # Proxy & Anonymity
+  tor
+  proxychains-ng
+
+  # GTFOBins lookup (if available)
+  gtfoblookup
+
+  # Additional utilities
+  asciinema
+  cmatrix
+  lolcat
+  figlet
+
+  ###########################################################################
   # GNOME Desktop & Extensions
   ###########################################################################
 
@@ -817,7 +879,6 @@ environment.systemPackages = with pkgs; [
   gum
   tealdeer
   grc
-  lolcat
   chafa
   cava
 
@@ -831,15 +892,8 @@ environment.systemPackages = with pkgs; [
   impression
 
   ###########################################################################
-  # File Management
+  # File Management (additional)
   ###########################################################################
-
-  eza
-  bat
-  tree
-  fd
-  ripgrep
-  fzf
 
 ];
 
