@@ -628,8 +628,7 @@ environment.systemPackages = with pkgs; [
   xclip           # X11 clipboard fallback
   
   # LazyVim dependencies
-  nodejs          # For LSP servers
-  npm
+  nodejs          # For LSP servers (includes npm)
   gcc             # For treesitter compilation
   gnumake
   unzip
