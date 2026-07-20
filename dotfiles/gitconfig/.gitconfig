@@ -1,9 +1,13 @@
+# Git Configuration
+# This file is symlinked by the NixOS activation script
+# Place your personal email in the user section below
+
 [credential "https://github.com"]
-	helper = 
-	helper = !/nix/store/vf6m180x1k2ln1ydhr7bkl8z2wxkrql6-gh-2.93.0/bin/.gh-wrapped auth git-credential
+	helper = !gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/nix/store/vf6m180x1k2ln1ydhr7bkl8z2wxkrql6-gh-2.93.0/bin/.gh-wrapped auth git-credential
+	helper = !gh auth git-credential
+
 [user]
-	email = stefanmrobertson@gmail.com
 	name = stefan-hacks
+	# email = YOUR_EMAIL@example.com  # <-- Set this after cloning
