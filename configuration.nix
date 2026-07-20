@@ -33,7 +33,7 @@ let
 
   username = "stefan-hacks";
 
-  fullName = "Stefan Mario";
+  fullName = "stefan-hacks";
 
   homeDirectory = "/home/${username}";
 
@@ -43,7 +43,7 @@ let
   #
   ###########################################################################
 
-  dotfilesDirectory = "/etc/nixos/dotfiles";
+  dotfilesDirectory = "$HOME/.config/nixit/dotfiles";
 
 in
 
@@ -320,7 +320,7 @@ hardware.bluetooth = {
 
 };
 
-services.blueman.enable = true;
+# services.blueman.enable = true;
 
 ##############################################################################
 #
@@ -352,7 +352,7 @@ services.avahi = {
 #
 ##############################################################################
 
-services.flatpak.enable = true;
+# services.flatpak.enable = true;
 
 ##############################################################################
 #
@@ -466,20 +466,20 @@ programs.gnupg.agent = {
 
 system.activationScripts.dotfiles.text = ''
 
-  DOTFILES="${dotfilesDirectory}"
+  DOTFILES="${$HOME/.config/nixit/dotfiles}"
   HOME="${homeDirectory}"
 
   mkdir -p "$HOME/.config"
 
-  ln -sfn "$DOTFILES/.bashrc"              "$HOME/.bashrc"
-  ln -sfn "$DOTFILES/.gitconfig"           "$HOME/.gitconfig"
-
-  # Examples
-
-  ln -sfn "$DOTFILES/kitty"                "$HOME/.config/kitty"
-  ln -sfn "$DOTFILES/nvim"                 "$HOME/.config/nvim"
-  ln -sfn "$DOTFILES/atuin"                "$HOME/.config/atuin"
-  ln -sfn "$DOTFILES/starship.toml"        "$HOME/.config/starship.toml"
+  ln -sfn "$DOTFILES/bash/.bashrc"              "$HOME/.bashrc"
+  ln -sfn "$DOTFILES/bash/.bash_aliases"              "$HOME/.bash_aliases"
+  ln -sfn "$DOTFILES/gitconfig/.gitconfig"           "$HOME/.gitconfig"
+  ln -sfn "$DOTFILES/kitty/kitty.conf"                "$HOME/.config/kitty/kitty.conf"
+  ln -sfn "$DOTFILES/kitty/current_theme.conf"                "$HOME/.config/kitty/current_theme.conf"
+  ln -sfn "$DOTFILES/kanata/kanata.kbd"                "$HOME/.config/kanata/kanata.kbd"
+  # ln -sfn "$DOTFILES/nvim"                 "$HOME/.config/nvim"
+  # ln -sfn "$DOTFILES/atuin"                "$HOME/.config/atuin"
+  ln -sfn "$DOTFILES/starship/starship.toml"        "$HOME/.config/starship.toml"
 
   # Add additional dotfile links below as your repository grows.
 
