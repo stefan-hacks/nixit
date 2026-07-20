@@ -43,7 +43,7 @@ let
   #
   ###########################################################################
 
-  dotfilesDirectory = "$HOME/.config/nixit/dotfiles";
+  dotfilesDirectory = "${homeDirectory}/.config/nixit/dotfiles";
 
 in
 
@@ -83,7 +83,13 @@ boot = {
 
   loader = {
 
-    systemd-boot.enable = true;
+    # GRUB bootloader (was systemd-boot)
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
 
     efi.canTouchEfiVariables = true;
 
@@ -220,6 +226,28 @@ i18n = {
 console = {
 
   keyMap = "us";
+
+};
+
+##############################################################################
+#
+# Kanata Keyboard Remapper
+#
+##############################################################################
+
+services.kanata = {
+
+  enable = true;
+
+  keyboards = {
+
+    internal = {
+
+      configFile = "${homeDirectory}/.config/kanata/kanata.kbd";
+
+    };
+
+  };
 
 };
 
@@ -466,7 +494,7 @@ programs.gnupg.agent = {
 
 system.activationScripts.dotfiles.text = ''
 
-  DOTFILES="${$HOME/.config/nixit/dotfiles}"
+  DOTFILES="${dotfilesDirectory}"
   HOME="${homeDirectory}"
 
   mkdir -p "$HOME/.config"
@@ -658,6 +686,12 @@ environment.systemPackages = with pkgs; [
   nix-index
 
   comma
+
+  ###########################################################################
+  # Hardware
+  ###########################################################################
+
+  kanata
 
 ];
 
