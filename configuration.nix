@@ -754,7 +754,6 @@ environment.systemPackages = with pkgs; [
   yj
 
   # System Info
-  neofetch
   onefetch
   cpufetch
   inxi
