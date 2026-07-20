@@ -560,6 +560,7 @@ fonts = {
     dejavu_fonts
 
     nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
 
     inter
 
@@ -682,6 +683,75 @@ environment.systemPackages = with pkgs; [
   kanata
 
   ###########################################################################
+  # Sysadmin Tools (Power Bash Experience)
+  ###########################################################################
+
+  # File Operations & Analysis
+  exfatprogs
+  ntfs3g
+  parted
+  gparted
+  ddrescue
+
+  # Disk & Storage
+  ncdu
+  duf
+  dust
+  iotop
+
+  # Network Tools
+  iperf3
+  nethogs
+  socat
+  netcat
+  whois
+  bind
+  dogdns
+
+  # Process & System Monitoring
+  htop
+  procps
+  sysstat
+  strace
+  ltrace
+
+  # Security
+  gnupg
+  openssl
+  age
+  sops
+
+  # Archive & Compression
+  zstd
+  lz4
+  unrar
+  p7zip
+  rar
+
+  # Text Processing
+  miller
+  csvkit
+  jid
+  fx
+
+  # JSON/YAML/TOML
+  jc
+  yj
+
+  # System Info
+  neofetch
+  onefetch
+  cpufetch
+  inxi
+
+  # TUI Tools
+  lf
+  ranger
+  mc
+  fzf
+  skim
+
+  ###########################################################################
   # GNOME Desktop & Extensions
   ###########################################################################
 
@@ -699,6 +769,7 @@ environment.systemPackages = with pkgs; [
   gnomeExtensions.vitals
   gnomeExtensions.notification-configurator
   gnomeExtensions.pomodoro-timer
+  gnomeExtensions.coverflow-alt-tab
 
   ###########################################################################
   # Terminal
