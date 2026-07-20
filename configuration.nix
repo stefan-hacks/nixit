@@ -860,6 +860,7 @@ environment.systemPackages = with pkgs; [
 
   gnome-tweaks
   gnome-extension-manager
+  gdm-settings
 
   # GNOME Extensions
   gnomeExtensions.user-themes
