@@ -624,6 +624,9 @@ environment.systemPackages = with pkgs; [
   zip
   p7zip
 
+  # Image manipulation
+  imagemagick
+
   ###########################################################################
   # Shell Utilities
   ###########################################################################
@@ -885,6 +888,7 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   firefox
+  chromium
   joplin-desktop
   evolution
 
