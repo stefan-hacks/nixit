@@ -269,6 +269,20 @@ services.desktopManager.gnome.enable = true;
 
 ##############################################################################
 #
+# GTK Theme (Yaru)
+#
+##############################################################################
+
+# Set Yaru as the default GTK theme
+environment.variables = {
+  GTK_THEME = "Yaru";
+};
+
+# Alternative: Use dconf to set the theme
+# This is handled via the gnome/dconf.ini activation script
+
+##############################################################################
+#
 # DConf
 #
 # Enable dconf and load GNOME settings from repository on activation.
@@ -564,6 +578,9 @@ fonts = {
     nerd-fonts.hack
 
     inter
+
+    # Yaru theme (Ubuntu/GNOME theme)
+    yaru-theme
 
   ];
 
