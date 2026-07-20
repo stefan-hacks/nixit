@@ -809,7 +809,7 @@ environment.systemPackages = with pkgs; [
   steghide
   binwalk
   foremost
-  volatility-bin
+  # volatility-bin  # Removed - not available in nixpkgs
 
   # Proxy & Anonymity
   tor
