@@ -721,7 +721,7 @@ environment.systemPackages = with pkgs; [
   netcat
   whois
   bind
-  dogdns
+  doggo         # DNS tool (replaces removed dogdns)
 
   # Process & System Monitoring
   htop
