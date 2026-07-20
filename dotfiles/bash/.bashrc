@@ -98,9 +98,11 @@ export TERM=xterm-256color
 # colorize output
 export GRC_ALIASES=true
 
-#Brightness control from keybaord
-gsettings set org.gnome.shell.keybindings screen-brightness-up "['<Ctrl><Super>Up']"
-gsettings set org.gnome.shell.keybindings screen-brightness-down "['<Ctrl><Super>Down']"
+# If running in a graphical environment (GNOME), set brightness keybindings
+if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || [ "$DESKTOP_SESSION" = "gnome" ]; then
+  gsettings set org.gnome.shell.keybindings screen-brightness-up "['<Ctrl><Super>Up']" 2>/dev/null || true
+  gsettings set org.gnome.shell.keybindings screen-brightness-down "['<Ctrl><Super>Down']" 2>/dev/null || true
+fi
 
 # gnome auto-focus
 # gsettings set org.gnome.desktop.wm.preferences auto-raise "true"
