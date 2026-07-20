@@ -451,13 +451,13 @@ programs.git.enable = true;
 #
 # OpenSSH
 #
+# Disabled: Using GNOME's gcr-ssh-agent instead
+#
 ##############################################################################
 
-programs.ssh = {
-
-  startAgent = true;
-
-};
+# programs.ssh.startAgent is disabled - GNOME provides its own SSH agent
+# via services.gnome.gcr-ssh-agent.enable which is automatically enabled
+# when GNOME desktop is enabled.
 
 ##############################################################################
 #
@@ -469,7 +469,8 @@ programs.gnupg.agent = {
 
   enable = true;
 
-  enableSSHSupport = true;
+  # Note: SSH support disabled - using GNOME gcr-ssh-agent instead
+  # enableSSHSupport = true;
 
 };
 
