@@ -815,7 +815,7 @@ environment.systemPackages = with pkgs; [
   # proxychains-ng
 
   # # GTFOBins lookup (if available)
-   gtfoblookup
+  # gtfoblookup  # Not available in nixpkgs
 
   # Additional utilities
   asciinema
