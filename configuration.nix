@@ -41,7 +41,7 @@ let
   #
   ###########################################################################
 
-  repoDirectory = "${homeDirectory}/.config/nixit";
+  repoDirectory = "${homeDirectory}/nixit";
   dotfilesDirectory = "${repoDirectory}/dotfiles";
   assetsDirectory = "${repoDirectory}/assets";
   gnomeDirectory = "${repoDirectory}/gnome";
