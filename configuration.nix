@@ -75,6 +75,7 @@ boot = {
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
+      splashImage = "${repoDirectory}/assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg";
     };
 
     efi.canTouchEfiVariables = true;
