@@ -297,9 +297,6 @@ environment.etc."dconf/db/gdm.d/00-background".text = ''
   picture-uri='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
   picture-uri-dark='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
   picture-options='zoom'
-
-  [org/gnome/login-screen]
-  logo=''
 '';
 
 # dconf needs its binary db recompiled from the /etc/dconf/db/*.d text sources
