@@ -384,40 +384,40 @@ alias sctsp='sudo systemctl stop'
 alias scte='sudo systemctl enable'
 alias sctsd='sudo systemctl disable'
 alias sctlr='sudo systemctl daemon-reload'
-alias failu='systemctl --failed'
+alias fail='systemctl --failed'
 alias jrn='sudo journalctl -xe'
 alias jrnb='sudo journalctl -b'
 alias jrnu='journalctl --user'
 
 # User & group management
-alias allgroups='groups | xargs -n1 | sort'
-alias lstlog='last -n 20'
-alias failog='sudo lastb -n 20'
+alias grps='groups | xargs -n1 | sort'
+alias lstl='last -n 20'
+alias flog='sudo lastb -n 20'
 alias wtf='who -a'
 
 # SSH
-alias keygen='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)"'
-alias keycp='ssh-copy-id'
-alias keyls='ls -la ~/.ssh/'
-alias known='cat ~/.ssh/known_hosts'
-alias rmhost='ssh-keygen -R'
+alias kgen='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)"'
+alias kscp='ssh-copy-id'
+alias kls='ls -la ~/.ssh/'
+alias khs='cat ~/.ssh/known_hosts'
+alias rmkh='ssh-keygen -R'
 
 # Quick system info
-alias sinfo='uname -a && echo "NixOS $(nixos-version)"'
+alias info='uname -a && echo "NixOS $(nixos-version)"'
 alias ff='fastfetch'
 alias ffa='fastfetch --config all -l'
 alias btype="grep -qP '^flags\s*:.*\blm\b' /proc/cpuinfo && echo 64-bit || echo 32-bit"
 
 # Certificates
-alias sslck='openssl x509 -text -noout -in'
-alias sslrm='openssl s_client -connect'
+alias sslc='openssl x509 -text -noout -in'
+alias sslr='openssl s_client -connect'
 
 # NixOS generations
 alias ngs='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
 alias nrb='sudo nixos-rebuild switch --rollback'
 
 # Hardware info shortcuts
-alias hdtemp='sudo hddtemp /dev/sd?' 2>/dev/null || echo 'Install hddtemp package'
+alias hdtp='sudo hddtemp /dev/sd?' 2>/dev/null || echo 'Install hddtemp package'
 alias ctmp='cat /sys/class/thermal/thermal_zone*/temp 2>/dev/null | awk "{print \$1/1000 \"°C\"}"'
 
 # Screen / tmux helpers
