@@ -709,6 +709,7 @@ environment.systemPackages = with pkgs; [
   tcpdump
   wireshark
   openssh
+  lazyssh
 
   ###########################################################################
   # Archives
@@ -878,7 +879,6 @@ environment.systemPackages = with pkgs; [
 
   gnome-tweaks
   gnome-extension-manager
-  gdm-settings
 
   # GNOME Extensions - minimal set for defaults
   gnomeExtensions.dash-to-dock
