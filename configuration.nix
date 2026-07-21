@@ -965,6 +965,10 @@ environment.systemPackages = with pkgs; [
   qemu_kvm
   virt-manager
   spice-gtk
+  spice
+  spice-vdagent
+  dnsmasq
+  bridge-utils
 
   ###########################################################################
   # File Management (additional)
@@ -1016,7 +1020,16 @@ virtualisation = {
 
   podman.enable = false;
 
-  libvirtd.enable = true;
+  libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+      ovmf.enable = true;
+    };
+  };
+
+  spiceUSBRedirection.enable = true;
 
   # VirtualBox - disabled KVM acceleration to avoid conflicts
   # virtualbox.host.enable = false;
