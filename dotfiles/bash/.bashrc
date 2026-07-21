@@ -95,19 +95,9 @@ export TERM=xterm-256color
 # colorize output
 export GRC_ALIASES=true
 
-# If running in a graphical environment (GNOME), set brightness keybindings
-if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || [ "$DESKTOP_SESSION" = "gnome" ]; then
-  gsettings set org.gnome.shell.keybindings screen-brightness-up "['<Ctrl><Super>Up']" 2>/dev/null || true
-  gsettings set org.gnome.shell.keybindings screen-brightness-down "['<Ctrl><Super>Down']" 2>/dev/null || true
-fi
-
-# gnome auto-focus
-# gsettings set org.gnome.desktop.wm.preferences auto-raise "true"
-
 # preferred text editor
-export EDITOR="nvim"
+export EDITOR="vim"
 
-# source -- ~/.local/share/blesh/ble.sh
 
 # Colorful manpages
 # Add to your shell config (e.g., ~/.bashrc, ~/.zshrc)
