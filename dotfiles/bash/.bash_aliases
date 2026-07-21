@@ -405,7 +405,6 @@ alias rmkh='ssh-keygen -R'
 # Quick system info
 alias info='uname -a && echo "NixOS $(nixos-version)"'
 alias ff='fastfetch'
-alias ffa='fastfetch --config all -l'
 alias btype="grep -qP '^flags\s*:.*\blm\b' /proc/cpuinfo && echo 64-bit || echo 32-bit"
 
 # Certificates
