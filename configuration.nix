@@ -46,11 +46,8 @@ let
   assetsDirectory = "${repoDirectory}/assets";
   gnomeDirectory = "${repoDirectory}/gnome";
 
-  # GDM wallpaper - copied to nix store for accessibility (GDM user can read it)
-  gdmWallpaper = pkgs.runCommand "gdm-wallpaper" { } ''
-    mkdir -p $out/share/wallpapers
-    cp ${repoDirectory}/assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg $out/share/wallpapers/gdm-background.jpg
-  '';
+  # GDM wallpaper - use local path (will be copied to nix store)
+  gdmWallpaper = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
 
 in
 
@@ -81,7 +78,7 @@ boot = {
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
-      splashImage = "${repoDirectory}/assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg";
+      splashImage = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
     };
 
     efi.canTouchEfiVariables = true;
@@ -283,7 +280,7 @@ services.displayManager.gdm = {
   enable = true;
   settings = {
     greeter = {
-      background-image = "${gdmWallpaper}/share/wallpapers/gdm-background.jpg";
+      background-image = "${gdmWallpaper}";
     };
   };
 };
