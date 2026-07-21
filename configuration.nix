@@ -466,6 +466,7 @@ users.users.${username} = {
     "networkmanager"
     "audio"
     "video"
+    "kvm"
     "input"
     "dialout"
     "libvirtd"
