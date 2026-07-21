@@ -535,6 +535,7 @@ system.activationScripts.dotfiles.text = ''
   DOTFILES="${dotfilesDirectory}"
   REPO="${repoDirectory}"
   HOME="${homeDirectory}"
+  USER="${username}"
 
   # Create necessary directories
   mkdir -p "$HOME/.config"
@@ -545,35 +546,47 @@ system.activationScripts.dotfiles.text = ''
 
   # Bash configuration
   ln -sfn "$DOTFILES/bash/.bashrc"              "$HOME/.bashrc"
+  chown "$USER:wheel" "$HOME/.bashrc"
   ln -sfn "$DOTFILES/bash/.bash_aliases"        "$HOME/.bash_aliases"
+  chown "$USER:wheel" "$HOME/.bash_aliases"
 
   # Git configuration
   ln -sfn "$DOTFILES/gitconfig/.gitconfig"      "$HOME/.gitconfig"
+  chown "$USER:wheel" "$HOME/.gitconfig"
 
   # Terminal emulator
   ln -sfn "$DOTFILES/kitty/kitty.conf"          "$HOME/.config/kitty/kitty.conf"
+  chown "$USER:wheel" "$HOME/.config/kitty/kitty.conf"
   ln -sfn "$DOTFILES/kitty/current-theme.conf"  "$HOME/.config/kitty/current-theme.conf"
+  chown "$USER:wheel" "$HOME/.config/kitty/current-theme.conf"
 
   # Kanata
   ln -sfn "$DOTFILES/kanata/kanata_gnome.kbd"     "$HOME/.config/kanata/kanata.kbd"
+  chown "$USER:wheel" "$HOME/.config/kanata/kanata.kbd"
 
   # Blesh (Bash Line Editor)
   ln -sfn "$DOTFILES/blesh/.blerc"                "$HOME/.blerc"
+  chown "$USER:wheel" "$HOME/.blerc"
 
   # Prompt
   ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
+  chown "$USER:wheel" "$HOME/.config/starship.toml"
 
   # Atuin
   ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
+  chown "$USER:wheel" "$HOME/.config/atuin/config.toml"
 
   # Vim
   ln -sfn "$DOTFILES/vim/.vimrc"                  "$HOME/.vimrc"
+  chown "$USER:wheel" "$HOME/.vimrc"
 
   # ssh config
   ln -sfn "$DOTFILES/.ssh/config"                  "$HOME/.ssh/config"
+  chown "$USER:wheel" "$HOME/.ssh/config"
 
   # Wallpapers
   ln -sfn "$REPO/assets/wallpapers"             "$HOME/Pictures/wallpapers"
+  chown "$USER:wheel" "$HOME/Pictures/wallpapers"
 
 '';
 
