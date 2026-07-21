@@ -49,6 +49,9 @@ let
   # GDM wallpaper - use local path (will be copied to nix store)
   gdmWallpaper = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
 
+  # User account picture (for GDM and GNOME)
+  userIcon = ./assets/icon2.png;
+
 in
 
 {
@@ -441,6 +444,9 @@ users.users.${username} = {
   description = fullName;
 
   shell = pkgs.bash;
+
+  # User account picture - shown in GDM and GNOME
+  icon = userIcon;
 
   extraGroups = [
 
