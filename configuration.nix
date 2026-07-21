@@ -880,21 +880,7 @@ environment.systemPackages = with pkgs; [
   gnome-tweaks
   gnome-extension-manager
 
-  # GNOME Extensions - minimal set for defaults
-  gnomeExtensions.dash-to-dock
-  gnomeExtensions.blur-my-shell
-  gnomeExtensions.clipboard-indicator
-  gnomeExtensions.appindicator
-  gnomeExtensions.arcmenu
-  gnomeExtensions.quake-terminal
-  gnomeExtensions.vitals
-  gnomeExtensions.notification-configurator
-  gnomeExtensions.pomodoro-timer
-  gnomeExtensions.dynamic-music-pill
-  gnomeExtensions.modern-clock
-  gnomeExtensions.open-bar
-  gnomeExtensions.quick-settings-audio-panel
-  gnomeExtensions.steal-my-focus-window
+  # GNOME Extensions - managed via gnome-extension-manager
 
   ###########################################################################
   # Terminal
