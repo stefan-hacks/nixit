@@ -540,6 +540,7 @@ system.activationScripts.dotfiles.text = ''
   mkdir -p "$HOME/.config/kitty"
   mkdir -p "$HOME/.config/kanata"
   mkdir -p "$HOME/Pictures"
+  mkdir -p "$HOME/.ssh/controlmasters" && chmod 700 "$HOME/.ssh/controlmasters"
 
   # Bash configuration
   ln -sfn "$DOTFILES/bash/.bashrc"              "$HOME/.bashrc"
@@ -566,6 +567,9 @@ system.activationScripts.dotfiles.text = ''
 
   # Vim
   ln -sfn "$DOTFILES/vim/.vimrc"                  "$HOME/.vimrc"
+
+  # ssh config
+  ln -sfn "$DOTFILES/.ssh/config"                  "$HOME/.ssh/config"
 
   # Wallpapers
   ln -sfn "$REPO/assets/wallpapers"             "$HOME/Pictures/wallpapers"
