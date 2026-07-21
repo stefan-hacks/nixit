@@ -879,6 +879,7 @@ environment.systemPackages = with pkgs; [
 
   gnome-tweaks
   gnome-extension-manager
+  dconf-editor
 
   # GNOME Extensions - managed via gnome-extension-manager
 
