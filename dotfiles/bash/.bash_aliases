@@ -356,6 +356,7 @@ alias nbd='sudo nixos-rebuild build'
 alias nts='sudo nixos-rebuild test'
 alias ndr='sudo nixos-rebuild dry-build'
 alias nbt='sudo nixos-rebuild boot'
+alias nag='alias | grep -i nix'
 
 # Nix package management
 alias nsr='nix search nixpkgs'
