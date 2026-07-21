@@ -42,7 +42,7 @@ alias ln='ln -i'                    # Confirm before overwriting a link
 alias mkdir='mkdir -pv'             # Create parent dirs automatically, verbose
 alias wget='wget -c'                # Resume interrupted downloads by default
 alias less='less -FSRXc'            # Quit if short, follow raw colour, no clear on exit
-
+alias path='echo $PATH | tr ":" "\n"' # display path variable vertically
 alias cpv='rsync -avh --info=progress2' # Progress-aware copy (better than cp for large files)
 
 # =============================================================================
