@@ -351,74 +351,74 @@ fi
 # =============================================================================
 
 # NixOS system management
-alias nix-switch='sudo nixos-rebuild switch'
-alias nix-build='sudo nixos-rebuild build'
-alias nix-test='sudo nixos-rebuild test'
-alias nix-dry='sudo nixos-rebuild dry-build'
-alias nix-boot='sudo nixos-rebuild boot'
+alias nsw='sudo nixos-rebuild switch'
+alias nbd='sudo nixos-rebuild build'
+alias nts='sudo nixos-rebuild test'
+alias ndr='sudo nixos-rebuild dry-build'
+alias nbt='sudo nixos-rebuild boot'
 
 # Nix package management
-alias nix-search='nix search nixpkgs'
-alias nix-install='nix-env -iA nixpkgs'
-alias nix-remove='nix-env -e'
-alias nix-list='nix-env -q'
-alias nix-update='nix-env -u'
-alias nix-gc='nix-collect-garbage'
-alias nix-gc-old='nix-collect-garbage --delete-older-than 30d'
-alias nix-store-optimize='nix-store --optimise'
-alias nix-shell='nix-shell --run bash'
+alias nsr='nix search nixpkgs'
+alias nin='nix-env -iA nixpkgs'
+alias nrm='nix-env -e'
+alias nls='nix-env -q'
+alias nup='nix-env -u'
+alias ngc='nix-collect-garbage'
+alias ngo='nix-collect-garbage --delete-older-than 30d'
+alias nso='nix-store --optimise'
+alias nsh='nix-shell --run bash'
 
 # Flakes
-alias nix-flake-update='nix flake update'
-alias nix-flake-check='nix flake check'
+alias nfu='nix flake update'
+alias nfc='nix flake check'
 
 # Nix development shells
-alias nix-dev='nix develop'
+alias ndv='nix develop'
 
 # Systemd shortcuts
 alias sctl='sudo systemctl'
-alias sctls='sudo systemctl status'
-alias sctlr='sudo systemctl restart'
-alias sctlst='sudo systemctl start'
-alias sctlsp='sudo systemctl stop'
-alias sctlen='sudo systemctl enable'
-alias sctldis='sudo systemctl disable'
-alias sctlrld='sudo systemctl daemon-reload'
-alias failed-units='systemctl --failed'
-alias journal='sudo journalctl -xe'
-alias journal-boot='sudo journalctl -b'
-alias journal-user='journalctl --user'
+alias scts='sudo systemctl status'
+alias sctr='sudo systemctl restart'
+alias sctt='sudo systemctl start'
+alias sctsp='sudo systemctl stop'
+alias scte='sudo systemctl enable'
+alias sctsd='sudo systemctl disable'
+alias sctlr='sudo systemctl daemon-reload'
+alias failu='systemctl --failed'
+alias jrn='sudo journalctl -xe'
+alias jrnb='sudo journalctl -b'
+alias jrnu='journalctl --user'
 
 # User & group management
 alias allgroups='groups | xargs -n1 | sort'
-alias last-logins='last -n 20'
-alias failed-logins='sudo lastb -n 20'
+alias lstlog='last -n 20'
+alias failog='sudo lastb -n 20'
 alias wtf='who -a'
 
 # SSH
-alias ssh-keygen-ed25519='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)"'
-alias ssh-copy='ssh-copy-id'
-alias ssh-list-keys='ls -la ~/.ssh/'
-alias known-hosts='cat ~/.ssh/known_hosts'
-alias rm-known-host='ssh-keygen -R'
+alias keygen='ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)"'
+alias keycp='ssh-copy-id'
+alias keyls='ls -la ~/.ssh/'
+alias known='cat ~/.ssh/known_hosts'
+alias rmhost='ssh-keygen -R'
 
 # Quick system info
-alias sysinfo='uname -a && echo "NixOS $(nixos-version)"'
+alias sinfo='uname -a && echo "NixOS $(nixos-version)"'
 alias ff='fastfetch'
 alias ffa='fastfetch --config all -l'
-alias bittype="grep -qP '^flags\s*:.*\blm\b' /proc/cpuinfo && echo 64-bit || echo 32-bit"
+alias btype="grep -qP '^flags\s*:.*\blm\b' /proc/cpuinfo && echo 64-bit || echo 32-bit"
 
 # Certificates
-alias ssl-check='openssl x509 -text -noout -in'
-alias ssl-remote='openssl s_client -connect'
+alias sslck='openssl x509 -text -noout -in'
+alias sslrm='openssl s_client -connect'
 
 # NixOS generations
-alias nix-gens='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
-alias nix-rollback='sudo nixos-rebuild switch --rollback'
+alias ngs='sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'
+alias nrb='sudo nixos-rebuild switch --rollback'
 
 # Hardware info shortcuts
-alias hddtemp='sudo hddtemp /dev/sd?' 2>/dev/null || echo 'Install hddtemp package'
-alias cputemp='cat /sys/class/thermal/thermal_zone*/temp 2>/dev/null | awk "{print \$1/1000 \"°C\"}"'
+alias hdtemp='sudo hddtemp /dev/sd?' 2>/dev/null || echo 'Install hddtemp package'
+alias ctmp='cat /sys/class/thermal/thermal_zone*/temp 2>/dev/null | awk "{print \$1/1000 \"°C\"}"'
 
 # Screen / tmux helpers
 alias ta='tmux attach || tmux new'
@@ -658,9 +658,9 @@ alias update-full='sudo nixos-rebuild switch --upgrade \
     && figlet "System Optimized!" | lolcat'
 
 # Clean old generations
-alias clean-gens='sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system'
-alias clean-gens-30d='sudo nix-collect-garbage --delete-older-than 30d'
-alias clean-all='sudo nix-collect-garbage -d'
+alias clng='sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system'
+alias cln30='sudo nix-collect-garbage --delete-older-than 30d'
+alias clnall='sudo nix-collect-garbage -d'
 
 alias clearhistory='echo "" > ~/.bash_history && history -c \
     && { command -v atuin &>/dev/null && atuin search --delete-it-all; true; }'
