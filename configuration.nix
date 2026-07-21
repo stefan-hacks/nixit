@@ -49,8 +49,11 @@ let
   # GDM wallpaper - copied to nix store for accessibility (GDM user can read it)
   gdmWallpaper = pkgs.runCommand "gdm-wallpaper" { } ''
     mkdir -p $out/share/wallpapers
-    cp ${repoDirectory}/assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg $out/share/wallpapers/gdm-background.jpg
+    cp ${./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg} $out/share/wallpapers/gdm-background.jpg
   '';
+
+  # GRUB wallpaper - direct path works (bootloader reads before users exist)
+  grubWallpaper = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
 
 in
 
@@ -81,7 +84,7 @@ boot = {
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
-      splashImage = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
+      splashImage = grubWallpaper;
     };
 
     efi.canTouchEfiVariables = true;
@@ -690,7 +693,6 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   vim
-  helix
 
   ###########################################################################
   # Git
