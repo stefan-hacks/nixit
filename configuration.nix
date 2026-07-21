@@ -49,9 +49,6 @@ let
   # GDM wallpaper - use local path (will be copied to nix store)
   gdmWallpaper = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
 
-  # User account picture (for GDM and GNOME)
-  userIcon = ./assets/icon2.png;
-
 in
 
 {
@@ -321,6 +318,25 @@ systemd.user.services.gnome-settings-load = {
   wantedBy = [ "default.target" ];
 };
 
+# Copy user icon to accountsservice location for GDM/GNOME
+system.activationScripts.user-icon = ''
+  ICON_SRC="${repoDirectory}/assets/icon2.png"
+  ICON_DEST="${homeDirectory}/.face"
+  ACCOUNT_ICON="/var/lib/AccountsService/icons/${username}"
+
+  if [ -f "$ICON_SRC" ]; then
+    # Create face icon in home directory
+    ${pkgs.coreutils}/bin/cp "$ICON_SRC" "$ICON_DEST"
+    ${pkgs.coreutils}/bin/chown ${username}:${username} "$ICON_DEST"
+    ${pkgs.coreutils}/bin/chmod 644 "$ICON_DEST"
+
+    # Create accountsservice icon for GDM
+    ${pkgs.coreutils}/bin/mkdir -p /var/lib/AccountsService/icons
+    ${pkgs.coreutils}/bin/cp "$ICON_SRC" "$ACCOUNT_ICON"
+    ${pkgs.coreutils}/bin/chmod 644 "$ACCOUNT_ICON"
+  fi
+'';
+
 ##############################################################################
 #
 # XDG Portal
@@ -444,9 +460,6 @@ users.users.${username} = {
   description = fullName;
 
   shell = pkgs.bash;
-
-  # User account picture - shown in GDM and GNOME
-  icon = userIcon;
 
   extraGroups = [
 
