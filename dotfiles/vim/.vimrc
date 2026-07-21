@@ -39,10 +39,10 @@ set relativenumber
 
 " Show cursor line and column
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 
 " Color column at 80 characters (guide line)
-set colorcolumn=80
+" set colorcolumn=80
 
 " Enable true colors if supported
 if has('termguicolors')
@@ -222,7 +222,7 @@ nnoremap <leader>W :wa<CR>
 " ============================================================================
 
 " Find files (uses find command)
-nnoremap <leader>ff :find 
+nnoremap <leader>ff :find
 nnoremap <leader>fF :find **/*
 
 " Find in files (grep)
@@ -321,9 +321,9 @@ nnoremap <leader>zo zR
 
 if has('terminal')
   " Open terminal in split
-  nnoremap <leader>t :term<CR>
-  nnoremap <leader>T :vsplit term://bash<CR>
-  
+"  nnoremap <leader>t :term<CR>
+"  nnoremap <leader>T :vsplit term://bash<CR>
+
   " Exit terminal mode with Esc
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-h> <C-\><C-n><C-w>h
@@ -506,7 +506,7 @@ autocmd FileType markdown setlocal wrap linebreak textwidth=80
 " ============================================================================
 
 " Open help in vertical split
-nnoremap <leader>h :vert help 
+nnoremap <leader>h :vert help
 
 " Show key mappings
 nnoremap <leader>mk :map<CR>
