@@ -3,6 +3,7 @@
 " ============================================================================
 " This .vimrc uses ONLY native Vim features - no external plugins required
 " Designed for NixOS nixit dotfiles
+" Catppuccin Mocha Theme
 " ============================================================================
 
 " ============================================================================
@@ -30,6 +31,141 @@ let mapleader = " "
 let maplocalleader = " "
 
 " ============================================================================
+" Catppuccin Mocha Color Scheme (Manual Definition)
+" ============================================================================
+
+" Enable true colors
+if has('termguicolors')
+  set termguicolors
+endif
+set background=dark
+
+" Define Catppuccin Mocha colors
+" Base: #1e1e2e (crust/base)
+" Surface: #313244
+" Overlay: #6c7086
+" Muted: #a6adc8
+" Text: #cdd6f4
+" Lavender: #b4befe
+" Blue: #89b4fa
+" Sapphire: #74c7ec
+" Sky: #89dceb
+" Teal: #94e2d5
+" Green: #a6e3a1
+" Yellow: #f9e2af
+" Peach: #fab387
+" Maroon: #eba0ac
+" Red: #f38ba8
+" Mauve: #cba6f7
+" Pink: #f5c2e7
+" Flamingo: #f2cdcd
+" Rosewater: #f5e0dc
+
+" Define highlight groups
+highlight Normal guifg=#cdd6f4 guibg=#1e1e2e
+highlight Comment guifg=#6c7086 gui=italic
+highlight Constant guifg=#fab387
+highlight String guifg=#a6e3a1
+highlight Character guifg=#a6e3a1
+highlight Number guifg=#fab387
+highlight Boolean guifg=#fab387
+highlight Float guifg=#fab387
+highlight Identifier guifg=#f2cdcd
+highlight Function guifg=#89b4fa
+highlight Statement guifg=#cba6f7 gui=bold
+highlight Conditional guifg=#cba6f7
+highlight Repeat guifg=#cba6f7
+highlight Label guifg=#cba6f7
+highlight Operator guifg=#89dceb
+highlight Keyword guifg=#cba6f7 gui=bold
+highlight Exception guifg=#cba6f7
+highlight PreProc guifg=#f5c2e7
+highlight Include guifg=#cba6f7
+highlight Define guifg=#f5c2e7
+highlight Macro guifg=#f5c2e7
+highlight PreCondit guifg=#f5c2e7
+highlight Type guifg=#f9e2af
+highlight StorageClass guifg=#f9e2af
+highlight Structure guifg=#f9e2af
+highlight Typedef guifg=#f9e2af
+highlight Special guifg=#89dceb
+highlight SpecialChar guifg=#89dceb
+highlight Tag guifg=#89dceb
+highlight Delimiter guifg=#9399b2
+highlight SpecialComment guifg=#6c7086 gui=bold
+highlight Debug guifg=#f38ba8
+
+" UI Elements
+highlight LineNr guifg=#6c7086 guibg=#1e1e2e
+highlight CursorLineNr guifg=#f9e2af guibg=#313244 gui=bold
+highlight SignColumn guibg=#1e1e2e
+highlight FoldColumn guifg=#6c7086 guibg=#1e1e2e
+highlight Folded guifg=#6c7086 guibg=#313244
+
+" DISABLED: cursorline and cursorcolumn
+" highlight CursorLine guibg=#313244
+" highlight CursorColumn guibg=#313244
+
+" Status Line Colors
+highlight StatusLine guifg=#cdd6f4 guibg=#313244 gui=bold
+highlight StatusLineNC guifg=#6c7086 guibg=#1e1e2e
+highlight StatusLineMode guifg=#1e1e2e guibg=#cba6f7 gui=bold
+highlight StatusLineModeInsert guifg=#1e1e2e guibg=#89dceb gui=bold
+highlight StatusLineModeVisual guifg=#1e1e2e guibg=#a6e3a1 gui=bold
+highlight StatusLineModeReplace guifg=#1e1e2e guibg=#f38ba8 gui=bold
+highlight StatusLineFile guifg=#cdd6f4 guibg=#313244
+highlight StatusLineInfo guifg=#89b4fa guibg=#313244
+highlight StatusLinePercent guifg=#cba6f7 guibg=#313244 gui=bold
+highlight StatusLinePos guifg=#1e1e2e guibg=#89b4fa gui=bold
+
+" Search
+highlight Search guifg=#1e1e2e guibg=#f9e2af gui=bold
+highlight IncSearch guifg=#1e1e2e guibg=#f38ba8 gui=bold
+highlight MatchParen guifg=#f9e2af guibg=#6c7086 gui=bold
+
+" Visual Selection
+highlight Visual guifg=#cdd6f4 guibg=#45475a
+highlight VisualNOS guifg=#cdd6f4 guibg=#45475a
+
+" Popup Menu
+highlight Pmenu guifg=#cdd6f4 guibg=#313244
+highlight PmenuSel guifg=#1e1e2e guibg=#cba6f7 gui=bold
+highlight PmenuSbar guibg=#1e1e2e
+highlight PmenuThumb guibg=#6c7086
+
+" Split separators - subtle
+highlight VertSplit guifg=#313244 guibg=#1e1e2e
+highlight StatusLineTerm guifg=#cdd6f4 guibg=#313244
+highlight StatusLineTermNC guifg=#6c7086 guibg=#1e1e2e
+
+" Tab Line
+highlight TabLine guifg=#6c7086 guibg=#1e1e2e
+highlight TabLineFill guifg=#1e1e2e guibg=#1e1e2e
+highlight TabLineSel guifg=#cdd6f4 guibg=#313244 gui=bold
+
+" Cursor
+highlight Cursor guifg=#1e1e2e guibg=#f5e0dc
+highlight iCursor guifg=#1e1e2e guibg=#f5e0dc
+highlight vCursor guifg=#1e1e2e guibg=#cba6f7
+
+" Wild Menu
+highlight WildMenu guifg=#1e1e2e guibg=#cba6f7 gui=bold
+
+" Error and Warning
+highlight ErrorMsg guifg=#f38ba8 guibg=#1e1e2e gui=bold
+highlight WarningMsg guifg=#fab387 guibg=#1e1e2e gui=bold
+highlight MoreMsg guifg=#89b4fa guibg=#1e1e2e
+highlight Question guifg=#89dceb guibg=#1e1e2e
+
+" Non-Text and Special
+highlight NonText guifg=#45475a
+highlight SpecialKey guifg=#45475a
+highlight Whitespace guifg=#313244
+
+" Title
+highlight Title guifg=#cba6f7 gui=bold
+
+" ============================================================================
 " UI Configuration
 " ============================================================================
 
@@ -37,21 +173,12 @@ let maplocalleader = " "
 set number
 set relativenumber
 
-" Show cursor line and column
-set cursorline
+" DISABLED: cursor line and column highlight
+" set cursorline
 " set cursorcolumn
 
-" Color column at 80 characters (guide line)
+" DISABLED: Color column at 80 characters
 " set colorcolumn=80
-
-" Enable true colors if supported
-if has('termguicolors')
-  set termguicolors
-endif
-
-" Use a dark color scheme (native vim)
-set background=dark
-colorscheme default
 
 " Show matching brackets
 set showmatch
@@ -63,26 +190,115 @@ set showcmd
 " Always show status line
 set laststatus=2
 
-" Status line format (mimics LazyVim's statusline)
-set statusline=
-set statusline+=%#ModeMsg#%{(mode()=='n')?\ '\ [NORMAL]\ ':''}
-set statusline+=%#ModeMsg#%{(mode()=='i')?\ '\ [INSERT]\ ':''}
-set statusline+=%#ModeMsg#%{(mode()=='v')?\ '\ [VISUAL]\ ':''}
-set statusline+=%#ModeMsg#%{(mode()=='V')?\ '\ [V-LINE]\ ':''}
-set statusline+=%#ModeMsg#%{(mode()=='\<C-v>')?\ '\ [V-BLOCK]\ ':''}
-set statusline+=%#ModeMsg#%{(mode()=='R')?\ '\ [REPLACE]\ ':''}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=\ %m
-set statusline+=\ %r
-set statusline+=%=
-set statusline+=%#CursorLine#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\ [%{&fileformat}]
-set statusline+=%#Normal#
-set statusline+=\ %l/%L:%c
-set statusline+=\ %p%%
+" ============================================================================
+" Beautiful Status Line (Catppuccin Mocha)
+" ============================================================================
+
+" Function to get current mode with nice name
+function! GetMode()
+  let l:mode = mode()
+  if l:mode == 'n'
+    return 'NORMAL'
+  elseif l:mode == 'i'
+    return 'INSERT'
+  elseif l:mode == 'v'
+    return 'VISUAL'
+  elseif l:mode == 'V'
+    return 'V-LINE'
+  elseif l:mode == "\<C-v>"
+    return 'V-BLOCK'
+  elseif l:mode == 'R'
+    return 'REPLACE'
+  elseif l:mode == 'c'
+    return 'COMMAND'
+  elseif l:mode == 't'
+    return 'TERMINAL'
+  else
+    return toupper(l:mode)
+  endif
+endfunction
+
+" Function to get git branch
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+" Function to get file size
+function! FileSize()
+  let l:bytes = getfsize(expand('%:p'))
+  if l:bytes <= 0
+    return ''
+  endif
+  if l:bytes < 1024
+    return l:bytes . 'B'
+  elseif l:bytes < 1024*1024
+    return printf('%.1fK', l:bytes / 1024.0)
+  else
+    return printf('%.1fM', l:bytes / (1024.0*1024.0))
+  endif
+endfunction
+
+" Main status line function
+function! BuildStatusLine()
+  let l:mode = GetMode()
+  let l:mode_group = '%#StatusLineMode#'
+  let l:reset = '%*'
+  
+  if l:mode == 'INSERT'
+    let l:mode_group = '%#StatusLineModeInsert#'
+  elseif l:mode == 'VISUAL' || l:mode == 'V-LINE' || l:mode == 'V-BLOCK'
+    let l:mode_group = '%#StatusLineModeVisual#'
+  elseif l:mode == 'REPLACE'
+    let l:mode_group = '%#StatusLineModeReplace#'
+  endif
+  
+  " Build status line components
+  let l:sl = ''
+  
+  " Left side: Mode
+  let l:sl .= l:mode_group . '  ' . l:mode . '  ' . l:reset
+  
+  " File info with icon
+  let l:sl .= '%#StatusLineFile#  '
+  let l:sl .= '%{&mod ? "● " : &readonly ? "🔒 " : "📄 "}'
+  let l:sl .= '%t'
+  let l:sl .= '%m%r'
+  let l:sl .= '  ' . l:reset
+  
+  " File type and size
+  let l:sl .= '%#StatusLineInfo#  '
+  if strlen(&filetype) > 0
+    let l:sl .= '⬦ ' . toupper(&filetype) . '  '
+  endif
+  let l:size = FileSize()
+  if strlen(l:size) > 0
+    let l:sl .= '⬓ ' . l:size . '  '
+  endif
+  let l:sl .= l:reset
+  
+  " Right side
+  let l:sl .= '%='
+  
+  " Git branch
+  let l:branch = GitBranch()
+  if strlen(l:branch) > 0 && l:branch != 'HEAD'
+    let l:sl .= '%#StatusLineInfo#  ⎇ ' . l:branch . '  %*'
+  endif
+  
+  " Encoding and format
+  let l:sl .= '%#StatusLineFile#  '
+  let l:sl .= &fileencoding ? &fileencoding : &encoding
+  let l:sl .= '  [' . &fileformat . ']  '
+  let l:sl .= '%*'
+  
+  " Position indicator
+  let l:sl .= '%#StatusLinePos#  %l:%c  %p%%  %*'
+  
+  return l:sl
+endfunction
+
+" Set status line
+set statusline=%!BuildStatusLine()
 
 " Show line numbers in netrw
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
@@ -135,25 +351,22 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " Split Windows and Navigation
 " ============================================================================
 
-" Natural split directions (LazyVim-like)
-set splitbelow
-set splitright
+" DISABLED: Natural split directions
+" set splitbelow
+" set splitright
 
-" Window navigation with Ctrl+hjkl
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" DISABLED: Window navigation shortcuts (keep native)
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
-" Resize windows with arrows
-nnoremap <C-Up>    :resize +2<CR>
-nnoremap <C-Down>  :resize -2<CR>
-nnoremap <C-Left>  :vertical resize -2<CR>
-nnoremap <C-Right> :vertical resize +2<CR>
+" DISABLED: Split window shortcuts
+" nnoremap <leader>- :split<CR>
+" nnoremap <leader>\| :vsplit<CR>
+" nnoremap <leader>q :q<CR>
 
-" Split window shortcuts
-nnoremap <leader>- :split<CR>
-nnoremap <leader>\| :vsplit<CR>
+" Keep only these window commands
 nnoremap <leader>q :q<CR>
 
 " ============================================================================
@@ -212,7 +425,7 @@ nnoremap <C-s> :w<CR>
 nnoremap <leader>x :x<CR>
 
 " Quit without saving
-nnoremap <leader>Q :q!<CR>
+nnoremap <leader>! :q!<CR>
 
 " Save all buffers
 nnoremap <leader>W :wa<CR>
@@ -222,7 +435,7 @@ nnoremap <leader>W :wa<CR>
 " ============================================================================
 
 " Find files (uses find command)
-nnoremap <leader>ff :find
+nnoremap <leader>ff :find 
 nnoremap <leader>fF :find **/*
 
 " Find in files (grep)
@@ -320,16 +533,11 @@ nnoremap <leader>zo zR
 " ============================================================================
 
 if has('terminal')
-  " Open terminal in split
-"  nnoremap <leader>t :term<CR>
-"  nnoremap <leader>T :vsplit term://bash<CR>
-
+  " Open terminal
+  nnoremap <leader>t :term<CR>
+  
   " Exit terminal mode with Esc
   tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-h> <C-\><C-n><C-w>h
-  tnoremap <C-j> <C-\><C-n><C-w>j
-  tnoremap <C-k> <C-\><C-n><C-w>k
-  tnoremap <C-l> <C-\><C-n><C-w>l
 endif
 
 " ============================================================================
@@ -506,7 +714,7 @@ autocmd FileType markdown setlocal wrap linebreak textwidth=80
 " ============================================================================
 
 " Open help in vertical split
-nnoremap <leader>h :vert help
+nnoremap <leader>h :vert help 
 
 " Show key mappings
 nnoremap <leader>mk :map<CR>
@@ -528,6 +736,9 @@ autocmd BufWinEnter *.* silent loadview
 
 " Auto-reload vimrc when changed
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
+
+" Update status line on mode change
+autocmd ModeChanged * redrawstatus
 
 " ============================================================================
 " Visual Mode Enhancements
@@ -592,7 +803,7 @@ nnoremap <leader>reg :registers<CR>
 " Initialization Message
 " ============================================================================
 
-autocmd VimEnter * echo "Welcome to Nixit Vim! Leader key: <Space>"
+autocmd VimEnter * echo "Nixit Vim • Catppuccin Mocha • Leader: <Space>"
 
 " ============================================================================
 " End of Configuration
