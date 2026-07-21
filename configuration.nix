@@ -993,7 +993,7 @@ virtualisation = {
 
   # VirtualBox - disabled KVM acceleration to avoid conflicts
   virtualbox.host.enable = true;
-  virtualbox.host.enableExtensionPack = false;  # Set to true if you need USB passthrough
+  virtualbox.host.enableExtensionPack = true;  # USB passthrough and advanced features enabled
 
 };
 
