@@ -284,31 +284,6 @@ services.xserver = {
 
 services.displayManager.gdm.enable = true;
 
-# GDM background via dconf (the actual mechanism)
-# Create dconf profile and database via activation script
-system.activationScripts.dconf-gdm = ''
-  # Create dconf profile for the "gdm" user
-  ${pkgs.coreutils}/bin/mkdir -p /etc/dconf/profile
-  ${pkgs.coreutils}/bin/cat > /etc/dconf/profile/gdm << 'PROFILE'
-user-db:user
-system-db:gdm
-PROFILE
-
-  # Create dconf database directory
-  ${pkgs.coreutils}/bin/mkdir -p /etc/dconf/db/gdm.d
-
-  # Set GDM background via dconf database
-  ${pkgs.coreutils}/bin/cat > /etc/dconf/db/gdm.d/00-background << 'DB'
-[org/gnome/desktop/background]
-picture-uri='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
-picture-uri-dark='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
-picture-options='zoom'
-DB
-
-  # Update dconf database
-  ${pkgs.dconf}/bin/dconf update
-'';
-
 services.desktopManager.gnome.enable = true;
 
 ##############################################################################
