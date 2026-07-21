@@ -326,7 +326,7 @@ system.activationScripts.user-icon = ''
   if [ -f "$ICON_SRC" ]; then
     # Create face icon in home directory
     ${pkgs.coreutils}/bin/cp "$ICON_SRC" "$ICON_DEST"
-    ${pkgs.coreutils}/bin/chown ${username}:${username} "$ICON_DEST"
+    ${pkgs.coreutils}/bin/chown ${username}:users "$ICON_DEST"
     ${pkgs.coreutils}/bin/chmod 644 "$ICON_DEST"
 
     # Create accountsservice icon for GDM
