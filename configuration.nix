@@ -1016,8 +1016,8 @@ virtualisation = {
   libvirtd.enable = true;
 
   # VirtualBox - disabled KVM acceleration to avoid conflicts
-  virtualbox.host.enable = false;
-  virtualbox.host.enableExtensionPack = false;
+  # virtualbox.host.enable = false;
+  # virtualbox.host.enableExtensionPack = false;
 
 };
 
