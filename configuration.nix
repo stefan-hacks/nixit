@@ -933,6 +933,8 @@ environment.systemPackages = with pkgs; [
   mpv
   vlc
   ffmpeg
+  jellyfin-tui
+  jellyfin-desktop
 
   ###########################################################################
   # Communication
