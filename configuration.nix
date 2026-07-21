@@ -560,6 +560,9 @@ environment.variables = {
 
 };
 
+# Include ~/.local/bin in user PATH
+environment.localBinInPath = true;
+
 ##############################################################################
 #
 # Fonts
