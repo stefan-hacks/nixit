@@ -468,7 +468,7 @@ users.users.${username} = {
     "video"
     "input"
     "dialout"
-    "vboxusers"
+    "libvirtd"
 
   ];
 
@@ -944,6 +944,10 @@ environment.systemPackages = with pkgs; [
   guvcview
   qbittorrent
   impression
+  qemu
+  qemu_kvm
+  virt-manager
+  spice-gtk
 
   ###########################################################################
   # File Management (additional)
@@ -962,6 +966,12 @@ programs.direnv = {
   enable = true;
 
   nix-direnv.enable = true;
+
+};
+
+programs.virt-manager = {
+
+  enable = true;
 
 };
 
@@ -989,11 +999,11 @@ virtualisation = {
 
   podman.enable = false;
 
-  libvirtd.enable = false;
+  libvirtd.enable = true;
 
   # VirtualBox - disabled KVM acceleration to avoid conflicts
-  virtualbox.host.enable = true;
-  virtualbox.host.enableExtensionPack = true;  # USB passthrough and advanced features enabled
+  virtualbox.host.enable = false;
+  virtualbox.host.enableExtensionPack = false;
 
 };
 
