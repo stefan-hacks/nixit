@@ -468,6 +468,7 @@ users.users.${username} = {
     "video"
     "input"
     "dialout"
+    "vboxusers"
 
   ];
 
@@ -989,6 +990,10 @@ virtualisation = {
   podman.enable = false;
 
   libvirtd.enable = false;
+
+  # VirtualBox - disabled KVM acceleration to avoid conflicts
+  virtualbox.host.enable = true;
+  virtualbox.host.enableExtensionPack = false;  # Set to true if you need USB passthrough
 
 };
 
