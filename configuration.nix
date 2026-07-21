@@ -524,6 +524,9 @@ system.activationScripts.dotfiles.text = ''
   # Atuin
   ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
 
+  # Vim
+  ln -sfn "$DOTFILES/vim/.vimrc"                  "$HOME/.vimrc"
+
   # Wallpapers
   ln -sfn "$REPO/assets/wallpapers"             "$HOME/Pictures/wallpapers"
 
