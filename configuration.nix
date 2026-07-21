@@ -46,6 +46,12 @@ let
   assetsDirectory = "${repoDirectory}/assets";
   gnomeDirectory = "${repoDirectory}/gnome";
 
+  # GDM wallpaper - copied to nix store for accessibility (GDM user can read it)
+  gdmWallpaper = pkgs.runCommand "gdm-wallpaper" { } ''
+    mkdir -p $out/share/wallpapers
+    cp ${repoDirectory}/assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg $out/share/wallpapers/gdm-background.jpg
+  '';
+
 in
 
 {
@@ -273,7 +279,14 @@ services.xserver = {
 #
 ##############################################################################
 
-services.displayManager.gdm.enable = true;
+services.displayManager.gdm = {
+  enable = true;
+  settings = {
+    greeter = {
+      background-image = "${gdmWallpaper}/share/wallpapers/gdm-background.jpg";
+    };
+  };
+};
 
 services.desktopManager.gnome.enable = true;
 
