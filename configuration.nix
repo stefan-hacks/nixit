@@ -292,13 +292,20 @@ programs.gpaste.enable = true;
 # Load sanitized GNOME settings after system activation
 system.activationScripts.gnome-settings.text = ''
 
-  DCONF_FILE="${repoDirectory}/gnome/dconf.ini"
-
-  if [ -f "$DCONF_FILE" ]; then
-    ${pkgs.dconf}/bin/dconf load / < "$DCONF_FILE"
-  fi
+  # Skip dconf loading during activation - it requires D-Bus session
+  # dconf will be loaded via user service on login instead
 
 '';
+
+# User service to load GNOME settings on login
+systemd.user.services.gnome-settings-load = {
+  description = "Load GNOME settings from nixit";
+  serviceConfig = {
+    Type = "oneshot";
+    ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.dconf}/bin/dconf load / \u003c ${repoDirectory}/gnome/dconf.ini || true'";
+  };
+  wantedBy = [ "default.target" ];
+};
 
 ##############################################################################
 #
