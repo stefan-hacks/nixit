@@ -46,8 +46,11 @@ let
   assetsDirectory = "${repoDirectory}/assets";
   gnomeDirectory = "${repoDirectory}/gnome";
 
-  # GDM wallpaper - use local path (will be copied to nix store)
-  gdmWallpaper = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
+  # GDM wallpaper - copied to nix store for accessibility (GDM user can read it)
+  gdmWallpaper = pkgs.runCommand "gdm-wallpaper" { } ''
+    mkdir -p $out/share/wallpapers
+    cp ${repoDirectory}/assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg $out/share/wallpapers/gdm-background.jpg
+  '';
 
 in
 
@@ -280,7 +283,7 @@ services.displayManager.gdm = {
   enable = true;
   settings = {
     greeter = {
-      background-image = "${gdmWallpaper}";
+      background-image = "${gdmWallpaper}/share/wallpapers/gdm-background.jpg";
     };
   };
 };
