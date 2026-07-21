@@ -286,6 +286,9 @@ services.desktopManager.gnome.enable = true;
 
 programs.dconf.enable = true;
 
+# GPaste clipboard manager daemon
+programs.gpaste.enable = true;
+
 # Load sanitized GNOME settings after system activation
 system.activationScripts.gnome-settings.text = ''
 
@@ -630,6 +633,12 @@ environment.systemPackages = with pkgs; [
 
   jq
   yq-go
+
+  ###########################################################################
+  # Clipboard Manager
+  ###########################################################################
+
+  gpaste
 
   less
 
