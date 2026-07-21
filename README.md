@@ -141,7 +141,7 @@ atuin sync
 <details>
 <summary><strong>Development</strong></summary>
 
-- `vim`, `helix`, `lazygit`, `delta`
+- `vim`, `lazygit`, `delta`
 - `git`, `git-lfs`, `gh`
 
 </details>
