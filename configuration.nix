@@ -657,6 +657,7 @@ environment.systemPackages = with pkgs; [
 
   # Image manipulation
   imagemagick
+  exiftool
 
   ###########################################################################
   # Shell Utilities
