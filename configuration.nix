@@ -885,7 +885,7 @@ environment.systemPackages = with pkgs; [
   # GNOME Extensions - managed via gnome-extension-manager
   gnomeExtensions.dash-to-dock
   gnomeExtensions.blur-my-shell
-  gnomeExtensions.clipboard-indicator
+  # gnomeExtensions.clipboard-indicator
   gnomeExtensions.appindicator
   gnomeExtensions.arcmenu
   gnomeExtensions.quake-terminal
