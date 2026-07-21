@@ -285,22 +285,27 @@ services.xserver = {
 services.displayManager.gdm.enable = true;
 
 # GDM background via dconf (the actual mechanism)
-# Create dconf profile for the "gdm" user
-environment.etc."dconf/profile/gdm".text = ''
-  user-db:user
-  system-db:gdm
-'';
+# Create dconf profile and database via activation script
+system.activationScripts.dconf-gdm = ''
+  # Create dconf profile for the "gdm" user
+  ${pkgs.coreutils}/bin/mkdir -p /etc/dconf/profile
+  ${pkgs.coreutils}/bin/cat > /etc/dconf/profile/gdm << 'PROFILE'
+user-db:user
+system-db:gdm
+PROFILE
 
-# Set GDM background via dconf database
-environment.etc."dconf/db/gdm.d/00-background".text = ''
-  [org/gnome/desktop/background]
-  picture-uri='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
-  picture-uri-dark='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
-  picture-options='zoom'
-'';
+  # Create dconf database directory
+  ${pkgs.coreutils}/bin/mkdir -p /etc/dconf/db/gdm.d
 
-# dconf needs its binary db recompiled from the /etc/dconf/db/*.d text sources
-system.activationScripts.dconf-gdm.text = ''
+  # Set GDM background via dconf database
+  ${pkgs.coreutils}/bin/cat > /etc/dconf/db/gdm.d/00-background << 'DB'
+[org/gnome/desktop/background]
+picture-uri='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
+picture-uri-dark='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
+picture-options='zoom'
+DB
+
+  # Update dconf database
   ${pkgs.dconf}/bin/dconf update
 '';
 
