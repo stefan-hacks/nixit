@@ -282,14 +282,30 @@ services.xserver = {
 #
 ##############################################################################
 
-services.displayManager.gdm = {
-  enable = true;
-  settings = {
-    greeter = {
-      background-image = "${gdmWallpaper}/share/wallpapers/gdm-background.jpg";
-    };
-  };
-};
+services.displayManager.gdm.enable = true;
+
+# GDM background via dconf (the actual mechanism)
+# Create dconf profile for the "gdm" user
+environment.etc."dconf/profile/gdm".text = ''
+  user-db:user
+  system-db:gdm
+'';
+
+# Set GDM background via dconf database
+environment.etc."dconf/db/gdm.d/00-background".text = ''
+  [org/gnome/desktop/background]
+  picture-uri='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
+  picture-uri-dark='file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg'
+  picture-options='zoom'
+
+  [org/gnome/login-screen]
+  logo=''
+'';
+
+# dconf needs its binary db recompiled from the /etc/dconf/db/*.d text sources
+system.activationScripts.dconf-gdm.text = ''
+  ${pkgs.dconf}/bin/dconf update
+'';
 
 services.desktopManager.gnome.enable = true;
 
