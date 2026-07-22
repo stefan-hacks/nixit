@@ -21,8 +21,7 @@ add_newline = true
 
 # Format groups: username@hostname in green, then directory, then git
 format = """
-[╭](dimmed)
-$username$hostname$directory$git_branch$git_status$python$rust$nodejs$nix_shell
+$directory$git_branch$git_status$python$rust$nodejs$nix_shell
 [╰─](dimmed)$character """
 
 right_format = """$cmd_duration$time$battery"""
