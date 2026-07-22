@@ -170,7 +170,6 @@ function! ApplyTheme()
 
   " Split Separators - invisible (no distracting divider line)
   execute 'highlight VertSplit guifg=' . p.base . ' guibg=' . p.base
-  execute 'highlight WinSeparator guifg=' . p.base . ' guibg=' . p.base
 
   " Messages
   execute 'highlight ErrorMsg guifg=' . p.red . ' guibg=' . p.base . ' gui=bold'
@@ -271,21 +270,21 @@ set noshowmode
 
 function! GetMode()
   let l:mode = mode()
-  if l:mode == 'n'
+  if l:mode ==# 'n'
     return 'NORMAL'
-  elseif l:mode == 'i'
+  elseif l:mode ==# 'i'
     return 'INSERT'
-  elseif l:mode == 'v'
+  elseif l:mode ==# 'v'
     return 'VISUAL'
-  elseif l:mode == 'V'
+  elseif l:mode ==# 'V'
     return 'V-LINE'
-  elseif l:mode == "\<C-v>"
+  elseif l:mode ==# "\<C-v>"
     return 'V-BLOCK'
-  elseif l:mode == 'R' || l:mode == 'Rv'
+  elseif l:mode ==# 'R' || l:mode ==# 'Rv'
     return 'REPLACE'
-  elseif l:mode == 'c'
+  elseif l:mode ==# 'c'
     return 'COMMAND'
-  elseif l:mode == 't'
+  elseif l:mode ==# 't'
     return 'TERMINAL'
   else
     return toupper(l:mode)
@@ -294,13 +293,13 @@ endfunction
 
 function! GetModeColor()
   let l:mode = mode()
-  if l:mode == 'i'
+  if l:mode ==# 'i'
     return 'SLInsert'
-  elseif l:mode == 'v' || l:mode == 'V' || l:mode == "\<C-v>"
+  elseif l:mode ==# 'v' || l:mode ==# 'V' || l:mode ==# "\<C-v>"
     return 'SLVisual'
-  elseif l:mode == 'R' || l:mode == 'Rv'
+  elseif l:mode ==# 'R' || l:mode ==# 'Rv'
     return 'SLReplace'
-  elseif l:mode == 'c'
+  elseif l:mode ==# 'c'
     return 'SLCommand'
   else
     return 'SLNormal'
@@ -309,13 +308,13 @@ endfunction
 
 function! GetModeSep()
   let l:mode = mode()
-  if l:mode == 'i'
+  if l:mode ==# 'i'
     return 'SLInsertSep'
-  elseif l:mode == 'v' || l:mode == 'V' || l:mode == "\<C-v>"
+  elseif l:mode ==# 'v' || l:mode ==# 'V' || l:mode ==# "\<C-v>"
     return 'SLVisualSep'
-  elseif l:mode == 'R' || l:mode == 'Rv'
+  elseif l:mode ==# 'R' || l:mode ==# 'Rv'
     return 'SLReplaceSep'
-  elseif l:mode == 'c'
+  elseif l:mode ==# 'c'
     return 'SLCommandSep'
   else
     return 'SLNormalSep'
@@ -375,7 +374,7 @@ function! BuildStatusLine()
 
   " Git branch
   let l:branch = GitBranch()
-  if strlen(l:branch) > 0 && l:branch != 'HEAD'
+  if strlen(l:branch) > 0 && l:branch !=# 'HEAD'
     let l:sl .= '%#SLGit# 󰘬 ' . l:branch . ' %*'
   endif
 
@@ -400,13 +399,13 @@ set statusline=%!BuildStatusLine()
 function! UpdateCursorColor()
   let l:mode = mode()
   let p = g:theme_palette
-  if l:mode == 'i'
+  if l:mode ==# 'i'
     execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.sky
-  elseif l:mode == 'v' || l:mode == 'V' || l:mode == "\<C-v>"
+  elseif l:mode ==# 'v' || l:mode ==# 'V' || l:mode ==# "\<C-v>"
     execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.green
-  elseif l:mode == 'R' || l:mode == 'Rv'
+  elseif l:mode ==# 'R' || l:mode ==# 'Rv'
     execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.red
-  elseif l:mode == 'c'
+  elseif l:mode ==# 'c'
     execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.peach
   else
     execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.mauve
@@ -417,10 +416,6 @@ endfunction
 augroup ModeCursor
   autocmd!
   autocmd ModeChanged * call UpdateCursorColor()
-  autocmd InsertEnter * call UpdateCursorColor()
-  autocmd InsertLeave * call UpdateCursorColor()
-  autocmd CmdlineEnter * call UpdateCursorColor()
-  autocmd CmdlineLeave * call UpdateCursorColor()
 augroup END
 
 " ============================================================================
@@ -537,8 +532,6 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap < <gv
-vnoremap > >gv
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 nnoremap <leader>d yyp
@@ -593,7 +586,6 @@ endif
 " Completion
 " ============================================================================
 
-set wildmenu
 set wildmode=longest:full,full
 set wildignore+=*.pyc,*.o,*.obj,*.class,*.jar,*.gif,*.png,*.jpg,*.jpeg
 set wildignore+=*/.git/*,*/node_modules/*,*/__pycache__/*
@@ -709,14 +701,11 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
-autocmd ModeChanged * redrawstatus
 
 " ============================================================================
 " Visual Mode
 " ============================================================================
 
-vnoremap < <gv
-vnoremap > >gv
 vnoremap * y/<C-R>"<CR>
 vnoremap # y?<C-R>"<CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -725,8 +714,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Command Line
 " ============================================================================
 
-set wildmenu
-set wildmode=list:longest,full
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-b> <Left>
