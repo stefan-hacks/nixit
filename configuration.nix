@@ -927,6 +927,7 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   kitty
+  terminator
 
   ###########################################################################
   # Productivity
@@ -979,6 +980,7 @@ environment.systemPackages = with pkgs; [
   # Development Tools
   ###########################################################################
 
+  neovim
   yt-dlp
   guvcview
   qbittorrent
