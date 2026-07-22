@@ -1,9 +1,11 @@
 " ============================================================================
 " Nixit Vimrc - LazyVim-inspired Native Vim Configuration
 " ============================================================================
-" This .vimrc uses ONLY native Vim features - no external plugins required
-" Designed for NixOS nixit dotfiles
-" Catppuccin Mocha Theme with Mode-Aware Cursor
+" 100% native Vim - no plugins, no plugin manager, nothing to install.
+" Catppuccin Mocha is the default theme. Press <leader>ta (or run :Theme
+" adwaita) to switch to a GNOME Adwaita-inspired theme on the fly.
+" Icons use Nerd Font glyphs - if you see boxes instead of icons, install a
+" Nerd Font (e.g. JetBrainsMono Nerd Font) and set it as your terminal font.
 " ============================================================================
 
 " ============================================================================
@@ -24,190 +26,232 @@ let mapleader = " "
 let maplocalleader = " "
 
 " ============================================================================
-" Catppuccin Mocha Color Scheme
+" Theme Engine
 " ============================================================================
+" Every color in this config is looked up from g:theme_palette, a dict of
+" role names -> hex colors. Switching themes just swaps the dict and
+" re-applies every highlight group, so nothing else in this file needs to
+" know or care which theme is active.
 
 if has('termguicolors')
   set termguicolors
 endif
 set background=dark
 
-" Catppuccin Mocha Palette
-let g:ctp_base = '#1e1e2e'
-let g:ctp_surface = '#313244'
-let g:ctp_overlay = '#45475a'
-let g:ctp_muted = '#6c7086'
-let g:ctp_subtext = '#a6adc8'
-let g:ctp_text = '#cdd6f4'
-let g:ctp_lavender = '#b4befe'
-let g:ctp_blue = '#89b4fa'
-let g:ctp_sapphire = '#74c7ec'
-let g:ctp_sky = '#89dceb'
-let g:ctp_teal = '#94e2d5'
-let g:ctp_green = '#a6e3a1'
-let g:ctp_yellow = '#f9e2af'
-let g:ctp_peach = '#fab387'
-let g:ctp_maroon = '#eba0ac'
-let g:ctp_red = '#f38ba8'
-let g:ctp_mauve = '#cba6f7'
-let g:ctp_pink = '#f5c2e7'
-let g:ctp_flamingo = '#f2cdcd'
-let g:ctp_rosewater = '#f5e0dc'
+let g:theme_name = 'catppuccin'
 
-" Base highlights
-execute 'highlight Normal guifg=' . g:ctp_text . ' guibg=' . g:ctp_base
-execute 'highlight Comment guifg=' . g:ctp_muted . ' gui=italic'
-execute 'highlight Constant guifg=' . g:ctp_peach
-execute 'highlight String guifg=' . g:ctp_green
-execute 'highlight Character guifg=' . g:ctp_green
-execute 'highlight Number guifg=' . g:ctp_peach
-execute 'highlight Boolean guifg=' . g:ctp_peach
-execute 'highlight Float guifg=' . g:ctp_peach
-execute 'highlight Identifier guifg=' . g:ctp_flamingo
-execute 'highlight Function guifg=' . g:ctp_blue
-execute 'highlight Statement guifg=' . g:ctp_mauve . ' gui=bold'
-execute 'highlight Conditional guifg=' . g:ctp_mauve
-execute 'highlight Repeat guifg=' . g:ctp_mauve
-execute 'highlight Label guifg=' . g:ctp_mauve
-execute 'highlight Operator guifg=' . g:ctp_sky
-execute 'highlight Keyword guifg=' . g:ctp_mauve . ' gui=bold'
-execute 'highlight Exception guifg=' . g:ctp_mauve
-execute 'highlight PreProc guifg=' . g:ctp_pink
-execute 'highlight Include guifg=' . g:ctp_mauve
-execute 'highlight Define guifg=' . g:ctp_pink
-execute 'highlight Macro guifg=' . g:ctp_pink
-execute 'highlight PreCondit guifg=' . g:ctp_pink
-execute 'highlight Type guifg=' . g:ctp_yellow
-execute 'highlight StorageClass guifg=' . g:ctp_yellow
-execute 'highlight Structure guifg=' . g:ctp_yellow
-execute 'highlight Typedef guifg=' . g:ctp_yellow
-execute 'highlight Special guifg=' . g:ctp_sky
-execute 'highlight SpecialChar guifg=' . g:ctp_sky
-execute 'highlight Tag guifg=' . g:ctp_sky
-execute 'highlight Delimiter guifg=' . g:ctp_subtext
-execute 'highlight SpecialComment guifg=' . g:ctp_muted . ' gui=bold'
-execute 'highlight Debug guifg=' . g:ctp_red
-execute 'highlight Error guifg=' . g:ctp_base . ' guibg=' . g:ctp_red . ' gui=bold'
-execute 'highlight Todo guifg=' . g:ctp_base . ' guibg=' . g:ctp_yellow . ' gui=bold'
-execute 'highlight Underlined guifg=' . g:ctp_blue . ' gui=underline'
+let g:palette_catppuccin_mocha = {
+      \ 'base':      '#1e1e2e',
+      \ 'surface':   '#313244',
+      \ 'overlay':   '#45475a',
+      \ 'muted':     '#6c7086',
+      \ 'subtext':   '#a6adc8',
+      \ 'text':      '#cdd6f4',
+      \ 'rosewater': '#f5e0dc',
+      \ 'flamingo':  '#f2cdcd',
+      \ 'pink':      '#f5c2e7',
+      \ 'mauve':     '#cba6f7',
+      \ 'red':       '#f38ba8',
+      \ 'maroon':    '#eba0ac',
+      \ 'peach':     '#fab387',
+      \ 'yellow':    '#f9e2af',
+      \ 'green':     '#a6e3a1',
+      \ 'teal':      '#94e2d5',
+      \ 'sky':       '#89dceb',
+      \ 'sapphire':  '#74c7ec',
+      \ 'blue':      '#89b4fa',
+      \ 'lavender':  '#b4befe',
+      \ }
 
-" UI Elements
-execute 'highlight LineNr guifg=' . g:ctp_muted . ' guibg=' . g:ctp_base
-execute 'highlight CursorLineNr guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface . ' gui=bold'
-execute 'highlight SignColumn guibg=' . g:ctp_base
-execute 'highlight FoldColumn guifg=' . g:ctp_muted . ' guibg=' . g:ctp_base
-execute 'highlight Folded guifg=' . g:ctp_muted . ' guibg=' . g:ctp_surface
-execute 'highlight ColorColumn guibg=' . g:ctp_surface
-execute 'highlight NonText guifg=' . g:ctp_overlay
-execute 'highlight SpecialKey guifg=' . g:ctp_overlay
+" GNOME Adwaita-dark inspired palette
+let g:palette_adwaita = {
+      \ 'base':      '#1e1e1e',
+      \ 'surface':   '#2d2d2d',
+      \ 'overlay':   '#3d3d3d',
+      \ 'muted':     '#9a9996',
+      \ 'subtext':   '#c0bfbc',
+      \ 'text':      '#ffffff',
+      \ 'rosewater': '#f9dbc0',
+      \ 'flamingo':  '#f5b199',
+      \ 'pink':      '#d56199',
+      \ 'mauve':     '#9141ac',
+      \ 'red':       '#e62d42',
+      \ 'maroon':    '#c6262e',
+      \ 'peach':     '#ff7800',
+      \ 'yellow':    '#f6d32d',
+      \ 'green':     '#33d17a',
+      \ 'teal':      '#2190a4',
+      \ 'sky':       '#62a0ea',
+      \ 'sapphire':  '#1c71d8',
+      \ 'blue':      '#3584e4',
+      \ 'lavender':  '#b34cd1',
+      \ }
 
-" Search and Match
-execute 'highlight Search guifg=' . g:ctp_base . ' guibg=' . g:ctp_yellow . ' gui=bold'
-execute 'highlight IncSearch guifg=' . g:ctp_base . ' guibg=' . g:ctp_peach . ' gui=bold'
-execute 'highlight MatchParen guifg=' . g:ctp_base . ' guibg=' . g:ctp_peach . ' gui=bold'
+let g:theme_palette = g:palette_catppuccin_mocha
 
-" Visual Selection
-execute 'highlight Visual guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface
-execute 'highlight VisualNOS guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface
+function! ApplyTheme()
+  let p = g:theme_palette
 
-" Popup Menu
-execute 'highlight Pmenu guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface
-execute 'highlight PmenuSel guifg=' . g:ctp_base . ' guibg=' . g:ctp_mauve . ' gui=bold'
-execute 'highlight PmenuSbar guibg=' . g:ctp_base
-execute 'highlight PmenuThumb guibg=' . g:ctp_muted
+  " Base highlights
+  execute 'highlight Normal guifg=' . p.text . ' guibg=' . p.base
+  execute 'highlight Comment guifg=' . p.muted . ' gui=italic'
+  execute 'highlight Constant guifg=' . p.peach
+  execute 'highlight String guifg=' . p.green
+  execute 'highlight Character guifg=' . p.green
+  execute 'highlight Number guifg=' . p.peach
+  execute 'highlight Boolean guifg=' . p.peach
+  execute 'highlight Float guifg=' . p.peach
+  execute 'highlight Identifier guifg=' . p.flamingo
+  execute 'highlight Function guifg=' . p.blue
+  execute 'highlight Statement guifg=' . p.mauve . ' gui=bold'
+  execute 'highlight Conditional guifg=' . p.mauve
+  execute 'highlight Repeat guifg=' . p.mauve
+  execute 'highlight Label guifg=' . p.mauve
+  execute 'highlight Operator guifg=' . p.sky
+  execute 'highlight Keyword guifg=' . p.mauve . ' gui=bold'
+  execute 'highlight Exception guifg=' . p.mauve
+  execute 'highlight PreProc guifg=' . p.pink
+  execute 'highlight Include guifg=' . p.mauve
+  execute 'highlight Define guifg=' . p.pink
+  execute 'highlight Macro guifg=' . p.pink
+  execute 'highlight PreCondit guifg=' . p.pink
+  execute 'highlight Type guifg=' . p.yellow
+  execute 'highlight StorageClass guifg=' . p.yellow
+  execute 'highlight Structure guifg=' . p.yellow
+  execute 'highlight Typedef guifg=' . p.yellow
+  execute 'highlight Special guifg=' . p.sky
+  execute 'highlight SpecialChar guifg=' . p.sky
+  execute 'highlight Tag guifg=' . p.sky
+  execute 'highlight Delimiter guifg=' . p.subtext
+  execute 'highlight SpecialComment guifg=' . p.muted . ' gui=bold'
+  execute 'highlight Debug guifg=' . p.red
+  execute 'highlight Error guifg=' . p.base . ' guibg=' . p.red . ' gui=bold'
+  execute 'highlight Todo guifg=' . p.base . ' guibg=' . p.yellow . ' gui=bold'
+  execute 'highlight Underlined guifg=' . p.blue . ' gui=underline'
 
-" Wild Menu
-execute 'highlight WildMenu guifg=' . g:ctp_base . ' guibg=' . g:ctp_mauve . ' gui=bold'
+  " UI Elements
+  execute 'highlight LineNr guifg=' . p.muted . ' guibg=' . p.base
+  execute 'highlight CursorLineNr guifg=' . p.text . ' guibg=' . p.surface . ' gui=bold'
+  execute 'highlight SignColumn guibg=' . p.base
+  execute 'highlight FoldColumn guifg=' . p.muted . ' guibg=' . p.base
+  execute 'highlight Folded guifg=' . p.muted . ' guibg=' . p.surface
+  execute 'highlight ColorColumn guibg=' . p.surface
+  execute 'highlight NonText guifg=' . p.overlay
+  execute 'highlight SpecialKey guifg=' . p.overlay
 
-" Status Line Base
-execute 'highlight StatusLine guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface . ' gui=bold'
-execute 'highlight StatusLineNC guifg=' . g:ctp_muted . ' guibg=' . g:ctp_base
-execute 'highlight StatusLineTerm guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface
-execute 'highlight StatusLineTermNC guifg=' . g:ctp_muted . ' guibg=' . g:ctp_base
+  " Search and Match
+  execute 'highlight Search guifg=' . p.base . ' guibg=' . p.yellow . ' gui=bold'
+  execute 'highlight IncSearch guifg=' . p.base . ' guibg=' . p.peach . ' gui=bold'
+  execute 'highlight MatchParen guifg=' . p.base . ' guibg=' . p.peach . ' gui=bold'
 
-" Tab Line
-execute 'highlight TabLine guifg=' . g:ctp_muted . ' guibg=' . g:ctp_base
-execute 'highlight TabLineFill guifg=' . g:ctp_base . ' guibg=' . g:ctp_base
-execute 'highlight TabLineSel guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface . ' gui=bold'
+  " Visual Selection
+  execute 'highlight Visual guifg=' . p.text . ' guibg=' . p.surface
+  execute 'highlight VisualNOS guifg=' . p.text . ' guibg=' . p.surface
 
-" Split Separators - INVISIBLE (no red line!)
-execute 'highlight VertSplit guifg=' . g:ctp_base . ' guibg=' . g:ctp_base
-execute 'highlight WinSeparator guifg=' . g:ctp_base . ' guibg=' . g:ctp_base
+  " Popup Menu
+  execute 'highlight Pmenu guifg=' . p.text . ' guibg=' . p.surface
+  execute 'highlight PmenuSel guifg=' . p.base . ' guibg=' . p.mauve . ' gui=bold'
+  execute 'highlight PmenuSbar guibg=' . p.base
+  execute 'highlight PmenuThumb guibg=' . p.muted
 
-" Messages
-execute 'highlight ErrorMsg guifg=' . g:ctp_red . ' guibg=' . g:ctp_base . ' gui=bold'
-execute 'highlight WarningMsg guifg=' . g:ctp_peach . ' guibg=' . g:ctp_base . ' gui=bold'
-execute 'highlight MoreMsg guifg=' . g:ctp_blue . ' guibg=' . g:ctp_base
-execute 'highlight Question guifg=' . g:ctp_sky . ' guibg=' . g:ctp_base
+  " Wild Menu
+  execute 'highlight WildMenu guifg=' . p.base . ' guibg=' . p.mauve . ' gui=bold'
+
+  " Status Line Base
+  execute 'highlight StatusLine guifg=' . p.text . ' guibg=' . p.surface . ' gui=bold'
+  execute 'highlight StatusLineNC guifg=' . p.muted . ' guibg=' . p.base
+  execute 'highlight StatusLineTerm guifg=' . p.text . ' guibg=' . p.surface
+  execute 'highlight StatusLineTermNC guifg=' . p.muted . ' guibg=' . p.base
+
+  " Tab Line
+  execute 'highlight TabLine guifg=' . p.muted . ' guibg=' . p.base
+  execute 'highlight TabLineFill guifg=' . p.base . ' guibg=' . p.base
+  execute 'highlight TabLineSel guifg=' . p.text . ' guibg=' . p.surface . ' gui=bold'
+
+  " Split Separators - invisible (no distracting divider line)
+  execute 'highlight VertSplit guifg=' . p.base . ' guibg=' . p.base
+  execute 'highlight WinSeparator guifg=' . p.base . ' guibg=' . p.base
+
+  " Messages
+  execute 'highlight ErrorMsg guifg=' . p.red . ' guibg=' . p.base . ' gui=bold'
+  execute 'highlight WarningMsg guifg=' . p.peach . ' guibg=' . p.base . ' gui=bold'
+  execute 'highlight MoreMsg guifg=' . p.blue . ' guibg=' . p.base
+  execute 'highlight Question guifg=' . p.sky . ' guibg=' . p.base
+
+  " Mode-aware status line highlights
+  execute 'highlight SLNormal guifg=' . p.base . ' guibg=' . p.mauve . ' gui=bold'
+  execute 'highlight SLNormalSep guifg=' . p.mauve . ' guibg=' . p.surface
+  execute 'highlight SLInsert guifg=' . p.base . ' guibg=' . p.sky . ' gui=bold'
+  execute 'highlight SLInsertSep guifg=' . p.sky . ' guibg=' . p.surface
+  execute 'highlight SLVisual guifg=' . p.base . ' guibg=' . p.green . ' gui=bold'
+  execute 'highlight SLVisualSep guifg=' . p.green . ' guibg=' . p.surface
+  execute 'highlight SLReplace guifg=' . p.base . ' guibg=' . p.red . ' gui=bold'
+  execute 'highlight SLReplaceSep guifg=' . p.red . ' guibg=' . p.surface
+  execute 'highlight SLCommand guifg=' . p.base . ' guibg=' . p.peach . ' gui=bold'
+  execute 'highlight SLCommandSep guifg=' . p.peach . ' guibg=' . p.surface
+  execute 'highlight SLFile guifg=' . p.text . ' guibg=' . p.surface
+  execute 'highlight SLInfo guifg=' . p.blue . ' guibg=' . p.surface
+  execute 'highlight SLPos guifg=' . p.base . ' guibg=' . p.blue . ' gui=bold'
+  execute 'highlight SLGit guifg=' . p.green . ' guibg=' . p.surface
+  execute 'highlight SLEncoding guifg=' . p.subtext . ' guibg=' . p.surface
+
+  " Dashboard
+  execute 'highlight DashboardLogo guifg=' . p.mauve . ' gui=bold'
+  execute 'highlight DashboardSubtitle guifg=' . p.subtext . ' gui=italic'
+  execute 'highlight DashboardKey guifg=' . p.peach . ' gui=bold'
+  execute 'highlight DashboardDesc guifg=' . p.text
+  execute 'highlight DashboardFooter guifg=' . p.muted . ' gui=italic'
+
+  " Mode-aware cursor (used by UpdateCursorColor below)
+  execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.mauve
+
+  let g:colors_name = g:theme_name
+  redrawstatus!
+endfunction
+
+function! s:SetTheme(name)
+  if a:name ==# 'adwaita'
+    let g:theme_palette = g:palette_adwaita
+    let g:theme_name = 'adwaita'
+  else
+    let g:theme_palette = g:palette_catppuccin_mocha
+    let g:theme_name = 'catppuccin'
+  endif
+  call ApplyTheme()
+  echo 'Theme: ' . g:theme_name
+endfunction
+
+function! s:ToggleTheme()
+  call s:SetTheme(g:theme_name ==# 'catppuccin' ? 'adwaita' : 'catppuccin')
+endfunction
+
+" Global wrapper so it can be safely referenced from :execute-built mappings
+" (e.g. the dashboard) without worrying about <SID> script-context resolution.
+function! ToggleNixitTheme()
+  call s:ToggleTheme()
+endfunction
+
+command! -nargs=1 -complete=customlist,s:ThemeComplete Theme call s:SetTheme(<q-args>)
+function! s:ThemeComplete(...)
+  return ['catppuccin', 'adwaita']
+endfunction
+
+nnoremap <leader>ta :call ToggleNixitTheme()<CR>
+nnoremap <leader>tC :Theme catppuccin<CR>
+nnoremap <leader>tA :Theme adwaita<CR>
+
+call ApplyTheme()
 
 " ============================================================================
-" Mode-Aware Cursor Colors
+" Cursor Shape (mode aware, terminal cursor)
 " ============================================================================
 
-" NORMAL mode cursor - Mauve (Purple)
-execute 'highlight NormalCursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_mauve
-
-" INSERT mode cursor - Sky/Cyan
-execute 'highlight InsertCursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_sky
-
-" VISUAL mode cursor - Green
-execute 'highlight VisualCursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_green
-
-" REPLACE mode cursor - Red
-execute 'highlight ReplaceCursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_red
-
-" COMMAND mode cursor - Peach
-execute 'highlight CommandCursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_peach
-
-" ============================================================================
-" Mode-Aware Status Line Colors
-" ============================================================================
-
-" NORMAL
-execute 'highlight SLNormal guifg=' . g:ctp_base . ' guibg=' . g:ctp_mauve . ' gui=bold'
-execute 'highlight SLNormalSep guifg=' . g:ctp_mauve . ' guibg=' . g:ctp_surface
-
-" INSERT
-execute 'highlight SLInsert guifg=' . g:ctp_base . ' guibg=' . g:ctp_sky . ' gui=bold'
-execute 'highlight SLInsertSep guifg=' . g:ctp_sky . ' guibg=' . g:ctp_surface
-
-" VISUAL
-execute 'highlight SLVisual guifg=' . g:ctp_base . ' guibg=' . g:ctp_green . ' gui=bold'
-execute 'highlight SLVisualSep guifg=' . g:ctp_green . ' guibg=' . g:ctp_surface
-
-" REPLACE
-execute 'highlight SLReplace guifg=' . g:ctp_base . ' guibg=' . g:ctp_red . ' gui=bold'
-execute 'highlight SLReplaceSep guifg=' . g:ctp_red . ' guibg=' . g:ctp_surface
-
-" COMMAND
-execute 'highlight SLCommand guifg=' . g:ctp_base . ' guibg=' . g:ctp_peach . ' gui=bold'
-execute 'highlight SLCommandSep guifg=' . g:ctp_peach . ' guibg=' . g:ctp_surface
-
-" Other statusline elements
-execute 'highlight SLFile guifg=' . g:ctp_text . ' guibg=' . g:ctp_surface
-execute 'highlight SLInfo guifg=' . g:ctp_blue . ' guibg=' . g:ctp_surface
-execute 'highlight SLPos guifg=' . g:ctp_base . ' guibg=' . g:ctp_blue . ' gui=bold'
-execute 'highlight SLGit guifg=' . g:ctp_green . ' guibg=' . g:ctp_surface
-execute 'highlight SLEncoding guifg=' . g:ctp_subtext . ' guibg=' . g:ctp_surface
-
-" ============================================================================
-" Cursor Configuration (No Line/Column Highlight)
-" ============================================================================
-
-" DISABLED: No cursor line or column highlighting
-set nocursorline
-set nocursorcolumn
-set colorcolumn=
-
-" Cursor shape and color - mode aware
-" Use guicursor to change cursor color by mode
-if has('guicolors')
-  set guicursor=n:block-Cursor/lCursor
-  set guicursor=i:ver25-iCursor
-  set guicursor=v:block-vCursor
-  set guicursor=r:block-rCursor
-  set guicursor=c:block-cCursor
+if has('guicolors') || &term =~? 'xterm\|screen\|tmux'
+  let &t_SI = "\e[6 q"
+  let &t_SR = "\e[4 q"
+  let &t_EI = "\e[2 q"
 endif
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
 " ============================================================================
 " UI Configuration
@@ -219,6 +263,7 @@ set showmatch
 set matchtime=2
 set showcmd
 set laststatus=2
+set noshowmode
 
 " ============================================================================
 " Mode Detection and Status Line
@@ -299,18 +344,18 @@ function! BuildStatusLine()
   let l:mode = GetMode()
   let l:mode_color = GetModeColor()
   let l:mode_sep = GetModeSep()
-  
+
   let l:sl = ''
-  
+
   " Left: Mode indicator with color
   let l:sl .= '%#' . l:mode_color . '#  ' . l:mode . '  %*'
-  let l:sl .= '%#' . l:mode_sep . '#%*'
-  
+  let l:sl .= '%#' . l:mode_sep . '#%*'
+
   " File icon and name
   let l:sl .= '%#SLFile# '
   let l:sl .= '%{&mod ? "● " : &readonly ? "󰌾 " : "󰈤 "}'
   let l:sl .= '%t %m%r %*'
-  
+
   " File info
   let l:sl .= '%#SLInfo# '
   if strlen(&filetype) > 0
@@ -321,25 +366,28 @@ function! BuildStatusLine()
     let l:sl .= l:size . '  '
   endif
   let l:sl .= '%*'
-  
+
   " Right side
   let l:sl .= '%='
-  
+
+  " Theme name
+  let l:sl .= '%#SLEncoding#  ' . g:theme_name . ' %*'
+
   " Git branch
   let l:branch = GitBranch()
   if strlen(l:branch) > 0 && l:branch != 'HEAD'
     let l:sl .= '%#SLGit# 󰘬 ' . l:branch . ' %*'
   endif
-  
+
   " Encoding
   let l:sl .= '%#SLEncoding# '
   let l:sl .= &fileencoding ? &fileencoding : &encoding
   let l:sl .= ' [%{&fileformat}] %*'
-  
+
   " Position with mode color
   let l:sl .= '%#SLPos# %l:%c %*'
   let l:sl .= '%#' . l:mode_color . '# %p%% %*'
-  
+
   return l:sl
 endfunction
 
@@ -349,24 +397,23 @@ set statusline=%!BuildStatusLine()
 " Mode-Change Auto-Commands (Update Cursor and Status Line)
 " ============================================================================
 
-" Update cursor color based on mode
 function! UpdateCursorColor()
   let l:mode = mode()
+  let p = g:theme_palette
   if l:mode == 'i'
-    execute 'highlight Cursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_sky
+    execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.sky
   elseif l:mode == 'v' || l:mode == 'V' || l:mode == "\<C-v>"
-    execute 'highlight Cursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_green
+    execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.green
   elseif l:mode == 'R' || l:mode == 'Rv'
-    execute 'highlight Cursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_red
+    execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.red
   elseif l:mode == 'c'
-    execute 'highlight Cursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_peach
+    execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.peach
   else
-    execute 'highlight Cursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_mauve
+    execute 'highlight Cursor guifg=' . p.base . ' guibg=' . p.mauve
   endif
   redrawstatus
 endfunction
 
-" Trigger cursor color update on mode change
 augroup ModeCursor
   autocmd!
   autocmd ModeChanged * call UpdateCursorColor()
@@ -375,9 +422,6 @@ augroup ModeCursor
   autocmd CmdlineEnter * call UpdateCursorColor()
   autocmd CmdlineLeave * call UpdateCursorColor()
 augroup END
-
-" Initialize cursor color
-execute 'highlight Cursor guifg=' . g:ctp_base . ' guibg=' . g:ctp_mauve
 
 " ============================================================================
 " Tabs and Indentation
@@ -391,6 +435,10 @@ set softtabstop=2
 set autoindent
 set smartindent
 set copyindent
+
+" Subtle indent guides (native listchars, LazyVim-esque)
+set list
+set listchars=tab:\│\ ,trail:·,nbsp:␣,extends:›,precedes:‹
 
 " ============================================================================
 " Search Configuration
@@ -409,7 +457,20 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 set nosplitbelow
 set nosplitright
+set splitkeep=screen
 nnoremap <leader>q :q<CR>
+nnoremap <leader>sv <C-w>v
+nnoremap <leader>sh <C-w>s
+nnoremap <leader>se <C-w>=
+nnoremap <leader>sx :close<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-Up>    :resize -2<CR>
+nnoremap <C-Down>  :resize +2<CR>
+nnoremap <C-Left>  :vertical resize -2<CR>
+nnoremap <C-Right> :vertical resize +2<CR>
 
 " ============================================================================
 " Buffer Management
@@ -456,7 +517,7 @@ nnoremap <leader>W :wa<CR>
 " Fuzzy Finding
 " ============================================================================
 
-nnoremap <leader>ff :find 
+nnoremap <leader>ff :find
 nnoremap <leader>fF :find **/*
 nnoremap <leader>fg :vimgrep // **/*<Left><Left><Left><Left><Left><Left>
 nnoremap <leader>fG :vimgrep <C-R>=expand("<cword>")<CR> **/*<CR>
@@ -582,6 +643,7 @@ nnoremap <leader>tn :set number!<CR>
 nnoremap <leader>tr :set relativenumber!<CR>
 nnoremap <leader>tw :set wrap!<CR>
 nnoremap <leader>tp :set paste!<CR>
+nnoremap <leader>tl :set list!<CR>
 nnoremap <leader>fp :echo expand('%:p')<CR>
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
@@ -627,12 +689,16 @@ autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType markdown setlocal wrap linebreak textwidth=80
 
 " ============================================================================
-" Help
+" Help / Which-key-lite
 " ============================================================================
+" Native Vim has no popup which-key, but :map/:map! dump every binding, and
+" pressing <leader> then waiting shows Vim's own command completion in the
+" wildmenu for anything typed as a command.
 
-nnoremap <leader>h :vert help 
+nnoremap <leader>h :vert help
 nnoremap <leader>mk :map<CR>
 nnoremap <leader>mK :map!<CR>
+nnoremap <leader>? :map<CR>
 
 " ============================================================================
 " Auto-commands
@@ -689,7 +755,82 @@ nnoremap <leader>ma :marks<CR>
 nnoremap <leader>reg :registers<CR>
 
 " ============================================================================
+" Dashboard (LazyVim-style start screen)
+" ============================================================================
+" Shown only when Vim is launched with no file argument and nothing piped
+" in on stdin - a quiet, centered menu instead of a blank buffer.
+
+let s:dashboard_logo = [
+      \ '  _   _ _      _ _   ',
+      \ ' | \ | (_)_  _(_) |_ ',
+      \ ' |  \| | \ \/ / | __|',
+      \ ' | |\  | |>  <| | |_ ',
+      \ ' |_| \_|_/_/\_\_|\__|',
+      \ ]
+
+function! s:DashboardCenter(line, width)
+  let l:pad = (a:width - strdisplaywidth(a:line)) / 2
+  return l:pad > 0 ? repeat(' ', l:pad) . a:line : a:line
+endfunction
+
+function! s:OpenDashboard()
+  enew
+  setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted
+  setlocal nonumber norelativenumber nocursorline nolist statusline=\
+  setlocal filetype=dashboard
+
+  let l:width = winwidth(0)
+  let l:lines = []
+  call add(l:lines, '')
+  call add(l:lines, '')
+  for l:logo_line in s:dashboard_logo
+    call add(l:lines, s:DashboardCenter(l:logo_line, l:width))
+  endfor
+  call add(l:lines, s:DashboardCenter('native vim · no plugins · ' . g:theme_name, l:width))
+  call add(l:lines, '')
+
+  let l:menu = [
+        \ ['f', 'Find file', ':find '],
+        \ ['e', 'Explorer', ':Lexplore<CR>'],
+        \ ['n', 'New file', ':enew<CR>'],
+        \ ['g', 'Live grep', ':vimgrep // **/*<Left><Left><Left><Left><Left><Left>'],
+        \ ['c', 'Edit config', ':e ~/.vimrc<CR>'],
+        \ ['t', 'Toggle theme', ':call ToggleNixitTheme()<CR>'],
+        \ ['q', 'Quit', ':q<CR>'],
+        \ ]
+  for l:item in l:menu
+    let l:entry = printf('[%s]  %s', l:item[0], l:item[1])
+    call add(l:lines, s:DashboardCenter(l:entry, l:width))
+  endfor
+  call add(l:lines, '')
+  call add(l:lines, s:DashboardCenter('press a key above to get started', l:width))
+
+  call setline(1, l:lines)
+  setlocal nomodifiable nomodified
+
+  " Highlight the sections
+  let l:logo_start = 3
+  let l:logo_end = l:logo_start + len(s:dashboard_logo) - 1
+  execute 'syntax match DashboardLogo /\%' . l:logo_start . 'l.*\%' . l:logo_end . 'l/'
+  execute 'syntax match DashboardSubtitle /\%' . (l:logo_end + 1) . 'l.*/'
+  syntax match DashboardKey /\[.\]/
+  syntax match DashboardFooter /press a key.*/
+
+  for l:item in l:menu
+    execute 'nnoremap <buffer> ' . l:item[0] . ' ' . l:item[2]
+  endfor
+  nnoremap <buffer> q :q<CR>
+endfunction
+
+command! Dashboard call s:OpenDashboard()
+
+augroup NixitDashboard
+  autocmd!
+  autocmd VimEnter * if argc() == 0 && line2byte('$') == -1 && !exists('s:std_in') | call s:OpenDashboard() | endif
+augroup END
+
+" ============================================================================
 " Welcome Message
 " ============================================================================
 
-autocmd VimEnter * echo "Nixit Vim • Catppuccin Mocha • Mode-aware cursor"
+autocmd VimEnter * echo 'Nixit Vim · ' . g:theme_name . ' · <leader>ta to swap theme'
