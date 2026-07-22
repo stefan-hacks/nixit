@@ -421,6 +421,7 @@ services.avahi = {
 
 # Mullvad-vpn
 services.mullvad-vpn.enable = true;
+services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
 
 ##############################################################################
@@ -966,7 +967,6 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   _1password-gui
-  mullvad-vpn
   btop
   glow
   gum
