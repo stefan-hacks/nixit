@@ -954,6 +954,7 @@ environment.systemPackages = with pkgs; [
   ffmpeg
   jellyfin-tui
   jellyfin-desktop
+  kew
 
   ###########################################################################
   # Communication
@@ -992,6 +993,7 @@ environment.systemPackages = with pkgs; [
   spice-vdagent
   dnsmasq
   bridge-utils
+  cmatrix
 
   ###########################################################################
   # File Management (additional)
