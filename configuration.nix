@@ -419,6 +419,10 @@ services.avahi = {
 
 };
 
+# Mullvad-vpn
+services.mullvad-vpn.enable = true;
+
+
 ##############################################################################
 #
 # Flatpak
