@@ -980,7 +980,6 @@ environment.systemPackages = with pkgs; [
   # Development Tools
   ###########################################################################
 
-  neovim
   yt-dlp
   guvcview
   qbittorrent

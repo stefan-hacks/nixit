@@ -91,13 +91,11 @@ export TERM=xterm-256color
 # 1Password
 #source <(op completion bash)
 
-
 # colorize output
 export GRC_ALIASES=true
 
 # preferred text editor
 export EDITOR="vim"
-
 
 # Colorful manpages
 # Add to your shell config (e.g., ~/.bashrc, ~/.zshrc)
