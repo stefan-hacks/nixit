@@ -253,6 +253,15 @@ endif
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
 " ============================================================================
+" Cursor Configuration (No Line/Column Highlight)
+" ============================================================================
+
+" DISABLED: No cursor line or column highlighting
+set nocursorline
+set nocursorcolumn
+set colorcolumn=
+
+" ============================================================================
 " UI Configuration
 " ============================================================================
 
@@ -700,6 +709,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+autocmd BufWinEnter *.* setlocal nocursorline nocursorcolumn
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 
 " ============================================================================
