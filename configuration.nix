@@ -1020,6 +1020,7 @@ environment.systemPackages = with pkgs; [
   atop
   tailspin
   dust
+  zellij
   ncdu
   dua
   wiper
