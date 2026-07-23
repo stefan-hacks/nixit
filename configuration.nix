@@ -981,7 +981,6 @@ environment.systemPackages = with pkgs; [
   dog
   doggo
   xh
-  nping
   lazydocker
   fd
   ouch
