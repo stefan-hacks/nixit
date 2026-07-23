@@ -1016,7 +1016,7 @@ environment.systemPackages = with pkgs; [
 
   amp
   bandwhich
-  netwatch
+  netfetch
   atop
   tailspin
   nerdlog
