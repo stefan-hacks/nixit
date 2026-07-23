@@ -11,7 +11,6 @@
 " ============================================================================
 " Essential Settings
 " ============================================================================
-
 set nocompatible
 filetype plugin indent on
 syntax enable
@@ -560,6 +559,27 @@ endif
 nnoremap <leader>a ggVG
 
 " ============================================================================
+" Smart Auto-close Brackets and Quotes (NEW)
+" ============================================================================
+" Only inserts the closing pair when the character after the cursor
+" is whitespace or end-of-line, preventing unwanted pairs inside words.
+
+function! InsertPair(left, right)
+  let next = getline('.')[col('.')-1]
+  if next =~ '\s\|$'
+    return a:left . a:right . "\<Left>"
+  else
+    return a:left
+  endif
+endfunction
+
+inoremap <expr> ( InsertPair('(', ')')
+inoremap <expr> [ InsertPair('[', ']')
+inoremap <expr> { InsertPair('{', '}')
+inoremap <expr> ' InsertPair("'", "'")
+inoremap <expr> " InsertPair('"', '"')
+
+" ============================================================================
 " Navigation
 " ============================================================================
 
@@ -678,7 +698,7 @@ if has('mouse')
 endif
 
 " ============================================================================
-" Language Settings
+" Language Settings (enhanced with Rust and Bash)
 " ============================================================================
 
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
@@ -687,7 +707,11 @@ autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType css,scss,sass setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
-autocmd FileType markdown setlocal wrap linebreak textwidth=80
+autocmd FileType markdown setlocal wrap linebreak textwidth=80 spell
+" Rust
+autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=4
+" Bash / Shell
+autocmd FileType sh,bash setlocal expandtab shiftwidth=2 tabstop=2
 
 " ============================================================================
 " Help / Which-key-lite
