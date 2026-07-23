@@ -3,7 +3,7 @@
 # NixOS Production Workstation
 #
 # Hostname    : ghost
-# Purpose     : Daily Development Workstation
+# Purpose     : Daily xDevelopment Workstation
 # Desktop     : GNOME Wayland
 # Shell       : Bash
 # Boot        : GRUB (EFI)
@@ -976,12 +976,57 @@ environment.systemPackages = with pkgs; [
   tealdeer
   grc
   chafa
+  yazi
   cava
+  dog
+  doggo
+  xh
+  nping
+  lazydocker
+  fd
+  ouch
+  hexyl
+  hevi
+  wtfis
+
+
+  ###########################################################################
+  # NixOS-Specific Tools
+  ###########################################################################
+  nh
+  nix-output-monitor
+  nix-tree
+  nix-diff
+  nix-init
+  nix-update
+  nix-index
+  comma
+  deadnix
+  statix
+  alejandra
+  nil
+  nixd
+  home-manager
+  deploy-rs
+  colmena
+  sops
+  agenix
+
 
   ###########################################################################
   # Development Tools
   ###########################################################################
 
+  amp
+  bandwhich
+  netwatch
+  atop
+  tailspin
+  nerdlog
+  dust
+  ncdu
+  dua
+  wiper
   yt-dlp
   guvcview
   qbittorrent
