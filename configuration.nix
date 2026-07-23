@@ -1019,7 +1019,6 @@ environment.systemPackages = with pkgs; [
   netfetch
   atop
   tailspin
-  nerdlog
   dust
   ncdu
   dua
