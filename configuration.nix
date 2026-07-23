@@ -1008,8 +1008,6 @@ environment.systemPackages = with pkgs; [
   home-manager
   deploy-rs
   colmena
-  sops
-  agenix
 
 
   ###########################################################################
