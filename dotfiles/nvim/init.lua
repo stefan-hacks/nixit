@@ -1,5 +1,5 @@
 -- =============================================================================
--- LazyVim Configuration for NixOS
+-- Nixit Neovim Configuration — Declarative, Nix-managed (no Mason)
 -- =============================================================================
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

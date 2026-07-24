@@ -586,6 +586,11 @@ system.activationScripts.dotfiles.text = ''
   ln -sfn "$DOTFILES/vim/.vimrc"                  "$HOME/.vimrc"
   ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.vimrc"
 
+  # Neovim
+  mkdir -p "$HOME/.config/nvim"
+  ln -sfn "$DOTFILES/nvim"                        "$HOME/.config/nvim"
+  ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/nvim"
+
   # ssh config
   ln -sfn "$DOTFILES/.ssh/config"                  "$HOME/.ssh/config"
   ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.ssh/config"
@@ -604,9 +609,9 @@ system.activationScripts.dotfiles.text = ''
 
 environment.variables = {
 
-  EDITOR = "vim";
+  EDITOR = "nvim";
 
-  VISUAL = "vim";
+  VISUAL = "nvim";
 
   TERMINAL = "kitty";
 
@@ -712,6 +717,42 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   vim
+  neovim
+
+  ###########################################################################
+  # LSP Servers (declarative — Nix-managed, no Mason)
+  ###########################################################################
+
+  rust-analyzer
+  nixd
+  basedpyright
+  bash-language-server
+  yaml-language-server
+  marksman
+  taplo
+  lua-language-server
+  vscode-langservers-extracted
+
+  ###########################################################################
+  # Formatters
+  ###########################################################################
+
+  rustfmt
+  nixfmt-rfc-style
+  shfmt
+  ruff
+  stylua
+
+  ###########################################################################
+  # Linters
+  ###########################################################################
+
+  cargo
+  clippy
+  shellcheck
+  statix
+  yamllint
+  markdownlint-cli
 
   ###########################################################################
   # Git
