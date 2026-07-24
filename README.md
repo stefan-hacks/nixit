@@ -36,7 +36,7 @@
 | **Desktop** | GNOME 48 (Wayland) |
 | **Shell** | Bash + Blesh + Starship |
 | **Terminal** | Kitty |
-| **Editor** | Vim / Helix |
+|| **Editor** | Neovim (declarative, Nix-managed) |
 | **Security** | LUKS encryption, Firewall |
 
 ---
@@ -54,6 +54,8 @@
 │   ├── starship/               # Prompt theme
 │   ├── atuin/                  # Shell history
 │   ├── kanata/                 # Keyboard remapper
+│   ├── vim/                    # Vim configuration (native .vimrc)
+│   ├── nvim/                   # Neovim configuration (declarative, Nix-managed)
 │   └── gitconfig/              # Git settings
 ├── gnome/
 │   └── dconf.ini               # GNOME desktop settings
@@ -120,8 +122,14 @@ atuin sync
 
 ### Development Tools
 
-- **Languages**: Python, Rust, Node.js
-- **Editors**: Vim, Helix
+- **Primary Editor**: Neovim — declarative, Nix-managed (no Mason)
+  - LSP: rust-analyzer, nixd, basedpyright, bashls, yamlls, taplo, marksman, lua_ls, jsonls
+  - Formatters: rustfmt, nixfmt, shfmt, ruff, stylua
+  - Linters: clippy, shellcheck, statix, yamllint, markdownlint
+  - Plugins: lazy.nvim, telescope, treesitter, conform.nvim, nvim-lint, which-key,
+    trouble, todo-comments, snacks.nvim, lualine, gitsigns, rustaceanvim, crates.nvim
+- **Fallback Editor**: Vim (native .vimrc, no plugins)
+- **Languages**: Python, Rust, Node.js, Lua, Nix, Bash
 - **Git**: lazygit, delta, gh CLI
 
 ---
