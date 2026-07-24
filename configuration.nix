@@ -587,7 +587,10 @@ system.activationScripts.dotfiles.text = ''
   ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.vimrc"
 
   # Neovim
-  mkdir -p "$HOME/.config/nvim"
+  mkdir -p "$HOME/.config"
+  if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
+    rm -rf "$HOME/.config/nvim"
+  fi
   ln -sfn "$DOTFILES/nvim"                        "$HOME/.config/nvim"
   ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/nvim"
 
