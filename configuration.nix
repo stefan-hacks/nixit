@@ -1016,6 +1016,7 @@ environment.systemPackages = with pkgs; [
 
   amp
   bandwhich
+  bacon
   netfetch
   atop
   tailspin
