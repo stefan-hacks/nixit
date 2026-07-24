@@ -32,7 +32,7 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- =============================================================================
 map("n", "<S-l>", ":bnext<CR>", opts)
 map("n", "<S-h>", ":bprevious<CR>", opts)
-map("n", "<leader>bd", ":Bdelete!<CR>", { desc = "Close Buffer" })
+map("n", "<leader>bd", ":bd!<CR>", { desc = "Close Buffer" })
 
 -- =============================================================================
 -- Better paste
