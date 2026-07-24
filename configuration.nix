@@ -748,7 +748,7 @@ environment.systemPackages = with pkgs; [
   ###########################################################################
 
   rustfmt
-  nixfmt-rfc-style
+  nixfmt
   shfmt
   ruff
   stylua
