@@ -2,6 +2,16 @@
 -- Mini.nvim plugins (ai, surround, comment)
 -- =============================================================================
 return {
+  -- mini.icons
+  {
+    "echasnovski/mini.icons",
+    version = false,
+    lazy = true,
+    config = function()
+      require("mini.icons").setup()
+    end,
+  },
+
   -- mini.ai — extended text objects
   {
     "echasnovski/mini.ai",

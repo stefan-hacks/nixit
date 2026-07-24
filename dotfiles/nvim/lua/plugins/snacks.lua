@@ -47,10 +47,16 @@ return {
     statuscolumn = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },
+    explorer = { enabled = true },
+    scope = { enabled = true },
+    picker = { enabled = true },
   },
   config = function(_, opts)
     local snacks = require("snacks")
     snacks.setup(opts)
+
+    -- Use snacks for vim.ui.select
+    vim.ui.select = snacks.picker.select
 
     -- Keymaps for snacks
     vim.keymap.set("n", "<leader>.", function() snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
