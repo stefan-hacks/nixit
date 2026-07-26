@@ -2369,7 +2369,7 @@ environment.systemPackages = with pkgs; [
   stylua
   black
   isort
-  nodePackages.prettier
+  prettier
 
   ###########################################################################
   # Linters
