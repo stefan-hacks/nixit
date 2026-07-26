@@ -1877,6 +1877,7 @@ programs.nixvim = {
         nixfmt = { command = "${lib.getExe pkgs.nixfmt}"; };
         alejandra = { command = "${lib.getExe pkgs.alejandra}"; };
         jq = { command = "${lib.getExe pkgs.jq}"; };
+        prettier = { command = "${lib.getExe pkgs.prettier}"; };
         stylua = { command = "${lib.getExe pkgs.stylua}"; };
         shellcheck = { command = "${lib.getExe pkgs.shellcheck}"; };
         shfmt = { command = "${lib.getExe pkgs.shfmt}"; };
