@@ -1446,10 +1446,10 @@ programs.nixvim = {
     enable = true;
     settings = {
       indent.enable = true;
-      highlight = {
-        enable = true;
-        disable = [ "nix" ];
-      };
+    };
+    highlight = {
+      enable = true;
+      disable = [ "nix" ];
     };
     folding.enable = false;
     nixvimInjections = true;
