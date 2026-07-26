@@ -1432,7 +1432,10 @@ programs.nixvim = {
     enable = true;
     settings = {
       indent.enable = true;
-      highlight.enable = true;
+      highlight = {
+        enable = true;
+        disable = [ "nix" ];
+      };
     };
     folding.enable = false;
     nixvimInjections = true;
@@ -2119,6 +2122,11 @@ programs.nixvim = {
     }
 
     require("telescope").load_extension("lazygit")
+
+    -- Workaround for treesitter #is-not? predicate missing in some parsers (nix)
+    vim.treesitter.query.add_predicate("is-not?", function()
+      return true
+    end, { force = true, all = false })
   '';
 
   extraConfigLuaPre = ''
