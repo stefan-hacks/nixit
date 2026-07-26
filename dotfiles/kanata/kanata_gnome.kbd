@@ -30,7 +30,7 @@
   jj (tap-hold $tap-time $hold-time j rctl)
   kk (tap-hold $tap-time $hold-time k ralt)
   ll (tap-hold $tap-time $hold-time l rmet)
-  la (tap-hold $tap-time $hold-time bspc bspc)
+  la (tap-hold $tap-time $hold-time bspc del)
   ra (tap-hold $tap-time $hold-time ret ralt)
   qtd (tap-hold $tap-time $hold-time f1 C-A-q)
   pum (tap-hold $tap-time $hold-time f2 A-f2)
@@ -110,12 +110,6 @@
   mwu (mwheel-up 50 120)
   mwr (mwheel-right 50 120)
 )
-
-;; Adds the Super and left alt for delete key
-(defoverrides
-  (lmet lalt) del
-)
-
 
 ;; LAYER ONE - main mods
 (deflayer one

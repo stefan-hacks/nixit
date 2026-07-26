@@ -474,6 +474,7 @@ users.users.${username} = {
     "video"
     "kvm"
     "input"
+    "uinput"
     "dialout"
     "libvirtd"
 
