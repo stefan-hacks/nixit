@@ -51,8 +51,7 @@
 │   ├── starship/               # Prompt theme
 │   ├── atuin/                  # Shell history
 │   ├── kanata/                 # Keyboard remapper
-│   ├── vim/                    # Vim configuration (native .vimrc)
-│   ├── nvim/                   # Neovim legacy config (superseded by nixvim)
+│   ├── nvim/                   # (legacy — superseded by nixvim)
 │   └── gitconfig/              # Git settings
 ├── gnome/
 │   └── dconf.ini               # GNOME desktop settings
