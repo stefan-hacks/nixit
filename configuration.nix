@@ -2724,10 +2724,6 @@ in
       ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
       ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/atuin/config.toml"
 
-    # vim configuration
-      ln -sfn "$DOTFILES/vim/.vimrc"              "$HOME/.vimrc"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.vimrc"
-
       # ssh config
       ln -sfn "$DOTFILES/.ssh/config"                  "$HOME/.ssh/config"
       ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.ssh/config"
