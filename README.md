@@ -2,13 +2,12 @@
 
 # ❄️ Nixit
 
-**A Clean, Reproducible NixOS Workstation Configuration**
+**A Clean, Reproducible NixOS Workstation**
 
 [![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white)](https://nixos.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Built With](https://img.shields.io/badge/Built%20With-❤️-ff69b4.svg)]()
 
-*Pure Nix — No Flakes, No Home Manager*
+*Single-file configuration. No flakes. No Home Manager.*
 
 </div>
 
@@ -16,28 +15,26 @@
 
 ## Overview
 
-**Nixit** is a production-ready NixOS configuration designed for daily development work. It follows a **single-file philosophy** — one `configuration.nix` manages the entire system, with dotfiles tracked in the same repository.
+**Nixit** is a production-ready NixOS workstation configuration. Everything lives in one file: `configuration.nix`. Dotfiles are tracked in the same repo and symlinked on activation.
 
-### Philosophy
-
-- **One file to rule them all** — `configuration.nix` contains everything
-- **No flakes** — Pure Nix expressions, no experimental features
-- **No Home Manager** — System-level user management
-- **Git-managed dotfiles** — Symlinked from `~/.config/nixit`
-- **Reproducible** — Same config, same system, anywhere
-
----
-
-## System Overview
-
-| Component | Configuration |
-|-----------|---------------|
+| Component | Detail |
+|-----------|--------|
 | **OS** | NixOS 26.05 (stable) |
 | **Desktop** | GNOME 48 (Wayland) |
 | **Shell** | Bash + Blesh + Starship |
 | **Terminal** | Kitty |
-|| **Editor** | Neovim (declarative, Nix-managed) |
-| **Security** | LUKS encryption, Firewall |
+| **Editor** | Neovim via Nixvim |
+| **Security** | LUKS, Firewall, 1Password |
+
+---
+
+## Philosophy
+
+- **One file** — `configuration.nix` declares the entire system
+- **No flakes** — Pure Nix expressions only
+- **No Home Manager** — System-level user management
+- **Git-managed dotfiles** — Symlinked from `~/.config/nixit` on rebuild
+- **Reproducible** — Same config, same system, anywhere
 
 ---
 
@@ -45,9 +42,9 @@
 
 ```
 ~/.config/nixit/
-├── configuration.nix           # Main system configuration
+├── configuration.nix           # Main system configuration (single file)
 ├── hardware-configuration.nix  # Hardware-specific settings
-├── dotfiles/                   # Git-managed configuration
+├── dotfiles/                   # Git-managed configurations
 │   ├── bash/                   # .bashrc, .bash_aliases
 │   ├── blesh/                  # Bash line editor config
 │   ├── kitty/                  # Terminal settings
@@ -55,13 +52,35 @@
 │   ├── atuin/                  # Shell history
 │   ├── kanata/                 # Keyboard remapper
 │   ├── vim/                    # Vim configuration (native .vimrc)
-│   ├── nvim/                   # Neovim configuration (declarative, Nix-managed)
+│   ├── nvim/                   # Neovim legacy config (superseded by nixvim)
 │   └── gitconfig/              # Git settings
 ├── gnome/
 │   └── dconf.ini               # GNOME desktop settings
 └── assets/
     └── wallpapers/             # Desktop backgrounds
 ```
+
+---
+
+## Neovim (Nixvim)
+
+Neovim is configured declaratively via [Nixvim](https://github.com/nix-community/nixvim) — a full IDE setup with zero manual plugin management.
+
+| Category | Features |
+|----------|----------|
+| **Theme** | Catppuccin Macchiato, transparent background |
+| **Completion** | nvim-cmp — LSP, buffer, path, luasnip, lspkind icons |
+| **LSP** | lua_ls, nil_ls, ts_ls, pyright, gopls, terraformls, jsonls, yamlls, helm_ls, marksman, html |
+| **Formatting** | conform.nvim — black, isort, nixfmt, stylua, prettier, shfmt, jq, shellharden |
+| **Fuzzy Find** | Telescope — files, grep, buffers, diagnostics, file-browser, lazygit |
+| **Syntax** | Treesitter with 30+ grammars |
+| **Explorer** | Neo-tree file explorer |
+| **Git** | Gitsigns, LazyGit |
+| **UI** | Dashboard, Bufferline, Lualine, ToggleTerm, Undotree |
+| **Editor** | Todo-comments, Illuminate, Navic, Indent-blankline, Which-key |
+| **Extras** | Markdown preview, Schemastore, Mini.indentscope + surround |
+
+Integration: `nix-community/nixvim` imported via `builtins.fetchGit` (non-flakes).
 
 ---
 
@@ -86,7 +105,7 @@ $EDITOR configuration.nix
 sudo nixos-rebuild switch
 ```
 
-### Post-Install Setup
+### Post-Install
 
 ```bash
 # Atuin — sync shell history
@@ -107,7 +126,7 @@ atuin sync
 | [Blesh](https://github.com/akinomyoga/ble.sh) | Bash line editor (syntax, history) |
 | [Starship](https://starship.rs/) | Cross-shell prompt |
 | [Atuin](https://atuin.sh/) | Synced shell history |
-| [Zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter cd command |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
 
 ### Desktop Environment
 
@@ -118,19 +137,8 @@ atuin sync
 | **Blur** | Blur My Shell |
 | **Clipboard** | Clipboard Indicator |
 | **Tray Icons** | AppIndicator |
-| **Keyboard** | Kanata (vim-style leader) |
-
-### Development Tools
-
-- **Primary Editor**: Neovim — declarative, Nix-managed (no Mason)
-  - LSP: rust-analyzer, nixd, basedpyright, bashls, yamlls, taplo, marksman, lua_ls, jsonls
-  - Formatters: rustfmt, nixfmt, shfmt, ruff, stylua
-  - Linters: clippy, shellcheck, statix, yamllint, markdownlint
-  - Plugins: lazy.nvim, telescope, treesitter, conform.nvim, nvim-lint, which-key,
-    trouble, todo-comments, snacks.nvim, lualine, gitsigns, rustaceanvim, crates.nvim
-- **Fallback Editor**: Vim (native .vimrc, no plugins)
-- **Languages**: Python, Rust, Node.js, Lua, Nix, Bash
-- **Git**: lazygit, delta, gh CLI
+| **Keyboard** | Kanata (vim-style leader key) |
+| **Login Wallpaper** | Catppuccin Mocha via GDM dconf profile |
 
 ---
 
@@ -149,8 +157,17 @@ atuin sync
 <details>
 <summary><strong>Development</strong></summary>
 
-- `vim`, `lazygit`, `delta`
+- `lazygit`, `delta`
 - `git`, `git-lfs`, `gh`
+- `rustc`, `cargo`, `clippy`, `rustfmt`, `rust-analyzer`
+- `python3`, `black`, `isort`, `ruff`
+- `nodePackages.prettier`, `typescript`
+- `go`, `gopls`
+- `lua`, `stylua`, `lua-language-server`
+- `nixfmt`, `statix`, `nil`
+- `shellcheck`, `shfmt`, `shellharden`
+- `terraform`, `tflint`, `terraform-ls`
+- `yaml-language-server`, `taplo`, `marksman`
 
 </details>
 
@@ -183,28 +200,25 @@ Edit the top of `configuration.nix`:
 
 ```nix
 let
-  username = "stefan-hacks";     # Your username
-  fullName = "stefan-hacks";     # Display name
+  username = "stefan-hacks";
+  fullName = "stefan-hacks";
   homeDirectory = "/home/${username}";
 in
 ```
 
 ### Wallpapers
 
-Wallpapers are symlinked to `~/Pictures/wallpapers/`:
-
 ```bash
-# Set wallpaper
+# Set desktop wallpaper
 gsettings set org.gnome.desktop.background picture-uri \
   "file:///home/USER/.config/nixit/assets/wallpapers/Catppuccin_Mocha/wallpaper.png"
 ```
 
 ### Dotfiles
 
-Modify files in `dotfiles/` and rebuild:
+Modify files in `dotfiles/` and rebuild — symlinks update automatically:
 
 ```bash
-# Changes apply automatically on rebuild
 sudo nixos-rebuild switch
 ```
 
@@ -225,10 +239,7 @@ sudo nixos-rebuild switch --upgrade
 ### Weekly
 
 ```bash
-# Garbage collection (automatic)
-# Configured: --delete-older-than 30d
-
-# Manual cleanup if needed
+# Garbage collection (automatic — 30d retention)
 sudo nix-collect-garbage --delete-older-than 30d
 sudo nix-store --optimise
 ```
@@ -303,7 +314,7 @@ sudo /run/current-system/activate
 ## Acknowledgments
 
 - [NixOS](https://nixos.org/) — Purely functional Linux
-- [LazyVim](https://www.lazyvim.org/) — Neovim configuration
+- [Nixvim](https://github.com/nix-community/nixvim) — Declarative Neovim
 - [Starship](https://starship.rs/) — Cross-shell prompt
 - [Atuin](https://atuin.sh/) — Shell history sync
 - [Kanata](https://github.com/jtroo/kanata) — Keyboard remapping
