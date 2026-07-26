@@ -305,6 +305,19 @@ services.desktopManager.gnome.enable = true;
 
 programs.dconf.enable = true;
 
+# GDM login screen background wallpaper
+# The greeter reads dconf profile 'gdm' which we override here.
+# The wallpaper must be in the nix store (world-readable) for the
+# gdm-greeter process to access it.
+programs.dconf.profiles.gdm.databases = [
+  {
+    settings."org/gnome/desktop/background" = {
+      picture-uri = "file://${gdmWallpaper}/share/wallpapers/gdm-background.jpg";
+      picture-options = "zoom";
+    };
+  }
+];
+
 # GPaste clipboard manager daemon
 programs.gpaste.enable = true;
 
