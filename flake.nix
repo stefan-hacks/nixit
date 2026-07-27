@@ -14,7 +14,6 @@
     # Nixvim
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
