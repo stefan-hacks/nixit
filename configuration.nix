@@ -60,11 +60,11 @@ let
   # GDM wallpaper - copied to nix store for accessibility (GDM user can read it)
   gdmWallpaper = pkgs.runCommand "gdm-wallpaper" { } ''
     mkdir -p $out/share/wallpapers
-    cp ${./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg} $out/share/wallpapers/gdm-background.jpg
+    cp ${./assets/Wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg} $out/share/wallpapers/gdm-background.jpg
   '';
 
   # GRUB wallpaper - direct path works (bootloader reads before users exist)
-  grubWallpaper = ./assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
+  grubWallpaper = ./assets/Wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
 
 in
 
@@ -2680,57 +2680,57 @@ in
 
   system.activationScripts.dotfiles.text = ''
 
-      DOTFILES="${dotfilesDirectory}"
-      REPO="${repoDirectory}"
-      HOME="${homeDirectory}"
-      USER="${username}"
+    DOTFILES="${dotfilesDirectory}"
+    REPO="${repoDirectory}"
+    HOME="${homeDirectory}"
+    USER="${username}"
 
-      # Create necessary directories
-      mkdir -p "$HOME/.config"
-      mkdir -p "$HOME/.config/kitty"
-      mkdir -p "$HOME/.config/kanata"
-      mkdir -p "$HOME/Pictures"
-      mkdir -p "$HOME/.ssh/controlmasters" && chmod 700 "$HOME/.ssh/controlmasters"
+    # Create necessary directories
+    mkdir -p "$HOME/.config"
+    mkdir -p "$HOME/.config/kitty"
+    mkdir -p "$HOME/.config/kanata"
+    mkdir -p "$HOME/Pictures"
+    mkdir -p "$HOME/.ssh/controlmasters" && chmod 700 "$HOME/.ssh/controlmasters"
 
-      # Bash configuration
-      ln -sfn "$DOTFILES/bash/.bashrc"              "$HOME/.bashrc"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.bashrc"
-      ln -sfn "$DOTFILES/bash/.bash_aliases"        "$HOME/.bash_aliases"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.bash_aliases"
+    # Bash configuration
+    ln -sfn "$DOTFILES/bash/.bashrc"              "$HOME/.bashrc"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.bashrc"
+    ln -sfn "$DOTFILES/bash/.bash_aliases"        "$HOME/.bash_aliases"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.bash_aliases"
 
-      # Git configuration
-      ln -sfn "$DOTFILES/gitconfig/.gitconfig"      "$HOME/.gitconfig"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.gitconfig"
+    # Git configuration
+    ln -sfn "$DOTFILES/gitconfig/.gitconfig"      "$HOME/.gitconfig"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.gitconfig"
 
-      # Terminal emulator
-      ln -sfn "$DOTFILES/kitty/kitty.conf"          "$HOME/.config/kitty/kitty.conf"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/kitty/kitty.conf"
-      ln -sfn "$DOTFILES/kitty/current-theme.conf"  "$HOME/.config/kitty/current-theme.conf"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/kitty/current-theme.conf"
+    # Terminal emulator
+    ln -sfn "$DOTFILES/kitty/kitty.conf"          "$HOME/.config/kitty/kitty.conf"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/kitty/kitty.conf"
+    ln -sfn "$DOTFILES/kitty/current-theme.conf"  "$HOME/.config/kitty/current-theme.conf"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/kitty/current-theme.conf"
 
-      # Kanata
-      ln -sfn "$DOTFILES/kanata/kanata_gnome.kbd"     "$HOME/.config/kanata/kanata.kbd"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/kanata/kanata.kbd"
+    # Kanata
+    ln -sfn "$DOTFILES/kanata/kanata_gnome.kbd"     "$HOME/.config/kanata/kanata.kbd"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/kanata/kanata.kbd"
 
-      # Blesh (Bash Line Editor)
-      ln -sfn "$DOTFILES/blesh/.blerc"                "$HOME/.blerc"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.blerc"
+    # Blesh (Bash Line Editor)
+    ln -sfn "$DOTFILES/blesh/.blerc"                "$HOME/.blerc"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.blerc"
 
-      # Prompt
-      ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/starship.toml"
+    # Prompt
+    ln -sfn "$DOTFILES/starship/starship.toml"    "$HOME/.config/starship.toml"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/starship.toml"
 
-      # Atuin
-      ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/atuin/config.toml"
+    # Atuin
+    ln -sfn "$DOTFILES/atuin/config.toml"           "$HOME/.config/atuin/config.toml"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.config/atuin/config.toml"
 
-      # ssh config
-      ln -sfn "$DOTFILES/.ssh/config"                  "$HOME/.ssh/config"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.ssh/config"
+    # ssh config
+    ln -sfn "$DOTFILES/.ssh/config"                  "$HOME/.ssh/config"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/.ssh/config"
 
-      # Wallpapers
-      ln -sfn "$REPO/assets/wallpapers"             "$HOME/Pictures/wallpapers"
-      ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/Pictures/wallpapers"
+    # Wallpapers
+    ln -sfn "$REPO/assets/Wallpapers"             "$HOME/Pictures/Wallpapers"
+    ${pkgs.coreutils}/bin/chown -h "$USER:wheel" "$HOME/Pictures/Wallpapers"
 
   '';
 
