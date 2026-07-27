@@ -108,9 +108,9 @@ in
 
       luks.devices = {
 
-        "luks-a647bf68-5914-4ce0-b703-59f782388611" = {
+        "luks-a0daa441-4b1a-4b93-b039-3a9b28be8fca" = {
 
-          device = "/dev/disk/by-uuid/a647bf68-5914-4ce0-b703-59f782388611";
+          device = "/dev/disk/by-uuid/a0daa441-4b1a-4b93-b039-3a9b28be8fca";
 
         };
 
