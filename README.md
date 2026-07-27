@@ -2,12 +2,13 @@
 
 # ❄️ Nixit
 
-**A Clean, Reproducible NixOS Workstation**
+**A Reproducible NixOS Workstation with Flakes + Home Manager**
 
 [![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white)](https://nixos.org/)
+[![Home Manager](https://img.shields.io/badge/Home%20Manager-26.05-blue.svg)](https://github.com/nix-community/home-manager)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-*Single-file configuration. No flakes. No Home Manager.*
+*Modular. Declarative. Reproducible.*
 
 </div>
 
@@ -15,26 +16,27 @@
 
 ## Overview
 
-**Nixit** is a production-ready NixOS workstation configuration. Everything lives in one file: `configuration.nix`. Dotfiles are tracked in the same repo and symlinked on activation.
+**Nixit** is a production-ready NixOS workstation configuration built with **flakes** and **Home Manager**. System configuration is split into focused modules. User dotfiles are managed declaratively via Home Manager — no manual symlinking.
 
 | Component | Detail |
 |-----------|--------|
 | **OS** | NixOS 26.05 (stable) |
+| **Config** | Flake-based (`flake.nix`) |
 | **Desktop** | GNOME 48 (Wayland) |
 | **Shell** | Bash + Blesh + Starship |
 | **Terminal** | Kitty |
 | **Editor** | Neovim via Nixvim |
-| **Security** | LUKS, Firewall, 1Password |
+| **Security** | LUKS, Firewall, Mullvad, 1Password |
 
 ---
 
 ## Philosophy
 
-- **One file** — `configuration.nix` declares the entire system
-- **No flakes** — Pure Nix expressions only
-- **No Home Manager** — System-level user management
-- **Git-managed dotfiles** — Symlinked from `~/.config/nixit` on rebuild
-- **Reproducible** — Same config, same system, anywhere
+- **Flakes** — Reproducible inputs, reproducible outputs
+- **Home Manager** — Declarative user environment (dotfiles, services, dconf)
+- **One concern per module** — Each tool/service gets its own `.nix` file
+- **Git-tracked** — Entire config lives in `~/.config/nixit`
+- **No activation scripts** — Home Manager handles dotfile deployment natively
 
 ---
 
@@ -42,21 +44,84 @@
 
 ```
 ~/.config/nixit/
-├── configuration.nix           # Main system configuration (single file)
-├── hardware-configuration.nix  # Hardware-specific settings
-├── dotfiles/                   # Git-managed configurations
-│   ├── bash/                   # .bashrc, .bash_aliases
-│   ├── blesh/                  # Bash line editor config
-│   ├── kitty/                  # Terminal settings
-│   ├── starship/               # Prompt theme
-│   ├── atuin/                  # Shell history
-│   ├── kanata/                 # Keyboard remapper
-│   ├── nvim/                   # (legacy — superseded by nixvim)
-│   └── gitconfig/              # Git settings
+├── flake.nix                        # Flake inputs + outputs
+├── hosts/
+│   └── ghost/
+│       ├── default.nix              # Host entry point (imports system modules)
+│       └── hardware-configuration.nix
+├── modules/nixos/                   # System-level modules
+│   ├── boot.nix                     # GRUB, LUKS, EFI
+│   ├── networking.nix               # NetworkManager, hostname
+│   ├── locale.nix                   # Timezone, locale, console
+│   ├── user.nix                     # User account definition
+│   ├── gnome.nix                    # GDM, GNOME desktop, XDG portal
+│   ├── programs.nix                 # System-wide programs (dconf, gpaste, ssh)
+│   ├── packages.nix                 # System packages (all of them)
+│   ├── services.nix                 # System services (kanata, SSH, etc.)
+│   ├── kanata.nix                   # Keyboard remapper service
+│   ├── nixvim.nix                   # Declarative Neovim config
+│   ├── virtualization.nix         # QEMU/libvirt, VirtualBox
+│   ├── firewall.nix                 # Firewall rules + GSConnect
+│   ├── fonts.nix                    # System fonts
+│   ├── environment.nix              # Environment variables, PATH
+│   ├── maintenance.nix              # Auto GC, nix optimisation
+│   ├── bluetooth.nix                # Bluetooth settings
+│   ├── printing.nix                 # CUPS
+│   └── documentation.nix          # Man pages, NixOS manual
+├── modules/home/                    # Home Manager modules
+│   ├── bash.nix                     # .bashrc, .bash_aliases
+│   ├── git.nix                      # .gitconfig
+│   ├── kitty.nix                    # kitty.conf + theme
+│   ├── blesh.nix                    # Bash line editor config
+│   ├── starship.nix                 # Prompt config
+│   ├── atuin.nix                    # Shell history config
+│   ├── kanata.nix                   # Kanata user config
+│   ├── ssh.nix                      # .ssh/config
+│   └── dconf.nix                    # GNOME dconf settings + wallpapers
+├── home/
+│   └── stefan-hacks/
+│       └── home.nix                 # Home Manager entry point
+├── dotfiles/                        # Raw dotfiles (sourced by HM modules)
+│   ├── bash/
+│   ├── kitty/
+│   ├── nvim/
+│   └── ...
 ├── gnome/
-│   └── dconf.ini               # GNOME desktop settings
+│   └── dconf.ini                    # GNOME dconf dump (loaded by HM)
 └── assets/
-    └── wallpapers/             # Desktop backgrounds
+    └── wallpapers/
+```
+
+---
+
+## Quick Start
+
+### Fresh Install
+
+```bash
+# Clone to standard location
+git clone https://github.com/stefan-hacks/nixit.git ~/.config/nixit
+cd ~/.config/nixit
+
+# Enable flakes (if not already)
+# Already configured in this repo — skip if your system has flakes enabled
+
+# Edit user settings
+$EDITOR hosts/ghost/default.nix      # hostname, imports
+$EDITOR modules/nixos/user.nix     # username, shell, groups
+$EDITOR home/stefan-hacks/home.nix # home directory
+
+# Build and activate
+sudo nixos-rebuild switch --flake .#ghost
+```
+
+### Post-Install
+
+```bash
+# Atuin — sync shell history
+atuin register -u USERNAME -e EMAIL
+atuin import auto
+atuin sync
 ```
 
 ---
@@ -79,39 +144,7 @@ Neovim is configured declaratively via [Nixvim](https://github.com/nix-community
 | **Editor** | Todo-comments, Illuminate, Navic, Indent-blankline, Which-key |
 | **Extras** | Markdown preview, Schemastore, Mini.indentscope + surround |
 
-Integration: `nix-community/nixvim` imported via `builtins.fetchGit` (non-flakes).
-
----
-
-## Quick Start
-
-### Fresh Install
-
-```bash
-# Clone to standard location
-git clone https://github.com/stefan-hacks/nixit.git ~/.config/nixit
-cd ~/.config/nixit
-
-# Link configuration to NixOS
-sudo ln -sf ~/.config/nixit/configuration.nix /etc/nixos/
-sudo ln -sf ~/.config/nixit/hardware-configuration.nix /etc/nixos/
-
-# Edit user settings
-$EDITOR configuration.nix
-# Change: username = "your-user";
-
-# Build and activate
-sudo nixos-rebuild switch
-```
-
-### Post-Install
-
-```bash
-# Atuin — sync shell history
-atuin register -u USERNAME -e EMAIL
-atuin import auto
-atuin sync
-```
+Integration: `nix-community/nixvim` imported as a flake input (uses its own pinned nixpkgs).
 
 ---
 
@@ -134,10 +167,11 @@ atuin sync
 | **Window Manager** | GNOME (Wayland) |
 | **Dock** | Dash to Dock |
 | **Blur** | Blur My Shell |
-| **Clipboard** | Clipboard Indicator |
+| **Clipboard** | GPaste |
 | **Tray Icons** | AppIndicator |
 | **Keyboard** | Kanata (vim-style leader key) |
 | **Login Wallpaper** | Catppuccin Mocha via GDM dconf profile |
+| **Bar Theme** | OpenBar with Catppuccin palette |
 
 ---
 
@@ -195,15 +229,46 @@ atuin sync
 
 ### User Settings
 
-Edit the top of `configuration.nix`:
+Edit `modules/nixos/user.nix`:
 
 ```nix
-let
-  username = "stefan-hacks";
-  fullName = "stefan-hacks";
-  homeDirectory = "/home/${username}";
-in
+users.users.stefan-hacks = {
+  isNormalUser = true;
+  description = "stefan-hacks";
+  shell = pkgs.bash;
+  extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+};
 ```
+
+### Home Manager Settings
+
+Edit `home/stefan-hacks/home.nix`:
+
+```nix
+home.username = "stefan-hacks";
+home.homeDirectory = "/home/stefan-hacks";
+```
+
+### Dotfiles
+
+Modify files in `dotfiles/` and rebuild — Home Manager handles deployment:
+
+```bash
+sudo nixos-rebuild switch --flake .#ghost
+```
+
+### GNOME Settings
+
+Export live settings and commit the result:
+
+```bash
+cd ~/.config/nixit
+dconf dump / > gnome/dconf.ini
+git add gnome/dconf.ini
+git commit -m "update gnome settings"
+```
+
+Home Manager will load it on the next activation.
 
 ### Wallpapers
 
@@ -211,14 +276,6 @@ in
 # Set desktop wallpaper
 gsettings set org.gnome.desktop.background picture-uri \
   "file:///home/USER/.config/nixit/assets/wallpapers/Catppuccin_Mocha/wallpaper.png"
-```
-
-### Dotfiles
-
-Modify files in `dotfiles/` and rebuild — symlinks update automatically:
-
-```bash
-sudo nixos-rebuild switch
 ```
 
 ---
@@ -229,10 +286,10 @@ sudo nixos-rebuild switch
 
 ```bash
 # Rebuild after changes
-sudo nixos-rebuild switch
+sudo nixos-rebuild switch --flake .#ghost
 
 # Or with upgrade
-sudo nixos-rebuild switch --upgrade
+sudo nixos-rebuild switch --flake .#ghost --upgrade
 ```
 
 ### Weekly
@@ -258,8 +315,8 @@ sudo nixos-rebuild switch --rollback
 
 | Alias | Command | Description |
 |-------|---------|-------------|
-| `nix-switch` | `sudo nixos-rebuild switch` | Rebuild system |
-| `nix-test` | `sudo nixos-rebuild test` | Test without switching |
+| `nix-switch` | `sudo nixos-rebuild switch --flake ~/.config/nixit#ghost` | Rebuild system |
+| `nix-test` | `sudo nixos-rebuild test --flake ~/.config/nixit#ghost` | Test without switching |
 | `nix-gc` | `sudo nix-collect-garbage -d` | Garbage collect |
 | `nix-list` | `nix-env -qaP` | List packages |
 | `ll` | `eza -l` | Long listing |
@@ -275,11 +332,14 @@ sudo nixos-rebuild switch --rollback
 ### Build Failures
 
 ```bash
-# Check Nix syntax
-nix-instantiate --eval --strict ./configuration.nix
+# Check flake syntax
+nix flake check
 
 # Dry run
-sudo nixos-rebuild dry-build
+sudo nixos-rebuild dry-build --flake .#ghost
+
+# Show trace
+sudo nixos-rebuild switch --flake .#ghost --show-trace
 ```
 
 ### Service Issues
@@ -288,23 +348,24 @@ sudo nixos-rebuild dry-build
 # Check kanata status
 sudo systemctl status kanata-internal
 
-# View activation logs
-journalctl -u activation-script
+# View Home Manager activation logs
+journalctl --user -u home-manager-stefan-hacks.service
 ```
 
-### Dotfiles Not Applied
+### Home Manager Activation
 
 ```bash
-# Re-run activation manually
-sudo /run/current-system/activate
+# Re-run home-manager switch manually
+home-manager switch --flake .#stefan-hacks
 ```
 
 ---
 
 ## Security
 
-- **Disk Encryption**: LUKS on root partition
-- **Firewall**: Enabled with GSConnect ports
+- **Disk Encryption**: LUKS on root and swap partitions
+- **Firewall**: Enabled with GSConnect and KDE Connect ports
+- **VPN**: Mullvad VPN client
 - **Secrets**: GnuPG agent, 1Password integration
 - **Updates**: Automatic weekly garbage collection
 
@@ -313,6 +374,7 @@ sudo /run/current-system/activate
 ## Acknowledgments
 
 - [NixOS](https://nixos.org/) — Purely functional Linux
+- [Home Manager](https://github.com/nix-community/home-manager) — Declarative user config
 - [Nixvim](https://github.com/nix-community/nixvim) — Declarative Neovim
 - [Starship](https://starship.rs/) — Cross-shell prompt
 - [Atuin](https://atuin.sh/) — Shell history sync
