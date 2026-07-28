@@ -17,6 +17,7 @@ in
     ../../modules/home/atuin.nix
     ../../modules/home/ssh.nix
     ../../modules/home/dconf.nix
+    ../../modules/home/fastfetch.nix
   ];
 
   # Let Home Manager install and configure itself
