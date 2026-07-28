@@ -36,6 +36,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./home/stefan-hacks/home.nix;
             home-manager.extraSpecialArgs = { inherit username; };
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };

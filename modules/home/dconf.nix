@@ -10,11 +10,24 @@ let
   homeDirectory = "/home/${username}";
 in
 {
-  # Symlink dotfiles from the repo
-  home.file."Pictures/wallpapers".source = ../../assets/wallpapers;
-  home.file.".face".source = ../../assets/icon2.png;
+  # ── Wallpaper directory (manual symlink to avoid HM conflict) ─────────────
+  home.activation.wallpapersAndFace = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    # Create Pictures directory
+    mkdir -p ${homeDirectory}/Pictures
 
-  # Load GNOME dconf settings on home-manager switch
+    # Symlink wallpapers if not already there
+    if [ ! -e "${homeDirectory}/Pictures/wallpapers" ] && [ ! -L "${homeDirectory}/Pictures/wallpapers" ]; then
+      ln -s ${../../assets/wallpapers} "${homeDirectory}/Pictures/wallpapers"
+    fi
+
+    # Symlink face icon
+    if [ ! -e "${homeDirectory}/.face" ] && [ ! -L "${homeDirectory}/.face" ]; then
+      ln -s ${../../assets/icon2.png} "${homeDirectory}/.face"
+    fi
+  '';
+
+  # ── Load GNOME dconf settings on home-manager switch ────────────────────
+  # All GNOME settings including favorite-apps come from gnome/dconf.ini
   home.activation.loadGnomeDconf = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ -n "$DBUS_SESSION_BUS_ADDRESS" ]; then
       ${pkgs.dconf}/bin/dconf load / < ${../../gnome/dconf.ini} || true
