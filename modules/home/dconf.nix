@@ -34,32 +34,4 @@ in
       WantedBy = [ "default.target" ];
     };
   };
-
-  # Favourite apps in Dash
-  dconf.settings = {
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "mullvad-vpn.desktop"
-        "kitty.desktop"
-        "terminator.desktop"
-        "org.gnome.Console.desktop"
-        "virt-manager.desktop"
-        "org.gnome.Nautilus.desktop"
-        "1password.desktop"
-        "firefox.desktop"
-        "chromium-browser.desktop"
-        "joplin.desktop"
-        "org.gnome.Evolution.desktop"
-        "onlyoffice-desktopeditors.desktop"
-        "discord.desktop"
-        "com.ktechpit.whatsie.desktop"
-        "org.jellyfin.JellyfinDesktop.desktop"
-        "io.gitlab.adhami3310.Impression.desktop"
-        "net.nokyan.Resources.desktop"
-        "org.qbittorrent.qBittorent.desktop"
-        "nixos-manual.desktop"
-      ];
-    };
-  };
-
 }
