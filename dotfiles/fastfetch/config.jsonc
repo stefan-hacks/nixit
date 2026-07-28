@@ -52,6 +52,10 @@
             "key": "{$4}├─ {icon}  {$1}{sysname}{$2}"
         },
         {
+            "type": "de",
+            "key": "{$4}├─ {icon}  {$1}Desktop Environment{$2}"
+        },
+        {
             "type": "shell",
             "key": "{$4}├─ {icon}  {$1}Shell{$2}"
         },
