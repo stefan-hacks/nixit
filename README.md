@@ -1,6 +1,13 @@
 <div align="center">
 
-# ❄️ Nixit
+<pre>
+   ███╗   ██╗██╗██╗  ██╗██╗████████╗
+   ████╗  ██║██║╚██╗██╔╝██║╚══██╔══╝
+   ██╔██╗ ██║██║ ╚███╔╝ ██║   ██║
+   ██║╚██╗██║██║ ██╔██╗ ██║   ██║
+   ██║ ╚████║██║██╔╝ ██╗██║   ██║
+   ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝╚═╝   ╚═╝
+</pre>
 
 **A Reproducible NixOS Workstation with Flakes + Home Manager**
 
@@ -8,7 +15,7 @@
 [![Home Manager](https://img.shields.io/badge/Home%20Manager-26.05-blue.svg)](https://github.com/nix-community/home-manager)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-*Modular. Declarative. Reproducible.*
+*Modular · Declarative · Reproducible*
 
 </div>
 
@@ -16,7 +23,7 @@
 
 ## Overview
 
-**Nixit** is a production-ready NixOS workstation configuration built with **flakes** and **Home Manager**. System configuration is split into focused modules. User dotfiles are managed declaratively via Home Manager — no manual symlinking.
+**Nixit** is a production-ready NixOS workstation configuration built with **flakes** and **Home Manager**. System configuration is split into focused modules — one per concern. User dotfiles are managed declaratively via Home Manager with no manual symlinking.
 
 | Component | Detail |
 |-----------|--------|
@@ -44,52 +51,59 @@
 
 ```
 ~/.config/nixit/
-├── flake.nix                        # Flake inputs + outputs
+├── flake.nix                          # Flake inputs + outputs
 ├── hosts/
 │   └── ghost/
-│       ├── default.nix              # Host entry point (imports system modules)
+│       ├── default.nix                  # Host entry point (imports system modules)
 │       └── hardware-configuration.nix
-├── modules/nixos/                   # System-level modules
-│   ├── boot.nix                     # GRUB, LUKS, EFI
-│   ├── networking.nix               # NetworkManager, hostname
-│   ├── locale.nix                   # Timezone, locale, console
-│   ├── user.nix                     # User account definition
-│   ├── gnome.nix                    # GDM, GNOME desktop, XDG portal
-│   ├── programs.nix                 # System-wide programs (dconf, gpaste, ssh)
-│   ├── packages.nix                 # System packages (all of them)
-│   ├── services.nix                 # System services (kanata, SSH, etc.)
-│   ├── kanata.nix                   # Keyboard remapper service
-│   ├── nixvim.nix                   # Declarative Neovim config
-│   ├── virtualization.nix         # QEMU/libvirt, VirtualBox
-│   ├── firewall.nix                 # Firewall rules + GSConnect
-│   ├── fonts.nix                    # System fonts
-│   ├── environment.nix              # Environment variables, PATH
-│   ├── maintenance.nix              # Auto GC, nix optimisation
-│   ├── bluetooth.nix                # Bluetooth settings
-│   ├── printing.nix                 # CUPS
-│   └── documentation.nix          # Man pages, NixOS manual
-├── modules/home/                    # Home Manager modules
-│   ├── bash.nix                     # .bashrc, .bash_aliases
-│   ├── git.nix                      # .gitconfig
-│   ├── kitty.nix                    # kitty.conf + theme
-│   ├── blesh.nix                    # Bash line editor config
-│   ├── starship.nix                 # Prompt config
-│   ├── atuin.nix                    # Shell history config
-│   ├── kanata.nix                   # Kanata user config
-│   ├── ssh.nix                      # .ssh/config
-│   └── dconf.nix                    # GNOME dconf settings + wallpapers
+├── modules/
+│   ├── nixos/                         # System-level modules
+│   │   ├── boot.nix                   # GRUB, LUKS, EFI
+│   │   ├── networking.nix             # NetworkManager, hostname
+│   │   ├── locale.nix                 # Timezone, locale, console
+│   │   ├── user.nix                   # User account definition
+│   │   ├── gnome.nix                  # GDM, GNOME desktop, XDG portal
+│   │   ├── programs.nix               # System-wide programs (dconf, gpaste, ssh)
+│   │   ├── packages.nix               # System packages
+│   │   ├── services.nix               # System services (SSH, fwupd)
+│   │   ├── kanata.nix                 # Keyboard remapper service
+│   │   ├── nixvim.nix                 # Declarative Neovim config
+│   │   ├── virtualization.nix         # QEMU/libvirt
+│   │   ├── firewall.nix               # Firewall rules + GSConnect
+│   │   ├── fonts.nix                  # System fonts
+│   │   ├── environment.nix            # Environment variables, PATH
+│   │   ├── maintenance.nix            # Auto GC, nix optimisation
+│   │   ├── bluetooth.nix              # Bluetooth settings
+│   │   ├── printing.nix               # CUPS
+│   │   └── documentation.nix          # Man pages, NixOS manual
+│   └── home/                          # Home Manager modules
+│       ├── bash.nix                   # .bashrc, .bash_aliases
+│       ├── git.nix                    # .gitconfig
+│       ├── kitty.nix                  # kitty.conf + theme
+│       ├── blesh.nix                  # Bash line editor config
+│       ├── starship.nix               # Prompt config
+│       ├── atuin.nix                  # Shell history config
+│       ├── kanata.nix                 # Kanata user config
+│       ├── ssh.nix                    # .ssh/config
+│       ├── fastfetch.nix             # Fastfetch config + icon
+│       └── dconf.nix                  # GNOME dconf settings + wallpapers
 ├── home/
 │   └── stefan-hacks/
-│       └── home.nix                 # Home Manager entry point
-├── dotfiles/                        # Raw dotfiles (sourced by HM modules)
+│       └── home.nix                   # Home Manager entry point
+├── dotfiles/                          # Raw dotfiles (sourced by HM modules)
 │   ├── bash/
+│   ├── blesh/
+│   ├── gitconfig/
 │   ├── kitty/
 │   ├── nvim/
-│   └── ...
+│   ├── starship/
+│   ├── fastfetch/
+│   └── kanata/
 ├── gnome/
-│   └── dconf.ini                    # GNOME dconf dump (loaded by HM)
+│   └── dconf.ini                      # GNOME dconf dump (loaded by HM activation)
 └── assets/
-    └── wallpapers/
+    ├── wallpapers/
+    └── icon2.png                     # Fastfetch logo
 ```
 
 ---
@@ -103,13 +117,10 @@
 git clone https://github.com/stefan-hacks/nixit.git ~/.config/nixit
 cd ~/.config/nixit
 
-# Enable flakes (if not already)
-# Already configured in this repo — skip if your system has flakes enabled
-
 # Edit user settings
 $EDITOR hosts/ghost/default.nix      # hostname, imports
-$EDITOR modules/nixos/user.nix     # username, shell, groups
-$EDITOR home/stefan-hacks/home.nix # home directory
+$EDITOR modules/nixos/user.nix       # username, shell, groups
+$EDITOR home/stefan-hacks/home.nix   # home directory
 
 # Build and activate
 sudo nixos-rebuild switch --flake .#ghost
@@ -122,6 +133,9 @@ sudo nixos-rebuild switch --flake .#ghost
 atuin register -u USERNAME -e EMAIL
 atuin import auto
 atuin sync
+
+# GNOME settings are auto-loaded via dconf.nix home.activation
+# Wallpapers are deployed to ~/.config/nixit/assets/wallpapers/
 ```
 
 ---
@@ -134,7 +148,7 @@ Neovim is configured declaratively via [Nixvim](https://github.com/nix-community
 |----------|----------|
 | **Theme** | Catppuccin Macchiato, transparent background |
 | **Completion** | nvim-cmp — LSP, buffer, path, luasnip, lspkind icons |
-| **LSP** | lua_ls, nil_ls, ts_ls, pyright, gopls, terraformls, jsonls, yamlls, helm_ls, marksman, html |
+| **LSP** | lua_ls, nixd, basedpyright, ts_ls, rust-analyzer, terraformls, jsonls, yamlls, helm_ls, marksman, html, bash-language-server |
 | **Formatting** | conform.nvim — black, isort, nixfmt, stylua, prettier, shfmt, jq, shellharden |
 | **Fuzzy Find** | Telescope — files, grep, buffers, diagnostics, file-browser, lazygit |
 | **Syntax** | Treesitter with 30+ grammars |
@@ -159,6 +173,7 @@ Integration: `nix-community/nixvim` imported as a flake input (uses its own pinn
 | [Starship](https://starship.rs/) | Cross-shell prompt |
 | [Atuin](https://atuin.sh/) | Synced shell history |
 | [Zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info with custom branding |
 
 ### Desktop Environment
 
@@ -172,18 +187,38 @@ Integration: `nix-community/nixvim` imported as a flake input (uses its own pinn
 | **Keyboard** | Kanata (vim-style leader key) |
 | **Login Wallpaper** | Catppuccin Mocha via GDM dconf profile |
 | **Bar Theme** | OpenBar with Catppuccin palette + Yaru themes (accent colors & folder colors) |
+| **Wallpapers** | Wallpicker extension + `~/.config/nixit/assets/wallpapers` |
+
+### GNOME Extensions
+
+- `appindicatorsupport@rgcjonas.gmail.com` — Tray icons
+- `arcmenu@arcmenu.com` — Application menu
+- `blur-my-shell@aunetx` — Background blur
+- `dash-to-dock@micxgx.gmail.com` — Bottom dock
+- `dynamic-music-pill@andbal` — Media player widget
+- `GPaste@gnome-shell-extensions.gnome.org` — Clipboard manager
+- `notification-configurator@exposedcat` — Notification styling
+- `openbar@neuromorph` — Custom top bar theming
+- `pomodoro-timer@Oguzhankokulu.github.com` — Focus timer
+- `quake-terminal@diegodario88.github.io` — Dropdown terminal
+- `quick-settings-audio-panel@rayzeq.github.io` — Audio device panel
+- `steal-my-focus-window@steal-my-focus-window` — Focus behavior
+- `Vitals@CoreCoding.com` — System monitor
+- `wallpicker@omarxkhalid.github.io` — Wallpaper selector
+- `modernclock@gnome-port` — Clock widget
 
 ---
 
 ## Package Highlights
 
 <details>
-<summary><strong>System & Shell</strong></summary>
+<summary><strong>Core & Shell</strong></summary>
 
-- `bash`, `blesh`, `starship`, `atuin`, `zoxide`, `fzf`
-- `eza`, `bat`, `ripgrep`, `fd`
-- `direnv`, `carapace`
+- `bash`, `blesh`, `starship`, `atuin`, `zoxide`, `fzf`, `direnv`, `carapace`
+- `eza`, `bat`, `bat-extras.core`, `ripgrep`, `fd`
+- `jq`, `yq-go`
 - `btop`, `fastfetch`, `onefetch`
+- `imagemagick`, `exiftool`
 
 </details>
 
@@ -192,15 +227,17 @@ Integration: `nix-community/nixvim` imported as a flake input (uses its own pinn
 
 - `lazygit`, `delta`
 - `git`, `git-lfs`, `gh`
+- `gcc`, `gnumake`
 - `rustc`, `cargo`, `clippy`, `rustfmt`, `rust-analyzer`
 - `python3`, `black`, `isort`, `ruff`
 - `nodePackages.prettier`, `typescript`
 - `go`, `gopls`
 - `lua`, `stylua`, `lua-language-server`
-- `nixfmt`, `statix`, `nil`
+- `nixfmt`, `statix`, `nixd`, `nil`
 - `shellcheck`, `shfmt`, `shellharden`
 - `terraform`, `tflint`, `terraform-ls`
 - `yaml-language-server`, `taplo`, `marksman`
+- `vscode-langservers-extracted`
 
 </details>
 
@@ -208,7 +245,7 @@ Integration: `nix-community/nixvim` imported as a flake input (uses its own pinn
 <summary><strong>Desktop Applications</strong></summary>
 
 - `firefox`, `chromium`
-- `libreoffice`, `onlyoffice`
+- `libreoffice`, `onlyoffice-desktopeditors`
 - `mpv`, `vlc`, `ffmpeg`
 - `discord`
 - `_1password-gui`, `mullvad-vpn`
@@ -216,7 +253,7 @@ Integration: `nix-community/nixvim` imported as a flake input (uses its own pinn
 </details>
 
 <details>
-<summary><strong>Security Tools</strong></summary>
+<summary><strong>Security & Network</strong></summary>
 
 - `gnupg`, `openssl`, `age`, `sops`
 - `nmap`, `wireshark`, `tcpdump`
@@ -264,8 +301,9 @@ Export live settings and commit the result:
 ```bash
 cd ~/.config/nixit
 dconf dump / > gnome/dconf.ini
+# Scrub sensitive data (playback-history, last-folder-path)
 git add gnome/dconf.ini
-git commit -m "update gnome settings"
+git commit -m "chore: update GNOME settings"
 ```
 
 Home Manager will load it on the next activation.
