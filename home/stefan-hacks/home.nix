@@ -12,7 +12,6 @@ in
     ../../modules/home/bash.nix
     ../../modules/home/git.nix
     ../../modules/home/kitty.nix
-    ../../modules/home/kanata.nix
     ../../modules/home/blesh.nix
     ../../modules/home/starship.nix
     ../../modules/home/atuin.nix
