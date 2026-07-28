@@ -28,17 +28,6 @@
   # ── Host Identity ─────────────────────────────────────────────────────────
   networking.hostName = "ghost";
 
-  # ── Fix root-owned config dirs from legacy activation scripts ─────────────
-  # These must be user-owned for Home Manager to manage dotfiles there.
-  system.activationScripts.fixConfigOwnership.text = ''
-    if [ -d "/home/${username}/.config/kanata" ]; then
-      chown -R ${username}:users "/home/${username}/.config/kanata"
-    fi
-    if [ -d "/home/${username}/.config/kitty" ]; then
-      chown -R ${username}:users "/home/${username}/.config/kitty"
-    fi
-  '';
-
   # ── Nix ─────────────────────────────────────────────────────────────────
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
