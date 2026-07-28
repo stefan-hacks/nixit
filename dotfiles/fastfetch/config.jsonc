@@ -53,7 +53,7 @@
         },
         {
             "type": "de",
-            "key": "{$4}├─ {icon}  {$1}Desktop Environment{$2}"
+            "key": "{$4}├─ {icon}  {$1}DE {$2}"
         },
         {
             "type": "shell",
