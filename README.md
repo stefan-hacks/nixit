@@ -171,7 +171,7 @@ Integration: `nix-community/nixvim` imported as a flake input (uses its own pinn
 | **Tray Icons** | AppIndicator |
 | **Keyboard** | Kanata (vim-style leader key) |
 | **Login Wallpaper** | Catppuccin Mocha via GDM dconf profile |
-| **Bar Theme** | OpenBar with Catppuccin palette |
+| **Bar Theme** | OpenBar with Catppuccin palette + Yaru themes (accent colors & folder colors) |
 
 ---
 

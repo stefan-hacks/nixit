@@ -251,6 +251,9 @@
     gnome-extension-manager
     dconf-editor
 
+    # Theme required by Open Bar extension for accent colors & folder colors
+    yaru-theme
+
     # GNOME Extensions - managed via gnome-extension-manager
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
