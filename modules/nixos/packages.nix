@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [
@@ -303,6 +308,8 @@
     jellyfin-tui
     jellyfin-desktop
     kew
+    yt-dlp
+    soundconverter
 
     ###########################################################################
     # Communication
@@ -370,7 +377,6 @@
     ncdu
     dua
     wiper
-    yt-dlp
     guvcview
     qbittorrent
     impression
