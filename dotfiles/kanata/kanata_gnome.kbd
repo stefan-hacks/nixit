@@ -54,13 +54,13 @@
   ;; --- layer-one F-row: tap = F-key, hold = shortcut ---
   qtd (tap-hold $tap-time $hold-time f1 C-A-q)
   pum (tap-hold $tap-time $hold-time f2 A-f2)             ;; panel-run-dialog (default)
-  dsb (tap-hold $tap-time $hold-time f3 C-M-down)
-  isb (tap-hold $tap-time $hold-time f4 C-M-up)
-  mut (tap-hold $tap-time $hold-time f5 brightnesscycle)  ;; was XF86MonBrightnessCycle
-  vdn (tap-hold $tap-time $hold-time f6 brightnessdown)   ;; was XF86MonBrightnessDown
-  vup (tap-hold $tap-time $hold-time f7 brightnessup)     ;; was XF86MonBrightnessUp
+  vdn (tap-hold $tap-time $hold-time f3 brightnessdown)   ;; brightness down (on F3)
+  vup (tap-hold $tap-time $hold-time f4 brightnessup)     ;; brightness up (on F4)
+  mut (tap-hold $tap-time $hold-time f5 brightnesscycle)  ;; cycle brightness (on F5)
+  dsb (tap-hold $tap-time $hold-time f6 C-M-down)         ;; workspace down (was F3)
+  isb (tap-hold $tap-time $hold-time f7 C-M-up)           ;; workspace up (was F4)
   mic (tap-hold $tap-time $hold-time f8 A-f8)
-  psc (tap-hold $tap-time $hold-time f9 print)            ;; was Print
+  psc (tap-hold $tap-time $hold-time f9 print)            ;; screenshot
   lts (tap-hold $tap-time $hold-time f10 C-A-M-l)
 
   ;; --- layer-one misc (unchanged) ---
@@ -187,7 +187,7 @@
   cornerne (tap-hold $tap-time $hold-time C-S-w C-S-w)
   siden    (tap-hold $tap-time $hold-time C-S-e C-S-e)
   cyclepan (tap-hold $tap-time $hold-time C-A-esc C-A-esc)           ;; (default) cycle-panels, +Shift=backward
-  rotatemon (tap-hold $tap-time $hold-time rotate_display rotate_display) ;; was XF86RotateWindows
+  rotatemon (tap-hold $tap-time $hold-time rotate_display rotate_display) ;; corrected
   screenrec (tap-hold $tap-time $hold-time C-S-A-r C-S-A-r)          ;; (default) show-screen-recording-ui
   sides    (tap-hold $tap-time $hold-time C-S-i C-S-i)
   sidee    (tap-hold $tap-time $hold-time C-S-o C-S-o)
@@ -207,11 +207,11 @@
   maxh     (tap-hold $tap-time $hold-time C-S-; C-S-;)
   maxv     (tap-hold $tap-time $hold-time C-S-' C-S-')
 
-  monbcyc  (tap-hold $tap-time $hold-time S-brightnesscycle S-brightnesscycle) ;; was S-XF86MonBrightnessCycle
-  monbdn   (tap-hold $tap-time $hold-time S-brightnessdown S-brightnessdown)   ;; was S-XF86MonBrightnessDown
-  monbup   (tap-hold $tap-time $hold-time S-brightnessup S-brightnessup)       ;; was S-XF86MonBrightnessUp
-  ovdown   (tap-hold $tap-time $hold-time S-A-down S-A-down)         ;; (default) shift-overview-down
-  ovup     (tap-hold $tap-time $hold-time S-A-up S-A-up)             ;; (default) shift-overview-up
+  monbcyc  (tap-hold $tap-time $hold-time S-brightnesscycle S-brightnesscycle)
+  monbdn   (tap-hold $tap-time $hold-time S-brightnessdown S-brightnessdown)
+  monbup   (tap-hold $tap-time $hold-time S-brightnessup S-brightnessup)
+  ovdown   (tap-hold $tap-time $hold-time S-A-down S-A-down)         ;; shift-overview-down
+  ovup     (tap-hold $tap-time $hold-time S-A-up S-A-up)             ;; shift-overview-up
 )
 
 ;; ================================================================
@@ -219,7 +219,7 @@
 ;; home-row mods -- exactly as your original.
 ;; ================================================================
 (deflayer one
-  caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts f11  f12
+  caps @qtd @pum @vdn @vup @mut @dsb @isb @mic @psc @lts f11  f12
   @gm  @1m  @2m  @3m  @4m  @5m  @6m  @7m  @8m  @9m  @0m  @mi  @pl  bspc
   tab  @qq  @ww  e    @rr  @tt  @yy  @uu  @ii  @oo  p    @so  @sc  @pi
   esc  @aa  @ss  @dd  @ff  g    h    @jj  @kk  @ll  @se  @ap  ret
@@ -247,7 +247,7 @@
 ;; LAYER EDIT -- text/terminal editing (hold Spacebar). Unchanged.
 ;; ================================================================
 (deflayer edit
-  caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
+  caps @qtd @pum @vdn @vup @mut @dsb @isb @mic @psc @lts _    _
   grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  _    _    _    _    _    @mwl @mwd @mwu @mwr p    @dtb @dte _
   esc  _    _    _    _    _    left down up   rght bspc del  ret
