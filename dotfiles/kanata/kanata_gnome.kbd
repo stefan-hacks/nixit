@@ -3,6 +3,15 @@
   log-layer-changes no
 )
 
+;; Define raw keycode names for keycodes with no built-in string mapping.
+;; These are used by the F-row tap-hold aliases below.
+(deflocalkeys-linux
+  raw232 232   ;; KEY_REPLY (mapped to brightness down on this keyboard)
+  raw233 233   ;; KEY_FORWARDMAIL (mapped to brightness up)
+  raw234 234   ;; KEY_SAVE (mapped to brightness cycle)
+  raw410 410   ;; KEY_SHUFFLE (mapped to rotate display)
+)
+
 (defvar
  tap-time 200
  hold-time 200
@@ -54,9 +63,9 @@
   ;; --- layer-one F-row: tap = F-key, hold = shortcut ---
   qtd (tap-hold $tap-time $hold-time f1 C-A-q)
   pum (tap-hold $tap-time $hold-time f2 A-f2)             ;; panel-run-dialog (default)
-  vdn (tap-hold $tap-time $hold-time f3 (key 232))        ;; brightness down (F3)
-  vup (tap-hold $tap-time $hold-time f4 (key 233))        ;; brightness up (F4)
-  mut (tap-hold $tap-time $hold-time f5 (key 234))        ;; brightness cycle (F5)
+  vdn (tap-hold $tap-time $hold-time f3 raw232)        ;; brightness down (F3)
+  vup (tap-hold $tap-time $hold-time f4 raw233)        ;; brightness up (F4)
+  mut (tap-hold $tap-time $hold-time f5 raw234)        ;; brightness cycle (F5)
   dsb (tap-hold $tap-time $hold-time f6 C-M-down)         ;; workspace down (was F3)
   isb (tap-hold $tap-time $hold-time f7 C-M-up)           ;; workspace up (was F4)
   mic (tap-hold $tap-time $hold-time f8 A-f8)
@@ -184,7 +193,7 @@
   cornerne (tap-hold $tap-time $hold-time C-S-w C-S-w)
   siden    (tap-hold $tap-time $hold-time C-S-e C-S-e)
   cyclepan (tap-hold $tap-time $hold-time C-A-esc C-A-esc)           ;; (default) cycle-panels, +Shift=backward
-  rotatemon (tap-hold $tap-time $hold-time (key 410) (key 410))      ;; KEY_ROTATE_DISPLAY (410)
+  rotatemon (tap-hold $tap-time $hold-time raw410 raw410)      ;; KEY_ROTATE_DISPLAY (410)
   screenrec (tap-hold $tap-time $hold-time C-S-A-r C-S-A-r)          ;; (default) show-screen-recording-ui
   sides    (tap-hold $tap-time $hold-time C-S-i C-S-i)
   sidee    (tap-hold $tap-time $hold-time C-S-o C-S-o)
@@ -204,9 +213,9 @@
   maxh     (tap-hold $tap-time $hold-time C-S-; C-S-;)
   maxv     (tap-hold $tap-time $hold-time C-S-' C-S-')
 
-  monbcyc  (tap-hold $tap-time $hold-time S-(key 234) S-(key 234))   ;; brightness cycle
-  monbdn   (tap-hold $tap-time $hold-time S-(key 232) S-(key 232))   ;; brightness down
-  monbup   (tap-hold $tap-time $hold-time S-(key 233) S-(key 233))   ;; brightness up
+  monbcyc  (tap-hold $tap-time $hold-time raw234 raw234)   ;; brightness cycle
+  monbdn   (tap-hold $tap-time $hold-time raw232 raw232)   ;; brightness down
+  monbup   (tap-hold $tap-time $hold-time raw233 raw233)   ;; brightness up
   ovdown   (tap-hold $tap-time $hold-time S-A-down S-A-down)         ;; shift-overview-down
   ovup     (tap-hold $tap-time $hold-time S-A-up S-A-up)             ;; shift-overview-up
 )
