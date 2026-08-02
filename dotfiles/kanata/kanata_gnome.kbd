@@ -179,45 +179,45 @@
   ;; Layer FOUR -- everything GNOME ships blank, plus overflow
   ;; system actions (hold Right Alt).
   ;; -------------------------------------------------------------
-  ws2 (tap-hold $tap-time $hold-time A-S-2 A-S-2)
-  ws3 (tap-hold $tap-time $hold-time A-S-3 A-S-3)
-  ws4 (tap-hold $tap-time $hold-time A-S-4 A-S-4)
-  ws5 (tap-hold $tap-time $hold-time A-S-5 A-S-5)
-  ws6 (tap-hold $tap-time $hold-time A-S-6 A-S-6)
-  ws7 (tap-hold $tap-time $hold-time A-S-7 A-S-7)
-  ws8 (tap-hold $tap-time $hold-time A-S-8 A-S-8)
-  ws9 (tap-hold $tap-time $hold-time A-S-9 A-S-9)
-  cancelcap (tap-hold $tap-time $hold-time S-esc S-esc)          ;; (default) cancel-input-capture
+  ws2 (tap-hold $tap-time $hold-time A-M-2 A-M-2)
+  ws3 (tap-hold $tap-time $hold-time A-M-3 A-M-3)
+  ws4 (tap-hold $tap-time $hold-time A-M-4 A-M-4)
+  ws5 (tap-hold $tap-time $hold-time A-M-5 A-M-5)
+  ws6 (tap-hold $tap-time $hold-time A-M-6 A-M-6)
+  ws7 (tap-hold $tap-time $hold-time A-M-7 A-M-7)
+  ws8 (tap-hold $tap-time $hold-time A-M-8 A-M-8)
+  ws9 (tap-hold $tap-time $hold-time A-M-9 A-M-9)
+  cancelcap (tap-hold $tap-time $hold-time S-M-esc S-M-esc)          ;; (default) cancel-input-capture
 
-  cornernw (tap-hold $tap-time $hold-time C-S-q C-S-q)
-  cornerne (tap-hold $tap-time $hold-time C-S-w C-S-w)
-  siden    (tap-hold $tap-time $hold-time C-S-e C-S-e)
+  cornernw (tap-hold $tap-time $hold-time C-M-q C-M-q)
+  cornerne (tap-hold $tap-time $hold-time C-M-w C-M-w)
+  siden    (tap-hold $tap-time $hold-time C-M-e C-M-e)
   cyclepan (tap-hold $tap-time $hold-time C-A-esc C-A-esc)           ;; (default) cycle-panels, +Shift=backward
   rotatemon (tap-hold $tap-time $hold-time raw410 raw410)      ;; KEY_ROTATE_DISPLAY (410)
   screenrec (tap-hold $tap-time $hold-time C-S-A-r C-S-A-r)          ;; (default) show-screen-recording-ui
-  sides    (tap-hold $tap-time $hold-time C-S-i C-S-i)
-  sidee    (tap-hold $tap-time $hold-time C-S-o C-S-o)
-  sidew    (tap-hold $tap-time $hold-time C-S-p C-S-p)
-  overview (tap-hold $tap-time $hold-time C-S-[ C-S-[)
-  showdesk (tap-hold $tap-time $hold-time C-S-] C-S-])
+  sides    (tap-hold $tap-time $hold-time C-M-i C-M-i)
+  sidee    (tap-hold $tap-time $hold-time C-M-o C-M-o)
+  sidew    (tap-hold $tap-time $hold-time C-M-p C-M-p)
+  overview (tap-hold $tap-time $hold-time C-M-[ C-M-[)
+  showdesk (tap-hold $tap-time $hold-time C-M-] C-M-])
 
-  cornersw (tap-hold $tap-time $hold-time C-S-a C-S-a)
-  cornerse (tap-hold $tap-time $hold-time C-S-s C-S-s)
-  center   (tap-hold $tap-time $hold-time C-S-d C-S-d)
-  raise    (tap-hold $tap-time $hold-time C-S-f C-S-f)
-  lower    (tap-hold $tap-time $hold-time C-S-g C-S-g)
-  raiselow (tap-hold $tap-time $hold-time C-S-h C-S-h)
-  fullscr  (tap-hold $tap-time $hold-time C-S-j C-S-j)
-  alwaystop (tap-hold $tap-time $hold-time C-S-k C-S-k)
-  allws    (tap-hold $tap-time $hold-time C-S-l C-S-l)
-  maxh     (tap-hold $tap-time $hold-time C-S-; C-S-;)
-  maxv     (tap-hold $tap-time $hold-time C-S-' C-S-')
+  cornersw (tap-hold $tap-time $hold-time C-M-a C-M-a)
+  cornerse (tap-hold $tap-time $hold-time C-M-s C-M-s)
+  center   (tap-hold $tap-time $hold-time C-M-d C-M-d)
+  raise    (tap-hold $tap-time $hold-time C-M-f C-M-f)
+  lower    (tap-hold $tap-time $hold-time C-M-g C-M-g)
+  raiselow (tap-hold $tap-time $hold-time C-M-h C-M-h)
+  fullscr  (tap-hold $tap-time $hold-time C-M-j C-M-j)
+  alwaystop (tap-hold $tap-time $hold-time C-M-k C-M-k)
+  allws    (tap-hold $tap-time $hold-time C-M-l C-M-l)
+  maxh     (tap-hold $tap-time $hold-time C-M-; C-M-;)
+  maxv     (tap-hold $tap-time $hold-time C-M-' C-M-')
 
   monbcyc  (tap-hold $tap-time $hold-time raw234 raw234)   ;; brightness cycle
   monbdn   (tap-hold $tap-time $hold-time raw232 raw232)   ;; brightness down
   monbup   (tap-hold $tap-time $hold-time raw233 raw233)   ;; brightness up
-  ovdown   (tap-hold $tap-time $hold-time S-A-down S-A-down)         ;; shift-overview-down
-  ovup     (tap-hold $tap-time $hold-time S-A-up S-A-up)             ;; shift-overview-up
+  ovdown   (tap-hold $tap-time $hold-time M-A-down M-A-down)         ;; shift-overview-down
+  ovup     (tap-hold $tap-time $hold-time M-A-up M-A-up)             ;; shift-overview-up
 )
 
 ;; ================================================================
