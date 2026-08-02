@@ -69,7 +69,7 @@
   dsb (tap-hold $tap-time $hold-time f6 C-M-down)         ;; workspace down (was F3)
   isb (tap-hold $tap-time $hold-time f7 C-M-up)           ;; workspace up (was F4)
   mic (tap-hold $tap-time $hold-time f8 A-f8)
-  psc (tap-hold $tap-time $hold-time f9 print)            ;; screenshot
+  psc (tap-hold $tap-time $hold-time f9 prtsc)            ;; screenshot (prtsc)
   lts (tap-hold $tap-time $hold-time f10 C-A-M-l)
 
   ;; --- layer-one misc (unchanged) ---
