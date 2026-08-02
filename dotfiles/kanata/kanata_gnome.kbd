@@ -56,11 +56,11 @@
   pum (tap-hold $tap-time $hold-time f2 A-f2)             ;; panel-run-dialog (default)
   dsb (tap-hold $tap-time $hold-time f3 C-M-down)
   isb (tap-hold $tap-time $hold-time f4 C-M-up)
-  mut (tap-hold $tap-time $hold-time f5 XF86MonBrightnessCycle)
-  vdn (tap-hold $tap-time $hold-time f6 XF86MonBrightnessDown)
-  vup (tap-hold $tap-time $hold-time f7 XF86MonBrightnessUp)
+  mut (tap-hold $tap-time $hold-time f5 brightnesscycle)  ;; was XF86MonBrightnessCycle
+  vdn (tap-hold $tap-time $hold-time f6 brightnessdown)   ;; was XF86MonBrightnessDown
+  vup (tap-hold $tap-time $hold-time f7 brightnessup)     ;; was XF86MonBrightnessUp
   mic (tap-hold $tap-time $hold-time f8 A-f8)
-  psc (tap-hold $tap-time $hold-time f9 Print)
+  psc (tap-hold $tap-time $hold-time f9 print)            ;; was Print
   lts (tap-hold $tap-time $hold-time f10 C-A-M-l)
 
   ;; --- layer-one misc (unchanged) ---
@@ -187,7 +187,7 @@
   cornerne (tap-hold $tap-time $hold-time C-S-w C-S-w)
   siden    (tap-hold $tap-time $hold-time C-S-e C-S-e)
   cyclepan (tap-hold $tap-time $hold-time C-A-esc C-A-esc)           ;; (default) cycle-panels, +Shift=backward
-  rotatemon (tap-hold $tap-time $hold-time XF86RotateWindows XF86RotateWindows) ;; (default)
+  rotatemon (tap-hold $tap-time $hold-time rotate_display rotate_display) ;; was XF86RotateWindows
   screenrec (tap-hold $tap-time $hold-time C-S-A-r C-S-A-r)          ;; (default) show-screen-recording-ui
   sides    (tap-hold $tap-time $hold-time C-S-i C-S-i)
   sidee    (tap-hold $tap-time $hold-time C-S-o C-S-o)
@@ -207,9 +207,9 @@
   maxh     (tap-hold $tap-time $hold-time C-S-; C-S-;)
   maxv     (tap-hold $tap-time $hold-time C-S-' C-S-')
 
-  monbcyc  (tap-hold $tap-time $hold-time S-XF86MonBrightnessCycle S-XF86MonBrightnessCycle) ;; (default)
-  monbdn   (tap-hold $tap-time $hold-time S-XF86MonBrightnessDown S-XF86MonBrightnessDown)   ;; (default)
-  monbup   (tap-hold $tap-time $hold-time S-XF86MonBrightnessUp S-XF86MonBrightnessUp)       ;; (default)
+  monbcyc  (tap-hold $tap-time $hold-time S-brightnesscycle S-brightnesscycle) ;; was S-XF86MonBrightnessCycle
+  monbdn   (tap-hold $tap-time $hold-time S-brightnessdown S-brightnessdown)   ;; was S-XF86MonBrightnessDown
+  monbup   (tap-hold $tap-time $hold-time S-brightnessup S-brightnessup)       ;; was S-XF86MonBrightnessUp
   ovdown   (tap-hold $tap-time $hold-time S-A-down S-A-down)         ;; (default) shift-overview-down
   ovup     (tap-hold $tap-time $hold-time S-A-up S-A-up)             ;; (default) shift-overview-up
 )
