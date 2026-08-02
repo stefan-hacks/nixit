@@ -54,9 +54,9 @@
   ;; --- layer-one F-row: tap = F-key, hold = shortcut ---
   qtd (tap-hold $tap-time $hold-time f1 C-A-q)
   pum (tap-hold $tap-time $hold-time f2 A-f2)             ;; panel-run-dialog (default)
-  vdn (tap-hold $tap-time $hold-time f3 brightnessdown)   ;; brightness down (on F3)
-  vup (tap-hold $tap-time $hold-time f4 brightnessup)     ;; brightness up (on F4)
-  mut (tap-hold $tap-time $hold-time f5 brightnesscycle)  ;; cycle brightness (on F5)
+  vdn (tap-hold $tap-time $hold-time f3 (key 232))        ;; brightness down (F3)
+  vup (tap-hold $tap-time $hold-time f4 (key 233))        ;; brightness up (F4)
+  mut (tap-hold $tap-time $hold-time f5 (key 234))        ;; brightness cycle (F5)
   dsb (tap-hold $tap-time $hold-time f6 C-M-down)         ;; workspace down (was F3)
   isb (tap-hold $tap-time $hold-time f7 C-M-up)           ;; workspace up (was F4)
   mic (tap-hold $tap-time $hold-time f8 A-f8)
@@ -101,7 +101,6 @@
 
   ;; -------------------------------------------------------------
   ;; Layer TWO -- Window & Workspace (hold left Super)
-  ;; All defaults. Ctrl/Shift held alongside reach secondary binds.
   ;; -------------------------------------------------------------
   winmenu  (tap-hold $tap-time $hold-time A-spc A-spc)        ;; activate-window-menu
   app1 (tap-hold $tap-time $hold-time S-1 S-1)                ;; +Ctrl = open-new-window-application-1
@@ -169,9 +168,7 @@
 
   ;; -------------------------------------------------------------
   ;; Layer FOUR -- everything GNOME ships blank, plus overflow
-  ;; system actions (hold Right Alt). Requires
-  ;; gnome-layer4-bindings.sh to have been run once, except the
-  ;; entries marked "(default)" which already work out of the box.
+  ;; system actions (hold Right Alt).
   ;; -------------------------------------------------------------
   ws2 (tap-hold $tap-time $hold-time A-S-2 A-S-2)
   ws3 (tap-hold $tap-time $hold-time A-S-3 A-S-3)
@@ -187,7 +184,7 @@
   cornerne (tap-hold $tap-time $hold-time C-S-w C-S-w)
   siden    (tap-hold $tap-time $hold-time C-S-e C-S-e)
   cyclepan (tap-hold $tap-time $hold-time C-A-esc C-A-esc)           ;; (default) cycle-panels, +Shift=backward
-  rotatemon (tap-hold $tap-time $hold-time rotate_display rotate_display) ;; corrected
+  rotatemon (tap-hold $tap-time $hold-time (key 410) (key 410))      ;; KEY_ROTATE_DISPLAY (410)
   screenrec (tap-hold $tap-time $hold-time C-S-A-r C-S-A-r)          ;; (default) show-screen-recording-ui
   sides    (tap-hold $tap-time $hold-time C-S-i C-S-i)
   sidee    (tap-hold $tap-time $hold-time C-S-o C-S-o)
@@ -207,9 +204,9 @@
   maxh     (tap-hold $tap-time $hold-time C-S-; C-S-;)
   maxv     (tap-hold $tap-time $hold-time C-S-' C-S-')
 
-  monbcyc  (tap-hold $tap-time $hold-time S-brightnesscycle S-brightnesscycle)
-  monbdn   (tap-hold $tap-time $hold-time S-brightnessdown S-brightnessdown)
-  monbup   (tap-hold $tap-time $hold-time S-brightnessup S-brightnessup)
+  monbcyc  (tap-hold $tap-time $hold-time S-(key 234) S-(key 234))   ;; brightness cycle
+  monbdn   (tap-hold $tap-time $hold-time S-(key 232) S-(key 232))   ;; brightness down
+  monbup   (tap-hold $tap-time $hold-time S-(key 233) S-(key 233))   ;; brightness up
   ovdown   (tap-hold $tap-time $hold-time S-A-down S-A-down)         ;; shift-overview-down
   ovup     (tap-hold $tap-time $hold-time S-A-up S-A-up)             ;; shift-overview-up
 )
