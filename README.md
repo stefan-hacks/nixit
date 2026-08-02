@@ -8,7 +8,7 @@
 [![Home Manager](https://img.shields.io/badge/Home%20Manager-26.05-blue.svg)](https://github.com/nix-community/home-manager)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-*Modular · Declarative · Reproducible*
+_Modular · Declarative · Reproducible_
 
 </div>
 
@@ -18,14 +18,14 @@
 
 A production-ready NixOS workstation configuration built with **flakes** and **Home Manager**. System and user configs are split into focused modules — one per tool, one per concern.
 
-| Component | Detail |
-|-----------|--------|
-| **OS** | NixOS 26.05 (stable) |
-| **Config** | Flake-based (`flake.nix`) |
-| **Desktop** | GNOME 48 (Wayland) |
-| **Shell** | Bash + Blesh + Starship |
-| **Terminal** | Kitty |
-| **Editor** | Neovim (via Nixvim) |
+| Component    | Detail                             |
+| ------------ | ---------------------------------- |
+| **OS**       | NixOS 26.05 (stable)               |
+| **Config**   | Flake-based (`flake.nix`)          |
+| **Desktop**  | GNOME 50 (Wayland)                 |
+| **Shell**    | Bash + Blesh + Starship            |
+| **Terminal** | Kitty                              |
+| **Editor**   | Neovim (via Nixvim)                |
 | **Security** | LUKS, Firewall, Mullvad, 1Password |
 
 ---
@@ -128,28 +128,28 @@ atuin sync
 
 ### Terminal Stack
 
-| Tool | Purpose |
-|------|---------|
-| [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal |
-| [Blesh](https://github.com/akinomyoga/ble.sh) | Bash line editor (syntax highlighting, history) |
-| [Starship](https://starship.rs/) | Cross-shell prompt |
-| [Atuin](https://atuin.sh/) | Synced shell history |
-| [Zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
-| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info with custom branding |
+| Tool                                                    | Purpose                                         |
+| ------------------------------------------------------- | ----------------------------------------------- |
+| [Kitty](https://sw.kovidgoyal.net/kitty/)               | GPU-accelerated terminal                        |
+| [Blesh](https://github.com/akinomyoga/ble.sh)           | Bash line editor (syntax highlighting, history) |
+| [Starship](https://starship.rs/)                        | Cross-shell prompt                              |
+| [Atuin](https://atuin.sh/)                              | Synced shell history                            |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide)         | Smarter `cd`                                    |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info with custom branding                |
 
 ### Desktop Environment
 
-| Feature | Implementation |
-|---------|----------------|
-| **Window Manager** | GNOME 48 (Wayland) |
-| **Dock** | Dash to Dock |
-| **Blur** | Blur My Shell |
-| **Clipboard** | GPaste |
-| **Tray Icons** | AppIndicator |
-| **Keyboard** | Kanata (vim-style leader key) |
-| **Login Wallpaper** | Catppuccin Mocha (GDM profile) |
-| **Bar Theme** | OpenBar + Yaru accent/folder colors |
-| **Wallpapers** | Wallpicker extension + assets collection |
+| Feature             | Implementation                           |
+| ------------------- | ---------------------------------------- |
+| **Window Manager**  | GNOME 48 (Wayland)                       |
+| **Dock**            | Dash to Dock                             |
+| **Blur**            | Blur My Shell                            |
+| **Clipboard**       | GPaste                                   |
+| **Tray Icons**      | AppIndicator                             |
+| **Keyboard**        | Kanata (vim-style leader key)            |
+| **Login Wallpaper** | Catppuccin Mocha (GDM profile)           |
+| **Bar Theme**       | OpenBar + Yaru accent/folder colors      |
+| **Wallpapers**      | Wallpicker extension + assets collection |
 
 ### GNOME Extensions
 
@@ -175,18 +175,18 @@ atuin sync
 
 Configured declaratively via [Nixvim](https://github.com/nix-community/nixvim) — zero manual plugin management.
 
-| Category | Features |
-|----------|----------|
-| **Theme** | Catppuccin Macchiato, transparent background |
-| **Completion** | nvim-cmp — LSP, buffer, path, luasnip, lspkind |
-| **LSP** | lua_ls, nixd, basedpyright, ts_ls, rust-analyzer, terraformls, jsonls, yamlls, helm_ls, marksman, html, bash-language-server |
-| **Formatting** | conform.nvim — black, isort, nixfmt, stylua, prettier, shfmt, jq |
-| **Fuzzy Find** | Telescope — files, grep, buffers, diagnostics, file-browser, lazygit |
-| **Syntax** | Treesitter with 30+ grammars |
-| **Explorer** | Neo-tree |
-| **Git** | Gitsigns, LazyGit |
-| **UI** | Dashboard, Bufferline, Lualine, ToggleTerm, Undotree |
-| **Extras** | Markdown preview, Schemastore, Mini.indentscope + surround |
+| Category       | Features                                                                                                                     |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Theme**      | Catppuccin Macchiato, transparent background                                                                                 |
+| **Completion** | nvim-cmp — LSP, buffer, path, luasnip, lspkind                                                                               |
+| **LSP**        | lua_ls, nixd, basedpyright, ts_ls, rust-analyzer, terraformls, jsonls, yamlls, helm_ls, marksman, html, bash-language-server |
+| **Formatting** | conform.nvim — black, isort, nixfmt, stylua, prettier, shfmt, jq                                                             |
+| **Fuzzy Find** | Telescope — files, grep, buffers, diagnostics, file-browser, lazygit                                                         |
+| **Syntax**     | Treesitter with 30+ grammars                                                                                                 |
+| **Explorer**   | Neo-tree                                                                                                                     |
+| **Git**        | Gitsigns, LazyGit                                                                                                            |
+| **UI**         | Dashboard, Bufferline, Lualine, ToggleTerm, Undotree                                                                         |
+| **Extras**     | Markdown preview, Schemastore, Mini.indentscope + surround                                                                   |
 
 ---
 
@@ -304,16 +304,16 @@ sudo nixos-rebuild switch --rollback
 
 ## Aliases
 
-| Alias | Command | Description |
-|-------|---------|-------------|
-| `nix-switch` | `sudo nixos-rebuild switch --flake ~/.config/nixit#ghost` | Rebuild system |
-| `nix-test` | `sudo nixos-rebuild test --flake ~/.config/nixit#ghost` | Test without switching |
-| `nix-gc` | `sudo nix-collect-garbage -d` | Garbage collect |
-| `ll` | `eza -l` | Long listing |
-| `la` | `eza -la` | All files |
-| `cat` | `bat --paging=never` | Syntax-highlighted cat |
-| `gs` | `git status` | Git status |
-| `ipy` | `ipython` | Interactive Python |
+| Alias        | Command                                                   | Description            |
+| ------------ | --------------------------------------------------------- | ---------------------- |
+| `nix-switch` | `sudo nixos-rebuild switch --flake ~/.config/nixit#ghost` | Rebuild system         |
+| `nix-test`   | `sudo nixos-rebuild test --flake ~/.config/nixit#ghost`   | Test without switching |
+| `nix-gc`     | `sudo nix-collect-garbage -d`                             | Garbage collect        |
+| `ll`         | `eza -l`                                                  | Long listing           |
+| `la`         | `eza -la`                                                 | All files              |
+| `cat`        | `bat --paging=never`                                      | Syntax-highlighted cat |
+| `gs`         | `git status`                                              | Git status             |
+| `ipy`        | `ipython`                                                 | Interactive Python     |
 
 ---
 
