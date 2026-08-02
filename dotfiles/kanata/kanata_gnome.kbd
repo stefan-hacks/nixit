@@ -103,51 +103,51 @@
   ;; Layer TWO -- Window & Workspace (hold left Super)
   ;; -------------------------------------------------------------
   winmenu  (tap-hold $tap-time $hold-time A-spc A-spc)        ;; activate-window-menu
-  app1 (tap-hold $tap-time $hold-time S-1 S-1)                ;; +Ctrl = open-new-window-application-1
-  app2 (tap-hold $tap-time $hold-time S-2 S-2)
-  app3 (tap-hold $tap-time $hold-time S-3 S-3)
-  app4 (tap-hold $tap-time $hold-time S-4 S-4)
-  app5 (tap-hold $tap-time $hold-time S-5 S-5)
-  app6 (tap-hold $tap-time $hold-time S-6 S-6)
-  app7 (tap-hold $tap-time $hold-time S-7 S-7)
-  app8 (tap-hold $tap-time $hold-time S-8 S-8)
-  app9 (tap-hold $tap-time $hold-time S-9 S-9)
-  appview (tap-hold $tap-time $hold-time S-a S-a)             ;; toggle-application-view
-  qset    (tap-hold $tap-time $hold-time S-s S-s)             ;; toggle-quick-settings
-  mtray   (tap-hold $tap-time $hold-time S-v S-v)             ;; toggle-message-tray
+  app1 (tap-hold $tap-time $hold-time M-1 M-1)                ;; +Ctrl = open-new-window-application-1
+  app2 (tap-hold $tap-time $hold-time M-2 M-2)
+  app3 (tap-hold $tap-time $hold-time M-3 M-3)
+  app4 (tap-hold $tap-time $hold-time M-4 M-4)
+  app5 (tap-hold $tap-time $hold-time M-5 M-5)
+  app6 (tap-hold $tap-time $hold-time M-6 M-6)
+  app7 (tap-hold $tap-time $hold-time M-7 M-7)
+  app8 (tap-hold $tap-time $hold-time M-8 M-8)
+  app9 (tap-hold $tap-time $hold-time M-9 M-9)
+  appview (tap-hold $tap-time $hold-time M-a M-a)             ;; toggle-application-view
+  qset    (tap-hold $tap-time $hold-time M-s M-s)             ;; toggle-quick-settings
+  mtray   (tap-hold $tap-time $hold-time M-v M-v)             ;; toggle-message-tray
 
   cyclegrp (tap-hold $tap-time $hold-time A-f6 A-f6)          ;; +Shift = cycle-group-backward
   begmove  (tap-hold $tap-time $hold-time A-f7 A-f7)          ;; begin-move
   begresz  (tap-hold $tap-time $hold-time A-f8 A-f8)          ;; begin-resize
-  swmon    (tap-hold $tap-time $hold-time S-p S-p)            ;; switch-monitor
-  notif    (tap-hold $tap-time $hold-time S-n S-n)            ;; focus-active-notification
-  wsleft   (tap-hold $tap-time $hold-time S-pgup S-pgup)      ;; switch-to-workspace-left
+  swmon    (tap-hold $tap-time $hold-time M-p M-p)            ;; switch-monitor
+  notif    (tap-hold $tap-time $hold-time M-n M-n)            ;; focus-active-notification
+  wsleft   (tap-hold $tap-time $hold-time M-pgup M-pgup)      ;; switch-to-workspace-left
   wsdown   (tap-hold $tap-time $hold-time C-A-down C-A-down)  ;; switch-to-workspace-down
   wsup     (tap-hold $tap-time $hold-time C-A-up C-A-up)      ;; switch-to-workspace-up
-  wsright  (tap-hold $tap-time $hold-time S-pgdn S-pgdn)      ;; switch-to-workspace-right
-  wslast   (tap-hold $tap-time $hold-time S-end S-end)        ;; switch-to-workspace-last
-  monleft  (tap-hold $tap-time $hold-time S-S-left S-S-left)  ;; move-to-monitor-left
-  monright (tap-hold $tap-time $hold-time S-S-rght S-S-rght)  ;; move-to-monitor-right
-  monup    (tap-hold $tap-time $hold-time S-S-up S-S-up)      ;; move-to-monitor-up
+  wsright  (tap-hold $tap-time $hold-time M-pgdn M-pgdn)      ;; switch-to-workspace-right
+  wslast   (tap-hold $tap-time $hold-time M-end M-end)        ;; switch-to-workspace-last
+  monleft  (tap-hold $tap-time $hold-time S-M-left S-M-left)  ;; move-to-monitor-left
+  monright (tap-hold $tap-time $hold-time S-M-rght S-M-rght)  ;; move-to-monitor-right
+  monup    (tap-hold $tap-time $hold-time S-M-up S-M-up)      ;; move-to-monitor-up
 
-  ws1      (tap-hold $tap-time $hold-time S-home S-home)      ;; switch-to-workspace-1
-  mvleft   (tap-hold $tap-time $hold-time S-S-pgup S-S-pgup)  ;; move-to-workspace-left
+  ws1      (tap-hold $tap-time $hold-time M-home M-home)      ;; switch-to-workspace-1
+  mvleft   (tap-hold $tap-time $hold-time S-M-pgup S-M-pgup)  ;; move-to-workspace-left
   mvdown   (tap-hold $tap-time $hold-time C-S-A-down C-S-A-down) ;; move-to-workspace-down
   mvup     (tap-hold $tap-time $hold-time C-S-A-up C-S-A-up)     ;; move-to-workspace-up
-  mondown  (tap-hold $tap-time $hold-time S-S-down S-S-down)  ;; move-to-monitor-down
-  tileleft (tap-hold $tap-time $hold-time S-left S-left)      ;; toggle-tiled-left
-  tileright (tap-hold $tap-time $hold-time S-rght S-rght)     ;; toggle-tiled-right
-  wmax     (tap-hold $tap-time $hold-time S-up S-up)          ;; maximize
-  wunmax   (tap-hold $tap-time $hold-time S-down S-down)      ;; unmaximize
-  wmin     (tap-hold $tap-time $hold-time S-h S-h)            ;; minimize
-  mvlast   (tap-hold $tap-time $hold-time S-S-end S-S-end)    ;; move-to-workspace-last
+  mondown  (tap-hold $tap-time $hold-time S-M-down S-M-down)  ;; move-to-monitor-down
+  tileleft (tap-hold $tap-time $hold-time M-left M-left)      ;; toggle-tiled-left
+  tileright (tap-hold $tap-time $hold-time M-rght M-rght)     ;; toggle-tiled-right
+  wmax     (tap-hold $tap-time $hold-time M-up M-up)          ;; maximize
+  wunmax   (tap-hold $tap-time $hold-time M-down M-down)      ;; unmaximize
+  wmin     (tap-hold $tap-time $hold-time M-h M-h)            ;; minimize
+  mvlast   (tap-hold $tap-time $hold-time S-M-end S-M-end)    ;; move-to-workspace-last
 
-  mvright  (tap-hold $tap-time $hold-time S-S-pgdn S-S-pgdn)  ;; move-to-workspace-right
-  mv1      (tap-hold $tap-time $hold-time S-S-home S-S-home)  ;; move-to-workspace-1
+  mvright  (tap-hold $tap-time $hold-time S-M-pgdn S-M-pgdn)  ;; move-to-workspace-right
+  mv1      (tap-hold $tap-time $hold-time S-M-home S-M-home)  ;; move-to-workspace-1
 
   cyclewin (tap-hold $tap-time $hold-time A-esc A-esc)        ;; +Shift = cycle-windows-backward
   switchpan (tap-hold $tap-time $hold-time C-A-tab C-A-tab)   ;; +Shift = switch-panels-backward
-  switchsrc (tap-hold $tap-time $hold-time S-spc S-spc)       ;; +Shift = switch-input-source-backward
+  switchsrc (tap-hold $tap-time $hold-time M-spc M-spc)       ;; +Shift = switch-input-source-backward
 
   ;; -------------------------------------------------------------
   ;; Layer EDIT -- text/terminal editing (hold Spacebar). Unchanged.
@@ -178,7 +178,7 @@
   ws7 (tap-hold $tap-time $hold-time A-S-7 A-S-7)
   ws8 (tap-hold $tap-time $hold-time A-S-8 A-S-8)
   ws9 (tap-hold $tap-time $hold-time A-S-9 A-S-9)
-  cancelcap (tap-hold $tap-time $hold-time S-S-esc S-S-esc)          ;; (default) cancel-input-capture
+  cancelcap (tap-hold $tap-time $hold-time S-esc S-esc)          ;; (default) cancel-input-capture
 
   cornernw (tap-hold $tap-time $hold-time C-S-q C-S-q)
   cornerne (tap-hold $tap-time $hold-time C-S-w C-S-w)
