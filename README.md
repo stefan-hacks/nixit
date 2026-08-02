@@ -141,7 +141,7 @@ atuin sync
 
 | Feature             | Implementation                           |
 | ------------------- | ---------------------------------------- |
-| **Window Manager**  | GNOME 48 (Wayland)                       |
+| **Window Manager**  | GNOME 50 (Wayland)                       |
 | **Dock**            | Dash to Dock                             |
 | **Blur**            | Blur My Shell                            |
 | **Clipboard**       | GPaste                                   |
