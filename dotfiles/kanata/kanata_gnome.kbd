@@ -80,6 +80,7 @@
   pi (tap-hold $tap-time $hold-time \ S-\)
   aa (tap-hold $tap-time $hold-time a C-a)
   se (tap-hold $tap-time $hold-time ; S-;)
+  sc1 (tap-hold $tap-time $hold-time ; ;)
   ap (tap-hold $tap-time $hold-time ' S-')
   zz (tap-hold $tap-time $hold-time z C-z)
   xx (tap-hold $tap-time $hold-time x C-x)
@@ -138,7 +139,7 @@
   caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  S-1  S-2  S-3  S-4  S-5  _    S-9  S-0  S-[  S-]  [    ]    _
-  esc  S-6  S-7  S-8  /    grv  S-grv S-\ :    "    ;    '  ret
+  esc  S-6  S-7  S-8  /    grv  S-grv S-\ :    "    @sc1 '  ret
   lsft -    S-=  S--  =    \    S-,  S-.  ,    .    S-/  rsft
   _    _    _           _                 _    _    _
 )
