@@ -274,7 +274,6 @@
     gnomeExtensions.quick-settings-audio-panel
     gnomeExtensions.steal-my-focus-window
     gnomeExtensions.wallpicker
-    gnomeExtensions.brightness-control-using-ddcutil
 
     ###########################################################################
     # Terminal
@@ -343,7 +342,6 @@
     hexyl
     hevi
     wtfis
-    ddcutil
 
     ###########################################################################
     # NixOS-Specific Tools
