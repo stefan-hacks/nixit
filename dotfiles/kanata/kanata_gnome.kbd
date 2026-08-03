@@ -26,10 +26,10 @@
   l2 (tap-hold $tap-time $hold-time lmet (layer-toggle two))
   ;; Spacebar → Layer 3: Symbols / programming characters
   l3 (tap-hold $tap-time $hold-time spc (layer-toggle three))
-  ;; Left Ctrl → Layer 4: Text editing / mouse wheel emulation
-  l4 (tap-hold $tap-time $hold-time lctl (layer-toggle four))
-  ;; Right Ctrl → Layer 5: Numpad / number entry on left hand
-  l5 (tap-hold $tap-time $hold-time rctl (layer-toggle five))
+  ;; Left Shift → Layer 4: Text editing / mouse wheel emulation
+  l4 (tap-hold $tap-time $hold-time lsft (layer-toggle four))
+  ;; Right Shift → Layer 5: Numpad / number entry on left hand
+  l5 (tap-hold $tap-time $hold-time rsft (layer-toggle five))
 
   ;; Home row tap-hold modifiers
   ;; S key: tap=s, hold=Left Meta (Super/Windows key)
@@ -155,9 +155,9 @@
   ;; \ key: tap=\, hold=|
   pi (tap-hold $tap-time $hold-time \ S-\)
   ;; A key: tap=a, hold=Ctrl+A (select all)
-  aa (tap-hold $tap-time $hold-time a C-a)
+  aa (tap-hold $tap-time $hold-time a lsft)
   ;; ; key: tap=;, hold=:
-  se (tap-hold $tap-time $hold-time ; S-;)
+  se (tap-hold $tap-time $hold-time ; rsft)
   ;; ' key: tap=', hold="
   ap (tap-hold $tap-time $hold-time ' S-')
 
@@ -236,8 +236,8 @@
   @gm  @1m  @2m  @3m  @4m  @5m  @6m  @7m  @8m  @9m  @0m  @mi  @pl  bspc
   tab  @qq  @ww  e    @rr  @tt  @yy  @uu  @ii  @oo  p    @so  @sc  @pi
   esc  @aa  @ss  @dd  @ff  g    @hh  @jj  @kk  @ll  @se  @ap  ret
-  lsft @zz  @xx  @cc  @vv  b    n    m    @co  @fu  @fs  rsft
-  @l4  @l2  @la           @l3             @ra  _    @l5
+  @l4  @zz  @xx  @cc  @vv  b    n    m    @co  @fu  @fs  @l5
+  lctl @l2  @la           @l3             @ra  _    @rctl
 )
 
 ;; Workspaces, Windows, Panes layer - left hand on left Windows key
@@ -246,7 +246,7 @@
   grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   tab  _    _    _    _    _    @wtl @dsl @dsr @wtr @pp  @pt  @nt  _
   esc  _    _    _    _    _    @rpl @rpd @rpu @rpr @mls @mrs ret
-  lsft _    _    _    _    _    @w1  @w2  @w3  @w4  _    rsft
+  _    _    _    _    _    _    @w1  @w2  @w3  @w4  _    _
   _    _    _           _                 _    _    _
 )
 
@@ -257,7 +257,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  S-1  S-2  S-3  S-4  S-5  0    S-9  S-0  S-[  S-]  [    ]    _
   esc  S-6  S-7  S-8  /    grv  S-grv S-\ S-;  S-'  _    _    ret
-  lsft -    S-=  S--  =    \    S-,  S-.  ,    .    S-/  rsft
+  _    -    S-=  S--  =    \    S-,  S-.  ,    .    S-/  _
   _    _    _           _                 _    _    _
 )
 
@@ -267,7 +267,7 @@
   grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  _    _    _    _    _    @mwl @mwd @mwu @mwr p    @dtb @dte _
   esc  _    _    _    _    _    left down up   rght bspc del  ret
-  lsft _    _    _    _    _    @dwb @dwf @tbd @tfd _    rsft
+  _    _    _    _    _    _    @dwb @dwf @tbd @tfd _    _
   _    _    _           _                 _    _    _
 )
 
@@ -277,7 +277,7 @@
   grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  S-=  9    8    7    -    _    _    _    _    _    _    _    _
   esc  /    6    5    4    0    _    _    _    _    _    _    ret
-  lsft =    3    2    1    _    _    _    _    _    _    rsft
+  _    =    3    2    1    _    _    _    _    _    _    _
   _    _    _           _                 _    _    _
 )
 ;; lrld is a default shortcut to reload the configuration found on layer 2 in place of f12
