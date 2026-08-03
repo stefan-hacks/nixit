@@ -237,7 +237,7 @@
   tab  @qq  @ww  e    @rr  @tt  @yy  @uu  @ii  @oo  p    @so  @sc  @pi
   esc  @aa  @ss  @dd  @ff  g    @hh  @jj  @kk  @ll  @se  @ap  ret
   @l4  @zz  @xx  @cc  @vv  b    n    m    @co  @fu  @fs  @l5
-  lctl @l2  @la           @l3             @ra  _    @rctl
+  lctl @l2  @la           @l3             @ra  _    rctl
 )
 
 ;; Workspaces, Windows, Panes layer - left hand on left Windows key
