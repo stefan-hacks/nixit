@@ -23,8 +23,6 @@
 (defalias
   l2 (tap-hold $tap-time $hold-time lmet (layer-toggle two))
   l3 (tap-hold $tap-time $hold-time spc (layer-toggle three))
-  l4 (tap-hold $tap-time $hold-time lctl (layer-toggle four))
-  l5 (tap-hold $tap-time $hold-time rctl (layer-toggle five))
   ss (tap-hold $tap-time $hold-time s lmet)
   dd (tap-hold $tap-time $hold-time d lalt)
   ff (tap-hold $tap-time $hold-time f lctl)
@@ -120,31 +118,22 @@
   tab  @qq  @ww  e    @rr  @tt  @yy  @uu  @ii  @oo  p    @so  @sc  @pi
   esc  @aa  @ss  @dd  @ff  g    @hh  @jj  @kk  @ll  @se  @ap  ret
   lsft @zz  @xx  @cc  @vv  b    n    m    @co  @fu  @fs  rsft
-  @l4  @l2  @la           @l3             @ra  _    @l5
+  lctl @l2  @la           @l3             @ra  _    _
 )
 
 ;; Workspaces, Windows, Panes layer - left hand on left Windows key
 (deflayer two
   caps _    _    _    _    _    _    _    _    _    _    _    lrld
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
-  tab  _    _    _    _    _    @wtl @dsl @dsr @wtr @pp  @pt  @nt  _
+  grv  _    _    _    _    _    6    7    8    9    0    _    _    bspc
+  tab  _    _    _    _    _    @wtl @dsl @dsr @wtr @pp  @pt  @nt  \
   esc  _    _    _    _    _    @rpl @rpd @rpu @rpr @mls @mrs ret
   lsft _    _    _    _    _    @w1  @w2  @w3  @w4  _    rsft
   _    _    _           _                 _    _    _
 )
 
-;; Symbols - programming layer - spacebar held
-(deflayer three
-  caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  tab  S-1  S-2  S-3  S-4  S-5  _    S-9  S-0  S-[  S-]  [    ]    _
-  esc  S-6  S-7  S-8  /    grv  S-grv S-\ :    "    ;    '  ret
-  lsft -    S-=  S--  =    \    S-,  S-.  ,    .    S-/  rsft
-  _    _    _           _                 _    _    _
-)
 
-;; Editing - text and terminal editing layer - left ctrl key held
-(deflayer four
+;; Editing - text and terminal editing layer - spacebar held
+(deflayer three
   caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
   grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  _    _    _    _    _    @mwl @mwd @mwu @mwr p    @dtb @dte _
@@ -153,14 +142,5 @@
   _    _    _           _                 _    _    _
 )
 
-;; Numbers - editing layer - right ctrl key held
-(deflayer five
-  caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  tab  S-=  9    8    7    -    _    _    _    _    _    _    _    _
-  esc  /    6    5    4    0    _    _    _    _    _    _    ret
-  lsft =    3    2    1    _    _    _    _    _    _    rsft
-  _    _    _           _                 _    _    _
-)
 ;; lrld is a default shortcut to reload the configuration found on layer 2 in place of f12
 
