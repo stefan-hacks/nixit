@@ -136,26 +136,26 @@ Esc and Caps Lock are swapped on **every** layer.
 
 Held by the physical **Left Meta** key (bottom row).
 
-| Key | Action          | Description                      |
-| --- | --------------- | -------------------------------- |
-| Y   | Shift+Meta+PgUp | Move window to previous display  |
-| O   | Shift+Meta+PgDn | Move window to next display      |
-| U   | Alt+F11         | Switch to workspace on the left  |
-| I   | Alt+F12         | Switch to workspace on the right |
-| H   | Meta+Left       | Previous workspace               |
-| J   | Meta+Down       | Workspace down                   |
-| K   | Meta+Up         | Workspace up                     |
-| L   | Meta+Right      | Next workspace                   |
-| N   | Alt+Meta+1      | Switch to workspace 1            |
-| M   | Alt+Meta+2      | Switch to workspace 2            |
-| ,   | Alt+Meta+3      | Switch to workspace 3            |
-| .   | Alt+Meta+4      | Switch to workspace 4            |
-| P   | Ctrl+Meta+/     | Play/Pause media                 |
-| [   | Ctrl+Meta+,     | Previous track                   |
-| ]   | Ctrl+Meta+.     | Next track                       |
-| ;   | Shift+Meta+H    | Move window to left workspace    |
-| '   | Shift+Meta+L    | Move window to right workspace   |
-| F12 | lrld            | Reload kanata config             |
+| Key | Action          | Description                       |
+| --- | --------------- | --------------------------------- |
+| Y   | Shift+Meta+PgUp | Move window to previous workspace |
+| O   | Shift+Meta+PgDn | Move window to next workspace     |
+| U   | Alt+F11         | Switch to workspace on the left   |
+| I   | Alt+F12         | Switch to workspace on the right  |
+| H   | Meta+Left       | Previous workspace                |
+| J   | Meta+Down       | Workspace down                    |
+| K   | Meta+Up         | Workspace up                      |
+| L   | Meta+Right      | Next workspace                    |
+| N   | Alt+Meta+1      | Switch to workspace 1             |
+| M   | Alt+Meta+2      | Switch to workspace 2             |
+| ,   | Alt+Meta+3      | Switch to workspace 3             |
+| .   | Alt+Meta+4      | Switch to workspace 4             |
+| P   | Ctrl+Meta+/     | Play/Pause media                  |
+| [   | Ctrl+Meta+,     | Previous track                    |
+| ]   | Ctrl+Meta+.     | Next track                        |
+| ;   | Shift+Meta+H    | Move window to left display       |
+| '   | Shift+Meta+L    | Move window to right display      |
+| F12 | lrld            | Reload kanata config              |
 
 ---
 
