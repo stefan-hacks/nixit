@@ -1,160 +1,84 @@
-# keyhack-kanata
+<div align="center">
+
+# ⌨️ keyhack-kanata
+
+**A 5-layer [Kanata](https://github.com/jtroo/kanata) keyboard configuration **
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-blue.svg)
+![Desktop](https://img.shields.io/badge/desktop-GNOME-orange.svg)
 
-> A production-grade [Kanata](https://github.com/jtroo/kanata) configuration that turns a standard keyboard into a 5-layer productivity engine. Built for GNOME on Linux with kitty terminal integration.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [The 5 Layers](#the-5-layers)
-- [Key Concepts](#key-concepts)
-- [Installation](#installation)
-- [Configuration Files](#configuration-files)
-- [Layer Reference](#layer-reference)
-- [Customization](#customization)
-- [Troubleshooting](#troubleshooting)
-- [Resources](#resources)
+</div>
 
 ---
 
 ## Overview
 
-This configuration uses **tap-hold** mechanics to compress modifier keys, symbol layers, navigation, and window management into the same physical keymap. No keymap switching software. No external tools. Just Kanata running as a user-level systemd service.
+This configuration turns a standard laptop keyboard into a five-layer, tap-hold-driven control surface. Almost every key does two jobs — a quick **tap** for its normal character, and a **hold** for a modifier, shortcut, or entire layer switch.
 
-The design philosophy is **layers over reach** — instead of stretching for modifier chords or function keys, every key on the home row and number row carries a secondary action when held.
+Esc and Caps Lock are swapped on **every** layer, so Caps Lock always behaves as Esc and vice versa.
 
-> **Note:** The **Caps Lock** and **Esc** keys are swapped across all layers. The key in the Caps Lock position sends `Esc`, and the key in the Esc position sends `Caps Lock`.
+### The five layers at a glance
 
-| Component | Requirement |
-|-----------|-------------|
-| **OS** | Linux |
-| **Desktop** | GNOME (for workspace/window bindings) |
-| **Terminal** | kitty (for tab/scroll aliases) |
-| **Tool** | Kanata |
+| Layer                      | Held by                | Purpose                                                                  |
+| -------------------------- | ---------------------- | ------------------------------------------------------------------------ |
+| **1 — Base**               | _(default)_            | Normal typing, with tap-hold modifiers and shortcuts on nearly every key |
+| **2 — Window / Workspace** | Left Meta (bottom row) | GNOME window snapping, display switching, workspace navigation           |
+| **3 — Symbols**            | Spacebar               | Programming symbols without reaching for Shift                           |
+| **4 — Editing**            | Left Shift             | Arrow keys, mouse-wheel emulation, word/line deletion                    |
+| **5 — Numbers**            | Right Shift            | A left-hand numpad over the Q/W/E and A/S/D and Z/X/C block              |
 
----
-
-## The 5 Layers
-
-The configuration is organized into five layers. Four are accessed via tap-hold on physical keys; one is always active as the base.
-
-| Layer | Name | Trigger | Purpose |
-|-------|------|---------|---------|
-| **Layer 1** | Base | Default | Typing with tap-hold modifiers and smart symbol keys |
-| **Layer 2** | Window/Workspace | Hold **Left Meta** | GNOME window tiling, workspace switching, kitty tabs |
-| **Layer 3** | Symbols | Hold **Spacebar** | Direct access to programming symbols without Shift |
-| **Layer 4** | Editing | Hold **Left Ctrl** | Arrow keys, text deletion, mouse wheel emulation |
-| **Layer 5** | Numbers | Hold **Right Ctrl** | Numpad-style number entry on the left hand |
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      LAYER ARCHITECTURE                         │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   Layer 1 (Base)      →  Default; tap-hold everywhere            │
-│   Layer 2 (Window)    →  Hold Left Meta / Super key             │
-│   Layer 3 (Symbols)   →  Hold Spacebar                          │
-│   Layer 4 (Editing)   →  Hold Left Ctrl                         │
-│   Layer 5 (Numbers)   →  Hold Right Ctrl                        │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+> **Note:** Left Shift and Right Shift were freed up to become layer-toggle keys. Their modifier function still exists — it just moved: hold **A** for Left Shift, hold **;** for Right Shift.
 
 ---
 
-## Key Concepts
+## 📚 Layer Reference
 
-### Tap-Hold Modifiers
+### Layer 1 — Base
 
-The home row acts as modifiers when held, letters when tapped:
+Default typing layer. Tap-hold covers the home row (modifiers), the number row (shifted symbols), the F-row (system/media controls), and common editing shortcuts (Ctrl+C/V/X/Z, etc). The two thumb keys toggle Layer 2 (Left Meta) and Layer 3 (Space); Left/Right Shift toggle Layer 4 and Layer 5.
 
-| Key | Tap | Hold |
-|-----|-----|------|
-| `A` | `a` | `Ctrl+A` (select all) |
-| `S` | `s` | Left Meta (Super) |
-| `D` | `d` | Left Alt |
-| `F` | `f` | Left Ctrl |
-| `H` | `h` | `Shift+`` (GNOME Activities) |
-| `J` | `j` | Right Ctrl |
-| `K` | `k` | Right Alt |
-| `L` | `l` | Right Meta |
+![Layer 1 — Base](01-layer1-base.png)
 
-### Smart Number Row
+### Layer 2 — Window / Workspace
 
-Symbols are emitted when the number row keys are held — no Shift required:
+Held by the physical **Left Meta** key. Right-hand keys drive GNOME window snapping, display switching, and workspace navigation; the number row lets N/M/,/. jump straight to workspaces 1–4.
 
-| Key | Tap | Hold |
-|-----|-----|------|
-| `` ` `` | `` ` `` | `~` |
-| `1` | `1` | `!` |
-| `2` | `2` | `@` |
-| `3` | `3` | `#` |
-| `4` | `4` | `$` |
-| `5` | `5` | `%` |
-| `6` | `6` | `^` |
-| `7` | `7` | `&` |
-| `8` | `8` | `*` |
-| `9` | `9` | `(` |
-| `0` | `0` | `)` |
-| `-` | `-` | `_` |
-| `=` | `=` | `+` |
+![Layer 2 — Window / Workspace](02-layer2-window-workspace.png)
 
-### Bracket Modifiers
+### Layer 3 — Symbols
 
-Punctuation keys output shifted variants on hold:
+Held by **Spacebar**. Remaps QWERTYUIOP / ASDFGHJKL / ZXCVBNM to punctuation and programming symbols, so brackets, pipes, and shift-symbols are reachable without contorting for Shift. F-row system shortcuts stay active.
 
-| Key | Tap | Hold |
-|-----|-----|------|
-| `[` | `[` | `{` |
-| `]` | `]` | `}` |
-| `;` | `;` | `:` |
-| `'` | `'` | `"` |
-| `,` | `,` | `<` |
-| `.` | `.` | `>` |
-| `/` | `/` | `?` |
+![Layer 3 — Symbols](03-layer3-symbols.png)
 
-### Function Row
+### Layer 4 — Editing
 
-The `F1`–`F12` row is remapped to system and media controls:
+Held by **Left Shift**. Arrow keys land on H/J/K/L, mouse-wheel emulation on Y/U/I/O, and word/line-deletion shortcuts on the bottom row for fast terminal and text editing.
 
-| Key | Hold Action |
-|-----|-------------|
-| `F1` | Quake terminal dropdown (`Ctrl+Alt+Q`) |
-| `F2` | Run command (`Alt+F2`) |
-| `F3` | Decrease display brightness (`Ctrl+Meta+Down`) |
-| `F4` | Increase display brightness (`Ctrl+Meta+Up`) |
-| `F5` | Toggle mute speakers/audio output (`Alt+F5`) |
-| `F6` | Volume down (`Alt+F6`) |
-| `F7` | Volume up (`Alt+F7`) |
-| `F8` | Toggle microphone (`Alt+F8`) |
-| `F9` | Take screenshot (`Alt+F9`) |
-| `F10` | Lock screen (`Ctrl+Alt+Meta+L`) |
-| `F11` | Unmapped |
-| `F12` | Unmapped |
+![Layer 4 — Editing](04-layer4-editing.png)
 
-### Caps Lock / Esc Swap
+### Layer 5 — Numbers
 
-Across **all layers**, the physical `Caps Lock` key sends `Esc`, and the physical `Esc` key sends `Caps Lock`.
+Held by **Right Shift**. A left-hand numpad: 7/8/9 and +/- on the top row, 4/5/6/0 and / on the home row, 1/2/3 and = on the bottom row.
+
+![Layer 5 — Numbers](05-layer5-numbers.png)
 
 ---
 
-## Installation
+## 🚀 Installation
 
-### Install Kanata
+### Prerequisites
 
 ```bash
 # Via cargo
 cargo install kanata
 
-# Or download from GitHub releases
+# Or download a prebuilt binary from:
 # https://github.com/jtroo/kanata/releases
 ```
 
-### Configure udev (Linux)
+### uinput permissions (Linux)
 
 ```bash
 sudo groupadd -f uinput
@@ -168,32 +92,31 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-Log out and back in for group changes to take effect.
-
-### Clone and Deploy
+### Clone and configure
 
 ```bash
 git clone https://github.com/stefan-hacks/keyhack-kanata.git
 cd keyhack-kanata
 
 mkdir -p ~/.config/kanata
-cp kanata_gnome.kbd ~/.config/kanata/kanata.kbd
+cp kanata_gnome.kbd ~/.config/kanata/
 ```
 
-### Systemd User Service
+### Run as a systemd user service
 
 Create `~/.config/systemd/user/kanata.service`:
 
 ```ini
 [Unit]
 Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
 After=default.target
 
 [Service]
 Type=simple
 Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
 Environment=DISPLAY=:0
-ExecStart=/bin/sh -c 'exec kanata --cfg ~/.config/kanata/kanata.kbd'
+ExecStart=/bin/sh -c 'exec kanata --cfg ~/.config/kanata/kanata_gnome.kbd'
 Restart=on-failure
 RestartSec=5
 
@@ -201,209 +124,77 @@ RestartSec=5
 WantedBy=default.target
 ```
 
-Enable and start:
-
 ```bash
 systemctl --user daemon-reload
-systemctl --user enable kanata.service
-systemctl --user start kanata.service
+systemctl --user enable --now kanata.service
+systemctl --user status kanata.service
 ```
 
 ---
 
-## Configuration Files
+## 🎨 Customization
 
-| File | Purpose |
-|------|---------|
-| `kanata_gnome.kbd` | **Primary config** — 5 layers with GNOME/kitty integration |
-| `kanata.bak` | Legacy 3-layer config (retained for reference) |
+### Tap-hold timing
 
-Use `kanata_gnome.kbd` as the active configuration. It is tuned for GNOME desktop environments and assumes kitty is the default terminal for tab/scroll aliases.
-
----
-
-## Layer Reference
-
-### Layer 1 — Base
-
-![Layer 1 — Base](assets/layer1_base.png)
-
-Default typing layer. Nearly every key has a tap-hold dual role. Tap for the letter, hold for the modifier or action shown in blue. The `Caps Lock` and `Esc` keys are swapped — the physical Caps Lock position sends `Esc`, and the physical Esc position sends `Caps Lock`.
-
-### Layer 2 — Window/Workspace
-
-![Layer 2 — Window/Workspace](assets/layer2_window.png)
-
-Hold **Left Meta** (`S` key or physical Windows key) to activate.
-
-| Key | Action |
-|-----|--------|
-| `Y` / `U` / `I` / `O` | Move window to previous display / workspace left / workspace right / move window to next display |
-| `H` / `J` / `K` / `L` | Workspace previous / down / up / next |
-| `N` / `M` / `,` / `.` | Switch to workspace 1 / 2 / 3 / 4 |
-| `P` | Play/pause media |
-| `[` / `]` | Previous track / next track |
-| `;` / `'` | kitty scroll left / right (`S-M-h` / `S-M-l`) |
-| `F12` | Reload Kanata config (`lrld`) |
-
-### Layer 3 — Symbols
-
-![Layer 3 — Symbols](assets/layer3_symbols.png)
-
-Hold **Spacebar** to activate. Outputs programming symbols directly. This layer removes the need to chord Shift for common programming characters.
-
-| Row | Mapping |
-|-----|---------|
-| Number row | Unmapped |
-| `Q`–`T` | `!` `@` `#` `$` `%` |
-| `Y` | `0` |
-| `U`–`P` | `(` `)` `{` `}` |
-| `[` / `]` | `[` `]` |
-| `A`–`F` | `^` `&` `*` `/` `` ` `` |
-| `G`–`L` | `~` `\|` `:` `"` |
-| `Z`–`/` | `-` `+` `_` `=` `\` `<` `>` `,` `.` `?` |
-
-### Layer 4 — Editing
-
-![Layer 4 — Editing](assets/layer4_editing.png)
-
-Hold **Left Ctrl** to activate.
-
-| Key | Action |
-|-----|--------|
-| `H` / `J` / `K` / `L` | Mouse wheel left / down / up / right |
-| `Y` / `U` / `I` / `O` | Arrow left / down / up / right |
-| `P` | Delete to beginning of line (`C-u`) |
-| `[` | Delete to end of line (`C-k`) |
-| `N` / `M` | Delete word backward / forward (`C-Bspc` / `C-Del`) |
-| `,` / `.` | Delete word backward terminal-style (`C-w`) / forward (`A-d`) |
-
-### Layer 5 — Numbers
-
-![Layer 5 — Numbers](assets/layer5_numbers.png)
-
-Hold **Right Ctrl** to activate. Places a numpad under the left hand. Ideal for quick numeric entry without moving the right hand from the mouse.
-
-| Key | Output |
-|-----|--------|
-| `Q` | `+` |
-| `W` / `E` / `R` / `T` | `9` `8` `7` `-` |
-| `A` / `S` / `D` / `F` | `/` `6` `5` `4` |
-| `Z` / `X` / `C` / `V` | `=` `3` `2` `1` |
-| `G` | `0` |
-
----
-
-## Customization
-
-### Adjust Tap-Hold Timing
-
-If modifiers trigger too easily or too slowly:
+Both timings default to 200ms. If you're seeing accidental holds or missed taps, adjust in `defvar`:
 
 ```lisp
 (defvar
-  tap-time 250    ; milliseconds
-  hold-time 250
+ tap-time 250
+ hold-time 250
 )
 ```
 
-Increase for slower typing cadence; decrease for faster response.
+### Layer-toggle keys
 
-### Change GNOME Workspace Shortcuts
-
-The aliases `rpl`, `rpd`, `rpu`, `rpr` map to GNOME's `Meta+arrow` defaults. If your GNOME uses different bindings, update the aliases in `kanata_gnome.kbd`:
-
-```lisp
-rpl M-left    ; previous workspace
-rpr M-rght    ; next workspace
-```
-
-### Add a Layer
-
-```lisp
-;; Alias
-sym (layer-toggle symbols)
-
-;; Layer definition
-(deflayer symbols
-  ...
-)
-```
+| Key         | Tap         | Hold          |
+| ----------- | ----------- | ------------- |
+| Left Meta   | Left Meta   | → **Layer 2** |
+| Spacebar    | Space       | → **Layer 3** |
+| Left Shift  | Left Shift  | → **Layer 4** |
+| Right Shift | Right Shift | → **Layer 5** |
 
 ---
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
-### Kanata will not start
+**Kanata won't start**
 
 ```bash
-# Verify uinput group membership
-groups $USER | grep uinput
-
-# Check device node
-ls -la /dev/uinput
-# Expected: crw-rw---- 1 root uinput
+groups $USER | grep uinput   # confirm group membership; re-login or `newgrp uinput` if missing
+ls -la /dev/uinput            # should show crw-rw---- 1 root uinput
 ```
 
-### Service failures
+**Service fails to start**
 
 ```bash
-# Logs
 journalctl --user -u kanata.service -f
-
-# Debug mode
-kanata --cfg ~/.config/kanata/kanata.kbd --debug
+kanata --cfg ~/.config/kanata/kanata_gnome.kbd --debug
 ```
 
-### Keys not responding
+**Keys not responding**
 
 ```bash
-# Check process
-pgrep -a kanata
-
-# Restart
-pkill kanata
-kanata --cfg ~/.config/kanata/kanata.kbd
-```
-
-### Accidental holds / double taps
-
-1. Increase `tap-time` and `hold-time` to 250–300 ms.
-2. Switch to `tap-hold-release` in aliases if `tap-hold` is too aggressive:
-
-```lisp
-;; Replace:
-ss (tap-hold $tap-time $hold-time s lmet)
-
-;; With:
-ss (tap-hold-release $tap-time $hold-time s lmet)
-```
-
-### kitty shortcuts not working
-
-Ensure `kitty.conf` does not conflict:
-
-```
-map ctrl+shift+t new_tab
-map ctrl+shift+w close_tab
-map ctrl+shift+, previous_tab
-map ctrl+shift+. next_tab
+ps aux | grep kanata
+pkill kanata && kanata --cfg ~/.config/kanata/kanata_gnome.kbd
 ```
 
 ---
 
-## Resources
+## 📖 Resources
 
-- [Kanata Repository](https://github.com/jtroo/kanata) — Official documentation and source
-- [Kanata Configuration Guide](https://github.com/jtroo/kanata/blob/main/docs/config.adoc) — Complete syntax reference
-- [Kanata Web Simulator](https://jtroo.github.io/) — Test configurations in browser before deploying
-
----
-
-## License
-
-MIT License — See [LICENSE](LICENSE) file.
+- [Kanata](https://github.com/jtroo/kanata) — official repository
+- [Kanata configuration guide](https://github.com/jtroo/kanata/blob/main/docs/config.adoc)
+- [Kanata simulator](https://jtroo.github.io/) — test configs in-browser
 
 ---
 
-**Maintained by:** @stefan-hacks
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE)
+
+<div align="center">
+
+**Maintained by** [@stefan-hacks](https://github.com/stefan-hacks)
+
+</div>
