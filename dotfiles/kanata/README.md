@@ -2,7 +2,7 @@
 
 # ⌨️ keyhack-kanata
 
-**A 5-layer [Kanata](https://github.com/jtroo/kanata) keyboard configuration **
+**A 5-layer [Kanata](https://github.com/jtroo/kanata) keyboard configuration for GNOME**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-blue.svg)
@@ -16,19 +16,17 @@
 
 This configuration turns a standard laptop keyboard into a five-layer, tap-hold-driven control surface. Almost every key does two jobs — a quick **tap** for its normal character, and a **hold** for a modifier, shortcut, or entire layer switch.
 
-Esc and Caps Lock are swapped on **every** layer, so Caps Lock always behaves as Esc and vice versa.
+Esc and Caps Lock are swapped on **every** layer.
 
-### The five layers at a glance
+| Layer                      | Held by                | Purpose                                                                            |
+| -------------------------- | ---------------------- | ---------------------------------------------------------------------------------- |
+| **1 — Base**               | _(default)_            | Normal typing with tap-hold modifiers and shortcuts on nearly every key            |
+| **2 — Window / Workspace** | Left Meta (bottom row) | GNOME window snapping, display switching, workspace navigation, kitty tab controls |
+| **3 — Symbols**            | Spacebar               | Programming symbols without reaching for Shift                                     |
+| **4 — Editing**            | Left Shift             | Arrow keys, mouse-wheel emulation, word/line deletion                              |
+| **5 — Numbers**            | Right Shift            | Left-hand numpad over QWE / ASD / ZXC                                              |
 
-| Layer                      | Held by                | Purpose                                                                  |
-| -------------------------- | ---------------------- | ------------------------------------------------------------------------ |
-| **1 — Base**               | _(default)_            | Normal typing, with tap-hold modifiers and shortcuts on nearly every key |
-| **2 — Window / Workspace** | Left Meta (bottom row) | GNOME window snapping, display switching, workspace navigation           |
-| **3 — Symbols**            | Spacebar               | Programming symbols without reaching for Shift                           |
-| **4 — Editing**            | Left Shift             | Arrow keys, mouse-wheel emulation, word/line deletion                    |
-| **5 — Numbers**            | Right Shift            | A left-hand numpad over the Q/W/E and A/S/D and Z/X/C block              |
-
-> **Note:** Left Shift and Right Shift were freed up to become layer-toggle keys. Their modifier function still exists — it just moved: hold **A** for Left Shift, hold **;** for Right Shift.
+> **Note:** Left Shift and Right Shift were freed up to become layer-toggle keys. Their modifier function still exists — hold **A** for Left Shift, hold **;** for Right Shift. The S key holds Left Meta so the physical Left Meta key can be repurposed for Layer 2.
 
 ---
 
@@ -36,99 +34,193 @@ Esc and Caps Lock are swapped on **every** layer, so Caps Lock always behaves as
 
 ### Layer 1 — Base
 
-Default typing layer. Tap-hold covers the home row (modifiers), the number row (shifted symbols), the F-row (system/media controls), and common editing shortcuts (Ctrl+C/V/X/Z, etc). The two thumb keys toggle Layer 2 (Left Meta) and Layer 3 (Space); Left/Right Shift toggle Layer 4 and Layer 5.
-
 ![Layer 1 — Base](01-layer1-base.png)
 
-### Layer 2 — Window / Workspace
+#### Home-row modifiers
 
-Held by the physical **Left Meta** key. Right-hand keys drive GNOME window snapping, display switching, and workspace navigation; the number row lets N/M/,/. jump straight to workspaces 1–4.
+| Key | Tap | Hold                                |
+| --- | --- | ----------------------------------- |
+| A   | a   | Left Shift                          |
+| S   | s   | Left Meta                           |
+| D   | d   | Left Alt                            |
+| F   | f   | Left Ctrl                           |
+| H   | h   | Shift+` (GNOME Activities overview) |
+| J   | j   | Right Ctrl                          |
+| K   | k   | Right Alt                           |
+| L   | l   | Right Meta                          |
+| ;   | ;   | Right Shift                         |
+| '   | '   | "                                   |
 
-![Layer 2 — Window / Workspace](02-layer2-window-workspace.png)
+#### Number row — tap digit, hold symbol
 
-### Layer 3 — Symbols
+| Key | Tap | Hold |
+| --- | --- | ---- |
+| `   | `   | ~    |
+| 1   | 1   | !    |
+| 2   | 2   | @    |
+| 3   | 3   | #    |
+| 4   | 4   | $    |
+| 5   | 5   | %    |
+| 6   | 6   | ^    |
+| 7   | 7   | &    |
+| 8   | 8   | \*   |
+| 9   | 9   | (    |
+| 0   | 0   | )    |
+| -   | -   | \_   |
+| =   | =   | +    |
 
-Held by **Spacebar**. Remaps QWERTYUIOP / ASDFGHJKL / ZXCVBNM to punctuation and programming symbols, so brackets, pipes, and shift-symbols are reachable without contorting for Shift. F-row system shortcuts stay active.
+#### F-row — tap function key, hold system action
 
-![Layer 3 — Symbols](03-layer3-symbols.png)
+| Key | Tap | Hold                                      |
+| --- | --- | ----------------------------------------- |
+| F1  | F1  | Quake terminal dropdown (Ctrl+Alt+Q)      |
+| F2  | F2  | Run command (Alt+F2)                      |
+| F3  | F3  | Decrease display brightness (Ctrl+Meta+↓) |
+| F4  | F4  | Increase display brightness (Ctrl+Meta+↑) |
+| F5  | F5  | Toggle mute (Alt+F5)                      |
+| F6  | F6  | Volume down (Alt+F6)                      |
+| F7  | F7  | Volume up (Alt+F7)                        |
+| F8  | F8  | Toggle microphone (Alt+F8)                |
+| F9  | F9  | Screenshot (Alt+F9)                       |
+| F10 | F10 | Lock screen (Ctrl+Alt+Meta+L)             |
 
-### Layer 4 — Editing
+#### Top row — tap letter, hold shortcut
 
-Held by **Left Shift**. Arrow keys land on H/J/K/L, mouse-wheel emulation on Y/U/I/O, and word/line-deletion shortcuts on the bottom row for fast terminal and text editing.
+| Key | Tap | Hold               |
+| --- | --- | ------------------ |
+| Q   | q   | Ctrl+Q (quit)      |
+| W   | w   | Ctrl+W (close tab) |
+| R   | r   | Ctrl+R (reload)    |
+| T   | t   | Ctrl+T (new tab)   |
+| Y   | y   | Home               |
+| U   | u   | Page Down          |
+| I   | i   | Page Up            |
+| O   | o   | End                |
 
-![Layer 4 — Editing](04-layer4-editing.png)
+#### Brackets & punctuation — tap unshifted, hold shifted
 
-### Layer 5 — Numbers
+| Key | Tap | Hold |
+| --- | --- | ---- |
+| [   | [   | {    |
+| ]   | ]   | }    |
+| \   | \   | \|   |
+| ,   | ,   | <    |
+| .   | .   | >    |
+| /   | /   | ?    |
 
-Held by **Right Shift**. A left-hand numpad: 7/8/9 and +/- on the top row, 4/5/6/0 and / on the home row, 1/2/3 and = on the bottom row.
+#### Bottom row — tap letter, hold shortcut
 
-![Layer 5 — Numbers](05-layer5-numbers.png)
+| Key | Tap | Hold           |
+| --- | --- | -------------- |
+| Z   | z   | Ctrl+Z (undo)  |
+| X   | x   | Ctrl+X (cut)   |
+| C   | c   | Ctrl+C (copy)  |
+| V   | v   | Ctrl+V (paste) |
+
+#### Thumb cluster
+
+| Key                    | Tap         | Hold      |
+| ---------------------- | ----------- | --------- |
+| Backspace              | Backspace   | Delete    |
+| Enter                  | Enter       | Right Alt |
+| Left Meta (bottom row) | Left Meta   | Layer 2   |
+| Spacebar               | Space       | Layer 3   |
+| Left Shift             | Left Shift  | Layer 4   |
+| Right Shift            | Right Shift | Layer 5   |
 
 ---
 
-## 🚀 Installation
+### Layer 2 — Window / Workspace
 
-### Prerequisites
+![Layer 2 — Window / Workspace](02-layer2-window-workspace.png)
 
-```bash
-# Via cargo
-cargo install kanata
+Held by the physical **Left Meta** key (bottom row).
 
-# Or download a prebuilt binary from:
-# https://github.com/jtroo/kanata/releases
-```
+| Key | Action          | Description                      |
+| --- | --------------- | -------------------------------- |
+| Y   | Shift+Meta+PgUp | Move window to previous display  |
+| O   | Shift+Meta+PgDn | Move window to next display      |
+| U   | Alt+F11         | Switch to workspace on the left  |
+| I   | Alt+F12         | Switch to workspace on the right |
+| H   | Meta+Left       | Previous workspace               |
+| J   | Meta+Down       | Workspace down                   |
+| K   | Meta+Up         | Workspace up                     |
+| L   | Meta+Right      | Next workspace                   |
+| N   | Alt+Meta+1      | Switch to workspace 1            |
+| M   | Alt+Meta+2      | Switch to workspace 2            |
+| ,   | Alt+Meta+3      | Switch to workspace 3            |
+| .   | Alt+Meta+4      | Switch to workspace 4            |
+| P   | Ctrl+Meta+/     | Play/Pause media                 |
+| [   | Ctrl+Meta+,     | Previous track                   |
+| ]   | Ctrl+Meta+.     | Next track                       |
+| ;   | Shift+Meta+H    | Move window to left workspace    |
+| '   | Shift+Meta+L    | Move window to right workspace   |
+| F12 | lrld            | Reload kanata config             |
 
-### uinput permissions (Linux)
+---
 
-```bash
-sudo groupadd -f uinput
-sudo usermod -aG input $USER
-sudo usermod -aG uinput $USER
+### Layer 3 — Symbols
 
-echo 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' | \
-    sudo tee /etc/udev/rules.d/99-kanata.rules
+![Layer 3 — Symbols](03-layer3-symbols.png)
 
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
+Held by **Spacebar**. The F-row system shortcuts from Layer 1 stay active.
 
-### Clone and configure
+| Key | Output |     | Key | Output |
+| --- | ------ | --- | --- | ------ |
+| Q   | !      |     | Y   | 0      |
+| W   | @      |     | U   | (      |
+| E   | #      |     | I   | )      |
+| R   | $      |     | O   | {      |
+| T   | %      |     | P   | }      |
+| A   | ^      |     | H   | ~      |
+| S   | &      |     | J   | \|     |
+| D   | \*     |     | K   | :      |
+| F   | /      |     | L   | "      |
+| G   | `      |     |     |        |
+| Z   | -      |     | N   | <      |
+| X   | +      |     | M   | >      |
+| C   | \_     |     | ,   | ,      |
+| V   | =      |     | .   | .      |
+| B   | \      |     | /   | ?      |
 
-```bash
-git clone https://github.com/stefan-hacks/keyhack-kanata.git
-cd keyhack-kanata
+---
 
-mkdir -p ~/.config/kanata
-cp kanata_gnome.kbd ~/.config/kanata/
-```
+### Layer 4 — Editing
 
-### Run as a systemd user service
+![Layer 4 — Editing](04-layer4-editing.png)
 
-Create `~/.config/systemd/user/kanata.service`:
+Held by **Left Shift**. The F-row system shortcuts from Layer 1 stay active.
 
-```ini
-[Unit]
-Description=Kanata keyboard remapper
-Documentation=https://github.com/jtroo/kanata
-After=default.target
+| Key | Action         | Description                           |
+| --- | -------------- | ------------------------------------- |
+| H   | ←              | Arrow left                            |
+| J   | ↓              | Arrow down                            |
+| K   | ↑              | Arrow up                              |
+| L   | →              | Arrow right                           |
+| Y   | Wheel left     | Mouse-wheel emulation                 |
+| U   | Wheel down     | Mouse-wheel emulation                 |
+| I   | Wheel up       | Mouse-wheel emulation                 |
+| O   | Wheel right    | Mouse-wheel emulation                 |
+| [   | Ctrl+U         | Delete to beginning of line           |
+| ]   | Ctrl+K         | Delete to end of line                 |
+| N   | Ctrl+Backspace | Delete word backward                  |
+| M   | Ctrl+Delete    | Delete word forward                   |
+| ,   | Ctrl+W         | Delete word backward (terminal style) |
+| .   | Alt+D          | Delete word forward                   |
 
-[Service]
-Type=simple
-Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
-Environment=DISPLAY=:0
-ExecStart=/bin/sh -c 'exec kanata --cfg ~/.config/kanata/kanata_gnome.kbd'
-Restart=on-failure
-RestartSec=5
+---
 
-[Install]
-WantedBy=default.target
-```
+### Layer 5 — Numbers
 
-```bash
-systemctl --user daemon-reload
-systemctl --user enable --now kanata.service
-systemctl --user status kanata.service
-```
+![Layer 5 — Numbers](05-layer5-numbers.png)
+
+Held by **Right Shift**. The F-row system shortcuts from Layer 1 stay active.
+
+|            | Q   | W   | E   | R   | T   |
+| ---------- | --- | --- | --- | --- | --- |
+| Top row    | +   | 9   | 8   | 7   | -   |
+| Home row   | /   | 6   | 5   | 4   | 0   |
+| Bottom row | =   | 3   | 2   | 1   | —   |
 
 ---
 
@@ -136,23 +228,14 @@ systemctl --user status kanata.service
 
 ### Tap-hold timing
 
-Both timings default to 200ms. If you're seeing accidental holds or missed taps, adjust in `defvar`:
+Both timings default to **200 ms**. If you're seeing accidental holds or missed taps, adjust in `defvar`:
 
 ```lisp
 (defvar
- tap-time 250
- hold-time 250
+  tap-time 250
+  hold-time 250
 )
 ```
-
-### Layer-toggle keys
-
-| Key         | Tap         | Hold          |
-| ----------- | ----------- | ------------- |
-| Left Meta   | Left Meta   | → **Layer 2** |
-| Spacebar    | Space       | → **Layer 3** |
-| Left Shift  | Left Shift  | → **Layer 4** |
-| Right Shift | Right Shift | → **Layer 5** |
 
 ---
 
