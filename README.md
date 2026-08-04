@@ -106,7 +106,8 @@ A production-ready NixOS workstation configuration built with **flakes** and **H
 ```bash
 git clone https://github.com/stefan-hacks/nixit.git ~/.config/nixit
 cd ~/.config/nixit
-
+cp /etc/nixos/hardware-configuration.nix hosts/ghost/
+ln -s hosts/ghost/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
 sudo nixos-rebuild switch --flake .#ghost
 ```
 
