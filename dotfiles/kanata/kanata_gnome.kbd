@@ -126,16 +126,16 @@
   ;; O key: tap=o, hold=End (end of line)
   oo (tap-hold $tap-time $hold-time o end)
 
-  ;; kitty terminal tab controls (tap and hold both trigger same action)
+  ;; controls (tap and hold both trigger same action)
   ;; P key: tap/hold=play/pause media
   pp (tap-hold $tap-time $hold-time C-M-/ C-M-/)
   ;; [ key: tap/hold=previous track
   pt (tap-hold $tap-time $hold-time C-M-, C-M-,)
   ;; ] key: tap/hold=next track
   nt (tap-hold $tap-time $hold-time C-M-. C-M-.)
-  ;; ; key: tap/hold=scroll kitty left (Shift+Meta+H)
+  ;; ; key: tap/hold=scroll left (Shift+Meta+H)
   mls (tap-hold $tap-time $hold-time S-M-h S-M-h)
-  ;; ' key: tap/hold=scroll kitty right (Shift+Meta+L)
+  ;; ' key: tap/hold=scroll right (Shift+Meta+L)
   mrs (tap-hold $tap-time $hold-time S-M-l S-M-l)
 
   ;; Workspace switching (GNOME)
@@ -211,14 +211,6 @@
   dsl (tap-hold $tap-time $hold-time A-f11 A-f11)
   ;; ] key: tap/hold=switch to workspace on the right (Alt+F12)
   dsr (tap-hold $tap-time $hold-time A-f12 A-f12)
-
-  ;; kitty tab controls (duplicates for Layer 2)
-  ;; P key: close kitty tab
-  mpp (tap-hold $tap-time $hold-time C-M-/ C-M-/)
-  ;; ] key: next kitty tab
-  msf (tap-hold $tap-time $hold-time C-M-. C-M-.)
-  ;; [ key: previous kitty tab
-  msb (tap-hold $tap-time $hold-time C-M-, C-M-,)
 
   ;; Mouse wheel emulation (Layer 4 — Editing)
   ;; H key: mouse wheel left
