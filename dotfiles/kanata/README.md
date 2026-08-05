@@ -2,7 +2,7 @@
 
 # ⌨️ keyhack-kanata
 
-**A 5-layer [Kanata](https://github.com/jtroo/kanata) keyboard configuration for GNOME**
+**A 4-layer [Kanata](https://github.com/jtroo/kanata) keyboard configuration for GNOME**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux-blue.svg)
@@ -14,19 +14,18 @@
 
 ## Overview
 
-This configuration turns a standard laptop keyboard into a five-layer, tap-hold-driven control surface. Almost every key does two jobs — a quick **tap** for its normal character, and a **hold** for a modifier, shortcut, or entire layer switch.
+This configuration turns a standard laptop keyboard into a four-layer, tap-hold-driven control surface. Almost every key does two jobs — a quick **tap** for its normal character, and a **hold** for a modifier, shortcut, or entire layer switch.
 
 Esc and Caps Lock are swapped on **every** layer.
 
-| Layer                      | Held by                | Purpose                                                                            |
-| -------------------------- | ---------------------- | ---------------------------------------------------------------------------------- |
-| **1 — Base**               | _(default)_            | Normal typing with tap-hold modifiers and shortcuts on nearly every key            |
-| **2 — Window / Workspace** | Left Meta (bottom row) | GNOME window snapping, display switching, workspace navigation, kitty tab controls |
-| **3 — Symbols**            | Spacebar               | Programming symbols without reaching for Shift                                     |
-| **4 — Editing**            | Left Shift             | Arrow keys, mouse-wheel emulation, word/line deletion                              |
-| **5 — Numbers**            | Right Shift            | Left-hand numpad over QWE / ASD / ZXC                                              |
+| Layer                      | Held by              | Purpose                                                                      |
+| -------------------------- | -------------------- | ---------------------------------------------------------------------------- |
+| **1 — Base**               | _(default)_          | Normal typing with tap-hold modifiers and shortcuts on nearly every key      |
+| **2 — Symbols**            | Spacebar             | Programming symbols without reaching for Shift                                 |
+| **3 — Window / Workspace** | Left Meta            | GNOME window snapping, workspace navigation, display switching, media controls |
+| **4 — Editing**            | Left Ctrl            | Arrow keys, mouse-wheel emulation, word/line deletion                          |
 
-> **Note:** Left Shift and Right Shift were freed up to become layer-toggle keys. Their modifier function still exists — hold **A** for Left Shift, hold **;** for Right Shift. The S key holds Left Meta so the physical Left Meta key can be repurposed for Layer 2.
+> **Note:** Standard Left Shift and Right Shift keys are preserved. The S key holds Left Meta so the physical Left Meta key can be repurposed for Layer 3.
 
 ---
 
@@ -38,18 +37,18 @@ Esc and Caps Lock are swapped on **every** layer.
 
 #### Home-row modifiers
 
-| Key | Tap | Hold                                |
-| --- | --- | ----------------------------------- |
-| A   | a   | Left Shift                          |
-| S   | s   | Left Meta                           |
-| D   | d   | Left Alt                            |
-| F   | f   | Left Ctrl                           |
-| H   | h   | Shift+` (GNOME Activities overview) |
-| J   | j   | Right Ctrl                          |
-| K   | k   | Right Alt                           |
-| L   | l   | Right Meta                          |
-| ;   | ;   | Right Shift                         |
-| '   | '   | "                                   |
+| Key | Tap | Hold                                 |
+| --- | --- | ------------------------------------ |
+| A   | a   | Left Shift                           |
+| S   | s   | Left Meta                            |
+| D   | d   | Left Alt                             |
+| F   | f   | Left Ctrl                            |
+| H   | h   | Shift+` (GNOME Activities overview)  |
+| J   | j   | Right Ctrl                           |
+| K   | k   | Right Alt                            |
+| L   | l   | Right Meta                           |
+| ;   | ;   | Right Shift                          |
+| '   | '   | "                                    |
 
 #### Number row — tap digit, hold symbol
 
@@ -63,10 +62,10 @@ Esc and Caps Lock are swapped on **every** layer.
 | 5   | 5   | %    |
 | 6   | 6   | ^    |
 | 7   | 7   | &    |
-| 8   | 8   | \*   |
+| 8   | 8   | *    |
 | 9   | 9   | (    |
 | 0   | 0   | )    |
-| -   | -   | \_   |
+| -   | -   | _    |
 | =   | =   | +    |
 
 #### F-row — tap function key, hold system action
@@ -119,49 +118,19 @@ Esc and Caps Lock are swapped on **every** layer.
 
 #### Thumb cluster
 
-| Key                    | Tap         | Hold      |
-| ---------------------- | ----------- | --------- |
-| Backspace              | Backspace   | Delete    |
-| Enter                  | Enter       | Right Alt |
-| Left Meta (bottom row) | Left Meta   | Layer 2   |
-| Spacebar               | Space       | Layer 3   |
-| Left Shift             | Left Shift  | Layer 4   |
-| Right Shift            | Right Shift | Layer 5   |
+| Key           | Tap         | Hold      |
+| ------------- | ----------- | --------- |
+| Backspace     | Backspace   | Delete    |
+| Enter         | Enter       | Right Alt |
+| Left Ctrl     | Left Ctrl   | Layer 4   |
+| Left Alt      | Left Alt    | Layer 3   |
+| Spacebar      | Space       | Layer 2   |
 
 ---
 
-### Layer 2 — Window / Workspace
+### Layer 2 — Symbols
 
-![Layer 2 — Window / Workspace](02-layer2-window-workspace.png)
-
-Held by the physical **Left Meta** key (bottom row).
-
-| Key | Action          | Description                       |
-| --- | --------------- | --------------------------------- |
-| Y   | Shift+Meta+PgUp | Move window to previous workspace |
-| O   | Shift+Meta+PgDn | Move window to next workspace     |
-| U   | Alt+F11         | Switch to workspace on the left   |
-| I   | Alt+F12         | Switch to workspace on the right  |
-| H   | Meta+Left       | Previous workspace                |
-| J   | Meta+Down       | Workspace down                    |
-| K   | Meta+Up         | Workspace up                      |
-| L   | Meta+Right      | Next workspace                    |
-| N   | Alt+Meta+1      | Switch to workspace 1             |
-| M   | Alt+Meta+2      | Switch to workspace 2             |
-| ,   | Alt+Meta+3      | Switch to workspace 3             |
-| .   | Alt+Meta+4      | Switch to workspace 4             |
-| P   | Ctrl+Meta+/     | Play/Pause media                  |
-| [   | Ctrl+Meta+,     | Previous track                    |
-| ]   | Ctrl+Meta+.     | Next track                        |
-| ;   | Shift+Meta+H    | Move window to left display       |
-| '   | Shift+Meta+L    | Move window to right display      |
-| F12 | lrld            | Reload kanata config              |
-
----
-
-### Layer 3 — Symbols
-
-![Layer 3 — Symbols](03-layer3-symbols.png)
+![Layer 2 — Symbols](02-layer2-symbols.png)
 
 Held by **Spacebar**. The F-row system shortcuts from Layer 1 stay active.
 
@@ -174,14 +143,65 @@ Held by **Spacebar**. The F-row system shortcuts from Layer 1 stay active.
 | T   | %      |     | P   | }      |
 | A   | ^      |     | H   | ~      |
 | S   | &      |     | J   | \|     |
-| D   | \*     |     | K   | :      |
+| D   | *      |     | K   | :      |
 | F   | /      |     | L   | "      |
 | G   | `      |     |     |        |
 | Z   | -      |     | N   | <      |
 | X   | +      |     | M   | >      |
-| C   | \_     |     | ,   | ,      |
+| C   | _      |     | ,   | ,      |
 | V   | =      |     | .   | .      |
 | B   | \      |     | /   | ?      |
+
+---
+
+### Layer 3 — Window / Workspace
+
+![Layer 3 — Window / Workspace](03-layer3-window-workspace.png)
+
+Held by the physical **Left Meta** key (bottom row, now acting as layer toggle).
+
+#### Window snapping (GNOME)
+
+| Key | Action          | Description                       |
+| --- | --------------- | --------------------------------- |
+| H   | Meta+Left       | Snap window to left               |
+| J   | Meta+Down       | Restore window                    |
+| K   | Meta+Up         | Maximize window                   |
+| L   | Meta+Right      | Snap window to right              |
+
+#### Workspace navigation (GNOME)
+
+| Key | Action       | Description                |
+| --- | ------------ | -------------------------- |
+| U   | Alt+F11      | Switch to workspace left   |
+| I   | Alt+F12      | Switch to workspace right  |
+| N   | Alt+Meta+1   | Switch to workspace 1      |
+| M   | Alt+Meta+2   | Switch to workspace 2      |
+| ,   | Alt+Meta+3   | Switch to workspace 3      |
+| .   | Alt+Meta+4   | Switch to workspace 4      |
+
+#### Display / window moving
+
+| Key | Action           | Description                   |
+| --- | ---------------- | ----------------------------- |
+| Y   | Shift+Meta+PgUp  | Move window to prev display   |
+| O   | Shift+Meta+PgDn  | Move window to next display   |
+| ;   | Shift+Meta+H     | Scroll kitty left             |
+| '   | Shift+Meta+L     | Scroll kitty right          |
+
+#### Media controls
+
+| Key | Action          | Description    |
+| --- | --------------- | -------------- |
+| P   | Ctrl+Meta+/   | Play/Pause     |
+| [   | Ctrl+Meta+,   | Previous track |
+| ]   | Ctrl+Meta+.   | Next track     |
+
+#### Config reload
+
+| Key | Action | Description          |
+| --- | ------ | -------------------- |
+| F12 | lrld   | Reload kanata config |
 
 ---
 
@@ -189,38 +209,41 @@ Held by **Spacebar**. The F-row system shortcuts from Layer 1 stay active.
 
 ![Layer 4 — Editing](04-layer4-editing.png)
 
-Held by **Left Shift**. The F-row system shortcuts from Layer 1 stay active.
+Held by **Left Ctrl**. The F-row system shortcuts from Layer 1 stay active.
+
+#### Arrow keys
+
+| Key | Action | Description    |
+| --- | ------ | -------------- |
+| H   | ←      | Arrow left     |
+| J   | ↓      | Arrow down     |
+| K   | ↑      | Arrow up       |
+| L   | →      | Arrow right    |
+
+#### Mouse wheel emulation
+
+| Key | Action     | Description             |
+| --- | ---------- | ----------------------- |
+| Y   | Wheel left | Mouse-wheel emulation   |
+| U   | Wheel down | Mouse-wheel emulation   |
+| I   | Wheel up   | Mouse-wheel emulation   |
+| O   | Wheel right| Mouse-wheel emulation   |
+
+#### Line deletion
+
+| Key | Action  | Description                 |
+| --- | ------- | --------------------------- |
+| [   | Ctrl+U  | Delete to beginning of line |
+| ]   | Ctrl+K  | Delete to end of line       |
+
+#### Word deletion
 
 | Key | Action         | Description                           |
 | --- | -------------- | ------------------------------------- |
-| H   | ←              | Arrow left                            |
-| J   | ↓              | Arrow down                            |
-| K   | ↑              | Arrow up                              |
-| L   | →              | Arrow right                           |
-| Y   | Wheel left     | Mouse-wheel emulation                 |
-| U   | Wheel down     | Mouse-wheel emulation                 |
-| I   | Wheel up       | Mouse-wheel emulation                 |
-| O   | Wheel right    | Mouse-wheel emulation                 |
-| [   | Ctrl+U         | Delete to beginning of line           |
-| ]   | Ctrl+K         | Delete to end of line                 |
 | N   | Ctrl+Backspace | Delete word backward                  |
 | M   | Ctrl+Delete    | Delete word forward                   |
 | ,   | Ctrl+W         | Delete word backward (terminal style) |
 | .   | Alt+D          | Delete word forward                   |
-
----
-
-### Layer 5 — Numbers
-
-![Layer 5 — Numbers](05-layer5-numbers.png)
-
-Held by **Right Shift**. The F-row system shortcuts from Layer 1 stay active.
-
-|            | Q   | W   | E   | R   | T   |
-| ---------- | --- | --- | --- | --- | --- |
-| Top row    | +   | 9   | 8   | 7   | -   |
-| Home row   | /   | 6   | 5   | 4   | 0   |
-| Bottom row | =   | 3   | 2   | 1   | —   |
 
 ---
 
