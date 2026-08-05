@@ -22,14 +22,15 @@
 ;; Aliases
 ;; Layer toggles — accessed by holding modifier keys
 (defalias
-  ;; Left Meta (S key) → Layer 2: Window/Workspace management
-  l2 (tap-hold $tap-time $hold-time lmet (layer-toggle two))
-  ;; Spacebar → Layer 3: Symbols / programming characters
-  l3 (tap-hold $tap-time $hold-time spc (layer-toggle three))
-  ;; Left Shift → Layer 4: Text editing / mouse wheel emulation
-  l4 (tap-hold $tap-time $hold-time lsft (layer-toggle four))
-  ;; Right Shift → Layer 5: Numpad / number entry on left hand
-  l5 (tap-hold $tap-time $hold-time rsft (layer-toggle five))
+  ;; Spacebar → Layer 2: Symbols / programming characters
+  l2 (tap-hold $tap-time $hold-time spc (layer-toggle two))
+
+  ;; Left Meta (S key) → Layer 3: Window/Workspace management
+  l3 (tap-hold $tap-time $hold-time lmet (layer-toggle three))
+
+  ;; Left Ctrl → Layer 4: Text editing / mouse wheel emulation
+  l4 (tap-hold $tap-time $hold-time lctl (layer-toggle four))
+
 
   ;; Home row tap-hold modifiers
   ;; S key: tap=s, hold=Left Meta (Super/Windows key)
@@ -236,23 +237,12 @@
   @gm  @1m  @2m  @3m  @4m  @5m  @6m  @7m  @8m  @9m  @0m  @mi  @pl  bspc
   tab  @qq  @ww  e    @rr  @tt  @yy  @uu  @ii  @oo  p    @so  @sc  @pi
   esc  @aa  @ss  @dd  @ff  g    @hh  @jj  @kk  @ll  @se  @ap  ret
-  @l4  @zz  @xx  @cc  @vv  b    n    m    @co  @fu  @fs  @l5
-  lctl @l2  @la           @l3             @ra  _    rctl
+  lsft @zz  @xx  @cc  @vv  b    n    m    @co  @fu  @fs  rsft
+  @l4  @l3  @la           @l2             @ra  _    rctl
 )
-
-;; Workspaces, Windows, Panes layer - left hand on left Windows key
-(deflayer two
-  caps _    _    _    _    _    _    _    _    _    _    _    lrld
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
-  tab  _    _    _    _    _    @wtl @dsl @dsr @wtr @pp  @pt  @nt  _
-  esc  _    _    _    _    _    @rpl @rpd @rpu @rpr @mls @mrs ret
-  _    _    _    _    _    _    @w1  @w2  @w3  @w4  _    _
-  _    _    _           _                 _    _    _
-)
-
 
 ;; Symbols - programming layer - spacebar held
-(deflayer three
+(deflayer two
   caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
   tab  S-1  S-2  S-3  S-4  S-5  0    S-9  S-0  S-[  S-]  [    ]    _
@@ -260,24 +250,23 @@
   _    -    S-=  S--  =    \    S-,  S-.  ,    .    S-/  _
   _    _    _           _                 _    _    _
 )
-
+;; Workspaces, Windows, Panes layer - left hand on left Windows key
+(deflayer three
+  caps _    _    _    _    _    _    _    _    _    _    _    lrld
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
+  tab  _    _    _    _    _    @wtl @dsl @dsr @wtr @pp  @pt  @nt  _
+  esc  _    _    _    _    _    @rpl @rpd @rpu @rpr @mls @mrs ret
+  _    _    _    _    _    _    @w1  @w2  @w3  @w4  _    _
+  _    _    _           _                 _    _    _
+)
 ;; Editing - text and terminal editing layer - left ctrl key held
 (deflayer four
   caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
   grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  tab  _    _    _    _    _    @mwl @mwd @mwu @mwr p    @dtb @dte _
+  tab  _    _    _    _    _    @mwl @mwd @mwu @mwr _    @dtb @dte _
   esc  _    _    _    _    _    left down up   rght bspc del  ret
   _    _    _    _    _    _    @dwb @dwf @tbd @tfd _    _
   _    _    _           _                 _    _    _
 )
 
-;; Numbers - editing layer - right ctrl key held
-(deflayer five
-  caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
-  grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
-  tab  S-=  9    8    7    -    _    _    _    _    _    _    _    _
-  esc  /    6    5    4    0    _    _    _    _    _    _    ret
-  _    =    3    2    1    _    _    _    _    _    _    _
-  _    _    _           _                 _    _    _
-)
 ;; lrld is a default shortcut to reload the configuration found on layer 2 in place of f12
