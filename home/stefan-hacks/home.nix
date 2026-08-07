@@ -1,4 +1,10 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 
 let
   homeDirectory = "/home/${username}";
@@ -10,6 +16,7 @@ in
 
   imports = [
     ../../modules/home/bash.nix
+    ../../modules/home/vim.nix
     ../../modules/home/git.nix
     ../../modules/home/kitty.nix
     ../../modules/home/blesh.nix
