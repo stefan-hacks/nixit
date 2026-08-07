@@ -361,7 +361,8 @@ alias nag='alias | grep -i nix'
 # Editor — nixvim is the primary editor; alias vi/vim for muscle memory
 # alias vi='nvim'
 # alias vim='nvim'
-# alias v='nvim'
+ alias v='vim'
+ alias nv='nvim'
 
 # Nix package management
 alias nsr='nix search nixpkgs'
