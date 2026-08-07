@@ -27,6 +27,7 @@
     unzip
     zip
     p7zip
+    vim
 
     # Image manipulation
     imagemagick
