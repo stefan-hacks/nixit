@@ -5,12 +5,6 @@
     # NixOS stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    # nix-index database
-    nix-index-database = {
-      url = "github:nix-community/nix-index-databaase";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Home Manager matching NixOS release
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -44,7 +38,6 @@
         specialArgs = { inherit username; };
         modules = [
           ./hosts/ghost
-          nix-index-database.nixosModules.default
           nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           {
