@@ -44,6 +44,7 @@
         specialArgs = { inherit username; };
         modules = [
           ./hosts/ghost
+          nix-index-database.nixosModules.default
           nixvim.nixosModules.nixvim
           home-manager.nixosModules.home-manager
           {

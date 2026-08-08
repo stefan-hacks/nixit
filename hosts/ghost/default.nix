@@ -9,7 +9,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    nix-index-database.nixosModules.default
 
     # Core system
     ../../modules/nixos/boot.nix
