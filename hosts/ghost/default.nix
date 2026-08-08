@@ -1,8 +1,15 @@
-{ config, pkgs, lib, username, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
 
 {
   imports = [
     ./hardware-configuration.nix
+    nix-index-database.nixosModules.default
 
     # Core system
     ../../modules/nixos/boot.nix
@@ -29,7 +36,10 @@
   networking.hostName = "ghost";
 
   # ── Nix ─────────────────────────────────────────────────────────────────
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # ── State Version (DO NOT CHANGE) ─────────────────────────────────────────
