@@ -23,7 +23,6 @@
       nixpkgs,
       home-manager,
       nixvim,
-      nix-index-database,
       ...
     }:
     let
