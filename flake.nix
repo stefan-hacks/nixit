@@ -50,6 +50,7 @@
       };
 
       # ── Formatter (nixpkgs-fmt) ────────────────────────────────────────────
-      formatter.${system} = pkgs.nixpkgs-fmt;
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
+      #formatter.${system} = pkgs.nixpkgs-fmt;
     };
 }
