@@ -1,0 +1,14 @@
+--- a/data/theme/gnome-shell-sass/widgets/_login-lock.scss
++++ b/data/theme/gnome-shell-sass/widgets/_login-lock.scss
+@@ -231,7 +231,10 @@ $_gdm_dialog_width: 25em;
+ }
+ 
+ #lockDialogGroup {
+-  background-color: $_gdm_bg;
++  background: $_gdm_bg url(file://@backgroundPath@);
++  background-repeat: no-repeat;
++  background-size: cover;
++  background-position: center;
+ }
+ 
+ // Clock
