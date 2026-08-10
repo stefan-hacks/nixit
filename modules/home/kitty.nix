@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   home.file.".config/kitty/kitty.conf".source = ../../dotfiles/kitty/kitty.conf;
