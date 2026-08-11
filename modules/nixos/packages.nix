@@ -28,6 +28,7 @@
     zip
     p7zip
     vim
+    hw-probe
 
     # Image manipulation
     imagemagick
