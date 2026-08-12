@@ -27,9 +27,6 @@
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/documentation.nix
-    ../../modules/nixos/hermes.nix
-    ../../modules/nixos/ollama.nix
-    ../../modules/nixos/nixvim.nix
   ];
 
   # ── Host Identity ─────────────────────────────────────────────────────────
