@@ -651,7 +651,6 @@ alias update='nix flake update \
     && sudo nixos-rebuild switch --flake .#$HOSTNAME \
     && nix-collect-garbage --delete-older-than 7d \
     && nix-store --optimise \
-    && sudo fstrim -v \
     && tldr --update \
     && figlet "System Optimized!" | lolcat'
 
