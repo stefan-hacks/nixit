@@ -37,14 +37,14 @@
           };
         };
         # 3rd system with multiple users — just add more entries here.
-        multi = {
-          system = "x86_64-linux";
-          users = {
-            stefan-hacks = ./home/stefan-hacks/home.nix;
-            alice = ./home/alice/home.nix;
-            bob = ./home/bob/home.nix;
-          };
-        };
+       # multi = {
+       #   system = "x86_64-linux";
+       #   users = {
+       #     stefan-hacks = ./home/stefan-hacks/home.nix;
+       #     alice = ./home/alice/home.nix;
+       #     bob = ./home/bob/home.nix;
+       #   };
+       # };
       };
 
       mkHost =
