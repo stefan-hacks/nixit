@@ -2,16 +2,11 @@
   description = "Ghost Workstation — NixOS + Home Manager Flake";
 
   inputs = {
-    # NixOS stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-
-    # Home Manager matching NixOS release
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Nixvim
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
@@ -26,31 +21,71 @@
       ...
     }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      username = "stefan-hacks";
-    in
-    {
-      # ── NixOS System Configuration ──────────────────────────────────────────
-      nixosConfigurations.ghost = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit username; };
-        modules = [
-          ./hosts/ghost
-          nixvim.nixosModules.nixvim
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/stefan-hacks/home.nix;
-            home-manager.extraSpecialArgs = { inherit username; };
-            home-manager.backupFileExtension = "backup";
-          }
-        ];
+      # Central place that defines: which system each host is, and which
+      # users (and their home.nix) live on that host.
+      hosts = {
+        ghost = {
+          system = "x86_64-linux";
+          users = {
+            stefan-hacks = ./home/stefan-hacks/home.nix;
+          };
+        };
+        lin = {
+          system = "x86_64-linux";
+          users = {
+            lin = ./home/lin/home.nix;
+          };
+        };
+        # 3rd system with multiple users — just add more entries here.
+        multi = {
+          system = "x86_64-linux";
+          users = {
+            stefan-hacks = ./home/stefan-hacks/home.nix;
+            alice = ./home/alice/home.nix;
+            bob = ./home/bob/home.nix;
+          };
+        };
       };
 
+      mkHost =
+        hostName:
+        { system, users }:
+        let
+          usernames = builtins.attrNames users;
+          # "Primary" user = first one listed, for host modules (like
+          # modules/nixos/user.nix) that only know about a single `username`.
+          # For single-user hosts this is just that host's one user.
+          primaryUsername = builtins.head usernames;
+          hostArgs = {
+            inherit usernames;
+            username = primaryUsername;
+          };
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = hostArgs;
+          modules = [
+            ./hosts/${hostName}
+            nixvim.nixosModules.nixvim
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = hostArgs;
+              # build home-manager.users.<name> = import <home.nix> for every
+              # user declared for this host
+              home-manager.users = nixpkgs.lib.mapAttrs (
+                _name: homeFile: import homeFile
+              ) users;
+            }
+          ];
+        };
+    in
+    {
+      nixosConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
+
       # ── Formatter (nixpkgs-fmt) ────────────────────────────────────────────
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
-      #formatter.${system} = pkgs.nixpkgs-fmt;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
