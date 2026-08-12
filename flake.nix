@@ -40,15 +40,16 @@
             lin = ./home/lin/home.nix;
           };
         };
-        # 3rd system with multiple users — just add more entries here.
-        multi = {
-          system = "x86_64-linux";
-          users = {
-            stefan-hacks = ./home/stefan-hacks/home.nix;
-            alice = ./home/alice/home.nix;
-            bob = ./home/bob/home.nix;
-          };
-        };
+        # To add a 3rd host with multiple users later, add an entry like:
+        #   multi = {
+        #     system = "x86_64-linux";
+        #     users = {
+        #       stefan-hacks = ./home/stefan-hacks/home.nix;
+        #       someoneelse  = ./home/someoneelse/home.nix;
+        #     };
+        #   };
+        # ...and make sure ./hosts/multi/default.nix and each home.nix path
+        # actually exist before building it.
       };
 
       mkHost =
