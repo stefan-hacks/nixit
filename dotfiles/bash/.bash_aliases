@@ -647,18 +647,12 @@ alias lload="find /run/current-system/kernel-modules/lib/modules/$(uname -r) -ty
 # =============================================================================
 
 # Full system upgrade with NixOS
-alias update='sudo nixos-rebuild switch --flake .#$HOSTNAME --upgrade \
-    && nix-collect-garbage --delete-older-than 30d \
-    && tldr --update \
-    && atuin sync \
-    && figlet "NixOS Updated!" | lolcat'
-
-alias update-full='sudo nixos-rebuild switch --flake .#$HOSTNAME --upgrade \
+alias update='nix flake update
+    sudo nixos-rebuild switch --flake .#$HOSTNAME \
     && nix-collect-garbage --delete-older-than 7d \
     && nix-store --optimise \
     && sudo fstrim -v \
     && tldr --update \
-    && atuin sync \
     && figlet "System Optimized!" | lolcat'
 
 # Clean old generations
