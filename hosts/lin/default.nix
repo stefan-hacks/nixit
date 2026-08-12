@@ -26,7 +26,6 @@
     ../../modules/nixos/maintenance.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/printing.nix
-    ../../modules/nixos/kanata.nix
     ../../modules/nixos/documentation.nix
     ../../modules/nixos/nixvim.nix
   ];
