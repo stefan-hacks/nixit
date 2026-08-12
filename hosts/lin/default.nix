@@ -45,19 +45,3 @@
   # ── State Version (DO NOT CHANGE) ─────────────────────────────────────────
   system.stateVersion = "26.05";
 }
-    ../../modules/nixos/nixvim.nix
-  ];
-
-  # ── Host Identity ─────────────────────────────────────────────────────────
-  networking.hostName = "lin";
-
-  # ── Nix ─────────────────────────────────────────────────────────────────
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nixpkgs.config.allowUnfree = true;
-
-  # ── State Version (DO NOT CHANGE) ─────────────────────────────────────────
-  system.stateVersion = "26.05";
-}
