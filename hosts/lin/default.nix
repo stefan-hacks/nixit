@@ -27,6 +27,24 @@
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/documentation.nix
+    ../../modules/nixos/hermes.nix
+    ../../modules/nixos/ollama.nix
+    ../../modules/nixos/nixvim.nix
+  ];
+
+  # ── Host Identity ─────────────────────────────────────────────────────────
+  networking.hostName = "lin";
+
+  # ── Nix ─────────────────────────────────────────────────────────────────
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nixpkgs.config.allowUnfree = true;
+
+  # ── State Version (DO NOT CHANGE) ─────────────────────────────────────────
+  system.stateVersion = "26.05";
+}
     ../../modules/nixos/nixvim.nix
   ];
 

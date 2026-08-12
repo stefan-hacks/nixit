@@ -10,6 +10,9 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+    };
   };
 
   outputs =
@@ -18,6 +21,7 @@
       nixpkgs,
       home-manager,
       nixvim,
+      hermes-agent,
       ...
     }:
     let
@@ -37,14 +41,14 @@
           };
         };
         # 3rd system with multiple users — just add more entries here.
-       # multi = {
-       #   system = "x86_64-linux";
-       #   users = {
-       #     stefan-hacks = ./home/stefan-hacks/home.nix;
-       #     alice = ./home/alice/home.nix;
-       #     bob = ./home/bob/home.nix;
-       #   };
-       # };
+        multi = {
+          system = "x86_64-linux";
+          users = {
+            stefan-hacks = ./home/stefan-hacks/home.nix;
+            alice = ./home/alice/home.nix;
+            bob = ./home/bob/home.nix;
+          };
+        };
       };
 
       mkHost =
@@ -67,6 +71,7 @@
           modules = [
             ./hosts/${hostName}
             nixvim.nixosModules.nixvim
+            hermes-agent.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
