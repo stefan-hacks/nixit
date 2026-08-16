@@ -1,13 +1,8 @@
 {
   config,
-  pkgs,
-  username,
   ...
 }:
 
-let
-  homeDir = config.home.homeDirectory;
-in
 {
   # Fastfetch config JSONC — fastfetch reads ~/.config/fastfetch/config.jsonc
   xdg.configFile."fastfetch/config.jsonc".source = ../../dotfiles/fastfetch/config.jsonc;

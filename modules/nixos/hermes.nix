@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ ... }:
 {
   services.hermes-agent = {
     enable = true;

@@ -2,7 +2,6 @@
 # Extracted from the legacy configuration.nix and ported to flakes
 
 {
-  config,
   pkgs,
   lib,
   ...

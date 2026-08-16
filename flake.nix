@@ -17,7 +17,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       nixvim,
@@ -34,12 +33,12 @@
             stefan-hacks = ./home/stefan-hacks/home.nix;
           };
         };
-        lin = {
-          system = "x86_64-linux";
-          users = {
-            lin = ./home/lin/home.nix;
-          };
-        };
+       # lin = {
+       #   system = "x86_64-linux";
+       #   users = {
+       #     lin = ./home/lin/home.nix;
+       #   };
+       # };
         # To add a 3rd host with multiple users later, add an entry like:
         #   multi = {
         #     system = "x86_64-linux";
