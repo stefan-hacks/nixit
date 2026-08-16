@@ -348,6 +348,7 @@
     ###########################################################################
     nh
     nix-output-monitor
+    nix-fast-build
     nix-tree
     nix-diff
     nix-init
@@ -362,6 +363,7 @@
     home-manager
     deploy-rs
     colmena
+    nvd
 
     ###########################################################################
     # Development Tools
