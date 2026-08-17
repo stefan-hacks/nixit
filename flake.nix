@@ -23,6 +23,7 @@
       hermes-agent,
       ...
     }:
+
     let
       # Central place that defines: which system each host is, and which
       # users (and their home.nix) live on that host.
@@ -80,9 +81,7 @@
               home-manager.extraSpecialArgs = hostArgs;
               # build home-manager.users.<name> = import <home.nix> for every
               # user declared for this host
-              home-manager.users = nixpkgs.lib.mapAttrs (
-                _name: homeFile: import homeFile
-              ) users;
+              home-manager.users = nixpkgs.lib.mapAttrs (_name: homeFile: import homeFile) users;
             }
           ];
         };
