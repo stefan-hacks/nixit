@@ -21,8 +21,8 @@ in
 
     initrd = {
       luks.devices = {
-        "luks-a0daa441-4b1a-4b93-b039-3a9b28be8fca" = {
-          device = "/dev/disk/by-uuid/a0daa441-4b1a-4b93-b039-3a9b28be8fca";
+        "luks-2c1e5ca9-7297-42d0-a717-545861c11303" = {
+          device = "/dev/disk/by-uuid/2c1e5ca9-7297-42d0-a717-545861c11303";
         };
       };
     };
