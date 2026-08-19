@@ -19,6 +19,7 @@ in
     ../../modules/home/blesh.nix
     ../../modules/home/starship.nix
     ../../modules/home/atuin.nix
+    ../../modules/home/zellij.nix
     ../../modules/home/ssh.nix
     ../../modules/home/dconf.nix
     ../../modules/home/fastfetch.nix
