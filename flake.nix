@@ -10,9 +10,9 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-    };
+    # hermes-agent = {
+    #   url = "github:NousResearch/hermes-agent";
+    # };
   };
 
   outputs =
@@ -20,7 +20,7 @@
       nixpkgs,
       home-manager,
       nixvim,
-      hermes-agent,
+      # hermes-agent,
       ...
     }:
 
@@ -72,7 +72,7 @@
           modules = [
             ./hosts/${hostName}
             nixvim.nixosModules.nixvim
-            hermes-agent.nixosModules.default
+            # hermes-agent.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
