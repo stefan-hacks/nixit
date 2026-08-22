@@ -10,6 +10,7 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
+    stylix.url = "github:nix-community/stylix/release-26.05";
     # hermes-agent = {
     #   url = "github:NousResearch/hermes-agent";
     # };
@@ -19,6 +20,7 @@
     {
       nixpkgs,
       home-manager,
+      stylix,
       nixvim,
       # hermes-agent,
       ...
@@ -71,6 +73,7 @@
           specialArgs = hostArgs;
           modules = [
             ./hosts/${hostName}
+            stylix.nixosModules.stylix
             nixvim.nixosModules.nixvim
             # hermes-agent.nixosModules.default
             home-manager.nixosModules.home-manager
