@@ -3,8 +3,8 @@
 }:
 
 let
-GRUB wallpaper - direct path works (bootloader reads before users exist)
-grubWallpaper = ../../assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
+  # GRUB wallpaper - direct path works (bootloader reads before users exist)
+  grubWallpaper = ../../assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
 in
 {
   boot = {
