@@ -14,7 +14,7 @@ in
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        # splashImage = grubWallpaper;
+        splashImage = grubWallpaper;
       };
       efi.canTouchEfiVariables = true;
     };
