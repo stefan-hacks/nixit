@@ -2,10 +2,10 @@
   ...
 }:
 
-let
-  # GRUB wallpaper - direct path works (bootloader reads before users exist)
-  grubWallpaper = ../../assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
-in
+# let
+# GRUB wallpaper - direct path works (bootloader reads before users exist)
+# grubWallpaper = ../../assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
+# in
 {
   boot = {
     loader = {
@@ -14,7 +14,7 @@ in
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        splashImage = grubWallpaper;
+        # splashImage = grubWallpaper;
       };
       efi.canTouchEfiVariables = true;
     };
