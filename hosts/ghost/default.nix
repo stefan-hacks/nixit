@@ -25,6 +25,7 @@
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/documentation.nix
     ../../modules/nixos/nixvim.nix
+    ../../modules/nixos/stylix.nix
   ];
 
   # ── Host Identity ─────────────────────────────────────────────────────────
