@@ -25,7 +25,6 @@
     ../../modules/nixos/kanata.nix
     ../../modules/nixos/documentation.nix
     ../../modules/nixos/nixvim.nix
-    # ../../modules/nixos/elitebook-840g8.nix # elitebook specific
   ];
 
   # ── Host Identity ─────────────────────────────────────────────────────────
