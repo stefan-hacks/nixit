@@ -178,6 +178,8 @@
     parted
     gparted
     ddrescue
+    binsider
+    ghgrab
 
     # Disk & Storage
     ncdu
