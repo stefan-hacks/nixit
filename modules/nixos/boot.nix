@@ -1,5 +1,5 @@
 {
-  pkgs,
+  # pkgs,
   ...
 }:
 
@@ -9,8 +9,8 @@ let
 in
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest; # NEW — Tiger Lake benefits from latest
-    kernelParams = [ "mem_sleep_default=deep" ]; # NEW — proper S3 suspend on this chassis
+    # kernelPackages = pkgs.linuxPackages_latest; # NEW — Tiger Lake benefits from latest
+    # kernelParams = [ "mem_sleep_default=deep" ]; # NEW — proper S3 suspend on this chassis
 
     loader = {
       grub = {
