@@ -150,6 +150,8 @@
     lm_sensors
     smartmontools
     nvme-cli
+    libva-utils
+    libinput
 
     ###########################################################################
     # Nix
