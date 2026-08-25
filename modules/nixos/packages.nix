@@ -260,6 +260,9 @@
     gnome-extension-manager
     dconf-editor
 
+    # GNOME Default icon & cursor theme (must be explicitly installed)
+    adwaita-icon-theme
+
     # Theme required by Open Bar extension for accent colors & folder colors
     yaru-theme
 
