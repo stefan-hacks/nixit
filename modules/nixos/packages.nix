@@ -264,6 +264,7 @@
     yaru-theme
 
     # GNOME Extensions - managed via gnome-extension-manager
+    gnomeExtensions.user-themes
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
