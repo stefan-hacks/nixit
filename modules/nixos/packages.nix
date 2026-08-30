@@ -318,6 +318,7 @@
     jellyfin-desktop
     kew
     yt-dlp
+    parabolic
     soundconverter
 
     ###########################################################################
