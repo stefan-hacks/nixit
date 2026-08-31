@@ -46,4 +46,33 @@ in
 
   # GPaste clipboard manager daemon
   programs.gpaste.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+    gnome-extension-manager
+    dconf-editor
+
+    # GNOME Default icon & cursor theme (must be explicitly installed)
+    adwaita-icon-theme
+
+    # Theme required by Open Bar extension for accent colors & folder colors
+    yaru-theme
+
+    # GNOME Extensions - managed via gnome-extension-manager
+    gnomeExtensions.user-themes
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.appindicator
+    gnomeExtensions.arcmenu
+    gnomeExtensions.quake-terminal
+    gnomeExtensions.vitals
+    gnomeExtensions.notification-configurator
+    gnomeExtensions.pomodoro-timer
+    gnomeExtensions.dynamic-music-pill
+    gnomeExtensions.modern-clock
+    gnomeExtensions.open-bar
+    gnomeExtensions.quick-settings-audio-panel
+    gnomeExtensions.steal-my-focus-window
+    gnomeExtensions.wallpicker
+  ];
 }
