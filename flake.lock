@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788522945,
-        "narHash": "sha256-xY3te7GS0+rxhMGRgT7T+DyMnsIrdF5nvSjyOCOcgCE=",
+        "lastModified": 1788523401,
+        "narHash": "sha256-gGVckz1LHQlpyFHs3yZMC02ssDZiIPHgElLajvfX1a0=",
         "owner": "stefan-hacks",
         "repo": "nix-my-gnome",
-        "rev": "e8dc0e5cc9a6eca6bb55fad4bf7b27a2976f550d",
+        "rev": "24b45273d39d5905478a4443d1242ca8aa3357a7",
         "type": "github"
       },
       "original": {
