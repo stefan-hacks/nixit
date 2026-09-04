@@ -51,6 +51,7 @@ in
     gnome-tweaks
     gnome-extension-manager
     dconf-editor
+    dconf2nix
 
     # GNOME Default icon & cursor theme (must be explicitly installed)
     adwaita-icon-theme
