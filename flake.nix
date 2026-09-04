@@ -1,6 +1,5 @@
 {
   description = "Ghost Workstation — NixOS + Home Manager Flake";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
@@ -10,23 +9,24 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
+    nix-my-gnome = {
+      url = "github:stefan-hacks/nix-my-gnome";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hermes-agent = {
     #   url = "github:NousResearch/hermes-agent";
     # };
   };
-
   outputs =
     {
       nixpkgs,
       home-manager,
       nixvim,
+      nix-my-gnome,
       # hermes-agent,
       ...
     }:
-
     let
-      # Central place that defines: which system each host is, and which
-      # users (and their home.nix) live on that host.
       hosts = {
         ghost = {
           system = "x86_64-linux";
@@ -34,32 +34,12 @@
             stefan-hacks = ./home/stefan-hacks/home.nix;
           };
         };
-        # lin = {
-        #   system = "x86_64-linux";
-        #   users = {
-        #     lin = ./home/lin/home.nix;
-        #   };
-        # };
-        # To add a 3rd host with multiple users later, add an entry like:
-        #   multi = {
-        #     system = "x86_64-linux";
-        #     users = {
-        #       stefan-hacks = ./home/stefan-hacks/home.nix;
-        #       someoneelse  = ./home/someoneelse/home.nix;
-        #     };
-        #   };
-        # ...and make sure ./hosts/multi/default.nix and each home.nix path
-        # actually exist before building it.
       };
-
       mkHost =
         hostName:
         { system, users }:
         let
           usernames = builtins.attrNames users;
-          # "Primary" user = first one listed, for host modules (like
-          # modules/nixos/user.nix) that only know about a single `username`.
-          # For single-user hosts this is just that host's one user.
           primaryUsername = builtins.head usernames;
           hostArgs = {
             inherit usernames;
@@ -79,17 +59,20 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.extraSpecialArgs = hostArgs;
-              # build home-manager.users.<name> = import <home.nix> for every
-              # user declared for this host
               home-manager.users = nixpkgs.lib.mapAttrs (_name: homeFile: import homeFile) users;
+
+              # applied to every user's home-manager config on this host
+              home-manager.sharedModules = [
+                {
+                  home.packages = [ nix-my-gnome.packages.${system}.default ];
+                }
+              ];
             }
           ];
         };
     in
     {
       nixosConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
-
-      # ── Formatter (nixpkgs-fmt) ────────────────────────────────────────────
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
 }
