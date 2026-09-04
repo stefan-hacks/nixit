@@ -45,7 +45,15 @@
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      selected-color = (lib.hm.gvariant.mkTuple [ true 1.0 1.0 1.0 1.0 ]);
+      selected-color = (
+        lib.hm.gvariant.mkTuple [
+          true
+          1.0
+          1.0
+          1.0
+          1.0
+        ]
+      );
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {
@@ -58,11 +66,24 @@
       sort-order = "ascending";
       type-format = "category";
       view-type = "list";
-      window-size = (lib.hm.gvariant.mkTuple [ 815 326 ]);
+      window-size = (
+        lib.hm.gvariant.mkTuple [
+          815
+          326
+        ]
+      );
     };
 
     "org/gtk/settings/color-chooser" = {
-      selected-color = (lib.hm.gvariant.mkTuple [ true 0.0 0.0 0.0 1.0 ]);
+      selected-color = (
+        lib.hm.gvariant.mkTuple [
+          true
+          0.0
+          0.0
+          0.0
+          1.0
+        ]
+      );
     };
 
     "org/gtk/settings/file-chooser" = {
@@ -77,8 +98,18 @@
       sort-directories-first = false;
       sort-order = "ascending";
       type-format = "category";
-      window-position = (lib.hm.gvariant.mkTuple [ 2558 48 ]);
-      window-size = (lib.hm.gvariant.mkTuple [ 1203 786 ]);
+      window-position = (
+        lib.hm.gvariant.mkTuple [
+          2558
+          48
+        ]
+      );
+      window-size = (
+        lib.hm.gvariant.mkTuple [
+          1203
+          786
+        ]
+      );
     };
 
   };

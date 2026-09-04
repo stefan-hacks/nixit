@@ -15,8 +15,18 @@
     };
 
     "org/gnome/nautilus/window-state" = {
-      initial-size = (lib.hm.gvariant.mkTuple [ 1362 550 ]);
-      initial-size-file-chooser = (lib.hm.gvariant.mkTuple [ 890 550 ]);
+      initial-size = (
+        lib.hm.gvariant.mkTuple [
+          1362
+          550
+        ]
+      );
+      initial-size-file-chooser = (
+        lib.hm.gvariant.mkTuple [
+          890
+          550
+        ]
+      );
       maximized = false;
     };
 

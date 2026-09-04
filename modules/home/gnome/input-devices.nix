@@ -10,8 +10,28 @@
     };
 
     "org/gnome/desktop/input-sources" = {
-      mru-sources = [ ((lib.hm.gvariant.mkTuple [ "xkb" "us" ])) ((lib.hm.gvariant.mkTuple [ "xkb" "gb" ])) ];
-      sources = [ ((lib.hm.gvariant.mkTuple [ "xkb" "us" ])) ];
+      mru-sources = [
+        (
+          (lib.hm.gvariant.mkTuple [
+            "xkb"
+            "us"
+          ])
+        )
+        (
+          (lib.hm.gvariant.mkTuple [
+            "xkb"
+            "gb"
+          ])
+        )
+      ];
+      sources = [
+        (
+          (lib.hm.gvariant.mkTuple [
+            "xkb"
+            "us"
+          ])
+        )
+      ];
       xkb-options = [ ];
     };
 

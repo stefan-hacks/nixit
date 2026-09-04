@@ -7,7 +7,12 @@
   dconf.settings = {
     "org/gnome/Console" = {
       last-window-maximised = false;
-      last-window-size = (lib.hm.gvariant.mkTuple [ 812 504 ]);
+      last-window-size = (
+        lib.hm.gvariant.mkTuple [
+          812
+          504
+        ]
+      );
     };
 
   };

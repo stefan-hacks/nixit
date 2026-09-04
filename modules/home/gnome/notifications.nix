@@ -6,7 +6,25 @@
 {
   dconf.settings = {
     "org/gnome/desktop/notifications" = {
-      application-children = [ "firefox" "org-gnome-console" "gnome-about-panel" "discord" "org-gnome-evolution" "gnome-power-panel" "org-gnome-evolution-alarm-notify" "kitty" "virt-manager" "org-qbittorrent-qbittorrent" "mullvad-vpn" "com-ktechpit-whatsie" "org-gnome-nautilus" "joplin" "org-gnome-shell-extensions" "org-nickvision-tubeconverter" "de-haeckerfelix-shortwave" ];
+      application-children = [
+        "firefox"
+        "org-gnome-console"
+        "gnome-about-panel"
+        "discord"
+        "org-gnome-evolution"
+        "gnome-power-panel"
+        "org-gnome-evolution-alarm-notify"
+        "kitty"
+        "virt-manager"
+        "org-qbittorrent-qbittorrent"
+        "mullvad-vpn"
+        "com-ktechpit-whatsie"
+        "org-gnome-nautilus"
+        "joplin"
+        "org-gnome-shell-extensions"
+        "org-nickvision-tubeconverter"
+        "de-haeckerfelix-shortwave"
+      ];
       show-banners = true;
     };
 

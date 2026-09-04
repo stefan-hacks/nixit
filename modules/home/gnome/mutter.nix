@@ -12,7 +12,10 @@
     "org/gnome/mutter/keybindings" = {
       cancel-input-capture = [ "<Super><Shift>Escape" ];
       rotate-monitor = [ "XF86RotateWindows" ];
-      switch-monitor = [ "<Super>p" "XF86Display" ];
+      switch-monitor = [
+        "<Super>p"
+        "XF86Display"
+      ];
       toggle-tiled-left = [ "<Super>Left" ];
       toggle-tiled-right = [ "<Super>Right" ];
     };

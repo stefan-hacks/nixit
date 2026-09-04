@@ -28,7 +28,12 @@
       runner-hotkey = [ "<Alt>space" ];
       runner-hotkey-open-primary-monitor = true;
       runner-hotkey-overlay-key-enabled = true;
-      search-entry-border-radius = (lib.hm.gvariant.mkTuple [ true 25 ]);
+      search-entry-border-radius = (
+        lib.hm.gvariant.mkTuple [
+          true
+          25
+        ]
+      );
       show-category-sub-menus = true;
       update-notifier-project-version = 73;
       vert-separator = true;
@@ -152,7 +157,13 @@
     };
 
     "org/gnome/shell/extensions/libpanel" = {
-      layout = [ ([ "gnome@main" "quick-settings-audio-panel@rayzeq.github.io/main" "[EMAIL]/main" ]) ];
+      layout = [
+        ([
+          "gnome@main"
+          "quick-settings-audio-panel@rayzeq.github.io/main"
+          "[EMAIL]/main"
+        ])
+      ];
     };
 
     "org/gnome/shell/extensions/notification-configurator" = {
@@ -160,7 +171,11 @@
     };
 
     "org/gnome/shell/extensions/openbar" = {
-      accent-color = [ "0" "0.75" "0.75" ];
+      accent-color = [
+        "0"
+        "0.75"
+        "0.75"
+      ];
       accent-override = false;
       apply-accent-shell = true;
       apply-all-shell = true;
@@ -179,40 +194,124 @@
       autotheme-refresh = true;
       balpha = 0.84999999999999998;
       bartype = "Trilands";
-      bcolor = [ "0.827" "0.749" "0.839" ];
+      bcolor = [
+        "0.827"
+        "0.749"
+        "0.839"
+      ];
       bg-change = true;
       bgalpha = 0.0;
       bgalpha-wmax = 1.0;
       bgalpha2 = 0.69999999999999996;
-      bgcolor = [ "0.141" "0.137" "0.188" ];
-      bgcolor-wmax = [ "0.180" "0.180" "0.196" ];
-      bgcolor2 = [ "0.106" "0.110" "0.173" ];
+      bgcolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      bgcolor-wmax = [
+        "0.180"
+        "0.180"
+        "0.196"
+      ];
+      bgcolor2 = [
+        "0.106"
+        "0.110"
+        "0.173"
+      ];
       bgpalette = false;
       bguri = "file:///home/stefan-hacks/Pictures/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg";
       border-wmax = false;
       bordertype = "solid";
       bottom-margin = 0.0;
       boxalpha = 0.0;
-      boxcolor = [ "0.141" "0.137" "0.188" ];
+      boxcolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
       bradius = 30.0;
       buttonbg-wmax = true;
       bwidth = 1.0;
-      candy1 = [ "0" "0.61" "0.74" ];
-      candy10 = [ "0.09" "0.19" "0.72" ];
-      candy11 = [ "0.75" "0.49" "0.44" ];
-      candy12 = [ "1" "0.92" "0.12" ];
-      candy13 = [ "0.38" "0.63" "0.92" ];
-      candy14 = [ "0.37" "0.36" "0.39" ];
-      candy15 = [ "0.40" "0.23" "0.72" ];
-      candy16 = [ "1" "0.32" "0.32" ];
-      candy2 = [ "1" "0.41" "0.41" ];
-      candy3 = [ "0.63" "0.16" "0.8" ];
-      candy4 = [ "0.94" "0.60" "0.23" ];
-      candy5 = [ "0.03" "0.41" "0.62" ];
-      candy6 = [ "0.56" "0.18" "0.43" ];
-      candy7 = [ "0.95" "0.12" "0.67" ];
-      candy8 = [ "0.18" "0.76" "0.49" ];
-      candy9 = [ "0.93" "0.20" "0.23" ];
+      candy1 = [
+        "0"
+        "0.61"
+        "0.74"
+      ];
+      candy10 = [
+        "0.09"
+        "0.19"
+        "0.72"
+      ];
+      candy11 = [
+        "0.75"
+        "0.49"
+        "0.44"
+      ];
+      candy12 = [
+        "1"
+        "0.92"
+        "0.12"
+      ];
+      candy13 = [
+        "0.38"
+        "0.63"
+        "0.92"
+      ];
+      candy14 = [
+        "0.37"
+        "0.36"
+        "0.39"
+      ];
+      candy15 = [
+        "0.40"
+        "0.23"
+        "0.72"
+      ];
+      candy16 = [
+        "1"
+        "0.32"
+        "0.32"
+      ];
+      candy2 = [
+        "1"
+        "0.41"
+        "0.41"
+      ];
+      candy3 = [
+        "0.63"
+        "0.16"
+        "0.8"
+      ];
+      candy4 = [
+        "0.94"
+        "0.60"
+        "0.23"
+      ];
+      candy5 = [
+        "0.03"
+        "0.41"
+        "0.62"
+      ];
+      candy6 = [
+        "0.56"
+        "0.18"
+        "0.43"
+      ];
+      candy7 = [
+        "0.95"
+        "0.12"
+        "0.67"
+      ];
+      candy8 = [
+        "0.18"
+        "0.76"
+        "0.49"
+      ];
+      candy9 = [
+        "0.93"
+        "0.20"
+        "0.23"
+      ];
       candyalpha = 0.98999999999999999;
       candybar = false;
       card-hint = 30;
@@ -231,67 +330,275 @@
       count8 = 1332;
       count9 = 874;
       cust-margin-wmax = false;
-      dark-accent-color = [ "0" "0.75" "0.75" ];
-      dark-bcolor = [ "0.827" "0.749" "0.839" ];
-      dark-bgcolor = [ "0.141" "0.137" "0.188" ];
-      dark-bgcolor-wmax = [ "0.180" "0.180" "0.196" ];
-      dark-bgcolor2 = [ "0.106" "0.110" "0.173" ];
+      dark-accent-color = [
+        "0"
+        "0.75"
+        "0.75"
+      ];
+      dark-bcolor = [
+        "0.827"
+        "0.749"
+        "0.839"
+      ];
+      dark-bgcolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      dark-bgcolor-wmax = [
+        "0.180"
+        "0.180"
+        "0.196"
+      ];
+      dark-bgcolor2 = [
+        "0.106"
+        "0.110"
+        "0.173"
+      ];
       dark-bguri = "file:///home/stefan-hacks/Pictures/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg";
-      dark-boxcolor = [ "0.141" "0.137" "0.188" ];
-      dark-candy1 = [ "0" "0.61" "0.74" ];
-      dark-candy10 = [ "0.09" "0.19" "0.72" ];
-      dark-candy11 = [ "0.75" "0.49" "0.44" ];
-      dark-candy12 = [ "1" "0.92" "0.12" ];
-      dark-candy13 = [ "0.38" "0.63" "0.92" ];
-      dark-candy14 = [ "0.37" "0.36" "0.39" ];
-      dark-candy15 = [ "0.40" "0.23" "0.72" ];
-      dark-candy16 = [ "1" "0.32" "0.32" ];
-      dark-candy2 = [ "1" "0.41" "0.41" ];
-      dark-candy3 = [ "0.63" "0.16" "0.8" ];
-      dark-candy4 = [ "0.94" "0.60" "0.23" ];
-      dark-candy5 = [ "0.03" "0.41" "0.62" ];
-      dark-candy6 = [ "0.56" "0.18" "0.43" ];
-      dark-candy7 = [ "0.95" "0.12" "0.67" ];
-      dark-candy8 = [ "0.18" "0.76" "0.49" ];
-      dark-candy9 = [ "0.93" "0.20" "0.23" ];
-      dark-dbgcolor = [ "0.125" "0.125" "0.125" ];
-      dark-fgcolor = [ "1.0" "1.0" "1.0" ];
-      dark-hcolor = [ "0.573" "0.749" "0.898" ];
-      dark-hscd-color = [ "0.333" "0.333" "0.388" ];
-      dark-iscolor = [ "0.141" "0.137" "0.188" ];
-      dark-mbcolor = [ "0.573" "0.749" "0.898" ];
-      dark-mbgcolor = [ "0.106" "0.106" "0.137" ];
-      dark-mfgcolor = [ "1.0" "1.0" "1.0" ];
-      dark-mhcolor = [ "0.573" "0.749" "0.898" ];
-      dark-mscolor = [ "0.333" "0.333" "0.388" ];
-      dark-mshcolor = [ "0.000" "0.000" "0.000" ];
-      dark-palette1 = [ "83" "82" "103" ];
-      dark-palette10 = [ "51" "54" "76" ];
-      dark-palette11 = [ "102" "106" "133" ];
-      dark-palette12 = [ "101" "123" "148" ];
-      dark-palette2 = [ "27" "28" "44" ];
-      dark-palette3 = [ "27" "27" "35" ];
-      dark-palette4 = [ "47" "46" "60" ];
-      dark-palette5 = [ "36" "35" "48" ];
-      dark-palette6 = [ "131" "123" "143" ];
-      dark-palette7 = [ "211" "191" "214" ];
-      dark-palette8 = [ "146" "191" "229" ];
-      dark-palette9 = [ "136" "148" "180" ];
-      dark-shcolor = [ "0.000" "0.000" "0.000" ];
-      dark-smbgcolor = [ "0.106" "0.110" "0.173" ];
-      dark-vw-color = [ "0.333" "0.333" "0.388" ];
-      dark-winbcolor = [ "0.333" "0.333" "0.388" ];
+      dark-boxcolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      dark-candy1 = [
+        "0"
+        "0.61"
+        "0.74"
+      ];
+      dark-candy10 = [
+        "0.09"
+        "0.19"
+        "0.72"
+      ];
+      dark-candy11 = [
+        "0.75"
+        "0.49"
+        "0.44"
+      ];
+      dark-candy12 = [
+        "1"
+        "0.92"
+        "0.12"
+      ];
+      dark-candy13 = [
+        "0.38"
+        "0.63"
+        "0.92"
+      ];
+      dark-candy14 = [
+        "0.37"
+        "0.36"
+        "0.39"
+      ];
+      dark-candy15 = [
+        "0.40"
+        "0.23"
+        "0.72"
+      ];
+      dark-candy16 = [
+        "1"
+        "0.32"
+        "0.32"
+      ];
+      dark-candy2 = [
+        "1"
+        "0.41"
+        "0.41"
+      ];
+      dark-candy3 = [
+        "0.63"
+        "0.16"
+        "0.8"
+      ];
+      dark-candy4 = [
+        "0.94"
+        "0.60"
+        "0.23"
+      ];
+      dark-candy5 = [
+        "0.03"
+        "0.41"
+        "0.62"
+      ];
+      dark-candy6 = [
+        "0.56"
+        "0.18"
+        "0.43"
+      ];
+      dark-candy7 = [
+        "0.95"
+        "0.12"
+        "0.67"
+      ];
+      dark-candy8 = [
+        "0.18"
+        "0.76"
+        "0.49"
+      ];
+      dark-candy9 = [
+        "0.93"
+        "0.20"
+        "0.23"
+      ];
+      dark-dbgcolor = [
+        "0.125"
+        "0.125"
+        "0.125"
+      ];
+      dark-fgcolor = [
+        "1.0"
+        "1.0"
+        "1.0"
+      ];
+      dark-hcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
+      dark-hscd-color = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      dark-iscolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      dark-mbcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
+      dark-mbgcolor = [
+        "0.106"
+        "0.106"
+        "0.137"
+      ];
+      dark-mfgcolor = [
+        "1.0"
+        "1.0"
+        "1.0"
+      ];
+      dark-mhcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
+      dark-mscolor = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      dark-mshcolor = [
+        "0.000"
+        "0.000"
+        "0.000"
+      ];
+      dark-palette1 = [
+        "83"
+        "82"
+        "103"
+      ];
+      dark-palette10 = [
+        "51"
+        "54"
+        "76"
+      ];
+      dark-palette11 = [
+        "102"
+        "106"
+        "133"
+      ];
+      dark-palette12 = [
+        "101"
+        "123"
+        "148"
+      ];
+      dark-palette2 = [
+        "27"
+        "28"
+        "44"
+      ];
+      dark-palette3 = [
+        "27"
+        "27"
+        "35"
+      ];
+      dark-palette4 = [
+        "47"
+        "46"
+        "60"
+      ];
+      dark-palette5 = [
+        "36"
+        "35"
+        "48"
+      ];
+      dark-palette6 = [
+        "131"
+        "123"
+        "143"
+      ];
+      dark-palette7 = [
+        "211"
+        "191"
+        "214"
+      ];
+      dark-palette8 = [
+        "146"
+        "191"
+        "229"
+      ];
+      dark-palette9 = [
+        "136"
+        "148"
+        "180"
+      ];
+      dark-shcolor = [
+        "0.000"
+        "0.000"
+        "0.000"
+      ];
+      dark-smbgcolor = [
+        "0.106"
+        "0.110"
+        "0.173"
+      ];
+      dark-vw-color = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      dark-winbcolor = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
       dashdock-style = "Bar";
       dbgalpha = 0.93000000000000005;
-      dbgcolor = [ "0.125" "0.125" "0.125" ];
+      dbgcolor = [
+        "0.125"
+        "0.125"
+        "0.125"
+      ];
       dborder = true;
       dbradius = 100.0;
       default-font = "Sans 12";
-      destruct-color = [ "0.75" "0.11" "0.16" ];
+      destruct-color = [
+        "0.75"
+        "0.11"
+        "0.16"
+      ];
       disize = 48.0;
       dshadow = false;
       fgalpha = 1.0;
-      fgcolor = [ "1.0" "1.0" "1.0" ];
+      fgcolor = [
+        "1.0"
+        "1.0"
+        "1.0"
+      ];
       fitts-widgets = true;
       font = "";
       gradient = false;
@@ -302,108 +609,412 @@
       halpha = 0.5;
       handle-border = 3.0;
       hbar-gtk3only = true;
-      hcolor = [ "0.573" "0.749" "0.898" ];
+      hcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
       headerbar-hint = 30;
       heffect = false;
       height = 34.0;
       hpad = 1.0;
-      hscd-color = [ "0.333" "0.333" "0.388" ];
+      hscd-color = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
       import-export = false;
       isalpha = 0.94999999999999996;
-      iscolor = [ "0.141" "0.137" "0.188" ];
-      light-accent-color = [ "0" "0.75" "0.75" ];
-      light-bcolor = [ "0.573" "0.749" "0.898" ];
-      light-bgcolor = [ "0.141" "0.137" "0.188" ];
-      light-bgcolor-wmax = [ "0.745" "0.745" "0.761" ];
-      light-bgcolor2 = [ "0.106" "0.110" "0.173" ];
+      iscolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      light-accent-color = [
+        "0"
+        "0.75"
+        "0.75"
+      ];
+      light-bcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
+      light-bgcolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      light-bgcolor-wmax = [
+        "0.745"
+        "0.745"
+        "0.761"
+      ];
+      light-bgcolor2 = [
+        "0.106"
+        "0.110"
+        "0.173"
+      ];
       light-bguri = "file:///home/stefan-hacks/Pictures/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg";
-      light-boxcolor = [ "0.141" "0.137" "0.188" ];
-      light-candy1 = [ "0" "0.61" "0.74" ];
-      light-candy10 = [ "0.09" "0.19" "0.72" ];
-      light-candy11 = [ "0.75" "0.49" "0.44" ];
-      light-candy12 = [ "1" "0.92" "0.12" ];
-      light-candy13 = [ "0.38" "0.63" "0.92" ];
-      light-candy14 = [ "0.37" "0.36" "0.39" ];
-      light-candy15 = [ "0.40" "0.23" "0.72" ];
-      light-candy16 = [ "1" "0.32" "0.32" ];
-      light-candy2 = [ "1" "0.41" "0.41" ];
-      light-candy3 = [ "0.63" "0.16" "0.8" ];
-      light-candy4 = [ "0.94" "0.60" "0.23" ];
-      light-candy5 = [ "0.03" "0.41" "0.62" ];
-      light-candy6 = [ "0.56" "0.18" "0.43" ];
-      light-candy7 = [ "0.95" "0.12" "0.67" ];
-      light-candy8 = [ "0.18" "0.76" "0.49" ];
-      light-candy9 = [ "0.93" "0.20" "0.23" ];
-      light-dbgcolor = [ "0.125" "0.125" "0.125" ];
-      light-fgcolor = [ "1.0" "1.0" "1.0" ];
-      light-hcolor = [ "0.184" "0.180" "0.235" ];
-      light-hscd-color = [ "0.333" "0.333" "0.388" ];
-      light-iscolor = [ "0.141" "0.137" "0.188" ];
-      light-mbcolor = [ "0.184" "0.180" "0.235" ];
-      light-mbgcolor = [ "0.106" "0.106" "0.137" ];
-      light-mfgcolor = [ "1.0" "1.0" "1.0" ];
-      light-mhcolor = [ "0.184" "0.180" "0.235" ];
-      light-mscolor = [ "0.333" "0.333" "0.388" ];
-      light-mshcolor = [ "0.000" "0.000" "0.000" ];
-      light-palette1 = [ "83" "82" "103" ];
-      light-palette10 = [ "51" "54" "76" ];
-      light-palette11 = [ "102" "106" "133" ];
-      light-palette12 = [ "101" "123" "148" ];
-      light-palette2 = [ "27" "28" "44" ];
-      light-palette3 = [ "27" "27" "35" ];
-      light-palette4 = [ "47" "46" "60" ];
-      light-palette5 = [ "36" "35" "48" ];
-      light-palette6 = [ "131" "123" "143" ];
-      light-palette7 = [ "211" "191" "214" ];
-      light-palette8 = [ "146" "191" "229" ];
-      light-palette9 = [ "136" "148" "180" ];
-      light-shcolor = [ "0.000" "0.000" "0.000" ];
-      light-smbgcolor = [ "0.106" "0.110" "0.173" ];
-      light-vw-color = [ "0.333" "0.333" "0.388" ];
-      light-winbcolor = [ "0.333" "0.333" "0.388" ];
+      light-boxcolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      light-candy1 = [
+        "0"
+        "0.61"
+        "0.74"
+      ];
+      light-candy10 = [
+        "0.09"
+        "0.19"
+        "0.72"
+      ];
+      light-candy11 = [
+        "0.75"
+        "0.49"
+        "0.44"
+      ];
+      light-candy12 = [
+        "1"
+        "0.92"
+        "0.12"
+      ];
+      light-candy13 = [
+        "0.38"
+        "0.63"
+        "0.92"
+      ];
+      light-candy14 = [
+        "0.37"
+        "0.36"
+        "0.39"
+      ];
+      light-candy15 = [
+        "0.40"
+        "0.23"
+        "0.72"
+      ];
+      light-candy16 = [
+        "1"
+        "0.32"
+        "0.32"
+      ];
+      light-candy2 = [
+        "1"
+        "0.41"
+        "0.41"
+      ];
+      light-candy3 = [
+        "0.63"
+        "0.16"
+        "0.8"
+      ];
+      light-candy4 = [
+        "0.94"
+        "0.60"
+        "0.23"
+      ];
+      light-candy5 = [
+        "0.03"
+        "0.41"
+        "0.62"
+      ];
+      light-candy6 = [
+        "0.56"
+        "0.18"
+        "0.43"
+      ];
+      light-candy7 = [
+        "0.95"
+        "0.12"
+        "0.67"
+      ];
+      light-candy8 = [
+        "0.18"
+        "0.76"
+        "0.49"
+      ];
+      light-candy9 = [
+        "0.93"
+        "0.20"
+        "0.23"
+      ];
+      light-dbgcolor = [
+        "0.125"
+        "0.125"
+        "0.125"
+      ];
+      light-fgcolor = [
+        "1.0"
+        "1.0"
+        "1.0"
+      ];
+      light-hcolor = [
+        "0.184"
+        "0.180"
+        "0.235"
+      ];
+      light-hscd-color = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      light-iscolor = [
+        "0.141"
+        "0.137"
+        "0.188"
+      ];
+      light-mbcolor = [
+        "0.184"
+        "0.180"
+        "0.235"
+      ];
+      light-mbgcolor = [
+        "0.106"
+        "0.106"
+        "0.137"
+      ];
+      light-mfgcolor = [
+        "1.0"
+        "1.0"
+        "1.0"
+      ];
+      light-mhcolor = [
+        "0.184"
+        "0.180"
+        "0.235"
+      ];
+      light-mscolor = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      light-mshcolor = [
+        "0.000"
+        "0.000"
+        "0.000"
+      ];
+      light-palette1 = [
+        "83"
+        "82"
+        "103"
+      ];
+      light-palette10 = [
+        "51"
+        "54"
+        "76"
+      ];
+      light-palette11 = [
+        "102"
+        "106"
+        "133"
+      ];
+      light-palette12 = [
+        "101"
+        "123"
+        "148"
+      ];
+      light-palette2 = [
+        "27"
+        "28"
+        "44"
+      ];
+      light-palette3 = [
+        "27"
+        "27"
+        "35"
+      ];
+      light-palette4 = [
+        "47"
+        "46"
+        "60"
+      ];
+      light-palette5 = [
+        "36"
+        "35"
+        "48"
+      ];
+      light-palette6 = [
+        "131"
+        "123"
+        "143"
+      ];
+      light-palette7 = [
+        "211"
+        "191"
+        "214"
+      ];
+      light-palette8 = [
+        "146"
+        "191"
+        "229"
+      ];
+      light-palette9 = [
+        "136"
+        "148"
+        "180"
+      ];
+      light-shcolor = [
+        "0.000"
+        "0.000"
+        "0.000"
+      ];
+      light-smbgcolor = [
+        "0.106"
+        "0.110"
+        "0.173"
+      ];
+      light-vw-color = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      light-winbcolor = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
       margin = 0.0;
       margin-wmax = 2.0;
       mbalpha = 0.59999999999999998;
-      mbcolor = [ "0.573" "0.749" "0.898" ];
+      mbcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
       mbg-gradient = false;
       mbgalpha = 0.94999999999999996;
-      mbgcolor = [ "0.106" "0.106" "0.137" ];
+      mbgcolor = [
+        "0.106"
+        "0.106"
+        "0.137"
+      ];
       menu-radius = 21.0;
       menustyle = true;
       mfgalpha = 1.0;
-      mfgcolor = [ "1.0" "1.0" "1.0" ];
+      mfgcolor = [
+        "1.0"
+        "1.0"
+        "1.0"
+      ];
       mhalpha = 0.29999999999999999;
-      mhcolor = [ "0.573" "0.749" "0.898" ];
+      mhcolor = [
+        "0.573"
+        "0.749"
+        "0.898"
+      ];
       monitor-height = 1080;
       monitor-width = 1920;
       monitors = "all";
       msalpha = 0.84999999999999998;
-      mscolor = [ "0.333" "0.333" "0.388" ];
+      mscolor = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
       mshalpha = 0.16;
-      mshcolor = [ "0.000" "0.000" "0.000" ];
+      mshcolor = [
+        "0.000"
+        "0.000"
+        "0.000"
+      ];
       neon = false;
       neon-wmax = false;
       notif-radius = 10.0;
-      palette1 = [ "83" "82" "103" ];
-      palette10 = [ "51" "54" "76" ];
-      palette11 = [ "102" "106" "133" ];
-      palette12 = [ "101" "123" "148" ];
-      palette2 = [ "27" "28" "44" ];
-      palette3 = [ "27" "27" "35" ];
-      palette4 = [ "47" "46" "60" ];
-      palette5 = [ "36" "35" "48" ];
-      palette6 = [ "131" "123" "143" ];
-      palette7 = [ "211" "191" "214" ];
-      palette8 = [ "146" "191" "229" ];
-      palette9 = [ "136" "148" "180" ];
+      palette1 = [
+        "83"
+        "82"
+        "103"
+      ];
+      palette10 = [
+        "51"
+        "54"
+        "76"
+      ];
+      palette11 = [
+        "102"
+        "106"
+        "133"
+      ];
+      palette12 = [
+        "101"
+        "123"
+        "148"
+      ];
+      palette2 = [
+        "27"
+        "28"
+        "44"
+      ];
+      palette3 = [
+        "27"
+        "27"
+        "35"
+      ];
+      palette4 = [
+        "47"
+        "46"
+        "60"
+      ];
+      palette5 = [
+        "36"
+        "35"
+        "48"
+      ];
+      palette6 = [
+        "131"
+        "123"
+        "143"
+      ];
+      palette7 = [
+        "211"
+        "191"
+        "214"
+      ];
+      palette8 = [
+        "146"
+        "191"
+        "229"
+      ];
+      palette9 = [
+        "136"
+        "148"
+        "180"
+      ];
       pause-reload = false;
       position = "Top";
-      prominent1 = [ "100" "100" "100" ];
-      prominent2 = [ "100" "100" "100" ];
-      prominent3 = [ "100" "100" "100" ];
-      prominent4 = [ "100" "100" "100" ];
-      prominent5 = [ "100" "100" "100" ];
-      prominent6 = [ "100" "100" "100" ];
+      prominent1 = [
+        "100"
+        "100"
+        "100"
+      ];
+      prominent2 = [
+        "100"
+        "100"
+        "100"
+      ];
+      prominent3 = [
+        "100"
+        "100"
+        "100"
+      ];
+      prominent4 = [
+        "100"
+        "100"
+        "100"
+      ];
+      prominent5 = [
+        "100"
+        "100"
+        "100"
+      ];
+      prominent6 = [
+        "100"
+        "100"
+        "100"
+      ];
       qtoggle-radius = 50.0;
       radius-bottomleft = true;
       radius-bottomright = true;
@@ -420,26 +1031,50 @@
       set-yarutheme = true;
       shadow = false;
       shalpha = 0.20000000000000001;
-      shcolor = [ "0.000" "0.000" "0.000" ];
+      shcolor = [
+        "0.000"
+        "0.000"
+        "0.000"
+      ];
       sidebar-hint = 30;
       slider-height = 4.0;
       smbgalpha = 0.94999999999999996;
-      smbgcolor = [ "0.106" "0.110" "0.173" ];
+      smbgcolor = [
+        "0.106"
+        "0.110"
+        "0.173"
+      ];
       smbgoverride = true;
-      success-color = [ "0.15" "0.635" "0.41" ];
+      success-color = [
+        "0.15"
+        "0.635"
+        "0.41"
+      ];
       traffic-light = false;
       trigger-autotheme = false;
       trigger-reload = false;
       view-hint = 20;
       vpad = 4.0;
-      vw-color = [ "0.333" "0.333" "0.388" ];
-      warning-color = [ "0.96" "0.83" "0.17" ];
+      vw-color = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
+      warning-color = [
+        "0.96"
+        "0.83"
+        "0.17"
+      ];
       width-bottom = true;
       width-left = true;
       width-right = true;
       width-top = true;
       winbalpha = 0.75;
-      winbcolor = [ "0.333" "0.333" "0.388" ];
+      winbcolor = [
+        "0.333"
+        "0.333"
+        "0.388"
+      ];
       winbradius = 15.0;
       winbwidth = 0.0;
       window-hint = 20;
@@ -471,7 +1106,166 @@
     };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
-      profiles-renames = { "500 Series Chipset Family On-Package High Definition Audio (HD Audio)" = { "off" = (lib.hm.gvariant.mkTuple [ "Off" "Off" ]); "pro-audio" = (lib.hm.gvariant.mkTuple [ "Pro Audio" "Pro Audio" ]); "HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)" = (lib.hm.gvariant.mkTuple [ "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)" "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)" ]); "HiFi (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)" = (lib.hm.gvariant.mkTuple [ "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)" "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)" ]); }; "HP DHE-8005U Audio Device" = { "off" = (lib.hm.gvariant.mkTuple [ "Off" "Off" ]); "input:mono-fallback" = (lib.hm.gvariant.mkTuple [ "Mono Input" "Mono Input" ]); "pro-audio" = (lib.hm.gvariant.mkTuple [ "Pro Audio" "Pro Audio" ]); "output:iec958-stereo" = (lib.hm.gvariant.mkTuple [ "Digital Stereo (IEC958) Output" "Digital Stereo (IEC958) Output" ]); "output:iec958-stereo+input:mono-fallback" = (lib.hm.gvariant.mkTuple [ "Digital Stereo (IEC958) Output + Mono Input" "Digital Stereo (IEC958) Output + Mono Input" ]); "output:analog-stereo" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Output" "Analog Stereo Output" ]); "output:analog-stereo+input:mono-fallback" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Output + Mono Input" "Analog Stereo Output + Mono Input" ]); }; "Steren COM-126" = { "off" = (lib.hm.gvariant.mkTuple [ "Off" "Off" ]); "pro-audio" = (lib.hm.gvariant.mkTuple [ "Pro Audio" "Pro Audio" ]); "input:iec958-stereo" = (lib.hm.gvariant.mkTuple [ "Digital Stereo (IEC958) Input" "Digital Stereo (IEC958) Input" ]); "input:analog-stereo" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Input" "Analog Stereo Input" ]); }; "USB Audio" = { "off" = (lib.hm.gvariant.mkTuple [ "Off" "Off" ]); "pro-audio" = (lib.hm.gvariant.mkTuple [ "Pro Audio" "Pro Audio" ]); "input:iec958-stereo" = (lib.hm.gvariant.mkTuple [ "Digital Stereo (IEC958) Input" "Digital Stereo (IEC958) Input" ]); "input:analog-stereo" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Input" "Analog Stereo Input" ]); "output:iec958-stereo" = (lib.hm.gvariant.mkTuple [ "Digital Stereo (IEC958) Output" "Digital Stereo (IEC958) Output" ]); "output:iec958-stereo+input:iec958-stereo" = (lib.hm.gvariant.mkTuple [ "Digital Stereo Duplex (IEC958)" "Digital Stereo Duplex (IEC958)" ]); "output:iec958-stereo+input:analog-stereo" = (lib.hm.gvariant.mkTuple [ "Digital Stereo (IEC958) Output + Analog Stereo Input" "Digital Stereo (IEC958) Output + Analog Stereo Input" ]); "output:analog-stereo" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Output" "Analog Stereo Output" ]); "output:analog-stereo+input:iec958-stereo" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Output + Digital Stereo (IEC958) Input" "Analog Stereo Output + Digital Stereo (IEC958) Input" ]); "output:analog-stereo+input:analog-stereo" = (lib.hm.gvariant.mkTuple [ "Analog Stereo Duplex" "Analog Stereo Duplex" ]); }; };
+      profiles-renames = {
+        "500 Series Chipset Family On-Package High Definition Audio (HD Audio)" = {
+          "off" = (
+            lib.hm.gvariant.mkTuple [
+              "Off"
+              "Off"
+            ]
+          );
+          "pro-audio" = (
+            lib.hm.gvariant.mkTuple [
+              "Pro Audio"
+              "Pro Audio"
+            ]
+          );
+          "HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)" = (
+            lib.hm.gvariant.mkTuple [
+              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
+              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
+            ]
+          );
+          "HiFi (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)" = (
+            lib.hm.gvariant.mkTuple [
+              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+            ]
+          );
+        };
+        "HP DHE-8005U Audio Device" = {
+          "off" = (
+            lib.hm.gvariant.mkTuple [
+              "Off"
+              "Off"
+            ]
+          );
+          "input:mono-fallback" = (
+            lib.hm.gvariant.mkTuple [
+              "Mono Input"
+              "Mono Input"
+            ]
+          );
+          "pro-audio" = (
+            lib.hm.gvariant.mkTuple [
+              "Pro Audio"
+              "Pro Audio"
+            ]
+          );
+          "output:iec958-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo (IEC958) Output"
+              "Digital Stereo (IEC958) Output"
+            ]
+          );
+          "output:iec958-stereo+input:mono-fallback" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo (IEC958) Output + Mono Input"
+              "Digital Stereo (IEC958) Output + Mono Input"
+            ]
+          );
+          "output:analog-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Output"
+              "Analog Stereo Output"
+            ]
+          );
+          "output:analog-stereo+input:mono-fallback" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Output + Mono Input"
+              "Analog Stereo Output + Mono Input"
+            ]
+          );
+        };
+        "Steren COM-126" = {
+          "off" = (
+            lib.hm.gvariant.mkTuple [
+              "Off"
+              "Off"
+            ]
+          );
+          "pro-audio" = (
+            lib.hm.gvariant.mkTuple [
+              "Pro Audio"
+              "Pro Audio"
+            ]
+          );
+          "input:iec958-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo (IEC958) Input"
+              "Digital Stereo (IEC958) Input"
+            ]
+          );
+          "input:analog-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Input"
+              "Analog Stereo Input"
+            ]
+          );
+        };
+        "USB Audio" = {
+          "off" = (
+            lib.hm.gvariant.mkTuple [
+              "Off"
+              "Off"
+            ]
+          );
+          "pro-audio" = (
+            lib.hm.gvariant.mkTuple [
+              "Pro Audio"
+              "Pro Audio"
+            ]
+          );
+          "input:iec958-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo (IEC958) Input"
+              "Digital Stereo (IEC958) Input"
+            ]
+          );
+          "input:analog-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Input"
+              "Analog Stereo Input"
+            ]
+          );
+          "output:iec958-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo (IEC958) Output"
+              "Digital Stereo (IEC958) Output"
+            ]
+          );
+          "output:iec958-stereo+input:iec958-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo Duplex (IEC958)"
+              "Digital Stereo Duplex (IEC958)"
+            ]
+          );
+          "output:iec958-stereo+input:analog-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Digital Stereo (IEC958) Output + Analog Stereo Input"
+              "Digital Stereo (IEC958) Output + Analog Stereo Input"
+            ]
+          );
+          "output:analog-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Output"
+              "Analog Stereo Output"
+            ]
+          );
+          "output:analog-stereo+input:iec958-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Output + Digital Stereo (IEC958) Input"
+              "Analog Stereo Output + Digital Stereo (IEC958) Input"
+            ]
+          );
+          "output:analog-stereo+input:analog-stereo" = (
+            lib.hm.gvariant.mkTuple [
+              "Analog Stereo Duplex"
+              "Analog Stereo Duplex"
+            ]
+          );
+        };
+      };
       version = 2;
     };
 

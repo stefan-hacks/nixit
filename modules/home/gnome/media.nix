@@ -29,20 +29,399 @@
     };
 
     "org/gnome/Weather" = {
-      locations = [ ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Rio de Janeiro" "SBRJ" true ([ ((lib.hm.gvariant.mkTuple [ (-0.39968039870670141) (-0.75340046626198298) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ (-0.39968039870670141) (-0.75456400746111763) ])) ]) ]))) ]))) ];
+      locations = [
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Rio de Janeiro"
+                    "SBRJ"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.39968039870670141)
+                          (-0.75340046626198298)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.39968039870670141)
+                          (-0.75456400746111763)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+      ];
       window-height = 506;
       window-maximized = false;
       window-width = 587;
     };
 
     "org/gnome/clocks" = {
-      world-clocks = [ ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "London" "EGWU" true ([ ((lib.hm.gvariant.mkTuple [ 0.89971722940307675 (-0.007272211034407213) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.89884456477707964 (-0.0020362232784242244) ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Port-of-Spain" "TTPP" true ([ ((lib.hm.gvariant.mkTuple [ 0.18529579473782881 (-1.0707594960985212) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.18587756533739611 (-1.0736683840029426) ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Los Angeles" "KHHR" true ([ ((lib.hm.gvariant.mkTuple [ 0.59207870611576607 (-2.0652820330855488) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.59432360095955872 (-2.063741622941031) ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "New York" "KNYC" true ([ ((lib.hm.gvariant.mkTuple [ 0.71180344078725644 (-1.2909618758762367) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.71059804659265924 (-1.2916478949920254) ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Toronto" "CYTZ" true ([ ((lib.hm.gvariant.mkTuple [ 0.76154532446909495 (-1.3857914260834978) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.76212711252195475 (-1.3860823201099277) ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Paris" "LFPB" true ([ ((lib.hm.gvariant.mkTuple [ 0.85462956287765413 0.042760566673861078 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.8528842336256599 0.040724343395436846 ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Rio de Janeiro" "SBRJ" true ([ ((lib.hm.gvariant.mkTuple [ (-0.39968039870670141) (-0.75340046626198298) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ (-0.39968039870670141) (-0.75456400746111763) ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Sydney" "YSSY" true ([ ((lib.hm.gvariant.mkTuple [ (-0.59253928105207498) 2.6386469349889961 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ (-0.59137572239964786) 2.6392287230418559 ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Tokyo" "RJTI" true ([ ((lib.hm.gvariant.mkTuple [ 0.62191898430954862 2.4408429589140699 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.62282074357417661 2.4391218722853854 ])) ]) ]))) ])); }) ({ "location" = (lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Beijing" "ZBAA" true ([ ((lib.hm.gvariant.mkTuple [ 0.69696814214530467 2.0295270260429752 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.69689057971334611 2.0313596217575696 ])) ]) ]))) ])); }) ];
+      world-clocks = [
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "London"
+                      "EGWU"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.89971722940307675
+                            (-0.007272211034407213)
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.89884456477707964
+                            (-0.0020362232784242244)
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Port-of-Spain"
+                      "TTPP"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.18529579473782881
+                            (-1.0707594960985212)
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.18587756533739611
+                            (-1.0736683840029426)
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Los Angeles"
+                      "KHHR"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.59207870611576607
+                            (-2.0652820330855488)
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.59432360095955872
+                            (-2.063741622941031)
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "New York"
+                      "KNYC"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.71180344078725644
+                            (-1.2909618758762367)
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.71059804659265924
+                            (-1.2916478949920254)
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Toronto"
+                      "CYTZ"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.76154532446909495
+                            (-1.3857914260834978)
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.76212711252195475
+                            (-1.3860823201099277)
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Paris"
+                      "LFPB"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.85462956287765413
+                            0.042760566673861078
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.8528842336256599
+                            0.040724343395436846
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Rio de Janeiro"
+                      "SBRJ"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            (-0.39968039870670141)
+                            (-0.75340046626198298)
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            (-0.39968039870670141)
+                            (-0.75456400746111763)
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Sydney"
+                      "YSSY"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            (-0.59253928105207498)
+                            2.6386469349889961
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            (-0.59137572239964786)
+                            2.6392287230418559
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Tokyo"
+                      "RJTI"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.62191898430954862
+                            2.4408429589140699
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.62282074357417661
+                            2.4391218722853854
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+        ({
+          "location" = (
+            lib.hm.gvariant.mkVariant (
+              lib.hm.gvariant.mkTuple [
+                ((lib.hm.gvariant.mkUint32 2))
+                (
+                  (lib.hm.gvariant.mkVariant (
+                    lib.hm.gvariant.mkTuple [
+                      "Beijing"
+                      "ZBAA"
+                      true
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.69696814214530467
+                            2.0295270260429752
+                          ])
+                        )
+                      ])
+                      ([
+                        (
+                          (lib.hm.gvariant.mkTuple [
+                            0.69689057971334611
+                            2.0313596217575696
+                          ])
+                        )
+                      ])
+                    ]
+                  ))
+                )
+              ]
+            )
+          );
+        })
+      ];
     };
 
     "org/gnome/clocks/state/window" = {
       maximized = false;
       panel-id = "world";
-      size = (lib.hm.gvariant.mkTuple [ 870 690 ]);
+      size = (
+        lib.hm.gvariant.mkTuple [
+          870
+          690
+        ]
+      );
     };
 
     "org/soundconverter" = {

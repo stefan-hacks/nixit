@@ -7,7 +7,13 @@
   dconf.settings = {
     "org/gnome/control-center" = {
       last-panel = "online-accounts";
-      window-state = (lib.hm.gvariant.mkTuple [ 980 640 false ]);
+      window-state = (
+        lib.hm.gvariant.mkTuple [
+          980
+          640
+          false
+        ]
+      );
     };
 
     "org/gnome/portal/filechooser/app-desktop" = {
