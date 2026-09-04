@@ -21,8 +21,9 @@ in
     ../../modules/home/atuin.nix
     ../../modules/home/zellij.nix
     ../../modules/home/ssh.nix
-    ../../modules/home/dconf.nix
+    # ../../modules/home/dconf.nix
     ../../modules/home/fastfetch.nix
+    ../../modules/home/gnome
   ];
 
   # Let Home Manager install and configure itself
