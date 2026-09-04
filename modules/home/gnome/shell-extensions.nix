@@ -1106,166 +1106,203 @@
     };
 
     "org/gnome/shell/extensions/quick-settings-audio-panel" = {
-      profiles-renames = {
-        "500 Series Chipset Family On-Package High Definition Audio (HD Audio)" = {
-          "off" = (
-            lib.hm.gvariant.mkTuple [
-              "Off"
-              "Off"
-            ]
-          );
-          "pro-audio" = (
-            lib.hm.gvariant.mkTuple [
-              "Pro Audio"
-              "Pro Audio"
-            ]
-          );
-          "HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)" = (
-            lib.hm.gvariant.mkTuple [
-              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
-              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
-            ]
-          );
-          "HiFi (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)" = (
-            lib.hm.gvariant.mkTuple [
-              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
-              "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
-            ]
-          );
-        };
-        "HP DHE-8005U Audio Device" = {
-          "off" = (
-            lib.hm.gvariant.mkTuple [
-              "Off"
-              "Off"
-            ]
-          );
-          "input:mono-fallback" = (
-            lib.hm.gvariant.mkTuple [
-              "Mono Input"
-              "Mono Input"
-            ]
-          );
-          "pro-audio" = (
-            lib.hm.gvariant.mkTuple [
-              "Pro Audio"
-              "Pro Audio"
-            ]
-          );
-          "output:iec958-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo (IEC958) Output"
-              "Digital Stereo (IEC958) Output"
-            ]
-          );
-          "output:iec958-stereo+input:mono-fallback" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo (IEC958) Output + Mono Input"
-              "Digital Stereo (IEC958) Output + Mono Input"
-            ]
-          );
-          "output:analog-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Output"
-              "Analog Stereo Output"
-            ]
-          );
-          "output:analog-stereo+input:mono-fallback" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Output + Mono Input"
-              "Analog Stereo Output + Mono Input"
-            ]
-          );
-        };
-        "Steren COM-126" = {
-          "off" = (
-            lib.hm.gvariant.mkTuple [
-              "Off"
-              "Off"
-            ]
-          );
-          "pro-audio" = (
-            lib.hm.gvariant.mkTuple [
-              "Pro Audio"
-              "Pro Audio"
-            ]
-          );
-          "input:iec958-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo (IEC958) Input"
-              "Digital Stereo (IEC958) Input"
-            ]
-          );
-          "input:analog-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Input"
-              "Analog Stereo Input"
-            ]
-          );
-        };
-        "USB Audio" = {
-          "off" = (
-            lib.hm.gvariant.mkTuple [
-              "Off"
-              "Off"
-            ]
-          );
-          "pro-audio" = (
-            lib.hm.gvariant.mkTuple [
-              "Pro Audio"
-              "Pro Audio"
-            ]
-          );
-          "input:iec958-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo (IEC958) Input"
-              "Digital Stereo (IEC958) Input"
-            ]
-          );
-          "input:analog-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Input"
-              "Analog Stereo Input"
-            ]
-          );
-          "output:iec958-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo (IEC958) Output"
-              "Digital Stereo (IEC958) Output"
-            ]
-          );
-          "output:iec958-stereo+input:iec958-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo Duplex (IEC958)"
-              "Digital Stereo Duplex (IEC958)"
-            ]
-          );
-          "output:iec958-stereo+input:analog-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Digital Stereo (IEC958) Output + Analog Stereo Input"
-              "Digital Stereo (IEC958) Output + Analog Stereo Input"
-            ]
-          );
-          "output:analog-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Output"
-              "Analog Stereo Output"
-            ]
-          );
-          "output:analog-stereo+input:iec958-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Output + Digital Stereo (IEC958) Input"
-              "Analog Stereo Output + Digital Stereo (IEC958) Input"
-            ]
-          );
-          "output:analog-stereo+input:analog-stereo" = (
-            lib.hm.gvariant.mkTuple [
-              "Analog Stereo Duplex"
-              "Analog Stereo Duplex"
-            ]
-          );
-        };
-      };
+      profiles-renames = [
+        (lib.hm.gvariant.mkDictionaryEntry [
+          "500 Series Chipset Family On-Package High Definition Audio (HD Audio)"
+          [
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "off"
+              (lib.hm.gvariant.mkTuple [
+                "Off"
+                "Off"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "pro-audio"
+              (lib.hm.gvariant.mkTuple [
+                "Pro Audio"
+                "Pro Audio"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
+              (lib.hm.gvariant.mkTuple [
+                "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
+                "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "HiFi (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+              (lib.hm.gvariant.mkTuple [
+                "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+                "Play HiFi quality Music (HDMI1, HDMI2, HDMI3, Headphones, Mic1, Mic2)"
+              ])
+            ])
+          ]
+        ])
+        (lib.hm.gvariant.mkDictionaryEntry [
+          "HP DHE-8005U Audio Device"
+          [
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "off"
+              (lib.hm.gvariant.mkTuple [
+                "Off"
+                "Off"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "input:mono-fallback"
+              (lib.hm.gvariant.mkTuple [
+                "Mono Input"
+                "Mono Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "pro-audio"
+              (lib.hm.gvariant.mkTuple [
+                "Pro Audio"
+                "Pro Audio"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:iec958-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo (IEC958) Output"
+                "Digital Stereo (IEC958) Output"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:iec958-stereo+input:mono-fallback"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo (IEC958) Output + Mono Input"
+                "Digital Stereo (IEC958) Output + Mono Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:analog-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Output"
+                "Analog Stereo Output"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:analog-stereo+input:mono-fallback"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Output + Mono Input"
+                "Analog Stereo Output + Mono Input"
+              ])
+            ])
+          ]
+        ])
+        (lib.hm.gvariant.mkDictionaryEntry [
+          "Steren COM-126"
+          [
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "off"
+              (lib.hm.gvariant.mkTuple [
+                "Off"
+                "Off"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "pro-audio"
+              (lib.hm.gvariant.mkTuple [
+                "Pro Audio"
+                "Pro Audio"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "input:iec958-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo (IEC958) Input"
+                "Digital Stereo (IEC958) Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "input:analog-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Input"
+                "Analog Stereo Input"
+              ])
+            ])
+          ]
+        ])
+        (lib.hm.gvariant.mkDictionaryEntry [
+          "USB Audio"
+          [
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "off"
+              (lib.hm.gvariant.mkTuple [
+                "Off"
+                "Off"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "pro-audio"
+              (lib.hm.gvariant.mkTuple [
+                "Pro Audio"
+                "Pro Audio"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "input:iec958-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo (IEC958) Input"
+                "Digital Stereo (IEC958) Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "input:analog-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Input"
+                "Analog Stereo Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:iec958-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo (IEC958) Output"
+                "Digital Stereo (IEC958) Output"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:iec958-stereo+input:iec958-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo Duplex (IEC958)"
+                "Digital Stereo Duplex (IEC958)"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:iec958-stereo+input:analog-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Digital Stereo (IEC958) Output + Analog Stereo Input"
+                "Digital Stereo (IEC958) Output + Analog Stereo Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:analog-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Output"
+                "Analog Stereo Output"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:analog-stereo+input:iec958-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Output + Digital Stereo (IEC958) Input"
+                "Analog Stereo Output + Digital Stereo (IEC958) Input"
+              ])
+            ])
+            (lib.hm.gvariant.mkDictionaryEntry [
+              "output:analog-stereo+input:analog-stereo"
+              (lib.hm.gvariant.mkTuple [
+                "Analog Stereo Duplex"
+                "Analog Stereo Duplex"
+              ])
+            ])
+          ]
+        ])
+      ];
       version = 2;
     };
 

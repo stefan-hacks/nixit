@@ -70,9 +70,10 @@
 
     "org/gnome/clocks" = {
       world-clocks = [
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -101,12 +102,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -135,12 +137,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -169,12 +172,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -203,12 +207,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -237,12 +242,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -271,12 +277,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -305,12 +312,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -339,12 +347,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -373,12 +382,13 @@
                   ))
                 )
               ]
-            )
-          );
-        })
-        ({
-          "location" = (
-            lib.hm.gvariant.mkVariant (
+            ))
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "location"
+            (lib.hm.gvariant.mkVariant (
               lib.hm.gvariant.mkTuple [
                 ((lib.hm.gvariant.mkUint32 2))
                 (
@@ -407,9 +417,9 @@
                   ))
                 )
               ]
-            )
-          );
-        })
+            ))
+          ])
+        ])
       ];
     };
 
