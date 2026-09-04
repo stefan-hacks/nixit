@@ -288,6 +288,7 @@
     # Communication
     ###########################################################################
 
+    element-desktop
     discord
     whatsie
     resources
