@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787377438,
-        "narHash": "sha256-Sxu1NLTD/Ern6hFGLlZmtKCSct3YQXZI/lls8RE1XeM=",
+        "lastModified": 1788642154,
+        "narHash": "sha256-sPpQFVaFTDqO/4vvCAhuAhqTgqN/ygu+9eJcs5eB0js=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "65258d5c65a250189fde2e35f490d15e064c4c62",
+        "rev": "fd0956c99c41ae3c13a73a638f1f7e963aebc4ab",
         "type": "github"
       },
       "original": {
@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788523401,
-        "narHash": "sha256-gGVckz1LHQlpyFHs3yZMC02ssDZiIPHgElLajvfX1a0=",
+        "lastModified": 1788649505,
+        "narHash": "sha256-6v5vjJTIEOnhY31La7b34tHvb1NrmNZFX/eCOjHjuHI=",
         "owner": "stefan-hacks",
         "repo": "nix-my-gnome",
-        "rev": "24b45273d39d5905478a4443d1242ca8aa3357a7",
+        "rev": "6dd8065491798f765acf38da9bf8ff12013e9f03",
         "type": "github"
       },
       "original": {
