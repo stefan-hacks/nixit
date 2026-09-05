@@ -1,5 +1,6 @@
 {
   username,
+  lib,
   ...
 }:
 
@@ -28,4 +29,14 @@ in
 
   # Let Home Manager install and configure itself
   programs.home-manager.enable = true;
+
+  # Re-create the wallpapers symlink that the old dconf.nix activation provided.
+  # Your generated GNOME dconf (gtk.nix, shell-extensions.nix, etc.) references
+  # ~/Pictures/wallpapers, so this symlink must exist for backgrounds and wallpicker.
+  home.activation.wallpapersLink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p ${homeDirectory}/Pictures
+    if [ ! -e "${homeDirectory}/Pictures/wallpapers" ] && [ ! -L "${homeDirectory}/Pictures/wallpapers" ]; then
+      ln -s ${../../../assets/wallpapers} "${homeDirectory}/Pictures/wallpapers"
+    fi
+  '';
 }
