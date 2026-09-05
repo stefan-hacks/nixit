@@ -12,6 +12,7 @@ let
 in
 {
   services.displayManager.gdm.enable = true;
+  services.gnome.gnome-online-accounts.enable = true;
   services.desktopManager.gnome.enable = true;
 
   services.xserver = {
@@ -51,7 +52,8 @@ in
     gnome-tweaks
     gnome-extension-manager
     dconf-editor
-    dconf2nix
+    gnome-online-accounts
+    gvfs
 
     # GNOME Default icon & cursor theme (must be explicitly installed)
     adwaita-icon-theme
