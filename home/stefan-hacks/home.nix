@@ -23,7 +23,7 @@ in
     ../../modules/home/ssh.nix
     # ../../modules/home/dconf.nix
     ../../modules/home/fastfetch.nix
-    ../../modules/home/gnome
+    ./gnome
   ];
 
   # Let Home Manager install and configure itself
