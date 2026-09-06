@@ -36,7 +36,7 @@ in
   home.activation.wallpapersLink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p ${homeDirectory}/Pictures
     if [ ! -e "${homeDirectory}/Pictures/wallpapers" ] && [ ! -L "${homeDirectory}/Pictures/wallpapers" ]; then
-      ln -s ${../../assets/wallpapers} "${homeDirectory}/Pictures/wallpapers"
+      ln -s ${assets/wallpapers} "${homeDirectory}/Pictures/wallpapers"
     fi
   '';
 }
