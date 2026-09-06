@@ -38,5 +38,10 @@ in
     if [ ! -e "${homeDirectory}/Pictures/wallpapers" ] && [ ! -L "${homeDirectory}/Pictures/wallpapers" ]; then
       ln -s ${../../assets/wallpapers} "${homeDirectory}/Pictures/wallpapers"
     fi
+
+    # Symlink face icon
+    if [ ! -e "${homeDirectory}/.face" ] && [ ! -L "${homeDirectory}/.face" ]; then
+      ln -s ${../../assets/icon2.png} "${homeDirectory}/.face"
+    fi
   '';
 }
