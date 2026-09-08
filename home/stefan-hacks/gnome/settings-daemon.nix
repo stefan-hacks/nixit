@@ -7,13 +7,7 @@
   dconf.settings = {
     "org/gnome/control-center" = {
       last-panel = "online-accounts";
-      window-state = (
-        lib.hm.gvariant.mkTuple [
-          980
-          640
-          false
-        ]
-      );
+      window-state = (lib.hm.gvariant.mkTuple [ 980 640 false ]);
     };
 
     "org/gnome/portal/filechooser/app-desktop" = {
@@ -54,6 +48,7 @@
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Alt><Super>period" ];
+      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/look-toggle/" ];
       email = [ "<Alt><Super>e" ];
       home = [ "<Alt><Super>h" ];
       mic-mute = [ "<Alt>F8" ];
@@ -65,6 +60,12 @@
       volume-mute = [ "<Alt>F5" ];
       volume-up = [ "<Alt>F7" ];
       www = [ "<Alt><Super>b" ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/look-toggle" = {
+      binding = "<Alt>space";
+      command = "/nix/store/6n5g7m0mqir88ps4b6k9ljp4aym5lvi6-glib-2.88.3-bin/bin/gdbus call --session --dest com.look.Desktop --object-path /com/look/Desktop --method com.look.Desktop.Toggle";
+      name = "Look Toggle";
     };
 
     "org/gnome/settings-daemon/plugins/power" = {

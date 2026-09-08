@@ -35,12 +35,7 @@
     };
 
     "org/virt-manager/virt-manager/urls" = {
-      isos = [
-        "/home/stefan-hacks/distro_images/guix-system-install-1.5.0.x86_64-linux.iso"
-        "/home/stefan-hacks/distro_images/debian-13.6.0-amd64-netinst.iso"
-        "/home/stefan-hacks/distro_images/nixos-minimal-26.05.6200.8623c4c20aa4-x86_64-linux.iso"
-        "/home/stefan-hacks/distro_images/nixos-graphical-26.05.6200.8623c4c20aa4-x86_64-linux.iso"
-      ];
+      isos = [ "/home/stefan-hacks/distro_images/guix-system-install-1.5.0.x86_64-linux.iso" "/home/stefan-hacks/distro_images/debian-13.6.0-amd64-netinst.iso" "/home/stefan-hacks/distro_images/nixos-minimal-26.05.6200.8623c4c20aa4-x86_64-linux.iso" "/home/stefan-hacks/distro_images/nixos-graphical-26.05.6200.8623c4c20aa4-x86_64-linux.iso" ];
     };
 
     "org/virt-manager/virt-manager/vmlist-fields" = {
@@ -50,137 +45,97 @@
 
     "org/virt-manager/virt-manager/vms/10e72651f5484596bbad85c7fd971440" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1920
-          1044
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/12be4bff81e94a499629b28d5a32409d" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1920
-          1013
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1013 ]);
     };
 
     "org/virt-manager/virt-manager/vms/1f166dbb625943b99d951f9d26c5a36a" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1280
-          869
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1280 869 ]);
     };
 
     "org/virt-manager/virt-manager/vms/2ccad5393f454385b2611fa62b2b19b3" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1280
-          869
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1280 869 ]);
     };
 
     "org/virt-manager/virt-manager/vms/3508f0b006d2447791e333f986a71bd7" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1920
-          1044
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
+    };
+
+    "org/virt-manager/virt-manager/vms/450e866b2114477d8b7dc2f7df6b4902" = {
+      autoconnect = 1;
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/85f55bd897d446db91c61d855ddcd191" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1280
-          869
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1280 869 ]);
     };
 
     "org/virt-manager/virt-manager/vms/8898852ff93142ce92be5283ac25b281" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1920
-          1044
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/8de2f671ffb14b17a0b47ddbfba065c3" = {
       autoconnect = 1;
       resize-guest = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1536
-          797
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1536 797 ]);
+    };
+
+    "org/virt-manager/virt-manager/vms/9f1b51ae990142dca02620886af529dd" = {
+      autoconnect = 1;
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/b8ccf55cbb0f46a69d02d0d070a242f1" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1920
-          1044
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/c2a01a250a824a058bdb87b71a772abc" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1280
-          842
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1280 842 ]);
+    };
+
+    "org/virt-manager/virt-manager/vms/c64faa5b0f8c44fababfda08f3dd0706" = {
+      autoconnect = 1;
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1280 868 ]);
     };
 
     "org/virt-manager/virt-manager/vms/da3572a3185947058b55ea9af4fc8ffd" = {
       autoconnect = 1;
     };
 
+    "org/virt-manager/virt-manager/vms/de39f80b24e6408da023be4ef10f5352" = {
+      autoconnect = 1;
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
+    };
+
     "org/virt-manager/virt-manager/vms/e488954876b04ccdacaf436e060bde3c" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1536
-          797
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1536 797 ]);
+    };
+
+    "org/virt-manager/virt-manager/vms/e7afe469bd8845f0b16866821fe02ed2" = {
+      autoconnect = 1;
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/f4e4bc2f5d274f2494406a63613c193e" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1920
-          1044
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1920 1044 ]);
     };
 
     "org/virt-manager/virt-manager/vms/fb6e44f0d77746b18bc70c991d09c84f" = {
       autoconnect = 1;
-      vm-window-size = (
-        lib.hm.gvariant.mkTuple [
-          1280
-          869
-        ]
-      );
+      vm-window-size = (lib.hm.gvariant.mkTuple [ 1280 869 ]);
     };
 
   };

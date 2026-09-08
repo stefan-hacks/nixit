@@ -6,25 +6,7 @@
 {
   dconf.settings = {
     "org/gnome/desktop/notifications" = {
-      application-children = [
-        "firefox"
-        "org-gnome-console"
-        "gnome-about-panel"
-        "discord"
-        "org-gnome-evolution"
-        "gnome-power-panel"
-        "org-gnome-evolution-alarm-notify"
-        "kitty"
-        "virt-manager"
-        "org-qbittorrent-qbittorrent"
-        "mullvad-vpn"
-        "com-ktechpit-whatsie"
-        "org-gnome-nautilus"
-        "joplin"
-        "org-gnome-shell-extensions"
-        "org-nickvision-tubeconverter"
-        "de-haeckerfelix-shortwave"
-      ];
+      application-children = [ "firefox" "org-gnome-console" "gnome-about-panel" "discord" "org-gnome-evolution" "gnome-power-panel" "org-gnome-evolution-alarm-notify" "kitty" "virt-manager" "org-qbittorrent-qbittorrent" "mullvad-vpn" "com-ktechpit-whatsie" "org-gnome-nautilus" "joplin" "org-gnome-shell-extensions" "org-nickvision-tubeconverter" "de-haeckerfelix-shortwave" ];
       show-banners = true;
     };
 
@@ -88,6 +70,10 @@
       application-id = "org.gnome.Nautilus.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/org-gnome-papers" = {
+      application-id = "org.gnome.Papers.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-shell-extensions" = {
       application-id = "org.gnome.Shell.Extensions.desktop";
     };
@@ -110,6 +96,10 @@
 
     "org/gnome/desktop/notifications/application/vlc" = {
       application-id = "vlc.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/xdg-desktop-portal-gnome" = {
+      application-id = "xdg-desktop-portal-gnome.desktop";
     };
 
   };

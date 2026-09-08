@@ -59,6 +59,7 @@
 
     "org/gnome/evolution/shell" = {
       default-component-id = "mail";
+      file-chooser-folder = "file:///home/stefan-hacks/Documents";
     };
 
     "org/gnome/evolution/shell/window" = {
