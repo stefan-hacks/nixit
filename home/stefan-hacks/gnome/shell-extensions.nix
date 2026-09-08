@@ -25,9 +25,9 @@
       menu-layout = "Whisker";
       prefs-visible-page = 0;
       recently-installed-apps = [ ];
-      runner-hotkey = [ "<Alt>space" ];
-      runner-hotkey-open-primary-monitor = true;
-      runner-hotkey-overlay-key-enabled = true;
+      # runner-hotkey = [ "<Alt>space" ];
+      # runner-hotkey-open-primary-monitor = true;
+      # runner-hotkey-overlay-key-enabled = true;
       search-entry-border-radius = (
         lib.hm.gvariant.mkTuple [
           true
