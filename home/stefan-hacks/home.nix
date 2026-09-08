@@ -30,7 +30,7 @@ in
 
   # Install the Look launcher from its upstream flake (github:kunkka19xx/look).
   # Pre-built binaries are cached via Cachix so this is fast.
-  home.packages = [ look.packages.${pkgs.system}.default ];
+  home.packages = [ look.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 
   # Let Home Manager install and configure itself
   programs.home-manager.enable = true;
