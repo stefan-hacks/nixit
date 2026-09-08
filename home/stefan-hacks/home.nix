@@ -35,9 +35,6 @@ in
   # Let Home Manager install and configure itself
   programs.home-manager.enable = true;
 
-  # Enable dconf writes so declarative dconf.settings in ./gnome/ take effect.
-  programs.dconf.enable = true;
-
   # Re-create the wallpapers symlink that the old dconf.nix activation provided.
   # Your generated GNOME dconf (gtk.nix, shell-extensions.nix, etc.) references
   # ~/Pictures/wallpapers, so this symlink must exist for backgrounds and wallpicker.
