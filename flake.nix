@@ -1,5 +1,9 @@
 {
   description = "Ghost Workstation — NixOS + Home Manager Flake";
+  nixConfig = {
+    extra-substituters = [ "https://look.cachix.org" ];
+    extra-trusted-public-keys = [ "look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4=" ];
+  };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
@@ -13,6 +17,10 @@
       url = "github:stefan-hacks/nix-my-gnome";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    look = {
+      url = "github:kunkka19xx/look?dir=apps/linows";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hermes-agent = {
     #   url = "github:NousResearch/hermes-agent";
     # };
@@ -23,6 +31,7 @@
       home-manager,
       nixvim,
       nix-my-gnome,
+      look,
       # hermes-agent,
       ...
     }:
@@ -44,6 +53,7 @@
           hostArgs = {
             inherit usernames;
             username = primaryUsername;
+            inherit look;
           };
         in
         nixpkgs.lib.nixosSystem {

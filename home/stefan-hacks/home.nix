@@ -1,6 +1,8 @@
 {
   username,
   lib,
+  look,
+  pkgs,
   ...
 }:
 
@@ -22,13 +24,19 @@ in
     ../../modules/home/atuin.nix
     ../../modules/home/zellij.nix
     ../../modules/home/ssh.nix
-    # ../../modules/home/dconf.nix
     ../../modules/home/fastfetch.nix
     ./gnome
   ];
 
+  # Install the Look launcher from its upstream flake (github:kunkka19xx/look).
+  # Pre-built binaries are cached via Cachix so this is fast.
+  home.packages = [ look.packages.${pkgs.system}.default ];
+
   # Let Home Manager install and configure itself
   programs.home-manager.enable = true;
+
+  # Enable dconf writes so declarative dconf.settings in ./gnome/ take effect.
+  programs.dconf.enable = true;
 
   # Re-create the wallpapers symlink that the old dconf.nix activation provided.
   # Your generated GNOME dconf (gtk.nix, shell-extensions.nix, etc.) references
@@ -44,4 +52,13 @@ in
       ln -s ${../../assets/icon2.png} "${homeDirectory}/.face"
     fi
   '';
+
+  # Free up Alt+Space for the Look launcher by disabling ArcMenu's runner-hotkey.
+  # Look's default toggle is Alt+Space; without this override the two collide.
+  dconf.settings = {
+    "org/gnome/shell/extensions/arcmenu" = {
+      runner-hotkey = lib.mkForce [ ];
+      runner-hotkey-overlay-key-enabled = lib.mkForce false;
+    };
+  };
 }
