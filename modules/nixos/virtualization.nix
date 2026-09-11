@@ -1,9 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   virtualisation = {
     docker.enable = false;
     podman.enable = false;

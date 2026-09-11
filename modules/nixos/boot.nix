@@ -1,12 +1,7 @@
-{
-  ...
-}:
-
-let
+{...}: let
   # GRUB wallpaper - direct path works (bootloader reads before users exist)
   grubWallpaper = ../../assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg;
-in
-{
+in {
   boot = {
     loader = {
       grub = {
@@ -20,9 +15,9 @@ in
     };
 
     initrd = {
-      luks.devices = { 
-       "luks-b42cc226-9e64-42aa-bdb7-7a61e8e23a94" = {
-         device = "/dev/disk/by-uuid/b42cc226-9e64-42aa-bdb7-7a61e8e23a94";
+      luks.devices = {
+        "luks-b42cc226-9e64-42aa-bdb7-7a61e8e23a94" = {
+          device = "/dev/disk/by-uuid/b42cc226-9e64-42aa-bdb7-7a61e8e23a94";
         };
       };
     };

@@ -3,9 +3,7 @@
   nix-graph,
   nixscope,
   ...
-}:
-
-{
+}: {
   environment.systemPackages = with pkgs; [
     ###########################################################################
     # Core Utilities

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   services.hermes-agent = {
     enable = true;
 
@@ -20,7 +19,7 @@
     #   environmentFiles = [ "/var/lib/hermes/env" ];
     # or, with sops-nix:
     #   environmentFiles = [ config.sops.secrets."hermes-env".path ];
-    environmentFiles = [ ];
+    environmentFiles = [];
 
     addToSystemPackages = true;
   };

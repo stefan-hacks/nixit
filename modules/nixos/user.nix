@@ -3,8 +3,7 @@
   lib,
   usernames,
   ...
-}:
-let
+}: let
   commonGroups = [
     "wheel"
     "networkmanager"
@@ -27,15 +26,14 @@ let
   # Per-user icon symlink. Falls back to the shared assets/icon2.png unless
   # assets/icons/<name>.png exists, so multi-user hosts don't all get
   # stefan-hacks's face.
-  mkIconRule =
-    name:
-    let
-      perUserIcon = ../../assets/icons + "/${name}.png";
-      icon = if builtins.pathExists perUserIcon then perUserIcon else ../../assets/icon2.png;
-    in
-    "L /var/lib/AccountsService/icons/${name} - - - - ${icon}";
-in
-{
+  mkIconRule = name: let
+    perUserIcon = ../../assets/icons + "/${name}.png";
+    icon =
+      if builtins.pathExists perUserIcon
+      then perUserIcon
+      else ../../assets/icon2.png;
+  in "L /var/lib/AccountsService/icons/${name} - - - - ${icon}";
+in {
   users.users = lib.genAttrs usernames mkUser;
 
   # Symlink user icon(s) to accountsservice location for GDM/GNOME

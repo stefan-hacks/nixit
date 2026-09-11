@@ -4,12 +4,9 @@
   look,
   pkgs,
   ...
-}:
-
-let
+}: let
   homeDirectory = "/home/${username}";
-in
-{
+in {
   home.username = username;
   home.homeDirectory = homeDirectory;
   home.stateVersion = "26.05";
@@ -30,7 +27,7 @@ in
 
   # Install the Look launcher from its upstream flake (github:kunkka19xx/look).
   # Pre-built binaries are cached via Cachix so this is fast.
-  home.packages = [ look.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+  home.packages = [look.packages.${pkgs.stdenv.hostPlatform.system}.default];
 
   # Let Home Manager install and configure itself
   programs.home-manager.enable = true;
@@ -38,7 +35,7 @@ in
   # Re-create the wallpapers symlink that the old dconf.nix activation provided.
   # Your generated GNOME dconf (gtk.nix, shell-extensions.nix, etc.) references
   # ~/Pictures/wallpapers, so this symlink must exist for backgrounds and wallpicker.
-  home.activation.wallpapersLink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  home.activation.wallpapersLink = lib.hm.dag.entryAfter ["writeBoundary"] ''
     mkdir -p ${homeDirectory}/Pictures
     if [ ! -e "${homeDirectory}/Pictures/wallpapers" ] && [ ! -L "${homeDirectory}/Pictures/wallpapers" ]; then
       ln -s ${../../assets/wallpapers} "${homeDirectory}/Pictures/wallpapers"
@@ -54,7 +51,7 @@ in
   # Look's default toggle is Alt+Space; without this override the two collide.
   dconf.settings = {
     "org/gnome/shell/extensions/arcmenu" = {
-      runner-hotkey = lib.mkForce [ ];
+      runner-hotkey = lib.mkForce [];
       runner-hotkey-overlay-key-enabled = lib.mkForce false;
     };
   };

@@ -1,16 +1,10 @@
-{
-  pkgs,
-  ...
-}:
-
-let
+{pkgs, ...}: let
   # GDM wallpaper - copied to nix store for accessibility (GDM user can read it)
-  gdmWallpaper = pkgs.runCommand "gdm-wallpaper" { } ''
+  gdmWallpaper = pkgs.runCommand "gdm-wallpaper" {} ''
     mkdir -p $out/share/wallpapers
     cp ${../../assets/wallpapers/Catppuccin_Mocha/17._Catppuccin_Mocha.jpg} $out/share/wallpapers/gdm-background.jpg
   '';
-in
-{
+in {
   services.displayManager.gdm.enable = true;
   services.gnome.gnome-online-accounts.enable = true;
   services.desktopManager.gnome.enable = true;

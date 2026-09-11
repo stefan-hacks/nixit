@@ -1,8 +1,8 @@
 {
   description = "Ghost Workstation — NixOS + Home Manager Flake";
   nixConfig = {
-    extra-substituters = [ "https://look.cachix.org" ];
-    extra-trusted-public-keys = [ "look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4=" ];
+    extra-substituters = ["https://look.cachix.org"];
+    extra-trusted-public-keys = ["look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4="];
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -35,68 +35,65 @@
     #   url = "github:NousResearch/hermes-agent";
     # };
   };
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nixvim,
-      nix-my-gnome,
-      look,
-      nix-graph,
-      nixscope,
-      # hermes-agent,
-      ...
-    }:
-    let
-      hosts = {
-        ghost = {
-          system = "x86_64-linux";
-          users = {
-            stefan-hacks = ./home/stefan-hacks/home.nix;
-          };
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nixvim,
+    nix-my-gnome,
+    look,
+    nix-graph,
+    nixscope,
+    # hermes-agent,
+    ...
+  }: let
+    hosts = {
+      ghost = {
+        system = "x86_64-linux";
+        users = {
+          stefan-hacks = ./home/stefan-hacks/home.nix;
         };
       };
-      mkHost =
-        hostName:
-        { system, users }:
-        let
-          usernames = builtins.attrNames users;
-          primaryUsername = builtins.head usernames;
-          hostArgs = {
-            inherit usernames;
-            username = primaryUsername;
-            inherit look;
-            inherit nix-graph;
-            inherit nixscope;
-          };
-        in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = hostArgs;
-          modules = [
-            ./hosts/${hostName}
-            nixvim.nixosModules.nixvim
-            # hermes-agent.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = hostArgs;
-              home-manager.users = nixpkgs.lib.mapAttrs (_name: homeFile: import homeFile) users;
-
-              # applied to every user's home-manager config on this host
-              home-manager.sharedModules = [
-                {
-                  home.packages = [ nix-my-gnome.packages.${system}.default ];
-                }
-              ];
-            }
-          ];
-        };
-    in
-    {
-      nixosConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
+    mkHost = hostName: {
+      system,
+      users,
+    }: let
+      usernames = builtins.attrNames users;
+      primaryUsername = builtins.head usernames;
+      hostArgs = {
+        inherit usernames;
+        username = primaryUsername;
+        inherit look;
+        inherit nix-graph;
+        inherit nixscope;
+      };
+    in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = hostArgs;
+        modules = [
+          ./hosts/${hostName}
+          nixvim.nixosModules.nixvim
+          # hermes-agent.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = hostArgs;
+            home-manager.users = nixpkgs.lib.mapAttrs (_name: homeFile: import homeFile) users;
+
+            # applied to every user's home-manager config on this host
+            home-manager.sharedModules = [
+              {
+                home.packages = [nix-my-gnome.packages.${system}.default];
+              }
+            ];
+          }
+        ];
+      };
+  in {
+    nixosConfigurations = nixpkgs.lib.mapAttrs mkHost hosts;
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+  };
 }
