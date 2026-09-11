@@ -1,7 +1,6 @@
 {
   pkgs,
   nix-graph,
-  nixscope,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -343,9 +342,6 @@
     ###########################################################################
     nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.default
     # Interactive TUI for Nix dependency graphs (github:AlexAntonik/nix-graph)
-
-    nixscope.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # NixScope — NixOS Operations Console (github:stefan-hacks/nixscope)
 
     ###########################################################################
     # Development Tools
