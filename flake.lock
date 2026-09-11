@@ -88,11 +88,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789151316,
-        "narHash": "sha256-mMcWDq1Vt8XQNQ9GkgYfpRNWIQkZYy5hHFYEsw59XZE=",
+        "lastModified": 1789153424,
+        "narHash": "sha256-cXYiaPYQs7E1MxZ/+z+9p+E41o0QjcOuPGQg7pAvvFs=",
         "owner": "AlexAntonik",
         "repo": "nix-graph",
-        "rev": "3689fd359e33b546db3b86a52285675720c4f09d",
+        "rev": "56e8902f69d947e8169003c2ee5d3239b0d18161",
         "type": "github"
       },
       "original": {
