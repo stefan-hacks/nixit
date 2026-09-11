@@ -83,6 +83,24 @@
         "type": "github"
       }
     },
+    "nix-graph": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1789057111,
+        "narHash": "sha256-0kTb6etE3oEM5qVMowIo0g/TC9XoRR/wULj39hb+1tU=",
+        "owner": "AlexAntonik",
+        "repo": "nix-graph",
+        "rev": "520dec6e49968b9ed6b7f6bf45008dc863dc41a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AlexAntonik",
+        "repo": "nix-graph",
+        "type": "github"
+      }
+    },
     "nix-my-gnome": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -106,6 +124,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1788881743,
+        "narHash": "sha256-2V9GZGvPfrNzxFozhI9dcqV+c3QdA8YZrvAAzqEB+dI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d6524aaca2ff07876657ae2b323f24be4874944b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1788921488,
         "narHash": "sha256-8+xWRxEkD6l217cIUdRxfeUGS9lQX0hVtUuNVsBaDzk=",
         "owner": "NixOS",
@@ -120,7 +154,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1788405554,
         "narHash": "sha256-r2f1oUwixlgq9zOdYLqJLfS/lWBT60/IITjhTKI59JU=",
@@ -139,7 +173,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "systems": "systems_2"
       },
       "locked": {
@@ -161,8 +195,9 @@
       "inputs": {
         "home-manager": "home-manager",
         "look": "look",
+        "nix-graph": "nix-graph",
         "nix-my-gnome": "nix-my-gnome",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim"
       }
     },

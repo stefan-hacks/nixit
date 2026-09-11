@@ -1,5 +1,6 @@
 {
   pkgs,
+  nix-graph,
   ...
 }:
 
@@ -337,6 +338,12 @@
     deploy-rs
     colmena
     nvd
+
+    ###########################################################################
+    # External flake tools
+    ###########################################################################
+    nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # Interactive TUI for Nix dependency graphs (github:AlexAntonik/nix-graph)
 
     ###########################################################################
     # Development Tools

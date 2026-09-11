@@ -21,6 +21,12 @@
       url = "github:kunkka19xx/look?dir=apps/linows";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-graph = {
+      url = "github:AlexAntonik/nix-graph";
+      # NOTE: nix-graph pins nixos-unstable. Do NOT add follows here,
+      #       because its buildGoModule may need a newer Go toolchain
+      #       than what nixos-26.05 stable provides.
+    };
     # hermes-agent = {
     #   url = "github:NousResearch/hermes-agent";
     # };
@@ -32,6 +38,7 @@
       nixvim,
       nix-my-gnome,
       look,
+      nix-graph,
       # hermes-agent,
       ...
     }:
@@ -54,6 +61,7 @@
             inherit usernames;
             username = primaryUsername;
             inherit look;
+            inherit nix-graph;
           };
         in
         nixpkgs.lib.nixosSystem {
