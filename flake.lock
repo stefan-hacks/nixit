@@ -178,11 +178,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1789143011,
-        "narHash": "sha256-uH/B77uwOuzm+H1iZNXl1Z8KpKSErxNMZIe47C7owF0=",
+        "lastModified": 1789145741,
+        "narHash": "sha256-C3uqtJQPs/s8IjfKawN/f10FBZf3rNXfmVxRN0zcJ4w=",
         "owner": "stefan-hacks",
         "repo": "nixscope",
-        "rev": "4a934b35108a225c1a902eaff0a873bfb45f1e7b",
+        "rev": "d0181d83a2e62d9d0ea802c529fa4e00a06a320a",
         "type": "github"
       },
       "original": {
