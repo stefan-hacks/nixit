@@ -27,6 +27,10 @@
       #       because its buildGoModule may need a newer Go toolchain
       #       than what nixos-26.05 stable provides.
     };
+    nixscope = {
+      url = "github:stefan-hacks/nixscope";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hermes-agent = {
     #   url = "github:NousResearch/hermes-agent";
     # };
@@ -39,6 +43,7 @@
       nix-my-gnome,
       look,
       nix-graph,
+      nixscope,
       # hermes-agent,
       ...
     }:
@@ -62,6 +67,7 @@
             username = primaryUsername;
             inherit look;
             inherit nix-graph;
+            inherit nixscope;
           };
         in
         nixpkgs.lib.nixosSystem {
