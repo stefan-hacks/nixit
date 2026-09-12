@@ -69,11 +69,11 @@
       },
       "locked": {
         "dir": "apps/linows",
-        "lastModified": 1789175232,
-        "narHash": "sha256-nww/pnLuTUl61hRr5VTXZmDxaznnJoz1BJojOG+YoVk=",
+        "lastModified": 1789222754,
+        "narHash": "sha256-vPlRqGU6auwfADepnkBDeZvyG7nke2/zhUDZCUe/goA=",
         "owner": "kunkka19xx",
         "repo": "look",
-        "rev": "3392db65c59ebdc149b1ae25d78a41f960de46a2",
+        "rev": "bbcd1f46ad0f81b5b7671b018f70ea463d4384bb",
         "type": "github"
       },
       "original": {
@@ -88,11 +88,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789158246,
-        "narHash": "sha256-iDJDKfL5FsNd0imLjd23cEs7UajaChE/dM6HElwsGUo=",
+        "lastModified": 1789222992,
+        "narHash": "sha256-6q6M8n2S3SBYfmgAboIx4aVYsjY3U4yPYn3qYLdGtZc=",
         "owner": "AlexAntonik",
         "repo": "nix-graph",
-        "rev": "a26aabaf810db7e8d682d87815417caf40bc3530",
+        "rev": "3ac2ac0a73198c8c8c49a52ef540aec5d779ccf8",
         "type": "github"
       },
       "original": {
