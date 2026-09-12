@@ -261,7 +261,7 @@
     chromium
     joplin-desktop
     evolution
-    okular
+    kdePackages.okular
 
     ###########################################################################
     # Office
