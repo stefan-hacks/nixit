@@ -2,7 +2,8 @@
   pkgs,
   nix-graph,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     ###########################################################################
     # Core Utilities
@@ -50,7 +51,7 @@
     bat-extras.core # bat extras suite
     ripgrep
     fd
-
+    zathura
     jq
     yq-go
 
@@ -260,6 +261,7 @@
     chromium
     joplin-desktop
     evolution
+    okular
 
     ###########################################################################
     # Office
