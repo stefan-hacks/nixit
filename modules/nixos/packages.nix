@@ -261,6 +261,7 @@
     chromium
     joplin-desktop
     evolution
+    papers
     kdePackages.okular
 
     ###########################################################################
