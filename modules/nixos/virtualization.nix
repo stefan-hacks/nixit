@@ -18,7 +18,10 @@
     # virtualbox.host.enableExtensionPack = false;
   };
 
-  # Auto-start the default NAT network after libvirtd comes up
+  # Auto-start the default NAT network after libvirtd comes up.
+  # The '|| true' prevents failure when the network is already active,
+  # but because systemd ExecStart does NOT run through a shell by default,
+  # we must wrap the command in pkgs.writeShellScript.
   systemd.services.libvirt-default-network = {
     description = "Auto-start libvirt default network";
     after = [ "libvirtd.service" ];
@@ -27,7 +30,9 @@
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = "yes";
-      ExecStart = "${pkgs.libvirt}/bin/virsh net-start default || true";
+      ExecStart = pkgs.writeShellScript "libvirt-net-start" ''
+        ${pkgs.libvirt}/bin/virsh net-start default || true
+      '';
     };
   };
 }
