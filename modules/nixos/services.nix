@@ -37,6 +37,9 @@
   services.upower.enable = true;
 
   # Manpages
-  documentation.man.enable = true;
+  documentation.man = {
+    enable = true;
+    cache.enable = true;
+  };
 
 }
