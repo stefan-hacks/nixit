@@ -29,7 +29,7 @@
 
     sharedModules = [
       {
-        home.packages = [ inputs.nix-my-gnome.packages.${pkgs.system}.default ];
+        home.packages = [ inputs.nix-my-gnome.packages.${pkgs.stdenv.hostPlatform.system}.default ];
       }
     ];
   };
