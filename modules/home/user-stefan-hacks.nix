@@ -1,3 +1,13 @@
+# ============================================================================
+# modules/home/user-stefan-hacks.nix
+# ----------------------------------------------------------------------------
+# Home-manager aspect for user "stefan-hacks" on any host that enables it.
+# This module is evaluated inside home-manager's module context, so it has
+# access to pkgs, lib, username, look, nix-graph, etc. (via extraSpecialArgs).
+#
+# It imports the generic home-manager feature modules (shell, terminal, etc.)
+# plus the per-user GNOME dconf configuration.
+# ============================================================================
 {
   username,
   lib,
@@ -11,21 +21,22 @@ in {
   home.homeDirectory = homeDirectory;
   home.stateVersion = "26.05";
 
+  # Import generic home-manager features (order does not matter)
   imports = [
-    ../../modules/home/bash.nix
-    ../../modules/home/vim.nix
-    ../../modules/home/git.nix
-    ../../modules/home/kitty.nix
-    ../../modules/home/blesh.nix
-    ../../modules/home/starship.nix
-    ../../modules/home/atuin.nix
-    ../../modules/home/zellij.nix
-    ../../modules/home/ssh.nix
-    ../../modules/home/fastfetch.nix
-    ./gnome
+    ./bash.nix
+    ./vim.nix
+    ./git.nix
+    ./kitty.nix
+    ./blesh.nix
+    ./starship.nix
+    ./atuin.nix
+    ./zellij.nix
+    ./ssh.nix
+    ./fastfetch.nix
+    ./gnome/default.nix  # Generated GNOME dconf settings for this user
   ];
 
-  # Install the Look launcher from its upstream flake (github:kunkka19xx/look).
+  # Install the Look launcher from its upstream flake.
   # Pre-built binaries are cached via Cachix so this is fast.
   home.packages = [look.packages.${pkgs.stdenv.hostPlatform.system}.default];
 
@@ -33,8 +44,8 @@ in {
   programs.home-manager.enable = true;
 
   # Re-create the wallpapers symlink that the old dconf.nix activation provided.
-  # Your generated GNOME dconf (gtk.nix, shell-extensions.nix, etc.) references
-  # ~/Pictures/wallpapers, so this symlink must exist for backgrounds and wallpicker.
+  # The generated GNOME dconf modules reference ~/Pictures/wallpapers, so this
+  # symlink must exist for backgrounds and wallpicker to work.
   home.activation.wallpapersLink = lib.hm.dag.entryAfter ["writeBoundary"] ''
     mkdir -p ${homeDirectory}/Pictures
     if [ ! -e "${homeDirectory}/Pictures/wallpapers" ] && [ ! -L "${homeDirectory}/Pictures/wallpapers" ]; then
