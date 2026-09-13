@@ -22,6 +22,7 @@
       username = "stefan-hacks";
       usernames = [ "stefan-hacks" ];
       inherit inputs;
+      inherit (inputs) nix-graph;
     };
 
     modules = [
@@ -32,6 +33,10 @@
       ./_configuration.nix
 
       # ── NixOS features (order does not matter; NixOS modules are declarative)
+      # ── Third-party modules ────────────────────────────────────────────────
+      inputs.nixvim.nixosModules.nixvim
+
+      # ── Local feature modules ────────────────────────────────────────────
       inputs.self.nixosModules.boot
       inputs.self.nixosModules.networking
       inputs.self.nixosModules.locale

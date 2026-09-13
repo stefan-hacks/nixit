@@ -25,7 +25,7 @@
       inherit (inputs) look nix-graph;
     };
 
-    users.${username} = import ../../home/stefan-hacks/home.nix;
+    users.${username} = inputs.self.homeManagerModules.user-stefan-hacks;
 
     sharedModules = [
       {
