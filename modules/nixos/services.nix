@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   # Audio
   security.rtkit.enable = true;
   services.pipewire = {
@@ -35,4 +35,8 @@
   services.udisks2.enable = true;
   services.gvfs.enable = true;
   services.upower.enable = true;
+
+  # Manpages
+  documentation.man.enable = true;
+
 }
