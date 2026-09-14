@@ -2,16 +2,18 @@
 # modules/home/flake-parts.nix
 # ----------------------------------------------------------------------------
 # Dendritic aspect: exports every Home Manager feature in this directory as a
-# named flake module.  Currently consumed directly by home/stefan-hacks/home.nix
-# via relative paths, but exported here so other flakes (or future refactors)
-# can compose them via inputs.self.homeManagerModules.<name>.
+# named flake module under `lib.homeManagerModules`.  Home Manager outputs are
+# not standard flake outputs, so we nest them under `lib` to keep `nix flake check`
+# clean while still making them discoverable for composition.
+#
+# Consumed via: inputs.self.lib.homeManagerModules.<name>
 #
 # Reference:
 #   https://flake.parts
 #   https://github.com/Doc-Steve/dendritic-design-with-flake-parts
 # ============================================================================
 { ... }: {
-  flake.homeManagerModules = {
+  flake.lib.homeManagerModules = {
     bash = ./bash.nix;
     vim = ./vim.nix;
     git = ./git.nix;

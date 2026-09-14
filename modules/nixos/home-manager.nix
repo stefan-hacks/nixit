@@ -33,7 +33,7 @@
       inherit (inputs) look nix-graph;
     };
 
-    users.${username} = inputs.self.homeManagerModules.user-stefan-hacks;
+    users.${username} = inputs.self.lib.homeManagerModules.user-stefan-hacks;
 
     sharedModules = [
       {
