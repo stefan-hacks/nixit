@@ -33,8 +33,9 @@
       ./_configuration.nix
 
       # ── NixOS features (order does not matter; NixOS modules are declarative)
-      # ── Third-party modules ────────────────────────────────────────────────
+      # ── Third-party modules ─────────────────────────────────────────────────
       inputs.nixvim.nixosModules.nixvim
+      inputs.terax.nixosModules.terax
 
       # ── Local feature modules ────────────────────────────────────────────
       inputs.self.nixosModules.boot

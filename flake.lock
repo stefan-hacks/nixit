@@ -231,7 +231,8 @@
         "nix-graph": "nix-graph",
         "nix-my-gnome": "nix-my-gnome",
         "nixpkgs": "nixpkgs_2",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "terax": "terax"
       }
     },
     "rust-overlay": {
@@ -282,6 +283,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "terax": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789080266,
+        "narHash": "sha256-ncoVNHgtPR0ltd8Xu32VzM3v/Mje2nRB7HtcWwQhu7U=",
+        "owner": "crynta",
+        "repo": "terax-ai",
+        "rev": "b02a7dcbfe58d22b2352d9618b8ed3199e317a00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "crynta",
+        "repo": "terax-ai",
         "type": "github"
       }
     }
