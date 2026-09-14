@@ -1723,6 +1723,7 @@
     extraPlugins = with pkgs.vimPlugins; [
       lazygit-nvim
       ansible-vim
+      kitty-scrollback-nvim
     ];
 
     # ── Telescope ────────────────────────────────────────────────────────────
