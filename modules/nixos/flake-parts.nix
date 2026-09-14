@@ -32,5 +32,6 @@
     home-manager = ./home-manager.nix;
     hermes = ./hermes.nix;
     ollama = ./ollama.nix;
+    terax = ./terax.nix;
   };
 }
