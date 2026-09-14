@@ -4,7 +4,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   programs.nixvim = {
     enable = true;
 
@@ -537,7 +538,7 @@
 
       # ── Neo-tree keymap ──
       {
-        mode = ["n"];
+        mode = [ "n" ];
         key = "<leader>e";
         action = "<cmd>Neotree toggle<cr>";
         options = {
@@ -698,17 +699,17 @@
     # ── Auto Commands ────────────────────────────────────────────────────────
 
     autoGroups = {
-      highlight_yank = {};
-      vim_enter = {};
-      indentscope = {};
-      restore_cursor = {};
-      filetypes = {};
+      highlight_yank = { };
+      vim_enter = { };
+      indentscope = { };
+      restore_cursor = { };
+      filetypes = { };
     };
 
     autoCmd = [
       {
         group = "highlight_yank";
-        event = ["TextYankPost"];
+        event = [ "TextYankPost" ];
         pattern = "*";
         callback = {
           __raw = ''
@@ -720,7 +721,7 @@
       }
       {
         group = "vim_enter";
-        event = ["VimEnter"];
+        event = [ "VimEnter" ];
         pattern = "*";
         callback = {
           __raw = ''
@@ -732,7 +733,7 @@
       }
       {
         group = "indentscope";
-        event = ["FileType"];
+        event = [ "FileType" ];
         pattern = [
           "help"
           "Startup"
@@ -752,7 +753,7 @@
       }
       {
         group = "restore_cursor";
-        event = ["BufReadPost"];
+        event = [ "BufReadPost" ];
         pattern = "*";
         callback = {
           __raw = ''
@@ -854,17 +855,17 @@
                 background = true;
               };
               virtual_text = {
-                errors = ["italic"];
-                hints = ["italic"];
-                information = ["italic"];
-                warnings = ["italic"];
-                ok = ["italic"];
+                errors = [ "italic" ];
+                hints = [ "italic" ];
+                information = [ "italic" ];
+                warnings = [ "italic" ];
+                ok = [ "italic" ];
               };
               underlines = {
-                errors = ["underline"];
-                hints = ["underline"];
-                information = ["underline"];
-                warnings = ["underline"];
+                errors = [ "underline" ];
+                hints = [ "underline" ];
+                information = [ "underline" ];
+                warnings = [ "underline" ];
               };
             };
           };
@@ -897,8 +898,8 @@
           ];
         };
         sources = [
-          {name = "git";}
-          {name = "nvim_lsp";}
+          { name = "git"; }
+          { name = "nvim_lsp"; }
           {
             name = "buffer";
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
@@ -1115,7 +1116,7 @@
       };
       highlight = {
         enable = true;
-        disable = ["nix"];
+        disable = [ "nix" ];
       };
       folding.enable = false;
       nixvimInjections = true;
@@ -1281,7 +1282,7 @@
           lualine_c = [
             {
               __unkeyed-1 = "diagnostics";
-              sources = ["nvim_lsp"];
+              sources = [ "nvim_lsp" ];
               symbols = {
                 error = " ";
                 warn = " ";
@@ -1289,7 +1290,7 @@
                 hint = "󰝶 ";
               };
             }
-            {__unkeyed-1 = "navic";}
+            { __unkeyed-1 = "navic"; }
           ];
           lualine_x = [
             {
@@ -1306,8 +1307,8 @@
               path = 1;
             }
           ];
-          lualine_y = [{__unkeyed-1 = "progress";}];
-          lualine_z = [{__unkeyed-1 = "location";}];
+          lualine_y = [ { __unkeyed-1 = "progress"; } ];
+          lualine_z = [ { __unkeyed-1 = "location"; } ];
         };
       };
     };
@@ -1451,8 +1452,10 @@
                   "https://json.schemastore.org/ansible-playbook" = "*play*.{yml,yaml}";
                   "https://json.schemastore.org/chart" = "Chart.{yml,yaml}";
                   "https://json.schemastore.org/dependabot-v2" = ".github/dependabot.{yml,yaml}";
-                  "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "*docker-compose*.{yml,yaml}";
-                  "https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json" = "*flow*.{yml,yaml}";
+                  "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" =
+                    "*docker-compose*.{yml,yaml}";
+                  "https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json" =
+                    "*flow*.{yml,yaml}";
                 };
               };
             };
@@ -1519,7 +1522,7 @@
           notification_group = ''
             function(msg) return msg.lsp_client.name end
           '';
-          ignore = [];
+          ignore = [ ];
           lsp = {
             progress_ringbuf_size = 0;
           };
@@ -1632,27 +1635,27 @@
         '';
         notify_on_error = true;
         formatters_by_ft = {
-          html = ["prettier"];
-          css = ["prettier"];
-          javascript = ["prettier"];
-          typescript = ["prettier"];
+          html = [ "prettier" ];
+          css = [ "prettier" ];
+          javascript = [ "prettier" ];
+          typescript = [ "prettier" ];
           python = [
             "black"
             "isort"
           ];
-          lua = ["stylua"];
-          nix = ["nixfmt"];
-          markdown = ["prettier"];
-          yaml = ["prettier"];
-          terraform = ["terraform_fmt"];
-          bicep = ["bicep"];
+          lua = [ "stylua" ];
+          nix = [ "nixfmt" ];
+          markdown = [ "prettier" ];
+          yaml = [ "prettier" ];
+          terraform = [ "terraform_fmt" ];
+          bicep = [ "bicep" ];
           bash = [
             "shellcheck"
             "shellharden"
             "shfmt"
           ];
-          json = ["jq"];
-          "_" = ["trim_whitespace"];
+          json = [ "jq" ];
+          "_" = [ "trim_whitespace" ];
         };
         formatters = {
           black = {
@@ -1921,7 +1924,7 @@
             try_as_border = true;
           };
         };
-        surround = {};
+        surround = { };
       };
     };
 
@@ -1953,7 +1956,7 @@
           subdir = "templates";
           dateFormat = "%Y-%m-%d";
           timeFormat = "%H:%M";
-          substitutions = {};
+          substitutions = { };
         };
         dailyNotes = {
           folder = "0_Daily_Notes";

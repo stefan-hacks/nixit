@@ -22,8 +22,8 @@
   description = "Ghost Workstation — NixOS + Home Manager Flake (flake-parts + dendritic)";
 
   nixConfig = {
-    extra-substituters = ["https://look.cachix.org"];
-    extra-trusted-public-keys = ["look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4="];
+    extra-substituters = [ "https://look.cachix.org" ];
+    extra-trusted-public-keys = [ "look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4=" ];
   };
 
   inputs = {
@@ -52,7 +52,8 @@
     };
   };
 
-  outputs = inputs @ { flake-parts, ... }:
+  outputs =
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       imports = [

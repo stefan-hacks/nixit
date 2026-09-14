@@ -10,7 +10,15 @@
 #   username – primary user name ("stefan-hacks")
 #   usernames – list of all user names (used by modules/nixos/user.nix)
 # ============================================================================
-{ inputs, config, pkgs, lib, username, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  username,
+  ...
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];

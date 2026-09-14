@@ -9,7 +9,7 @@
 #   https://flake.parts
 #   https://github.com/Doc-Steve/dendritic-design-with-flake-parts
 # ============================================================================
-{...}: {
+{ ... }: {
   flake.nixosModules = {
     boot = ./boot.nix;
     networking = ./networking.nix;

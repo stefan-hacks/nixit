@@ -44,12 +44,30 @@
       raise = [ "<Control><Super>f" ];
       raise-or-lower = [ "<Control><Super>h" ];
       show-desktop = [ "<Control><Super>bracketright" ];
-      switch-applications = [ "<Super>Tab" "<Alt>Tab" ];
-      switch-applications-backward = [ "<Shift><Super>Tab" "<Shift><Alt>Tab" ];
-      switch-group = [ "<Super>Above_Tab" "<Alt>Above_Tab" ];
-      switch-group-backward = [ "<Shift><Super>Above_Tab" "<Shift><Alt>Above_Tab" ];
-      switch-input-source = [ "<Super>space" "XF86Keyboard" ];
-      switch-input-source-backward = [ "<Shift><Super>space" "<Shift>XF86Keyboard" ];
+      switch-applications = [
+        "<Super>Tab"
+        "<Alt>Tab"
+      ];
+      switch-applications-backward = [
+        "<Shift><Super>Tab"
+        "<Shift><Alt>Tab"
+      ];
+      switch-group = [
+        "<Super>Above_Tab"
+        "<Alt>Above_Tab"
+      ];
+      switch-group-backward = [
+        "<Shift><Super>Above_Tab"
+        "<Shift><Alt>Above_Tab"
+      ];
+      switch-input-source = [
+        "<Super>space"
+        "XF86Keyboard"
+      ];
+      switch-input-source-backward = [
+        "<Shift><Super>space"
+        "<Shift>XF86Keyboard"
+      ];
       switch-panels = [ "<Control><Alt>Tab" ];
       switch-panels-backward = [ "<Shift><Control><Alt>Tab" ];
       switch-to-workspace-1 = [ "<Alt><Super>1" ];

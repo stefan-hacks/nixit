@@ -10,7 +10,7 @@
 #   https://flake.parts
 #   https://github.com/Doc-Steve/dendritic-design-with-flake-parts
 # ============================================================================
-{...}: {
+{ ... }: {
   flake.homeManagerModules = {
     bash = ./bash.nix;
     vim = ./vim.nix;

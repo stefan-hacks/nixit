@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   networking.networkmanager.enable = true;
 
   # Network Discovery
