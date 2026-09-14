@@ -410,7 +410,7 @@
       radius-bottomright = true;
       radius-topleft = true;
       radius-topright = true;
-      reloadstyle = true;
+      reloadstyle = false;
       removestyle = false;
       sbar-gradient = "none";
       set-bottom-margin = false;
