@@ -61,6 +61,7 @@ in
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
+    gnomeExtensions.glocalsend
     gnomeExtensions.appindicator
     gnomeExtensions.arcmenu
     gnomeExtensions.quake-terminal

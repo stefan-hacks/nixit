@@ -263,6 +263,7 @@
     chromium
     joplin-desktop
     evolution
+    piper
 
     ###########################################################################
     # Office
@@ -270,6 +271,7 @@
 
     libreoffice
     onlyoffice-desktopeditors
+    stirling-pdf-desktop
 
     ###########################################################################
     # Media
@@ -285,6 +287,9 @@
     yt-dlp
     parabolic
     soundconverter
+    blanket
+    localsend
+    easyeffects
 
     ###########################################################################
     # Communication
@@ -294,6 +299,7 @@
     discord
     whatsie
     resources
+    handy
 
     ###########################################################################
     # System Tools
