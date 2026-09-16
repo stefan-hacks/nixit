@@ -50,6 +50,10 @@
       #       because its buildGoModule may need a newer Go toolchain
       #       than what nixos-26.05 stable provides.
     };
+    nixdr = {
+      url = "github:stefan-hacks/nixdr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

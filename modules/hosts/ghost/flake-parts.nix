@@ -22,7 +22,7 @@
       username = "stefan-hacks";
       usernames = [ "stefan-hacks" ];
       inherit inputs;
-      inherit (inputs) nix-graph;
+      inherit (inputs) nix-graph nixdr;
     };
 
     modules = [

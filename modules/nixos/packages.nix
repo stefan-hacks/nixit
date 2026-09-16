@@ -1,6 +1,7 @@
 {
   pkgs,
   nix-graph,
+  nixdr,
   ...
 }:
 {
@@ -344,6 +345,10 @@
     ###########################################################################
     nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.default
     # Interactive TUI for Nix dependency graphs (github:AlexAntonik/nix-graph)
+
+    nixdr.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # Nix error diagnosis and human-readable reporting tool
+    # (github:stefan-hacks/nixdr)
 
     ###########################################################################
     # Development Tools
