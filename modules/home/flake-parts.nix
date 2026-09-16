@@ -18,6 +18,7 @@
     vim = ./vim.nix;
     git = ./git.nix;
     kitty = ./kitty.nix;
+    foot = ./foot.nix
     blesh = ./blesh.nix;
     starship = ./starship.nix;
     atuin = ./atuin.nix;

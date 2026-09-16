@@ -30,6 +30,7 @@ in
     ./git.nix
     ./kitty.nix
     ./blesh.nix
+    ./foot.nix
     ./starship.nix
     ./atuin.nix
     ./zellij.nix
