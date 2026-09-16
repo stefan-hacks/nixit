@@ -51,6 +51,7 @@
       window-height = 1046;
       window-maximized = true;
       window-width = 600;
+      zoom = 0.72041049030786775;
     };
 
     "org/gnome/tweaks" = {

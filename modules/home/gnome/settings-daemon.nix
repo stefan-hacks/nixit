@@ -7,13 +7,7 @@
   dconf.settings = {
     "org/gnome/control-center" = {
       last-panel = "online-accounts";
-      window-state = (
-        lib.hm.gvariant.mkTuple [
-          980
-          640
-          false
-        ]
-      );
+      window-state = (lib.hm.gvariant.mkTuple [ 980 640 false ]);
     };
 
     "org/gnome/portal/filechooser/app-desktop" = {
@@ -54,9 +48,7 @@
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Alt><Super>period" ];
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/look-toggle/"
-      ];
+      custom-keybindings = [ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/look-toggle/" ];
       email = [ "<Alt><Super>e" ];
       home = [ "<Alt><Super>h" ];
       mic-mute = [ "<Alt>F8" ];

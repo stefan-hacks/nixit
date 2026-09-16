@@ -263,7 +263,6 @@
     chromium
     joplin-desktop
     evolution
-    piper
 
     ###########################################################################
     # Office
