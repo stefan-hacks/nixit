@@ -25,6 +25,7 @@
     zellij = ./zellij.nix;
     ssh = ./ssh.nix;
     fastfetch = ./fastfetch.nix;
+    foot = ./foot.nix;
     user-stefan-hacks = ./user-stefan-hacks.nix;
   };
 }

@@ -36,6 +36,7 @@ in
     ./zellij.nix
     ./ssh.nix
     ./fastfetch.nix
+    ./foot.nix
     ./gnome/default.nix # Generated GNOME dconf settings for this user
   ];
 
