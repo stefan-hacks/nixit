@@ -6,12 +6,521 @@
 {
   dconf.settings = {
     "org/gnome/shell" = {
-      app-picker-layout = [ ([ (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Contacts.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 0) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Weather.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 1) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.clocks.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 2) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Maps.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 3) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.SimpleScan.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 4) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Settings.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 5) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Showtime.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 6) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Snapshot.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 7) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Characters.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 8) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "Utilities" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 9) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "btop.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 10) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "System" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 11) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Calculator.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 12) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Tour.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 13) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Yelp.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 14) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "ca.desrt.dconf-editor.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 15) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "com.mattjakeman.ExtensionManager.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 16) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Extensions.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 17) ]) ]) ]) ]) ([ (lib.hm.gvariant.mkDictionaryEntry [ "gparted.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 0) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.GPaste.Ui.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 1) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.GPaste.Preferences.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 2) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "guvcview.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 3) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "htop.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 4) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "jellyfin-tui.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 5) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "lf.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 6) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "startcenter.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 7) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "base.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 8) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "calc.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 9) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "draw.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 10) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "impress.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 11) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "math.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 12) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "writer.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 13) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "cups.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 14) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "mpv.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 15) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "nvim.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 16) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "soundconverter.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 17) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "vim.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 18) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "lookapp.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 19) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.pwmt.zathura.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 20) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "com.rafaelmardojai.Blanket.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 21) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.freedesktop.Piper.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 22) ]) ]) ]) ]) ([ (lib.hm.gvariant.mkDictionaryEntry [ "ranger.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 0) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.tweaks.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 1) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "vlc.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 2) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.wireshark.Wireshark.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 3) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "xterm.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 4) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "yazi.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 5) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Epiphany.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 6) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Calendar.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 7) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.Music.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 8) ]) ]) ]) (lib.hm.gvariant.mkDictionaryEntry [ "org.gnome.TextEditor.desktop" (lib.hm.gvariant.mkVariant [ (lib.hm.gvariant.mkDictionaryEntry [ "position" (lib.hm.gvariant.mkVariant 9) ]) ]) ]) ]) ];
+      app-picker-layout = [
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Contacts.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 0)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Weather.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 1)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.clocks.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 2)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Maps.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 3)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.SimpleScan.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 4)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Settings.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 5)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Showtime.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 6)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Snapshot.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 7)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Characters.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 8)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "Utilities"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 9)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "btop.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 10)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "System"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 11)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Calculator.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 12)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Tour.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 13)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Yelp.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 14)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "ca.desrt.dconf-editor.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 15)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "com.mattjakeman.ExtensionManager.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 16)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Extensions.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 17)
+              ])
+            ])
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "gparted.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 0)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.GPaste.Ui.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 1)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.GPaste.Preferences.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 2)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "guvcview.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 3)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "htop.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 4)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "jellyfin-tui.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 5)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "lf.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 6)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "startcenter.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 7)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "base.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 8)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "calc.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 9)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "draw.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 10)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "impress.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 11)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "math.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 12)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "writer.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 13)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "cups.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 14)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "mpv.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 15)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "nvim.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 16)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "soundconverter.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 17)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "vim.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 18)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "lookapp.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 19)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.pwmt.zathura.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 20)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "com.rafaelmardojai.Blanket.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 21)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.freedesktop.Piper.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 22)
+              ])
+            ])
+          ])
+        ])
+        ([
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "ranger.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 0)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.tweaks.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 1)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "vlc.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 2)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.wireshark.Wireshark.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 3)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "xterm.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 4)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "yazi.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 5)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Epiphany.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 6)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Calendar.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 7)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.Music.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 8)
+              ])
+            ])
+          ])
+          (lib.hm.gvariant.mkDictionaryEntry [
+            "org.gnome.TextEditor.desktop"
+            (lib.hm.gvariant.mkVariant [
+              (lib.hm.gvariant.mkDictionaryEntry [
+                "position"
+                (lib.hm.gvariant.mkVariant 9)
+              ])
+            ])
+          ])
+        ])
+      ];
       disable-extension-version-validation = true;
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "arcmenu@arcmenu.com" "blur-my-shell@aunetx" "dash-to-dock@micxgx.gmail.com" "dynamic-music-pill@andbal" "GPaste@gnome-shell-extensions.gnome.org" "notification-configurator@exposedcat" "pomodoro-timer@Oguzhankokulu.github.com" "quake-terminal@diegodario88.github.io" "quick-settings-audio-panel@rayzeq.github.io" "steal-my-focus-window@steal-my-focus-window" "Vitals@CoreCoding.com" "wallpicker@omarxkhalid.github.io" "modernclock@gnome-port" "user-theme@gnome-shell-extensions.gcampax.github.com" "openbar@neuromorph" ];
-      favorite-apps = [ "mullvad-vpn.desktop" "kitty.desktop" "Terax.desktop" "org.gnome.Console.desktop" "virt-manager.desktop" "org.gnome.Nautilus.desktop" "1password.desktop" "firefox.desktop" "chromium-browser.desktop" "joplin.desktop" "org.gnome.Evolution.desktop" "onlyoffice-desktopeditors.desktop" "Stirling PDF.desktop" "element-desktop.desktop" "discord.desktop" "com.ktechpit.whatsie.desktop" "org.jellyfin.JellyfinDesktop.desktop" "de.haeckerfelix.Shortwave.desktop" "com.github.wwmm.easyeffects.desktop" "LocalSend.desktop" "io.gitlab.adhami3310.Impression.desktop" "net.nokyan.Resources.desktop" "org.nickvision.tubeconverter.desktop" "org.qbittorrent.qBittorrent.desktop" "nixos-manual.desktop" ];
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "arcmenu@arcmenu.com"
+        "blur-my-shell@aunetx"
+        "dash-to-dock@micxgx.gmail.com"
+        "dynamic-music-pill@andbal"
+        "GPaste@gnome-shell-extensions.gnome.org"
+        "notification-configurator@exposedcat"
+        "pomodoro-timer@Oguzhankokulu.github.com"
+        "quake-terminal@diegodario88.github.io"
+        "quick-settings-audio-panel@rayzeq.github.io"
+        "steal-my-focus-window@steal-my-focus-window"
+        "Vitals@CoreCoding.com"
+        "wallpicker@omarxkhalid.github.io"
+        "modernclock@gnome-port"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "openbar@neuromorph"
+      ];
+      favorite-apps = [
+        "mullvad-vpn.desktop"
+        "kitty.desktop"
+        "Terax.desktop"
+        "org.gnome.Console.desktop"
+        "virt-manager.desktop"
+        "org.gnome.Nautilus.desktop"
+        "1password.desktop"
+        "firefox.desktop"
+        "chromium-browser.desktop"
+        "joplin.desktop"
+        "org.gnome.Evolution.desktop"
+        "onlyoffice-desktopeditors.desktop"
+        "Stirling PDF.desktop"
+        "element-desktop.desktop"
+        "discord.desktop"
+        "com.ktechpit.whatsie.desktop"
+        "org.jellyfin.JellyfinDesktop.desktop"
+        "de.haeckerfelix.Shortwave.desktop"
+        "com.github.wwmm.easyeffects.desktop"
+        "LocalSend.desktop"
+        "io.gitlab.adhami3310.Impression.desktop"
+        "net.nokyan.Resources.desktop"
+        "org.nickvision.tubeconverter.desktop"
+        "org.qbittorrent.qBittorrent.desktop"
+        "nixos-manual.desktop"
+      ];
       last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "50.1";
     };
@@ -56,11 +565,365 @@
 
     "org/gnome/shell/weather" = {
       automatic-location = true;
-      locations = [ ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Rio de Janeiro" "SBRJ" true ([ ((lib.hm.gvariant.mkTuple [ (-0.39967999999999998) (-0.75339999999999996) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ (-0.39967999999999998) (-0.75456400000000001) ])) ]) ]))) ]))) ];
+      locations = [
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Rio de Janeiro"
+                    "SBRJ"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.39967999999999998)
+                          (-0.75339999999999996)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.39967999999999998)
+                          (-0.75456400000000001)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+      ];
     };
 
     "org/gnome/shell/world-clocks" = {
-      locations = [ ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "London" "EGWU" true ([ ((lib.hm.gvariant.mkTuple [ 0.89971699999999999 (-0.0072719999999999998) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.89884500000000001 (-0.002036) ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Port-of-Spain" "TTPP" true ([ ((lib.hm.gvariant.mkTuple [ 0.18529599999999999 (-1.070759) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.18587799999999999 (-1.0736680000000001) ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Los Angeles" "KHHR" true ([ ((lib.hm.gvariant.mkTuple [ 0.59207900000000002 (-2.0652819999999998) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.59432399999999996 (-2.063742) ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "New York" "KNYC" true ([ ((lib.hm.gvariant.mkTuple [ 0.71180299999999996 (-1.2909619999999999) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.71059799999999995 (-1.2916479999999999) ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Toronto" "CYTZ" true ([ ((lib.hm.gvariant.mkTuple [ 0.76154500000000003 (-1.385791) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.762127 (-1.386082) ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Paris" "LFPB" true ([ ((lib.hm.gvariant.mkTuple [ 0.85463 0.042761 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.85288399999999998 0.040724000000000003 ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Rio de Janeiro" "SBRJ" true ([ ((lib.hm.gvariant.mkTuple [ (-0.39967999999999998) (-0.75339999999999996) ])) ]) ([ ((lib.hm.gvariant.mkTuple [ (-0.39967999999999998) (-0.75456400000000001) ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Sydney" "YSSY" true ([ ((lib.hm.gvariant.mkTuple [ (-0.59253900000000004) 2.6386470000000002 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ (-0.59137600000000001) 2.6392289999999998 ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Tokyo" "RJTI" true ([ ((lib.hm.gvariant.mkTuple [ 0.621919 2.4408430000000001 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.62282099999999996 2.4391219999999998 ])) ]) ]))) ]))) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ ((lib.hm.gvariant.mkUint32 2)) ((lib.hm.gvariant.mkVariant (lib.hm.gvariant.mkTuple [ "Beijing" "ZBAA" true ([ ((lib.hm.gvariant.mkTuple [ 0.69696800000000003 2.0295269999999999 ])) ]) ([ ((lib.hm.gvariant.mkTuple [ 0.69689100000000004 2.0313599999999998 ])) ]) ]))) ]))) ];
+      locations = [
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "London"
+                    "EGWU"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.89971699999999999
+                          (-0.0072719999999999998)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.89884500000000001
+                          (-0.002036)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Port-of-Spain"
+                    "TTPP"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.18529599999999999
+                          (-1.070759)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.18587799999999999
+                          (-1.0736680000000001)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Los Angeles"
+                    "KHHR"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.59207900000000002
+                          (-2.0652819999999998)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.59432399999999996
+                          (-2.063742)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "New York"
+                    "KNYC"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.71180299999999996
+                          (-1.2909619999999999)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.71059799999999995
+                          (-1.2916479999999999)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Toronto"
+                    "CYTZ"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.76154500000000003
+                          (-1.385791)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.762127
+                          (-1.386082)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Paris"
+                    "LFPB"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.85463
+                          0.042761
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.85288399999999998
+                          0.040724000000000003
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Rio de Janeiro"
+                    "SBRJ"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.39967999999999998)
+                          (-0.75339999999999996)
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.39967999999999998)
+                          (-0.75456400000000001)
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Sydney"
+                    "YSSY"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.59253900000000004)
+                          2.6386470000000002
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          (-0.59137600000000001)
+                          2.6392289999999998
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Tokyo"
+                    "RJTI"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.621919
+                          2.4408430000000001
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.62282099999999996
+                          2.4391219999999998
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+        (
+          (lib.hm.gvariant.mkVariant (
+            lib.hm.gvariant.mkTuple [
+              ((lib.hm.gvariant.mkUint32 2))
+              (
+                (lib.hm.gvariant.mkVariant (
+                  lib.hm.gvariant.mkTuple [
+                    "Beijing"
+                    "ZBAA"
+                    true
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.69696800000000003
+                          2.0295269999999999
+                        ])
+                      )
+                    ])
+                    ([
+                      (
+                        (lib.hm.gvariant.mkTuple [
+                          0.69689100000000004
+                          2.0313599999999998
+                        ])
+                      )
+                    ])
+                  ]
+                ))
+              )
+            ]
+          ))
+        )
+      ];
     };
 
   };

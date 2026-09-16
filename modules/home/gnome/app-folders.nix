@@ -6,7 +6,12 @@
 {
   dconf.settings = {
     "org/gnome/desktop/app-folders" = {
-      folder-children = [ "System" "Utilities" "YaST" "Pardus" ];
+      folder-children = [
+        "System"
+        "Utilities"
+        "YaST"
+        "Pardus"
+      ];
     };
 
     "org/gnome/desktop/app-folders/folders/Pardus" = {
@@ -16,13 +21,25 @@
     };
 
     "org/gnome/desktop/app-folders/folders/System" = {
-      apps = [ "org.gnome.baobab.desktop" "org.gnome.DiskUtility.desktop" "org.gnome.Logs.desktop" "org.gnome.SystemMonitor.desktop" ];
+      apps = [
+        "org.gnome.baobab.desktop"
+        "org.gnome.DiskUtility.desktop"
+        "org.gnome.Logs.desktop"
+        "org.gnome.SystemMonitor.desktop"
+      ];
       name = "X-GNOME-Shell-System.directory";
       translate = true;
     };
 
     "org/gnome/desktop/app-folders/folders/Utilities" = {
-      apps = [ "org.gnome.Decibels.desktop" "org.gnome.Connections.desktop" "org.gnome.Papers.desktop" "org.gnome.font-viewer.desktop" "org.gnome.Loupe.desktop" "org.gnome.seahorse.Application.desktop" ];
+      apps = [
+        "org.gnome.Decibels.desktop"
+        "org.gnome.Connections.desktop"
+        "org.gnome.Papers.desktop"
+        "org.gnome.font-viewer.desktop"
+        "org.gnome.Loupe.desktop"
+        "org.gnome.seahorse.Application.desktop"
+      ];
       name = "X-GNOME-Shell-Utilities.directory";
       translate = true;
     };
