@@ -18,14 +18,13 @@
     vim = ./vim.nix;
     git = ./git.nix;
     kitty = ./kitty.nix;
-    foot = ./foot.nix
+    foot = ./foot.nix;
     blesh = ./blesh.nix;
     starship = ./starship.nix;
     atuin = ./atuin.nix;
     zellij = ./zellij.nix;
     ssh = ./ssh.nix;
     fastfetch = ./fastfetch.nix;
-    foot = ./foot.nix;
     user-stefan-hacks = ./user-stefan-hacks.nix;
   };
 }
