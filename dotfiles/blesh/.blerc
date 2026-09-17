@@ -8,7 +8,7 @@
 # ============================================================================
 
 # ── Mode string (visible when in vi-normal mode) ────────────────────────────
-bleopt keymap_vi_mode_string_nmap=$'\e[1m-- NORMAL --\e[m'
+# bleopt keymap_vi_mode_string_nmap=$'\e[1m-- NORMAL --\e[m'
 
 # ── Vim-surround integration ────────────────────────────────────────────────
 ble-import vim-surround
