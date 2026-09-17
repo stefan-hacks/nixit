@@ -1,14 +1,48 @@
-# blerc
+# ============================================================================
+# BLE.SH CONFIGURATION (.blerc)
+# ============================================================================
+# Docs: https://github.com/akinomyoga/ble.sh/wiki/Manual-%C2%A73-Key-Binding
+#
+# This file is symlinked by Home Manager to ~/.blerc.
+# It is read on every new interactive bash shell that sources ble.sh.
+# ============================================================================
 
-function blerc/vim-mode-hook {
+# ── Mode string (visible when in vi-normal mode) ────────────────────────────
+bleopt keymap_vi_mode_string_nmap=$'\e[1m-- NORMAL --\e[m'
 
-  # Write your settings for vi/vim mode here
+# ── Vim-surround integration ────────────────────────────────────────────────
+ble-import vim-surround
 
-  bleopt keymap_vi_mode_string_nmap=$'\e[1m-- NORMAL --\e[m'
-  ble-import vim-surround
+# ── Kitty passthrough: send blesh keybinds that kitty usually intercepts ─────
+# When running inside kitty, some modifier+key sequences are swallowed by the
+# terminal before they reach the shell.  This section maps passthrough aliases
+# so you can still trigger the action from the shell side.
+# ---------------------------------------------------------------------------
+# kitty_scrollback.nvim binds <C-S-H> / <C-S-G> on the kitty side; those are
+# terminal-level shortcuts and do not interfere with ble.sh (they never reach
+# the shell PTY).  No passthrough needed.
+#
+# kitty binds <C-S-U> to "open_url_with_hints".  That is terminal-level and
+# also does not reach ble.sh.  In the kitty config the duplicate binding was
+# removed so only one C-S-U mapping exists.
+#
+# If you want kitty window shortcuts while ble.sh is active, use kitty's
+# "send_text" kitten or the kitty_mod prefix.  See kitty docs § "Shortcuts"
+# for details: https://sw.kovidgoyal.net/kitty/actions.html
 
-}
-blehook/eval-after-load keymap_vi blerc/vim-mode-hook
-# ble-0.3 and before
-# ble/array#push _ble_keymap_vi_load_hook blerc/vim-load-hook
+# ── Disable blesh's default C-S-U binding if it conflicts with kitty ────────
+# ble.sh binds C-S-u to universal-argument by default (Emacs keymap).
+# kitty uses C-S-u for URL hints.  Because kitty intercepts the key before
+# the PTY receives it, the conflict is invisible — kitty wins.  If you want
+# kitty's C-S-u to send through to ble.sh instead, comment out the mapping in
+# kitty.conf and uncomment the line below:
+#
+#   ble-bind -m emacs -f 'C-S-u' 'universal-argument'
+#
+# As of 2026-09 the recommended setup is: keep kitty's C-S-u for URL hints,
+# and use C-M-u (Alt+Ctrl+U) inside ble.sh for universal-argument.
+ble-bind -m emacs -f 'C-M-u' 'universal-argument'
 
+# ============================================================================
+# vim:ft=bash
+# ============================================================================
