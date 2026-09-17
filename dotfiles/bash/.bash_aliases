@@ -371,7 +371,7 @@ alias nrm='nix-env -e'
 alias nls='nix-env -q'
 alias nup='nix-env -u'
 alias ngc='nix-collect-garbage'
-alias ngo='nix-collect-garbage --delete-older-than 30d'
+alias ngo='sudo nix-collect-garbage --delete-older-than 30d ; sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch'
 alias nso='nix-store --optimise'
 alias nsh='nix-shell --run bash'
 
