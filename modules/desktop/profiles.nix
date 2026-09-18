@@ -21,10 +21,18 @@
 # To switch back after testing Dank: change to "gnome" and rebuild.
 # GDM and GNOME will be restored; dms-greeter and DMS will be removed.
 # ============================================================================
-{ config, lib, desktopProfile, ... }:
+{
+  config,
+  lib,
+  desktopProfile,
+  ...
+}:
 let
   # Guard: validate the profile name at evaluation time for a clear error
-  validProfiles = [ "gnome" "dank" ];
+  validProfiles = [
+    "gnome"
+    "dank"
+  ];
   profileValid = lib.elem desktopProfile validProfiles;
 in
 {

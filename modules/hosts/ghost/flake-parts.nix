@@ -46,7 +46,7 @@
       inputs.self.nixosModules.boot
       inputs.self.nixosModules.networking
       inputs.self.nixosModules.locale
-      inputs.self.nixosModules.desktop   # GNOME or DankMaterialShell (set via desktopProfile)
+      inputs.self.nixosModules.desktop # GNOME or DankMaterialShell (set via desktopProfile)
       inputs.self.nixosModules.programs
       inputs.self.nixosModules.packages
       inputs.self.nixosModules.services

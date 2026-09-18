@@ -13,7 +13,10 @@
     # for its own traffic; this hardens the system resolver too).
     settings.Resolve.DNSOverTLS = "true";
     # Mullvad already blocks trackers, so we keep caching only.
-    settings.Resolve.FallbackDNS = [ "1.1.1.1" "2606:4700:4700::1111" ];
+    settings.Resolve.FallbackDNS = [
+      "1.1.1.1"
+      "2606:4700:4700::1111"
+    ];
   };
   networking.networkmanager.dns = "systemd-resolved";
 
