@@ -25,7 +25,7 @@
       # Select the desktop environment.
       #   "gnome" → GNOME + GDM (default, safe)
       #   "dank"  → Niri + DankMaterialShell + dms-greeter (experimental)
-      desktopProfile = "gnome";
+      desktopProfile = "dank";
       inherit inputs;
       inherit (inputs) nix-graph nixdr;
     };
