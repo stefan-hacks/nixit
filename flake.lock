@@ -166,11 +166,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1789589105,
-        "narHash": "sha256-X6kkT9R/miG0BDAHAQ4KwCYSIJ1W9+k26yJOw/q+6Kg=",
+        "lastModified": 1789692973,
+        "narHash": "sha256-RC/O7ojKj4dO3HdtSYddVMklWBocgA4R5DGLdV/Z0MI=",
         "owner": "stefan-hacks",
         "repo": "nixdr",
-        "rev": "7ea443ccd2ca1ae9573c363f8801bbb9324d8205",
+        "rev": "d0963be2af06a8a097d26cea9f29b25f97c20a81",
         "type": "github"
       },
       "original": {
@@ -370,11 +370,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789397027,
-        "narHash": "sha256-jSa3zwpoe7/gcQbXB0feF4JKWLt5drqkJdBspYiLiZo=",
+        "lastModified": 1789687277,
+        "narHash": "sha256-7cpIFbwqZo7C2TIuk9QIWSCc2fSZsLzj+y8pJ56sSsM=",
         "owner": "crynta",
         "repo": "terax-ai",
-        "rev": "d3c8fd70ef59b16725cf118bc75727d27ceed320",
+        "rev": "9898f626ef3f9e7bd90574d89d98a526b2f8447a",
         "type": "github"
       },
       "original": {
