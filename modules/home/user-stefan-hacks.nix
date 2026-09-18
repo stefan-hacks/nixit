@@ -13,6 +13,7 @@
   lib,
   look,
   pkgs,
+  desktopProfile,
   ...
 }:
 let
@@ -37,8 +38,11 @@ in
     ./ssh.nix
     ./fastfetch.nix
     ./foot.nix
-    ./gnome/default.nix # Generated GNOME dconf settings for this user
-  ];
+  ]
+  # ── GNOME dconf settings ─────────────────────────────────────────────────
+  # Only import when GNOME desktop profile is active. DMS does not use dconf
+  # for its own configuration (it uses Quickshell config files).
+  ++ lib.optionals (desktopProfile == "gnome") [ ./gnome/default.nix ];
 
   # Install the Look launcher from its upstream flake.
   # Pre-built binaries are cached via Cachix so this is fast.
@@ -64,7 +68,8 @@ in
 
   # Free up Alt+Space for the Look launcher by disabling ArcMenu's runner-hotkey.
   # Look's default toggle is Alt+Space; without this override the two collide.
-  dconf.settings = {
+  # Only relevant when GNOME + ArcMenu extension is active.
+  dconf.settings = lib.mkIf (desktopProfile == "gnome") {
     "org/gnome/shell/extensions/arcmenu" = {
       runner-hotkey = lib.mkForce [ ];
       runner-hotkey-overlay-key-enabled = lib.mkForce false;

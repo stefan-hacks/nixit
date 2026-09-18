@@ -16,6 +16,7 @@
   pkgs,
   lib,
   username,
+  desktopProfile,
   ...
 }:
 {
@@ -29,16 +30,18 @@
     backupFileExtension = "backup";
 
     extraSpecialArgs = {
-      inherit username inputs;
+      inherit username inputs desktopProfile;
       inherit (inputs) look nix-graph nixdr;
     };
 
     users.${username} = inputs.self.lib.homeManagerModules.user-stefan-hacks;
 
     sharedModules = [
-      {
+      (lib.mkIf (desktopProfile == "gnome") {
+        # nix-my-gnome is the dconf dump → nix generator used for GNOME.
+        # It provides the `nmg` CLI and generated dconf modules.
         home.packages = [ inputs.nix-my-gnome.packages.${pkgs.stdenv.hostPlatform.system}.default ];
-      }
+      })
     ];
   };
 }

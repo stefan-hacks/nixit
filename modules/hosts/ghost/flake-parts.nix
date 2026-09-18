@@ -21,6 +21,11 @@
     specialArgs = {
       username = "stefan-hacks";
       usernames = [ "stefan-hacks" ];
+      # ── Desktop Profile ────────────────────────────────────────────────────
+      # Select the desktop environment.
+      #   "gnome" → GNOME + GDM (default, safe)
+      #   "dank"  → Niri + DankMaterialShell + dms-greeter (experimental)
+      desktopProfile = "gnome";
       inherit inputs;
       inherit (inputs) nix-graph nixdr;
     };
@@ -41,7 +46,7 @@
       inputs.self.nixosModules.boot
       inputs.self.nixosModules.networking
       inputs.self.nixosModules.locale
-      inputs.self.nixosModules.gnome
+      inputs.self.nixosModules.desktop   # GNOME or DankMaterialShell (set via desktopProfile)
       inputs.self.nixosModules.programs
       inputs.self.nixosModules.packages
       inputs.self.nixosModules.services

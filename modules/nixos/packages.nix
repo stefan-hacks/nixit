@@ -2,6 +2,7 @@
   pkgs,
   nix-graph,
   nixdr,
+  desktopProfile,
   ...
 }:
 {
@@ -234,6 +235,21 @@
     mc
     fzf
     skim
+
+    ###########################################################################
+    # GNOME / Desktop Integration Dependencies
+    ###########################################################################
+
+    # gjs — GNOME JavaScript engine used by some GNOME extensions (e.g.
+    # Open Bar, ArcMenu) that spawn child processes with gjs. Without it,
+    # extensions silently fail with "Failed to execute child process gjs".
+    # Only needed when GNOME is active.
+    (lib.mkIf (desktopProfile == "gnome") gjs)
+
+    # fontconfig — explicit package provides fc-list, fc-cache, and ensures
+    # the default config file exists in the store path. Without it, Chromium
+    # and Electron apps log "Fontconfig error: Cannot load default config file".
+    fontconfig
 
     ###########################################################################
     # Security / CTF Tools (from .bash_aliases)

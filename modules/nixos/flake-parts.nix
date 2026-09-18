@@ -14,7 +14,6 @@
     boot = ./boot.nix;
     networking = ./networking.nix;
     locale = ./locale.nix;
-    gnome = ./gnome.nix;
     programs = ./programs.nix;
     packages = ./packages.nix;
     services = ./services.nix;
@@ -33,5 +32,10 @@
     hermes = ./hermes.nix;
     ollama = ./ollama.nix;
     terax = ./terax.nix;
+
+    # ── Desktop Profile Selector ───────────────────────────────────────────
+    # Imports GNOME or DankMaterialShell based on desktopProfile.
+    # Replaces the monolithic gnome.nix approach.
+    desktop = ../desktop/profiles.nix;
   };
 }
