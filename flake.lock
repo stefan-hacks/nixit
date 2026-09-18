@@ -166,11 +166,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1789675269,
-        "narHash": "sha256-gtRr/CXQ66O20OAP2OuIn0R0ynsEzzYFiQerxyMs0RE=",
+        "lastModified": 1789692917,
+        "narHash": "sha256-RC/O7ojKj4dO3HdtSYddVMklWBocgA4R5DGLdV/Z0MI=",
         "owner": "stefan-hacks",
         "repo": "nixdr",
-        "rev": "51adc81afc35b3a508da86e26af69dd88af5bfa5",
+        "rev": "feeec2d0746bddf6ad9b5061ccc18913d72343bd",
         "type": "github"
       },
       "original": {
