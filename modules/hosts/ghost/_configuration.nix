@@ -26,6 +26,12 @@
   # Reference: https://nixos.wiki/wiki/OpenGL
   hardware.graphics.enable = true;
 
+  # ── Firmware ────────────────────────────────────────────────────────────────
+  # Allow all proprietary firmware (Wi-Fi, GPU, Bluetooth, etc.) and enable
+  # redistributable firmware so fwupd + microcode updates work correctly.
+  # Required for HP BIOS / firmware updates via `fwupdmgr`.
+  hardware.enableAllFirmware = true;
+
   # ── State Version (DO NOT CHANGE) ─────────────────────────────────────────
   system.stateVersion = "26.05";
 }

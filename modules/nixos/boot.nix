@@ -5,6 +5,14 @@ let
 in
 {
   boot = {
+    # ── Kernel boot parameters ────────────────────────────────────────────────
+    # acpi_osi= : force the kernel to use a different ACPI interface that
+    # matches Windows behaviour.  Mitigates HP firmware bugs where brightness
+    # control, keyboard backlight, or power management misbehave when the
+    # Linux ACPI path is taken.
+    # See: https://bugzilla.kernel.org/show_bug.cgi?id=217443
+    kernelParams = [ "acpi_osi=" ];
+
     loader = {
       grub = {
         enable = true;
