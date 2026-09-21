@@ -6,12 +6,12 @@ in
 {
   boot = {
     # ── Kernel boot parameters ────────────────────────────────────────────────
-    # acpi_osi= : force the kernel to use a different ACPI interface that
-    # matches Windows behaviour.  Mitigates HP firmware bugs where brightness
-    # control, keyboard backlight, or power management misbehave when the
-    # Linux ACPI path is taken.
-    # See: https://bugzilla.kernel.org/show_bug.cgi?id=217443
-    kernelParams = [ "acpi_osi=" ];
+    # acpi_backlight=vendor : use the vendor-specific (HP) backlight interface
+    # instead of the generic ACPI video module.  Fixes brightness keys and
+    # keyboard backlight on HP EliteBook 840 G8 without breaking other ACPI
+    # devices (trackpad, sensors, etc.).
+    # See: https://wiki.archlinux.org/title/Backlight#ACPI
+    kernelParams = [ "acpi_backlight=vendor" ];
 
     loader = {
       grub = {
