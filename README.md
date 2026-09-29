@@ -1,16 +1,16 @@
 <div align="center">
 
-![NixOS Logo](assets/icon2.png)
+![Nixit Brand](assets/icon2.png)
 
-# ❄️ Nixit
+# ❄️ nixit
 
-**A Reproducible NixOS Workstation**
+**Declarative NixOS workstation for `ghost`**
 
 [![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white)](https://nixos.org/)
-[![Home Manager](https://img.shields.io/badge/Home%20Manager-26.05-blue.svg)](https://github.com/nix-community/home-manager)
+[![Home Manager](https://img.shields.io/badge/Home%20Manager-release--26.05-blue.svg)](https://github.com/nix-community/home-manager)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-*Declarative · Reproducible · Multi-Ready*
+*Flakes · Dendritic · Multi-Desktop*
 
 </div>
 
@@ -18,159 +18,127 @@
 
 ## Overview
 
-Nixit is a production-grade NixOS flake built with **Flakes** and **Home Manager**.
-It provides a fully declarative system and user environment — from kernel boot
-parameters to shell prompts, wallpapers to window manager keybindings.
+nixit is a production-grade NixOS flake built with **flake-parts** and the **dendritic** pattern. Every system capability, desktop preference, and dotfile is declared in one repository and locked in `flake.lock`.
 
-The configuration follows a **modular, host-centric** architecture: each host
-(`ghost`, `lin`) pulls in exactly the system and user modules it needs via the
-`lib/mkHost.nix` factory.  The result is a reproducible, version-controlled
-workstation that can be rebuilt in minutes on any compatible hardware.
+The layout follows the same flat, aspect-oriented structure used by [i-nix](https://github.com/stefan-hacks/i-nix):
 
-| Component    | Detail                             |
-| ------------ | ---------------------------------- |
-| **OS**       | NixOS 26.05                        |
-| **Config**   | Flake-based (`flake.nix`)          |
-| **Desktop**  | GNOME 50 (Wayland)                 |
-| **Shell**    | Bash + Blesh + Starship            |
-| **Terminal** | Kitty                              |
-| **Editor**   | Neovim (via Nixvim)                |
-| **Security** | LUKS, Firewall, Mullvad, 1Password |
-
----
-
-## Philosophy
-
-- **Flakes** — Lock every input. Rebuild the exact same system tomorrow or next year.
-- **Home Manager** — Declarative dotfiles, services, and dconf settings.
-- **One module per concern** — Each `.nix` file handles exactly one thing.
-- **Host factory** — `lib/mkHost.nix` parameterises users, systems, and special args so
-  adding a new machine is a single entry in `flake.nix`.
-- **No activation scripts** — Home Manager activation and `systemd.tmpfiles` deploy everything.
-
----
-
-## Repository Structure
-
-```
-.
-├── flake.nix                          # Inputs, outputs, host registry
-├── lib/
-│   └── mkHost.nix                     # Host factory: maps users → HM, imports system modules
-│
-├── hosts/
-│   ├── ghost/
-│   │   ├── default.nix                # Host entry point (GNOME workstation)
-│   │   └── hardware-configuration.nix # Auto-detected hardware (imperative)
-│   └── lin/
-│       ├── default.nix                # Host entry point
-│       └── hardware-configuration.nix
-│
-├── modules/
-│   ├── nixos/                         # System-level NixOS modules
-│   │   ├── boot.nix                   # LUKS, systemd-boot, kernel params
-│   │   ├── networking.nix             # Firewall, Mullvad VPN, DNS
-│   │   ├── locale.nix                 # Timezone, i18n, keyboard layout
-│   │   ├── user.nix                   # Primary user, groups, shell
-│   │   ├── gnome.nix                  # GNOME DE, extensions, GDM theming
-│   │   ├── programs.nix               # Declared programs (git, 1password, etc.)
-│   │   ├── packages.nix               # System packages (browsers, tools, themes)
-│   │   ├── services.nix               # Systemd services (pipewire, blueman, etc.)
-│   │   ├── kanata.nix                 # Keyboard remapping daemon
-│   │   ├── nixvim.nix                 # Declarative Neovim (Nixvim module)
-│   │   ├── virtualization.nix         # Podman, distrobox, VMs
-│   │   ├── firewall.nix               # nftables / iptables hardening
-│   │   ├── fonts.nix                  # Font packages + fontconfig
-│   │   ├── environment.nix            # Session variables, PATH, XDG
-│   │   ├── maintenance.nix            # Nix GC, auto-upgrade
-│   │   ├── bluetooth.nix              # Bluez, blueman
-│   │   ├── printing.nix               # CUPS
-│   │   ├── documentation.nix          # Man pages, info, nix-doc
-│   │   ├── ollama.nix                 # Local LLM inference server
-│   │   └── hermes.nix                 # Hermes agent integration
-│   │
-│   └── home/                          # Home Manager modules
-│       ├── bash.nix                   # Bash aliases, functions, history
-│       ├── blesh.nix                  # Bash line editor (syntax, menus)
-│       ├── starship.nix               # Cross-shell prompt config
-│       ├── atuin.nix                  # Synced shell history
-│       ├── git.nix                    # Git config, delta, aliases
-│       ├── ssh.nix                    # SSH client config
-│       ├── kitty.nix                  # Kitty terminal config
-│       ├── fastfetch.nix              # System info branding
-│       ├── dconf.nix                  # GNOME settings (gsettings → dconf db)
-│       ├── vim.nix                    # Vim backup config
-│       └── zellij.nix                 # Terminal multiplexer (stub)
-│
-├── home/                              # Per-user Home Manager entry points
-│   ├── stefan-hacks/
-│   │   └── home.nix                   # ghost user HM imports
-│   ├── lin/
-│   │   └── home.nix                   # lin user HM imports
-│   └── profiles/                      # Desktop-specific HM profiles (stubs)
-│       ├── gnome/
-│       ├── kde/
-│       ├── hyprland/
-│       └── niri/
-│
-├── dotfiles/                          # Raw dotfiles sourced by HM modules
-│   ├── bash/                          # .bashrc, .bash_aliases
-│   ├── blesh/                         # .blerc
-│   ├── gitconfig/                     # .gitconfig
-│   ├── kitty/                         # kitty.conf, tab_bar.py
-│   ├── nvim/                          # Neovim Lua config (legacy)
-│   ├── starship/                      # starship.toml
-│   ├── fastfetch/                     # config.jsonc
-│   ├── kanata/                        # kanata_gnome.kbd
-│   ├── .ssh/                          # SSH client config
-│   └── vim/                           # .vimrc
-│
-├── gnome/
-│   └── dconf.ini                      # Full gsettings dump (loaded by HM activation)
-│
-├── themes/                            # Stylix / base16 theme definitions
-│
-└── assets/
-    ├── icon2.png                      # NixOS logo / branding asset
-    └── wallpapers/                    # Categorized wallpaper collection
-        ├── Catppuccin_Mocha/
-        ├── Dracula/
-        ├── Nordic_Blue/
-        ├── Solarized_Dark/
-        └── ... (30+ themed directories)
-```
+| Layer | Directory | Purpose |
+|-------|-----------|---------|
+| **System** | `nixos/` | NixOS features exported as `nixosModules.*` |
+| **Home** | `home/` | Generic HM features exported as `homeManagerModules.*` |
+| **Desktop** | `desktop/` | GNOME & DankMaterialShell profiles |
+| **Hosts** | `systems/` | Per-host hardware + top-level configuration |
+| **Users** | `users/` | Per-user HM entry points + dconf |
 
 ---
 
 ## Quick Start
 
-### Fresh Install
+> **Prerequisites:** NixOS with flakes enabled.
 
 ```bash
-# 1. Clone the flake
+# 1. Clone
 git clone https://github.com/stefan-hacks/nixit.git ~/.config/nixit
 cd ~/.config/nixit
 
-# 2. Copy the auto-detected hardware config for your machine
-cp /etc/nixos/hardware-configuration.nix hosts/ghost/
+# 2. (First install only) copy hardware config
+sudo cp /etc/nixos/hardware-configuration.nix systems/ghost/hardware.nix
 
-# 3. Build and activate the system
+# 3. Build & activate
 sudo nixos-rebuild switch --flake .#ghost
 
-# 4. Log out and back in (or reboot) for GNOME settings to take effect
+# 4. Or with experimental features disabled by default
+sudo nixos-rebuild switch --flake .#ghost \
+  --extra-experimental-features 'nix-command flakes'
 ```
 
-### After First Boot
+After first boot, log out and back in for all Home Manager activations to take effect.
 
-```bash
-# Atuin — register and sync shell history
-atuin register -u YOUR_USERNAME -e YOUR_EMAIL
-atuin import auto
-atuin sync
+---
 
-# Wallpapers are picked up from ~/.config/nixit/assets/wallpapers/
-# GNOME settings are applied automatically by Home Manager activation
+## Repository Layout
+
 ```
+.
+├── flake.nix                 # Inputs, outputs, host registry
+├── flake.lock                # Pinned dependency graph
+│
+├── nixos/                    # System aspects (nixosModules.*)
+│   ├── flake-parts.nix       # Exports all aspects below
+│   ├── boot.nix              # LUKS, systemd-boot, kernel
+│   ├── networking.nix        # Firewall, DNS, Mullvad
+│   ├── user.nix              # Primary user, groups, icon
+│   ├── packages.nix          # System packages
+│   ├── services.nix          # PipeWire, printing, CUPS
+│   ├── programs.nix          # Program defaults (git, 1password)
+│   ├── virtualization.nix    # Podman, distrobox
+│   ├── kanata.nix            # Evdev keyboard remapping
+│   ├── nixvim.nix            # Declarative Neovim (Nixvim)
+│   ├── ollama.nix            # Local LLM inference
+│   ├── terax.nix             # Terax AI integration
+│   ├── hermes.nix            # Hermes agent tools
+│   └── ...
+│
+├── home/                     # Generic HM aspects (homeManagerModules.*)
+│   ├── flake-parts.nix
+│   ├── bash.nix
+│   ├── kitty.nix
+│   ├── starship.nix
+│   ├── git.nix
+│   ├── ssh.nix
+│   ├── atuin.nix
+│   ├── fastfetch.nix
+│   └── ...
+│
+├── desktop/                  # Desktop-environment profiles
+│   ├── profiles.nix          # GNOME vs DankMaterialShell selector
+│   ├── gnome/
+│   │   └── gnome.nix         # GNOME DE, extensions, GDM theme
+│   └── dank/
+│       └── dank.nix          # DankMaterialShell + niri + ags
+│
+├── systems/                  # Per-host declarations
+│   └── ghost/
+│       ├── default.nix       # Host entry point
+│       ├── configuration.nix # Host identity & stateVersion
+│       └── hardware.nix      # Hardware scan (nixos-generate-config)
+│
+├── users/                    # Per-user HM entry points
+│   └── stefan-hacks/
+│       ├── default.nix       # User HM imports + activation
+│       └── gnome/            # User-specific GNOME dconf
+│           ├── shell.nix
+│           ├── shell-extensions.nix
+│           ├── settings-daemon.nix
+│           └── ...
+│
+├── dotfiles/                 # Raw configs sourced by HM modules
+│   ├── bash/
+│   ├── kitty/
+│   ├── kanata/
+│   ├── starship/
+│   └── ...
+│
+└── assets/
+    ├── icon2.png             # User icon
+    └── wallpapers/           # Categorized wallpaper collection
+```
+
+---
+
+## Desktop Profiles
+
+Choose the desktop environment by setting `desktopProfile` in `systems/<host>/default.nix`:
+
+```nix
+# systems/ghost/default.nix
+{ desktopProfile = "gnome"; }   # or "dank"
+```
+
+| Profile | Compositor | Description |
+|-----------|------------|-------------|
+| **gnome** | Mutter (Wayland) | GNOME 50 + extensions (OpenBar, Blur My Shell, Dash to Dock, etc.) |
+| **dank** | niri (Wayland) | DankMaterialShell + ags bar + dynamic wallpapers |
 
 ---
 
@@ -178,185 +146,123 @@ atuin sync
 
 ### Terminal Stack
 
-| Tool                                                     | Purpose                                         |
-| -------------------------------------------------------- | ----------------------------------------------- |
-| [Kitty](https://sw.kovidgoyal.net/kitty/)                | GPU-accelerated terminal with ligatures         |
-| [Blesh](https://github.com/akinomyoga/ble.sh)            | Bash line editor (syntax highlighting, history)   |
-| [Starship](https://starship.rs/)                         | Cross-shell prompt with git/NERD info             |
-| [Atuin](https://atuin.sh/)                               | Encrypted, synced shell history                   |
-| [Zoxide](https://github.com/ajeetdsouza/zoxide)          | Smarter `cd` — remembers frequency              |
-| [Fastfetch](https://github.com/fastfetch-cli/fastfetch)  | System info with custom Nixit branding            |
+| Tool | Purpose |
+|------|---------|
+| [Kitty](https://sw.kovidgoyal.net/kitty/) | GPU-accelerated terminal |
+| [Blesh](https://github.com/akinomyoga/ble.sh) | Bash syntax highlighting & menus |
+| [Starship](https://starship.rs/) | Cross-shell prompt |
+| [Atuin](https://atuin.sh/) | Synced, encrypted shell history |
+| [Zoxide](https://github.com/ajeetdsouza/zoxide) | Smart `cd` |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info branding |
 
-### Desktop Environment
+### Neovim (Nixvim)
 
-| Feature             | Implementation                                  |
-| ------------------- | ----------------------------------------------- |
-| **Window Manager**  | GNOME 50 (Wayland)                              |
-| **Dock**            | Dash to Dock                                    |
-| **Blur**            | Blur My Shell                                   |
-| **Clipboard**       | GPaste                                          |
-| **Tray Icons**      | AppIndicator                                    |
-| **Keyboard**        | Kanata (vim-style leader key remapping)         |
-| **Login Wallpaper** | Catppuccin Mocha (GDM profile)                  |
-| **Bar Theme**       | OpenBar + Yaru accent/folder colours            |
-| **Wallpapers**      | Wallpicker extension + 30+ themed collections     |
+Fully declarative via [Nixvim](https://github.com/nix-community/nixvim). No manual plugin management — every LSP, keybinding, and theme is pinned in `nixos/nixvim.nix`.
 
-### GNOME Extensions
+| Category | Features |
+|----------|----------|
+| **Theme** | Catppuccin Macchiato |
+| **LSP** | lua_ls, rust_analyzer, nil, pylsp, clangd, ts_ls, bashls, jsonls, yamlls, marksman, taplo, eslint |
+| **Completion** | nvim-cmp |
+| **Navigation** | Telescope, Neo-tree, Harpoon |
+| **Editing** | Treesitter, nvim-surround, conform, nvim-lint |
+| **Git** | gitsigns, fugitive, diffview |
+| **Terminal** | Toggleterm |
+| **UI** | Which-key, lualine, bufferline, noice |
 
-- **AppIndicator** — Tray icons in top bar
-- **ArcMenu** — Application menu with search
-- **Blur My Shell** — Background blur for panels and overview
-- **Dash to Dock** — Bottom dock with favourites
-- **Dynamic Music Pill** — Media widget in top bar
-- **GPaste** — Clipboard history manager
-- **Notification Configurator** — Notification styling
-- **OpenBar** — Top bar theming with accent colours
-- **Pomodoro Timer** — Focus timer in top bar
-- **Quake Terminal** — Dropdown terminal (grave key)
-- **Quick Settings Audio Panel** — Audio device selector
-- **Steal My Focus Window** — Focus behaviour tuning
-- **Vitals** — System resource monitor
-- **Wallpicker** — Wallpaper selector
-- **Modern Clock** — Customisable clock widget
+### Keyboard Layer (Kanata)
 
----
-
-## Neovim (Nixvim)
-
-Configured entirely through [Nixvim](https://github.com/nix-community/nixvim) —
-no manual plugin management, no Lua copy-paste. Every plugin, keybinding, and LSP
-server is declared in `modules/nixos/nixvim.nix`.
-
-| Category       | Features                                                                                                                     |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Theme**      | Catppuccin Macchiato, transparent background                                                                                 |
-| **LSP**        | lua_ls, rust_analyzer, nil (Nix), pylsp, clangd, ts_ls, bashls, jsonls, yamlls, marksman, taplo, eslint                    |
-| **Completion** | nvim-cmp (LSP, buffer, path, luasnip)                                                                                        |
-| **Snippets**   | LuaSnip (friendly-snippets)                                                                                                    |
-| **Fuzzy Find** | Telescope (files, grep, buffers, diagnostics, git, LSP)                                                                        |
-| **Navigation** | Neo-tree (filesystem), Harpoon (file marks), Flash (quick jump)                                                            |
-| **Editing**    | Treesitter (syntax), nvim-surround, nvim-autopairs, gitsigns, conform (formatting), nvim-lint                                |
-| **Git**        | gitsigns, fugitive, diffview                                                                                                 |
-| **Notes**      | obsidian.nvim                                                                                                                |
-| **Terminal**   | Toggleterm (vertical / horizontal / float)                                                                                   |
-| **UI**         | Which-key (keybind hints), lualine, bufferline, nvim-notify, noice (cmdline + notifications), indent-blankline, web-devicons |
-| **Productivity** | Todo-comments, mini.ai, mini.operators                                                                                     |
-| **Session**    | persistence.nvim (auto-save / restore)                                                                                       |
-| **Extras**     | kitty-scrollback.nvim, image.nvim                                                                                            |
-
----
-
-## Keyboard Layer (Kanata)
-
-Kanata remaps the keyboard at the evdev level, providing a **vim-style leader
-key** (`Space`) that works in *every* application — terminal, browser, file
-manager, etc.
+Kanata remaps at the evdev level. The leader key (`Space`) works in *every* application.
 
 - **Leader + `h/j/k/l`** → arrow keys
 - **Leader + `w/b/e/g`** → word / line / paragraph / document navigation
-- **Leader + `n/p/f/F`** → find, previous, next
-- **Leader + `a/u/v/y/Y/d/x/c/C/p/P/S`** → select-all, undo, visual, yank, delete, cut, copy, paste, save
-- **Leader + `s/S`** → split window (Kitty)
+- **Leader + `a/u/v/y/d/x/c/p/s`** → select-all, undo, visual, yank, delete, cut, copy, paste, save
 - **Leader + `t/T`** → new tab / close tab
-- **Leader + `o/O`** → open line / open above
 
-The config lives in `dotfiles/kanata/kanata_gnome.kbd` and is activated via
-`modules/nixos/kanata.nix`.
+Config: `dotfiles/kanata/kanata_gnome.kbd`
 
 ---
 
-## System Architecture
+## Scaling: Add a New Host
 
-```
-┌─────────────────────────────────────────┐
-│              flake.nix                  │
-│  ┌─────────────┐  ┌─────────────────┐   │
-│  │  inputs     │  │  hosts registry │   │
-│  │  nixpkgs    │  │  ghost → x86_64 │   │
-│  │  home-mgr   │  │  lin   → x86_64 │   │
-│  │  nixvim     │  │                 │   │
-│  └──────┬──────┘  └─────────────────┘   │
-└─────────┼─────────────────────────────────┘
-          │
-          ▼
-┌─────────────────────────────────────────┐
-│           lib/mkHost.nix                │
-│  ┌────────────────────────────────────┐ │
-│  │  specialArgs = { inherit inputs; } │ │
-│  │  systemModules = [                 │ │
-│  │    modules/nixos/*.nix             │ │
-│  │  ]                                 │ │
-│  │  homeModules = per-user imports    │ │
-│  └────────────────────────────────────┘ │
-└─────────────────────────────────────────┘
-          │
-          ▼
-┌─────────────────────────────────────────┐
-│         hosts/<host>/default.nix        │
-│  ┌────────────────────────────────────┐ │
-│  │  imports hardware-config.nix     │ │
-│  │  imports system modules          │ │
-│  │  sets hostname, system.stateVersion│ │
-│  └────────────────────────────────────┘ │
-└─────────────────────────────────────────┘
-```
-
----
-
-## Adding a New Host
-
-1. **Copy hardware configuration**
+1. **Create host directory**
    ```bash
-   cp /etc/nixos/hardware-configuration.nix hosts/newhost/
+   mkdir -p systems/newhost
+   sudo cp /etc/nixos/hardware-configuration.nix systems/newhost/hardware.nix
    ```
 
-2. **Add host entry in `flake.nix`**
+2. **Create `systems/newhost/default.nix`**
    ```nix
-   newhost = {
-     system = "x86_64-linux";
-     users = {
-       youruser = ./home/youruser/home.nix;
+   { inputs, ... }: {
+     flake.nixosConfigurations.newhost = inputs.nixpkgs.lib.nixosSystem {
+       system = "x86_64-linux";
+       modules = [
+         ./hardware.nix
+         inputs.self.nixosModules.boot
+         inputs.self.nixosModules.networking
+         inputs.self.nixosModules.user
+         inputs.self.nixosModules.packages
+         inputs.self.nixosModules.services
+         inputs.self.nixosModules.home-manager
+         {
+           networking.hostName = "newhost";
+           system.stateVersion = "26.05";
+         }
+       ];
      };
-   };
-   ```
-
-3. **Create `hosts/newhost/default.nix`**
-   ```nix
-   { config, pkgs, lib, ... }: {
-     imports = [
-       ./hardware-configuration.nix
-       ../../modules/nixos/gnome.nix      # or your preferred DE
-       ../../modules/nixos/packages.nix
-       ../../modules/nixos/services.nix
-       ../../modules/nixos/user.nix
-     ];
-     networking.hostName = "newhost";
-     system.stateVersion = "26.05";
    }
    ```
 
-4. **Create `home/youruser/home.nix`** (copy from `home/stefan-hacks/`)
+3. **Create `users/<name>/default.nix`** (copy from `users/stefan-hacks/`)
 
-5. **Build**
+4. **Build**
    ```bash
    sudo nixos-rebuild switch --flake .#newhost
    ```
 
 ---
 
+## Scaling: Add a New User
+
+1. **Create `users/<name>/default.nix`**
+   ```nix
+   { config, pkgs, ... }:
+   {
+     home.username = "<name>";
+     home.homeDirectory = "/home/<name>";
+     imports = [
+       ../../home/bash.nix
+       ../../home/git.nix
+       ../../home/kitty.nix
+       # ... pick generic aspects
+     ];
+   }
+   ```
+
+2. **Add user to host in `systems/<host>/default.nix`**
+   ```nix
+   inputs.self.nixosModules.user  # enables the user module
+   ```
+
+3. **Rebuild**
+   ```bash
+   sudo nixos-rebuild switch --flake .#ghost
+   ```
+
+---
+
 ## Customisation
 
-| Layer           | File(s) to Edit                                               |
-| --------------- | ------------------------------------------------------------- |
-| **System pkgs** | `modules/nixos/packages.nix`                                  |
-| **GNOME DE**    | `modules/nixos/gnome.nix` + `gnome/dconf.ini`                  |
-| **Shell**       | `modules/home/bash.nix` + `dotfiles/bash/.bash_aliases`       |
-| **Terminal**    | `dotfiles/kitty/kitty.conf`                                     |
-| **Neovim**      | `modules/nixos/nixvim.nix`                                      |
-| **Kanata**      | `dotfiles/kanata/kanata_gnome.kbd`                              |
-| **Wallpapers**  | Drop files into `assets/wallpapers/<theme-name>/`               |
-| **Git**         | `dotfiles/gitconfig/.gitconfig` + `modules/home/git.nix`      |
-| **Prompt**      | `dotfiles/starship/starship.toml`                               |
+| Layer | File(s) to Edit |
+|-------|-----------------|
+| **System packages** | `nixos/packages.nix` |
+| **Desktop** | `desktop/gnome/gnome.nix` or `desktop/dank/dank.nix` |
+| **Shell** | `home/bash.nix` + `dotfiles/bash/.bash_aliases` |
+| **Terminal** | `dotfiles/kitty/kitty.conf` |
+| **Neovim** | `nixos/nixvim.nix` |
+| **Kanata** | `dotfiles/kanata/kanata_gnome.kbd` |
+| **Wallpapers** | Drop files into `assets/wallpapers/<theme>/` |
+| **Prompt** | `dotfiles/starship/starship.toml` |
 
 ---
 
@@ -366,34 +272,35 @@ The config lives in `dotfiles/kanata/kanata_gnome.kbd` and is activated via
 # Update flake inputs
 nix flake update
 
-# Garbage collect old generations
-sudo nix-collect-garbage -d
+# Check evaluation (no build)
+nix flake check
 
-# Rebuild after any change
+# Build system derivation
+nix build .#nixosConfigurations.ghost.config.system.build.toplevel
+
+# Rebuild and activate
 sudo nixos-rebuild switch --flake .#ghost
 
-# Check flake evaluation (no build)
-nix flake check
+# Garbage collect
+sudo nix-collect-garbage -d
 ```
 
 ---
 
 ## Security
 
-| Layer        | Implementation                                             |
-| ------------ | ---------------------------------------------------------- |
-| **Disk**     | LUKS2 full-disk encryption (`modules/nixos/boot.nix`)    |
-| **Network**  | nftables firewall, Mullvad VPN (`modules/nixos/networking.nix`) |
-| **Secrets**  | 1Password CLI, SSH keys in `dotfiles/.ssh/`                |
-| **Updates**  | Weekly `nixos-rebuild switch --upgrade` via `maintenance.nix` |
+| Layer | Implementation |
+|-------|----------------|
+| **Disk** | LUKS2 full-disk encryption (`nixos/boot.nix`) |
+| **Network** | nftables firewall, Mullvad VPN (`nixos/networking.nix`) |
+| **Secrets** | 1Password CLI, SSH keys in `dotfiles/.ssh/` |
+| **Updates** | Weekly auto-upgrade via `nixos/maintenance.nix` |
 
 ---
 
 ## License
 
-MIT — See [LICENSE](LICENSE) for details.
-
----
+MIT — See [LICENSE](LICENSE).
 
 <div align="center">
 
