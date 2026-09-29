@@ -24,7 +24,6 @@
     environment = ./environment.nix;
     maintenance = ./maintenance.nix;
     bluetooth = ./bluetooth.nix;
-    printing = ./printing.nix;
     kanata = ./kanata.nix;
     documentation = ./documentation.nix;
     nixvim = ./nixvim.nix;

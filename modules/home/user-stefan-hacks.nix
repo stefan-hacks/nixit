@@ -37,7 +37,6 @@ in
     ./zellij.nix
     ./ssh.nix
     ./fastfetch.nix
-    ./foot.nix
   ]
   # ── GNOME dconf settings ─────────────────────────────────────────────────
   # Only import when GNOME desktop profile is active. DMS does not use dconf

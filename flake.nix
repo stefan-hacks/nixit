@@ -21,10 +21,10 @@
 {
   description = "Ghost Workstation — NixOS + Home Manager Flake (flake-parts + dendritic)";
 
-  nixConfig = {
-    extra-substituters = [ "https://look.cachix.org" ];
-    extra-trusted-public-keys = [ "look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4=" ];
-  };
+  # nixConfig = {
+  #   extra-substituters = [ "https://look.cachix.org" ];
+  #   extra-trusted-public-keys = [ "look.cachix.org-1:8elPCeSVBzlDZXqIRKBK9GyLIK/Hoe1xiWZF0ir7uX4=" ];
+  # };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";

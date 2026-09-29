@@ -57,7 +57,6 @@
       inputs.self.nixosModules.environment
       inputs.self.nixosModules.maintenance
       inputs.self.nixosModules.bluetooth
-      inputs.self.nixosModules.printing
       inputs.self.nixosModules.kanata
       inputs.self.nixosModules.documentation
       inputs.self.nixosModules.nixvim
