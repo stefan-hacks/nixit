@@ -4,14 +4,14 @@
 # Entry-point for the nixit NixOS + Home Manager flake.
 # Uses flake-parts (https://flake.parts) for module composition and the
 # dendritic pattern (https://github.com/mightyiam/dendritic) so every .nix
-# file in modules/ is a self-describing flake-parts module.
+# file in each directory is a self-describing flake-parts module.
 #
 # After this rewrite:
 #   • flake.nix is ~30 lines (was ~90).
-#   • Host declarations live in modules/hosts/<name>/flake-parts.nix.
-#   • NixOS aspects live in modules/nixos/<feature>.nix, exported via
+#   • Host declarations live in systems/<name>/flake-parts.nix.
+#   • NixOS aspects live in nixos/<feature>.nix, exported via
 #     flake.nixosModules.* so they can be imported by name.
-#   • Home-manager aspects live in modules/home/<feature>.nix, exported via
+#   • Home-manager aspects live in home/<feature>.nix, exported via
 #     flake.homeManagerModules.*.
 #
 # Docs:
@@ -67,14 +67,14 @@
       systems = [ "x86_64-linux" ];
       imports = [
         # NixOS feature modules — exported as flake.nixosModules.<name>
-        ./modules/nixos/flake-parts.nix
+        ./nixos/flake-parts.nix
 
         # Home-manager feature modules — exported as flake.homeManagerModules.<name>
-        ./modules/home/flake-parts.nix
+        ./home/flake-parts.nix
 
         # Host declarations — each host is a small flake-parts module that
         # selects which NixOS / home-manager aspects to enable.
-        ./modules/hosts/ghost/flake-parts.nix
+        ./systems/ghost/default.nix
       ];
 
       perSystem = { pkgs, ... }: {

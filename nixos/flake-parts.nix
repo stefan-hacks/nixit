@@ -1,0 +1,40 @@
+# ============================================================================
+# nixos/flake-parts.nix
+# ----------------------------------------------------------------------------
+# Dendritic aspect: exports every NixOS feature in this directory as a named
+# flake module so hosts can compose them declaratively via
+# inputs.self.nixosModules.<name>.
+#
+# Reference:
+#   https://flake.parts
+#   https://github.com/Doc-Steve/dendritic-design-with-flake-parts
+# ============================================================================
+{ ... }: {
+  flake.nixosModules = {
+    boot = ./boot.nix;
+    networking = ./networking.nix;
+    locale = ./locale.nix;
+    programs = ./programs.nix;
+    packages = ./packages.nix;
+    services = ./services.nix;
+    user = ./user.nix;
+    virtualization = ./virtualization.nix;
+    firewall = ./firewall.nix;
+    fonts = ./fonts.nix;
+    environment = ./environment.nix;
+    maintenance = ./maintenance.nix;
+    bluetooth = ./bluetooth.nix;
+    kanata = ./kanata.nix;
+    documentation = ./documentation.nix;
+    nixvim = ./nixvim.nix;
+    home-manager = ./home-manager.nix;
+    hermes = ./hermes.nix;
+    ollama = ./ollama.nix;
+    terax = ./terax.nix;
+
+    # ── Desktop Profile Selector ───────────────────────────────────────────
+    # Imports GNOME or DankMaterialShell based on desktopProfile.
+    # Replaces the monolithic gnome.nix approach.
+    desktop = ../desktop/profiles.nix;
+  };
+}

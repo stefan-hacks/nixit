@@ -1,0 +1,47 @@
+# ============================================================================
+# nixos/home-manager.nix
+# ----------------------------------------------------------------------------
+# NixOS feature: integrates Home Manager as a NixOS module and wires the
+# stefan-hacks user configuration.  This is the bridge between the NixOS
+# host and the Home Manager world.
+#
+# Arguments injected via the host's specialArgs:
+#   inputs   – the flake inputs (needed for home-manager, nix-my-gnome, etc.)
+#   username – primary user name ("stefan-hacks")
+#   usernames – list of all user names (used by nixos/user.nix)
+# ============================================================================
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  username,
+  desktopProfile,
+  ...
+}:
+{
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
+
+    extraSpecialArgs = {
+      inherit username inputs desktopProfile;
+      inherit (inputs) look nix-graph nixdr;
+    };
+
+    users.${username} = inputs.self.lib.homeManagerModules.user-stefan-hacks;
+
+    sharedModules = [
+      (lib.mkIf (desktopProfile == "gnome") {
+        # nix-my-gnome is the dconf dump → nix generator used for GNOME.
+        # It provides the `nmg` CLI and generated dconf modules.
+        home.packages = [ inputs.nix-my-gnome.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+      })
+    ];
+  };
+}
