@@ -31,6 +31,7 @@
     hermes = ./hermes.nix;
     ollama = ./ollama.nix;
     terax = ./terax.nix;
+    network-tuning = ./network-tuning.nix;
 
     # ── Desktop Profile Selector ───────────────────────────────────────────
     # Imports GNOME or DankMaterialShell based on desktopProfile.

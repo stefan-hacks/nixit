@@ -61,6 +61,7 @@
       inputs.self.nixosModules.documentation
       inputs.self.nixosModules.nixvim
       inputs.self.nixosModules.home-manager
+      inputs.self.nixosModules.network-tuning
     ];
   };
 }

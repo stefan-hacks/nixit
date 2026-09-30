@@ -26,8 +26,8 @@
   hardware.firmware = with pkgs; [ sof-firmware ];
 
   # ── HP EliteBook 840 G8: Kernel Parameters ───────────────────────────────
-  # These fix sleep/resume, NVMe stutter, and ACPI issues specific to this
-  # 11th-gen Intel (Tiger Lake) HP laptop.
+  # These fix sleep/resume, NVMe stutter, USB dock stability, and ACPI issues
+  # specific to this 11th-gen Intel (Tiger Lake) HP laptop.
   boot.kernelParams = [
     # Force SOF audio driver (SST) instead of legacy HDA fallback.
     # Prevents audio lag and dropouts on Tiger Lake.
@@ -47,6 +47,18 @@
     # DRAM-less NVMe controllers stutter when APST aggressively transitions
     # power states under I/O load.
     "nvme.noacpi=1"
+
+    # Disable USB autosuspend globally.
+    # The HP USB-C Dock G5 (Realtek RTL8153 Ethernet + USB audio hub) drops
+    # connection when Linux autosuspends USB devices.  Setting to -1 prevents
+    # the kernel from powering down USB ports.
+    "usbcore.autosuspend=-1"
+
+    # Explicitly set NVMe I/O scheduler to "none".
+    # NVMe devices (especially DRAM-less controllers like the MAXIO MAP1202)
+    # perform best with the blk-mq "none" scheduler.  This prevents the kernel
+    # from defaulting to mq-deadline which adds latency on fast NVMe.
+    "elevator=none"
   ];
 
   # ── Graphics Drivers ──────────────────────────────────────────────────────
