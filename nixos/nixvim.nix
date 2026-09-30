@@ -13,6 +13,8 @@
 
     # ── Settings ─────────────────────────────────────────────────────────────
 
+    colorscheme = "catppuccin";
+
     clipboard = {
       providers.wl-copy.enable = pkgs.stdenv.isLinux;
     };
@@ -2083,8 +2085,8 @@
       vim.fn.sign_define("diagnosticsigninfo", { text = " ", texthl = "diagnosticinfo", linehl = "", numhl = "" })
 
       -- Guard: disable startup.nvim when inside kitty-scrollback buffer.
-      -- The kitten sets vim.g.kitty_scrollback_nvim = 1 before Neovim loads.
-      if vim.g.kitty_scrollback_nvim == 1 then
+      -- The kitten sets the env var KITTY_SCROLLBACK_NVIM=true before launching Neovim.
+      if vim.env.KITTY_SCROLLBACK_NVIM == "true" then
         vim.g.loaded_startup_nvim = 1
       end
 
