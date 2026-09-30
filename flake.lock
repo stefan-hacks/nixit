@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790730725,
-        "narHash": "sha256-uPW6sJ4gHfx0C2hekNUEyaDKzNVOkbqmgdfDiQKQ+vM=",
+        "lastModified": 1790740834,
+        "narHash": "sha256-jC7XGgmeHvQOnBXi/xWjkb05LSJYBKiiMrHKTOhJ2tw=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "47dce3306e839699ce8697126c39a59d711aa72a",
+        "rev": "c1ce48059a82aa4211f289dac58f06f563828c17",
         "type": "github"
       },
       "original": {
@@ -124,11 +124,11 @@
       },
       "locked": {
         "dir": "apps/linows",
-        "lastModified": 1790660430,
-        "narHash": "sha256-dBYJR4JQn16bX7+jMXIvRwOoG87B2yie1dkxKyImuxQ=",
+        "lastModified": 1790740785,
+        "narHash": "sha256-VU4k8ExCJVp+5nz9edkKjJ42bIf0Nwgr3UuZp1oYbj0=",
         "owner": "kunkka19xx",
         "repo": "look",
-        "rev": "409a3dbec6a1678cf35ad335898afc9e2f45294b",
+        "rev": "a8ba3286fb76db27d4031bee4bfc204ba2afd9ba",
         "type": "github"
       },
       "original": {
