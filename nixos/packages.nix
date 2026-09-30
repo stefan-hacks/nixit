@@ -32,6 +32,7 @@
     vim
     hw-probe
 
+    tokei
     # Image manipulation
     imagemagick
     exiftool
