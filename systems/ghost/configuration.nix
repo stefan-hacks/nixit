@@ -17,6 +17,38 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # ── Sound Open Firmware (SOF) for Intel Tiger Lake ─────────────────────────
+  # The i5-1145G7 uses Intel Smart Sound Technology (SST) which needs SOF firmware.
+  # Without it the HDA driver falls back to a compatibility mode with higher
+  # latency and occasional audio dropouts / crackling.
+  # hardware.enableAllFirmware (below) covers most firmware, but SOF is added
+  # explicitly to guarantee Tiger Lake audio stability.
+  hardware.firmware = with pkgs; [ sof-firmware ];
+
+  # ── HP EliteBook 840 G8: Kernel Parameters ───────────────────────────────
+  # These fix sleep/resume, NVMe stutter, and ACPI issues specific to this
+  # 11th-gen Intel (Tiger Lake) HP laptop.
+  boot.kernelParams = [
+    # Force SOF audio driver (SST) instead of legacy HDA fallback.
+    # Prevents audio lag and dropouts on Tiger Lake.
+    "snd_intel_dspcfg.dsp_driver=3"
+
+    # Force S3 (deep) sleep instead of S0ix "Modern Standby".
+    # The HP BIOS defaults to S0ix which is poorly supported on Linux and causes
+    # slow resume and intermittent wake failures.
+    "mem_sleep_default=deep"
+
+    # Limit Intel CPU C-states to C4 max.
+    # C-states deeper than C4 cause random hangs / lag on resume from sleep on
+    # Tiger Lake HP laptops.
+    "intel_idle.max_cstate=4"
+
+    # Disable NVMe ACPI power management on the MAXIO MAP1202.
+    # DRAM-less NVMe controllers stutter when APST aggressively transitions
+    # power states under I/O load.
+    "nvme.noacpi=1"
+  ];
+
   # ── Graphics Drivers ──────────────────────────────────────────────────────
   # Required for EGL/OpenGL support used by Electron apps (Mullvad GUI,
   # Discord, Chromium) and GNOME Shell compositing. Without this, libEGL.so.1
@@ -32,7 +64,7 @@
   # stuttering, delayed pause/resume, and high CPU usage.
   #
   #   intel-media-driver  → VA-API driver for Intel Gen8+ (Broadwell and newer)
-  #   libvdpau-va-gl      → VDPAU compatibility layer ( Chromium still uses VDPAU)
+  #   libvdpau-va-gl      → VDPAU compatibility layer (Chromium still uses VDPAU)
   #   intel-vaapi-driver  → legacy VA-API driver for older Intel GPUs (pre-Gen8)
   #
   # The ghost laptop has an Intel iGPU; intel-media-driver is the correct
