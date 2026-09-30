@@ -2087,7 +2087,15 @@
       -- Guard: disable startup.nvim when inside kitty-scrollback buffer.
       -- The kitten sets the env var KITTY_SCROLLBACK_NVIM=true before launching Neovim.
       if vim.env.KITTY_SCROLLBACK_NVIM == "true" then
-        vim.g.loaded_startup_nvim = 1
+        vim.api.nvim_create_autocmd("VimEnter", {
+          once = true,
+          callback = function()
+            local ok, startup = pcall(require, "startup")
+            if ok then
+              startup.display = function() end
+            end
+          end,
+        })
       end
 
       local slow_format_filetypes = {}
