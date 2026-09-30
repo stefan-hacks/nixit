@@ -68,6 +68,10 @@ alias ..='cd -1'
 alias ...='cd -2'
 alias ....='cd -3'
 
+# List gnome settings
+alias lsk="gsettings list-recursively | grep -i keybind | cut -d ' ' -f2,3 | grep -Ev '(@as|disabled|false|default)' | sort | nl"
+alias lskd="gsettings list-recursively | grep -i keybind | cut -d ' ' -f2,3 | grep -Ev '(@as|false|default)' | sort | nl"
+
 alias numFiles='echo $(ls -1 | wc -l)' # Count non-hidden files in current dir
 alias hfiles='ls -A | grep "^\."'      # Show only dotfiles
 alias hdirs='ls -ld .*/ */'
