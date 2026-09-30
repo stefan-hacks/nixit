@@ -1,0 +1,68 @@
+{
+    "output": {
+        "bass_enhancer#0": {
+            "amount": -2.0,
+            "blend": 0.0,
+            "bypass": false,
+            "floor": 20.0,
+            "floor-active": true,
+            "harmonics": 8.5,
+            "input-gain": 0.0,
+            "output-gain": 1.1,
+            "scope": 100.0
+        },
+        "blocklist": [],
+        "expander#0": {
+            "attack": 20.0,
+            "bypass": false,
+            "dry": -80.01,
+            "hpf-frequency": 10.0,
+            "hpf-mode": "Off",
+            "input-gain": 0.0,
+            "input-to-link": -80.01,
+            "input-to-sidechain": -80.01,
+            "knee": -6.0,
+            "link-to-input": -80.01,
+            "link-to-sidechain": -80.01,
+            "lpf-frequency": 20000.0,
+            "lpf-mode": "Off",
+            "makeup": 0.0,
+            "mode": "Upward",
+            "output-gain": -1.5,
+            "ratio": 2.0,
+            "release": 100.0,
+            "release-threshold": -80.01,
+            "sidechain": {
+                "lookahead": 0.0,
+                "mode": "Peak",
+                "preamp": 0.0,
+                "reactivity": 10.0,
+                "source": "Middle",
+                "stereo-split-source": "Left/Right",
+                "type": "Internal"
+            },
+            "sidechain-to-input": -80.01,
+            "sidechain-to-link": -80.01,
+            "stereo-split": false,
+            "threshold": -12.0,
+            "wet": 0.0
+        },
+        "loudness#0": {
+            "bypass": false,
+            "clipping": false,
+            "clipping-range": 6.0,
+            "fft": "4096",
+            "iir-approximation": "Normal",
+            "input-gain": 0.0,
+            "mode": "FFT",
+            "output-gain": 0.0,
+            "std": "ISO226-2023",
+            "volume": 0.0
+        },
+        "plugins_order": [
+            "loudness#0",
+            "expander#0",
+            "bass_enhancer#0"
+        ]
+    }
+}

@@ -85,6 +85,7 @@ in
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
+    gnomeExtensions.easyeffects-preset-selector
     gnomeExtensions.arcmenu
     gnomeExtensions.quake-terminal
     gnomeExtensions.vitals
