@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790740834,
-        "narHash": "sha256-jC7XGgmeHvQOnBXi/xWjkb05LSJYBKiiMrHKTOhJ2tw=",
+        "lastModified": 1790772826,
+        "narHash": "sha256-gzyE5Cai2DEG9EnIrZnByS6ogBLzo4x43IXBMVZnLIY=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "c1ce48059a82aa4211f289dac58f06f563828c17",
+        "rev": "a86853dd194146c0ceca7c5b6045cf1b5744c43a",
         "type": "github"
       },
       "original": {
@@ -124,11 +124,11 @@
       },
       "locked": {
         "dir": "apps/linows",
-        "lastModified": 1790740785,
-        "narHash": "sha256-VU4k8ExCJVp+5nz9edkKjJ42bIf0Nwgr3UuZp1oYbj0=",
+        "lastModified": 1790748744,
+        "narHash": "sha256-CL5dUjL/2eAGCDpkSYKXLOMkl5qQz8naPCBChURqvNQ=",
         "owner": "kunkka19xx",
         "repo": "look",
-        "rev": "a8ba3286fb76db27d4031bee4bfc204ba2afd9ba",
+        "rev": "43ff23ff5a6528b8fb9e1d93810bd1f96f6db701",
         "type": "github"
       },
       "original": {
@@ -341,11 +341,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790669703,
-        "narHash": "sha256-PA75DaxgfJSDNr1eDF/l9TDfNxSUAjPRt08fICQWOqc=",
+        "lastModified": 1790756160,
+        "narHash": "sha256-NPs4nNLxCpho3Ctj8O7t/bzmX0zR8r0zndKghAFEz5U=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "49b6548d31019e8bfe9d4415193ac1df3c48f53a",
+        "rev": "ed3a19fd0439ed618ec5fe1e12f0ba69a8be38b5",
         "type": "github"
       },
       "original": {
