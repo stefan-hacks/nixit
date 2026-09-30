@@ -8,6 +8,7 @@
   modulesPath,
   ...
 }:
+
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -27,15 +28,15 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/mapper/luks-7d1b3d67-c220-4366-8863-f36a4721076d";
+    device = "/dev/mapper/luks-7943bb7d-58d5-4251-8ca5-fc880a1880f6";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-7d1b3d67-c220-4366-8863-f36a4721076d".device =
-    "/dev/disk/by-uuid/7d1b3d67-c220-4366-8863-f36a4721076d";
+  boot.initrd.luks.devices."luks-7943bb7d-58d5-4251-8ca5-fc880a1880f6".device =
+    "/dev/disk/by-uuid/7943bb7d-58d5-4251-8ca5-fc880a1880f6";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/45B8-9B24";
+    device = "/dev/disk/by-uuid/4C0E-8079";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -44,7 +45,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/mapper/luks-b42cc226-9e64-42aa-bdb7-7a61e8e23a94"; }
+    { device = "/dev/mapper/luks-005db41c-8e88-4454-b57c-4978ff19b4fb"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
