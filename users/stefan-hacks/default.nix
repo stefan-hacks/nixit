@@ -76,20 +76,20 @@ in
     };
   };
 
-  # ── Suppress GNOME Overview on login ─────────────────────────────────────
-  # ArcMenu and dash-to-dock both set hide/disable-overview-on-startup, but
-  # GNOME Shell often wins the race and opens the overview anyway. This one-shot
-  # service waits for the graphical session and explicitly closes it.
-  # See: https://gitlab.gnome.org/GNOME/gnome-shell/-/issues/5402
-  systemd.user.services.close-overview = lib.mkIf (desktopProfile == "gnome") {
+  # ── Re-enable GNOME extensions + suppress overview on login ─────────────
+  # GNOME disables all user extensions when any extension crashes during startup.
+  # A previous dbus-based close-overview service crashed the shell before it was
+  # ready, triggering this lockdown. This replacement waits 3 seconds for the
+  # shell to fully stabilise, re-enables extensions, then closes the overview.
+  systemd.user.services.fix-gnome-login = lib.mkIf (desktopProfile == "gnome") {
     Unit = {
-      Description = "Close GNOME Overview on startup";
+      Description = "Re-enable GNOME extensions and close overview after login";
       After = [ "graphical-session.target" ];
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
       Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 1 \u0026\u0026 ${pkgs.glib}/bin/gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval \"Main.overview.hide()\"'";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 3 \u0026\u0026 ${pkgs.glib}/bin/gsettings set org.gnome.shell disable-user-extensions false \u0026\u0026 ${pkgs.glib}/bin/gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval \"Main.overview.hide()\" 2>/dev/null || true'";
     };
     Install.WantedBy = [ "graphical-session.target" ];
   };
