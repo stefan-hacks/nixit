@@ -32,6 +32,7 @@
     ollama = ./ollama.nix;
     terax = ./terax.nix;
     network-tuning = ./network-tuning.nix;
+    touchscreen = ./touchscreen.nix;
 
     # ── Desktop Profile Selector ───────────────────────────────────────────
     # Imports GNOME or DankMaterialShell based on desktopProfile.
