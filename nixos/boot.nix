@@ -24,12 +24,9 @@ in
       efi.canTouchEfiVariables = true;
     };
 
-    initrd = {
-      luks.devices = {
-        "luks-005db41c-8e88-4454-b57c-4978ff19b4fb" = {
-          device = "/dev/disk/by-uuid/005db41c-8e88-4454-b57c-4978ff19b4fb";
-        };
-      };
-    };
+    # NOTE: The swap LUKS device (luks-005db41c-...) is already declared
+    # implicitly by `swapDevices` in systems/ghost/hardware.nix.
+    # Defining it here again would create a duplicate initrd unlock entry,
+    # causing the user to be prompted twice for the same passphrase.
   };
 }
