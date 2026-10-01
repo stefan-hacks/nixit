@@ -6,29 +6,7 @@
 {
   dconf.settings = {
     "org/gnome/desktop/notifications" = {
-      application-children = [
-        "firefox"
-        "org-gnome-console"
-        "gnome-about-panel"
-        "discord"
-        "org-gnome-evolution"
-        "gnome-power-panel"
-        "org-gnome-evolution-alarm-notify"
-        "kitty"
-        "virt-manager"
-        "org-qbittorrent-qbittorrent"
-        "mullvad-vpn"
-        "com-ktechpit-whatsie"
-        "org-gnome-nautilus"
-        "joplin"
-        "org-gnome-shell-extensions"
-        "org-nickvision-tubeconverter"
-        "de-haeckerfelix-shortwave"
-        "chromium-browser"
-        "org-gnome-papers"
-        "lookapp"
-        "com-mattjakeman-extensionmanager"
-      ];
+      application-children = [ "firefox" "org-gnome-console" "gnome-about-panel" "discord" "org-gnome-evolution" "gnome-power-panel" "org-gnome-evolution-alarm-notify" "kitty" "virt-manager" "org-qbittorrent-qbittorrent" "mullvad-vpn" "com-ktechpit-whatsie" "org-gnome-nautilus" "joplin" "org-gnome-shell-extensions" "org-nickvision-tubeconverter" "de-haeckerfelix-shortwave" "chromium-browser" "org-gnome-papers" "lookapp" "com-mattjakeman-extensionmanager" ];
       show-banners = true;
     };
 
@@ -84,6 +62,10 @@
       application-id = "mullvad-vpn.desktop";
     };
 
+    "org/gnome/desktop/notifications/application/onlyoffice-desktopeditors" = {
+      application-id = "onlyoffice-desktopeditors.desktop";
+    };
+
     "org/gnome/desktop/notifications/application/org-gnome-console" = {
       application-id = "org.gnome.Console.desktop";
     };
@@ -106,6 +88,10 @@
 
     "org/gnome/desktop/notifications/application/org-gnome-papers" = {
       application-id = "org.gnome.Papers.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-settings" = {
+      application-id = "org.gnome.Settings.desktop";
     };
 
     "org/gnome/desktop/notifications/application/org-gnome-shell-extensions" = {
