@@ -86,9 +86,9 @@
   #   https://nixos.wiki/wiki/Accelerated_Video_Playback
   #   https://wiki.archlinux.org/title/Hardware_video_acceleration
   hardware.graphics.extraPackages = with pkgs; [
-    intel-media-driver          # VA-API for Intel Gen8+
-    libvdpau-va-gl              # VDPAU → VA-API bridge
-    intel-vaapi-driver           # Fallback for older GPUs
+    intel-media-driver # VA-API for Intel Gen8+
+    libvdpau-va-gl # VDPAU → VA-API bridge
+    intel-vaapi-driver # Fallback for older GPUs
   ];
 
   # ── Firmware ────────────────────────────────────────────────────────────────

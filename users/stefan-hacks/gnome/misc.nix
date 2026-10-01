@@ -7,7 +7,12 @@
   dconf.settings = {
     "org/gnome/Console" = {
       last-window-maximised = false;
-      last-window-size = (lib.hm.gvariant.mkTuple [ 812 504 ]);
+      last-window-size = (
+        lib.hm.gvariant.mkTuple [
+          812
+          504
+        ]
+      );
       use-system-font = true;
     };
 
@@ -17,7 +22,12 @@
 
     "org/gnome/epiphany/state" = {
       is-maximized = false;
-      window-size = (lib.hm.gvariant.mkTuple [ 1024 768 ]);
+      window-size = (
+        lib.hm.gvariant.mkTuple [
+          1024
+          768
+        ]
+      );
     };
 
   };
