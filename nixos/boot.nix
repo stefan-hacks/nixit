@@ -28,5 +28,12 @@ in
     # implicitly by `swapDevices` in systems/ghost/hardware.nix.
     # Defining it here again would create a duplicate initrd unlock entry,
     # causing the user to be prompted twice for the same passphrase.
+
+    # ── Systemd-based initrd (NixOS 26.05+ default) ────────────────────────
+    # The old scripted initrd is deprecated and will be removed in 26.11.
+    # Systemd initrd is required for correct early-boot device discovery
+    # with LUKS-on-LVM and modern hardware (HP EliteBook 840 G8).
+    # See: https://nixos.org/manual/nixos/unstable/release-notes
+    initrd.systemd.enable = true;
   };
 }

@@ -33,6 +33,7 @@
     terax = ./terax.nix;
     network-tuning = ./network-tuning.nix;
     touchscreen = ./touchscreen.nix;
+    systemd-initrd-compat = ./systemd-initrd-compat.nix;
 
     # ── Desktop Profile Selector ───────────────────────────────────────────
     # Imports GNOME or DankMaterialShell based on desktopProfile.
