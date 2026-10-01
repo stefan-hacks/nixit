@@ -143,11 +143,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1790593985,
-        "narHash": "sha256-K2/jehGL+Aga1sdgHhQXgiv4movynKSdTjPm4QH3Jrw=",
+        "lastModified": 1790847311,
+        "narHash": "sha256-ozENFD/Sus/ntu/cE+SlkvCaQ/sdFhUQfwK2zoldAjU=",
         "owner": "AlexAntonik",
         "repo": "nix-graph",
-        "rev": "d4b03ff66b9518cfac1503e5e8344bac3e5a879d",
+        "rev": "87bb7e07e7b21f133059a412bbc32ce28fea72e7",
         "type": "github"
       },
       "original": {
