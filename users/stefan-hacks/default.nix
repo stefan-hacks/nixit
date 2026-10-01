@@ -76,21 +76,9 @@ in
     };
   };
 
-  # ── Re-enable GNOME extensions + suppress overview on login ─────────────
-  # GNOME disables all user extensions when any extension crashes during startup.
-  # A previous dbus-based close-overview service crashed the shell before it was
-  # ready, triggering this lockdown. This replacement waits 3 seconds for the
-  # shell to fully stabilise, re-enables extensions, then closes the overview.
-  systemd.user.services.fix-gnome-login = lib.mkIf (desktopProfile == "gnome") {
-    Unit = {
-      Description = "Re-enable GNOME extensions and close overview after login";
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c 'sleep 3 \u0026\u0026 ${pkgs.glib}/bin/gsettings set org.gnome.shell disable-user-extensions false \u0026\u0026 ${pkgs.glib}/bin/gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval \"Main.overview.hide()\" 2>/dev/null || true'";
-    };
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
+  # NOTE: A systemd user service that called dbus against GNOME Shell on login was
+  # removed here. Calling dbus before the shell is fully initialised causes the
+  # shell to crash and triggers GNOME's safety lockdown (disabling all user
+  # extensions). Do not add post-login dbus scripts for overview or extension
+  # manipulation; configure this via the shell extensions themselves instead.
 }
