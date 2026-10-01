@@ -19,7 +19,11 @@
       arcmenu-hotkey-overlay-key-enabled = true;
       distro-icon = 22;
       hide-overview-on-arcmenu-open = true;
-      hide-overview-on-startup = true;
+      # Removed hide-overview-on-startup to avoid conflict with dash-to-dock.
+      # Having both extensions fight over startup overview causes a race
+      # where neither wins and the overview opens anyway.
+      #
+      # Dash-to-dock's disable-overview-on-startup is more reliable.
       hotkey-open-primary-monitor = false;
       left-panel-width = 190;
       menu-button-icon = "resource:///org/gnome/shell/extensions/arcmenu/icons/scalable/actions/distro-nixos-symbolic.svg";
