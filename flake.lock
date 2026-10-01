@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790772826,
-        "narHash": "sha256-gzyE5Cai2DEG9EnIrZnByS6ogBLzo4x43IXBMVZnLIY=",
+        "lastModified": 1790839574,
+        "narHash": "sha256-jGEqUPvYRWtTb08nFMmFJ0y5IqxVtbWO7K5RQbIC6Dg=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "a86853dd194146c0ceca7c5b6045cf1b5744c43a",
+        "rev": "c7074a1de9164021f438baefeb71ee9c963f25e3",
         "type": "github"
       },
       "original": {
@@ -124,11 +124,11 @@
       },
       "locked": {
         "dir": "apps/linows",
-        "lastModified": 1790748744,
-        "narHash": "sha256-CL5dUjL/2eAGCDpkSYKXLOMkl5qQz8naPCBChURqvNQ=",
+        "lastModified": 1790838826,
+        "narHash": "sha256-fQYb+Ax0nJ86poG+BQXStshPa+2guJ6344vv/l22q+g=",
         "owner": "kunkka19xx",
         "repo": "look",
-        "rev": "43ff23ff5a6528b8fb9e1d93810bd1f96f6db701",
+        "rev": "465f2e4e9da3eedf23ba512752d79795ad57597b",
         "type": "github"
       },
       "original": {
@@ -247,11 +247,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1790635395,
-        "narHash": "sha256-bNyvoIyOCu7lzoCpWKWGIsHpTtERUWzqYWFPlN++WTw=",
+        "lastModified": 1790750587,
+        "narHash": "sha256-VfjaoJ1Uyb7JZTrBgE5Jf2nhjtQPmD9KOd19HJwmZwM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7fc6f2c20af09cdcaf48b92ec3121860139ec668",
+        "rev": "78e9c786dc08cd4f3420c2395cd977206a9b1da2",
         "type": "github"
       },
       "original": {
