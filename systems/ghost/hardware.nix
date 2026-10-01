@@ -32,8 +32,17 @@
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-7943bb7d-58d5-4251-8ca5-fc880a1880f6".device =
-    "/dev/disk/by-uuid/7943bb7d-58d5-4251-8ca5-fc880a1880f6";
+  boot.initrd.luks.devices."luks-7943bb7d-58d5-4251-8ca5-fc880a1880f6" = {
+    device = "/dev/disk/by-uuid/7943bb7d-58d5-4251-8ca5-fc880a1880f6";
+    allowDiscards = true;     # SSD TRIM support through LUKS
+  };
+
+  # Swap LUKS device — must be declared here so initrd knows to unlock it.
+  # Without this, boot hangs for ~90 s waiting for /dev/mapper/luks-005db41c...
+  boot.initrd.luks.devices."luks-005db41c-8e88-4454-b57c-4978ff19b4fb" = {
+    device = "/dev/disk/by-uuid/005db41c-8e88-4454-b57c-4978ff19b4fb";
+    allowDiscards = true;   # Enables SSD TRIM through LUKS (root already has it)
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/4C0E-8079";
