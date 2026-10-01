@@ -18,7 +18,12 @@
 #   https://www.kernel.org/doc/html/latest/input/elan-i2c.html
 #   https://www.kernel.org/doc/html/latest/input/hid-multitouch.html
 # ============================================================================
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # Load touchscreen kernel modules at boot.  These are often missed by
@@ -38,9 +43,9 @@
   # libinput is the default input stack on GNOME/Wayland; these tools
   # help diagnose and calibrate touchscreens.
   environment.systemPackages = with pkgs; [
-    libinput                    # debugging: libinput list-devices
-    evtest                      # raw event debugging
-    usbutils                    # lsusb to identify HID vendor/product
+    libinput # debugging: libinput list-devices
+    evtest # raw event debugging
+    usbutils # lsusb to identify HID vendor/product
   ];
 
   # Enable the hardware sensor hub framework.  Some HP EliteBooks expose
