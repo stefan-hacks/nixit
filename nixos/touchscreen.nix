@@ -23,27 +23,16 @@
 {
   # Load touchscreen kernel modules at boot.  These are often missed by
   # nixos-generate-config because the touchscreen wasn't active during
-  # hardware scan.
+  # hardware scan.  Includes i2c_dev for device-node probing.
   boot.kernelModules = [
     "i2c_hid"
+    "i2c_dev"
     "hid_multitouch"
     "elan_i2c"
     "elan_i2c_core"
     "wacom"
     "goodix_ts"
   ];
-
-  # Make modules available in initrd so touchscreen works in early boot
-  # (e.g. LUKS passphrase entry on convertible laptops).
-  boot.initrd.availableKernelModules = lib.mkBefore [
-    "i2c_hid"
-    "hid_multitouch"
-    "usbhid"
-  ];
-
-  # Ensure i2c-hid device nodes and udev rules are present.
-  # Some touchscreens need the i2c-dev character device for probing.
-  boot.kernelModules = lib.mkBefore [ "i2c_dev" ];
 
   # Install libinput quirks and calibration tools.
   # libinput is the default input stack on GNOME/Wayland; these tools
