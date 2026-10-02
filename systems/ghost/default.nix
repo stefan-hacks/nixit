@@ -63,7 +63,6 @@
       inputs.self.nixosModules.home-manager
       inputs.self.nixosModules.network-tuning
       inputs.self.nixosModules.touchscreen
-      inputs.self.nixosModules.systemd-initrd-compat
     ];
   };
 }
