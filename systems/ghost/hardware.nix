@@ -24,7 +24,25 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-intel"
+
+    # ── HP EliteBook 840 G8 platform drivers ─────────────────────────────────
+    # These modules are auto-loaded on Debian/Fedora but may not bind
+    # automatically on NixOS.  Explicit loading ensures hotkeys, thermal
+    # management, and platform features work correctly on Tiger Lake HP laptops.
+    "hp_wmi"                   # HP WMI interface: hotkeys, radio switch, platform profile
+    "hp_bioscfg"               # HP BIOS configuration access
+    "intel_hid"                # Intel HID events: sleep button, special keys
+    "processor_thermal_device" # CPU thermal management (loads processor_thermal_* sub-modules)
+    "x86_pkg_temp_thermal"     # CPU temperature sensor
+
+    # ── Intel Audio Virtualization ──────────────────────────────────────────
+    # snd_soc_avs is the Intel Audio Virtualization engine.  Debian loads
+    # it alongside the SOF stack for full Tiger Lake audio support.  Adding
+    # it ensures the complete audio subsystem is available.
+    "snd_soc_avs"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
