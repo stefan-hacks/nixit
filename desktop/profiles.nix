@@ -11,7 +11,7 @@
 #   "gnome"  → GNOME + GDM (the existing setup)
 #   "dank"   → Niri + DankMaterialShell + dms-greeter
 #
-# Usage in host config (systems/ghost/configuration.nix):
+# Usage in host config (systems/ghost/default.nix):
 #   desktopProfile = "gnome";   # or "dank"
 #
 # Safety: ONLY ONE profile is active at a time. The selector uses
