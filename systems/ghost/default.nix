@@ -67,6 +67,8 @@
       inputs.self.nixosModules.virtualization
       inputs.self.nixosModules.firewall
       inputs.self.nixosModules.nixvim
+      inputs.self.nixosModules.ollama
+      inputs.self.nixosModules.hermes
       inputs.self.nixosModules.fonts
       inputs.self.nixosModules.environment
       inputs.self.nixosModules.maintenance
