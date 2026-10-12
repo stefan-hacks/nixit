@@ -55,7 +55,7 @@
     "org/gnome/settings-daemon/plugins/media-keys" = {
       control-center = [ "<Alt><Super>period" ];
       custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/look-toggle/"
+        ""
       ];
       email = [ "<Alt><Super>e" ];
       home = [ "<Alt><Super>h" ];
@@ -68,12 +68,6 @@
       volume-mute = [ "<Alt>F5" ];
       volume-up = [ "<Alt>F7" ];
       www = [ "<Alt><Super>b" ];
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/look-toggle" = {
-      binding = "<Alt>space";
-      command = "/nix/store/4my20g6lr61k2738swn7az3wiawbz95a-glib-2.88.3-bin/bin/gdbus call --session --dest com.look.Desktop --object-path /com/look/Desktop --method com.look.Desktop.Toggle";
-      name = "Look Toggle";
     };
 
     "org/gnome/settings-daemon/plugins/power" = {

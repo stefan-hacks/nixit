@@ -40,19 +40,11 @@
       url = "github:stefan-hacks/nix-my-gnome";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    look = {
-      url = "github:kunkka19xx/look?dir=apps/linows";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-graph = {
       url = "github:AlexAntonik/nix-graph";
       # NOTE: nix-graph pins nixos-unstable. Do NOT add follows here,
       #       because its buildGoModule may need a newer Go toolchain
       #       than what nixos-26.05 stable provides.
-    };
-    nixdr = {
-      url = "github:stefan-hacks/nixdr";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dms-plugin-registry = {

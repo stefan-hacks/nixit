@@ -27,7 +27,7 @@
       #   "dank"  → Niri + DankMaterialShell + dms-greeter (experimental)
       desktopProfile = "gnome";
       inherit inputs;
-      inherit (inputs) nix-graph nixdr;
+      inherit (inputs) nix-graph;
     };
 
     modules = [
@@ -38,12 +38,12 @@
       {
         networking.hostName = "ghost";
         system.stateVersion = "26.05";
-        nix.settings.experimental-features = [ "nix-command" "flakes" ];
+        nix.settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
         nixpkgs.config.allowUnfree = true;
       }
-
-      # ── Unified Hardware Feature Profile Module ───────────────────────────
-      ./elitebook.nix
 
       # ── Third-Party Extensible Aspects ────────────────────────────────────
       inputs.nixvim.nixosModules.nixvim
@@ -67,8 +67,6 @@
       inputs.self.nixosModules.kanata
       inputs.self.nixosModules.documentation
       inputs.self.nixosModules.home-manager
-      inputs.self.nixosModules.network-tuning
-      inputs.self.nixosModules.touchscreen
     ];
   };
 }

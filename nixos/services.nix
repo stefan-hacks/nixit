@@ -40,9 +40,8 @@
   # Fail2ban: SSH brute-force protection.
   services.fail2ban = {
     enable = true;
-    bantime = "1h";     # Default ban duration
-    findtime = "10m";   # Lookback window for failed attempts
-    maxretry = 5;       # Max failed attempts before ban
+    bantime = "1h"; # Default ban duration
+    maxretry = 5; # Max failed attempts before ban
   };
 
   # ── VPN ──────────────────────────────────────────────────────────────────
@@ -56,18 +55,6 @@
   # ── Hardware Monitoring ──────────────────────────────────────────────────
   # Smartd: disk health monitoring.
   services.smartd.enable = true;
-
-  # lm-sensors: temperature/fan sensors.
-  services.lm_sensors.enable = true;
-
-  # ── File Indexing ────────────────────────────────────────────────────────
-  # plocate: fast file indexing (replaces mlocate, used by pdrx).
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-    interval = "weekly";
-    localuser = null;   # Run as root (plocate default)
-  };
 
   # ── Log Rotation ─────────────────────────────────────────────────────────
   services.logrotate.enable = true;

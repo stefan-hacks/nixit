@@ -26,7 +26,6 @@
         "de-haeckerfelix-shortwave"
         "chromium-browser"
         "org-gnome-papers"
-        "lookapp"
         "com-mattjakeman-extensionmanager"
       ];
       show-banners = true;
@@ -74,10 +73,6 @@
 
     "org/gnome/desktop/notifications/application/kitty" = {
       application-id = "kitty.desktop";
-    };
-
-    "org/gnome/desktop/notifications/application/lookapp" = {
-      application-id = "lookapp.desktop";
     };
 
     "org/gnome/desktop/notifications/application/mullvad-vpn" = {

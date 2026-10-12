@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------------------
 # Home-manager aspect for user "stefan-hacks" on any host that enables it.
 # This module is evaluated inside home-manager's module context, so it has
-# access to pkgs, lib, username, look, nix-graph, etc. (via extraSpecialArgs).
+# access to pkgs, lib, username, nix-graph, etc. (via extraSpecialArgs).
 #
 # It imports the generic home-manager feature modules (shell, terminal, etc.)
 # plus the per-user GNOME dconf configuration.
@@ -11,7 +11,6 @@
 {
   username,
   lib,
-  look,
   pkgs,
   desktopProfile,
   ...
@@ -43,10 +42,6 @@ in
   # for its own configuration (it uses Quickshell config files).
   ++ lib.optionals (desktopProfile == "gnome") [ ./gnome/default.nix ];
 
-  # Install the Look launcher from its upstream flake.
-  # Pre-built binaries are cached via Cachix so this is fast.
-  home.packages = [ look.packages.${pkgs.stdenv.hostPlatform.system}.default ];
-
   # Let Home Manager install and configure itself
   programs.home-manager.enable = true;
 
@@ -65,19 +60,4 @@ in
     fi
   '';
 
-  # Free up Alt+Space for the Look launcher by disabling ArcMenu's runner-hotkey.
-  # Look's default toggle is Alt+Space; without this override the two collide.
-  # Only relevant when GNOME + ArcMenu extension is active.
-  dconf.settings = lib.mkIf (desktopProfile == "gnome") {
-    "org/gnome/shell/extensions/arcmenu" = {
-      runner-hotkey = lib.mkForce [ ];
-      runner-hotkey-overlay-key-enabled = lib.mkForce false;
-    };
-  };
-
-  # NOTE: A systemd user service that called dbus against GNOME Shell on login was
-  # removed here. Calling dbus before the shell is fully initialised causes the
-  # shell to crash and triggers GNOME's safety lockdown (disabling all user
-  # extensions). Do not add post-login dbus scripts for overview or extension
-  # manipulation; configure this via the shell extensions themselves instead.
 }

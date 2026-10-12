@@ -344,7 +344,7 @@
             ])
           ])
           (lib.hm.gvariant.mkDictionaryEntry [
-            "lookapp.desktop"
+            ""
             (lib.hm.gvariant.mkVariant [
               (lib.hm.gvariant.mkDictionaryEntry [
                 "position"
