@@ -5,8 +5,8 @@
     # Listens on localhost only by default (127.0.0.1:11434), which is
     # what nixos/hermes.nix points at. Set this to "0.0.0.0:11434"
     # if you need it reachable from other machines on your network.
-    # host = "127.0.0.1";
-    # port = 11434;
+     host = "127.0.0.1";
+     port = 11434;
 
     # Pull Kimi 2.6 automatically on activation so it's ready before
     # hermes-agent tries to talk to it. Adjust the exact tag if the
