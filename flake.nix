@@ -30,8 +30,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     flake-parts = {
-    url = "github:hercules-ci/flake-parts";
-    inputs.nixpkgs-lib.follows = "nixpkgs";
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     terax.url = "github:crynta/terax-ai";
@@ -60,10 +60,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-   hermes-agent = {
-     url = "github:NousResearch/hermes-agent";
-     inputs.nixpkgs.follows = "nixpkgs";
-   };
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

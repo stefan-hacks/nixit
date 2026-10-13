@@ -31,7 +31,7 @@
 
     extraSpecialArgs = {
       inherit username inputs desktopProfile;
-      inherit (inputs) nix-graph ;
+      inherit (inputs) nix-graph;
     };
 
     users.${username} = inputs.self.lib.homeManagerModules.user-stefan-hacks;
