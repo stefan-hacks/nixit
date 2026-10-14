@@ -72,9 +72,9 @@
   ;; F8: tap=F8, hold=toggle microphone
   mic (tap-hold $tap-time $hold-time f8 A-f8)
   ;; F9: tap=F9, hold=take screenshot
-  psc (tap-hold $tap-time $hold-time f9 A-f9)
+  psc (tap-hold $tap-time $hold-time f9 C-S-A-R)
   ;; F10: tap=F10, hold=lock screen
-  lts (tap-hold $tap-time $hold-time f10 C-A-M-l)
+  lts (tap-hold $tap-time $hold-time f10 M-l)
 
   ;; Number row tap-hold: tap=digit, hold=shifted symbol
   ;; ` key: tap=`, hold=~
@@ -126,7 +126,7 @@
   ;; O key: tap=o, hold=End (end of line)
   oo (tap-hold $tap-time $hold-time o end)
 
-  ;; controls (tap and hold both trigger same action)
+  ;; Media controls (tap and hold both trigger same action)
   ;; P key: tap/hold=play/pause media
   pp (tap-hold $tap-time $hold-time C-M-/ C-M-/)
   ;; [ key: tap/hold=previous track
@@ -138,15 +138,6 @@
   ;; ' key: tap/hold=scroll right (Shift+Meta+L)
   mrs (tap-hold $tap-time $hold-time S-M-l S-M-l)
 
-  ;; Workspace switching (GNOME)
-  ;; N key: tap/hold=switch to workspace 1 (Alt+Meta+1)
-  w1 (tap-hold $tap-time $hold-time A-M-1 A-M-1)
-  ;; M key: tap/hold=switch to workspace 2 (Alt+Meta+2)
-  w2 (tap-hold $tap-time $hold-time A-M-2 A-M-2)
-  ;; , key: tap/hold=switch to workspace 3 (Alt+Meta+3)
-  w3 (tap-hold $tap-time $hold-time A-M-3 A-M-3)
-  ;; . key: tap/hold=switch to workspace 4 (Alt+Meta+4)
-  w4 (tap-hold $tap-time $hold-time A-M-4 A-M-4)
 
   ;; Bracket and punctuation tap-hold: tap=unshifted, hold=shifted
   ;; [ key: tap=[, hold={
@@ -193,24 +184,37 @@
   dwf (tap-hold $tap-time $hold-time . C-del)
 
   ;; Window snapping (GNOME)
-  ;; Y key: tap/hold=move window to previous display (Shift+Meta+PageUp)
-  wtl (tap-hold $tap-time $hold-time S-M-pgup S-M-pgup)
-  ;; O key: tap/hold=move window to next display (Shift+Meta+PageDown)
-  wtr (tap-hold $tap-time $hold-time S-M-pgdn S-M-pgdn)
+
+  ;; H key: tap/hold=snap to left (Meta+Left)
+  rpl (tap-hold $tap-time $hold-time M-left M-left)
+  ;; J key: tap/hold=restore window size (Meta+Down)
+  rpd (tap-hold $tap-time $hold-time M-down M-down)
+  ;; K key: tap/hold=maximize window (Meta+Up)
+  rpu (tap-hold $tap-time $hold-time M-up M-up)
+  ;; L key: tap/hold=snap to right (Meta+Right)
+  rpr (tap-hold $tap-time $hold-time M-rght M-rght)
+
 
   ;; GNOME workspace navigation
-  ;; H key: tap/hold=previous workspace (Meta+Left)
-  rpl (tap-hold $tap-time $hold-time M-left M-left)
-  ;; J key: tap/hold=workspace down (Meta+Down)
-  rpd (tap-hold $tap-time $hold-time M-down M-down)
-  ;; K key: tap/hold=workspace up (Meta+Up)
-  rpu (tap-hold $tap-time $hold-time M-up M-up)
-  ;; L key: tap/hold=next workspace (Meta+Right)
-  rpr (tap-hold $tap-time $hold-time M-rght M-rght)
-  ;; [ key: tap/hold=switch to workspace on the left (Alt+F11)
-  dsl (tap-hold $tap-time $hold-time A-f11 A-f11)
-  ;; ] key: tap/hold=switch to workspace on the right (Alt+F12)
-  dsr (tap-hold $tap-time $hold-time A-f12 A-f12)
+  ;; Y key: tap/hold=switch to first workspace (Super+Home)
+  wtl (tap-hold $tap-time $hold-time M-home M-home)
+  ;; O key: tap/hold=switch to last workspace (Super+End)
+  wtr (tap-hold $tap-time $hold-time M-end M-end)
+  ;; [ key: tap/hold=switch to workspace on the left (Super+Pgup)
+  dsl (tap-hold $tap-time $hold-time M-pgup M-pgup)
+  ;; ] key: tap/hold=switch to workspace on the right (Super+Pgdn)
+  dsr (tap-hold $tap-time $hold-time M-pgdn M-pgdn)
+
+  ;; Moving windows (GNOME)
+  ;; N key: tap/hold=Move window one monitor to the left  (Shift+Super+left)
+  w1 (tap-hold $tap-time $hold-time S-M-left S-M-left)
+  ;; M key: tap/hold=Move window one workspace to the left (Shift+Super+Pgup)
+  w2 (tap-hold $tap-time $hold-time S-M-pgup S-M-pgup)
+  ;; , key: tap/hold=Move window one workspace to the right (Shift+Super+Pgdn)
+  w3 (tap-hold $tap-time $hold-time S-M-pgdn S-M-pgdn)
+  ;; . key: tap/hold=Move window one monitor right (Shift+Super+Right)
+  w4 (tap-hold $tap-time $hold-time S-M-rght S-M-rght)
+
 
   ;; Mouse wheel emulation (Layer 4 — Editing)
   ;; H key: mouse wheel left
@@ -233,7 +237,7 @@
   @l4  @l3  @la           @l2             @ra  _    rctl
 )
 
-;; Symbols - programming layer - spacebar held
+;; LAYER TWO - Symbols - programming layer - spacebar held
 (deflayer two
   caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    bspc
@@ -242,7 +246,7 @@
   _    -    S-=  S--  =    \    S-,  S-.  ,    .    S-/  _
   _    _    _           _                 _    _    _
 )
-;; Workspaces, Windows, Panes layer - left hand on left Windows key
+;; LAYER THREE - Workspaces, Windows, Panes layer - left hand on left Windows key
 (deflayer three
   caps _    _    _    _    _    _    _    _    _    _    _    lrld
   grv  _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -251,7 +255,7 @@
   _    _    _    _    _    _    @w1  @w2  @w3  @w4  _    _
   _    _    _           _                 _    _    _
 )
-;; Editing - text and terminal editing layer - left ctrl key held
+;; LAYER FOUR - Editing - text and terminal editing layer - left ctrl key held
 (deflayer four
   caps @qtd @pum @dsb @isb @mut @vdn @vup @mic @psc @lts _    _
   grv  _    _    _    _    _    _    _    _    _    _    _    _    bspc
@@ -261,4 +265,4 @@
   _    _    _           _                 _    _    _
 )
 
-;; lrld is a default shortcut to reload the configuration found on layer 2 in place of f12
+;; lrld is a default shortcut to reload the configuration found on layer 3 in place of f12

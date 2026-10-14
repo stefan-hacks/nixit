@@ -3,7 +3,7 @@
     enable = true;
     keyboards = {
       internal = {
-        configFile = ../dotfiles/kanata/kanata_gnome.kbd;
+        configFile = ../dotfiles/kanata/kanata.kbd;
       };
     };
   };
