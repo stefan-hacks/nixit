@@ -72,7 +72,7 @@
   ;; F8: tap=F8, hold=toggle microphone
   mic (tap-hold $tap-time $hold-time f8 A-f8)
   ;; F9: tap=F9, hold=take screenshot
-  psc (tap-hold $tap-time $hold-time f9 C-S-A-R)
+  psc (tap-hold $tap-time $hold-time f9 C-S-A-r)
   ;; F10: tap=F10, hold=lock screen
   lts (tap-hold $tap-time $hold-time f10 M-l)
 
